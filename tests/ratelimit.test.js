@@ -10,7 +10,7 @@ test('parseCookie: returns null when header is missing or empty', () => {
 });
 
 test('parseCookie: extracts count+date from pp_chat_count cookie', () => {
-  const header = 'foo=bar; pp_chat_count=7;20260418; baz=qux';
+  const header = 'foo=bar; pp_chat_count=7|20260418; baz=qux';
   assert.deepEqual(parseCookie(header), { count: 7, date: '20260418' });
 });
 
@@ -23,7 +23,7 @@ test('nextCookieValue: allows first-of-day when current is null', () => {
   const r = nextCookieValue(null, '20260418');
   assert.equal(r.allowed, true);
   assert.equal(r.count, 1);
-  assert.match(r.cookie, /^pp_chat_count=1;20260418/);
+  assert.match(r.cookie, /^pp_chat_count=1\|20260418/);
 });
 
 test('nextCookieValue: resets count when date changed', () => {
