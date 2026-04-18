@@ -1,0 +1,16 @@
+{
+  "functions": {
+    "api/chat.js": {
+      "maxDuration": 60,
+      "includeFiles": "tree.json"
+    }
+  },
+  "headers": [
+    {
+      "source": "/api/chat",
+      "headers": [
+        { "key": "Cache-Control", "value": "no-store" }
+      ]
+    }
+  ]
+}
