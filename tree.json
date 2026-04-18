@@ -1,0 +1,800 @@
+{
+  "generated_at": "2026-04-18T18:17:17.107Z",
+  "nodes": [
+    {
+      "id": "about-pranav",
+      "title": "About Pranav",
+      "path": [
+        "About Pranav"
+      ],
+      "summary": "Data Scientist & GenAI Engineer — a 30-second intro.",
+      "children": [
+        {
+          "id": "about-pranav.who-i-am",
+          "title": "Who I am",
+          "path": [
+            "About Pranav",
+            "Who I am"
+          ],
+          "summary": "Short, first-person intro used for \"tell me about yourself\" questions.",
+          "children": [
+            {
+              "id": "about-pranav.who-i-am.the-elevator-pitch",
+              "title": "The elevator pitch",
+              "path": [
+                "About Pranav",
+                "Who I am",
+                "The elevator pitch"
+              ],
+              "content": "I'm Pranav P — a Data Scientist and GenAI Engineer based between Palakkad, Kerala and Chennai. I ship production LLM systems end-to-end: agentic RAG, voice agents, ingestion pipelines, and fine-tuned small models on AWS. I graduated from VIT Chennai in 2025 with a B.Tech in Computer Science (AI & ML specialization), and I've been working on real GenAI systems since before graduating."
+            },
+            {
+              "id": "about-pranav.who-i-am.what-i-care-about",
+              "title": "What I care about",
+              "path": [
+                "About Pranav",
+                "Who I am",
+                "What I care about"
+              ],
+              "content": "I care about LLM systems that actually work in production, not just in demos. That means retrieval that's accurate under pressure, voice agents that don't collapse on edge cases, ingestion pipelines that don't choke on a scanned PDF, and models small enough to deploy without burning a month of runway on GPU. I'd rather ship a boring 1B model that answers correctly than a 70B that sounds smart and hallucinates."
+            }
+          ]
+        },
+        {
+          "id": "about-pranav.how-to-reach-me",
+          "title": "How to reach me",
+          "path": [
+            "About Pranav",
+            "How to reach me"
+          ],
+          "summary": "Contact details and open-to-work status.",
+          "children": [
+            {
+              "id": "about-pranav.how-to-reach-me.contact",
+              "title": "Contact",
+              "path": [
+                "About Pranav",
+                "How to reach me",
+                "Contact"
+              ],
+              "content": "Email me at aikkara.pranav@gmail.com or reach me on LinkedIn at linkedin.com/in/pranavaikkara. Phone is +91-7025052042 if you want to talk."
+            },
+            {
+              "id": "about-pranav.how-to-reach-me.what-i-m-open-to",
+              "title": "What I'm open to",
+              "path": [
+                "About Pranav",
+                "How to reach me",
+                "What I'm open to"
+              ],
+              "content": "I'm open to full-time GenAI / Data Science roles and interesting consulting work. Remote or Chennai/Bangalore-based is ideal."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "farmwiseai-current-role",
+      "title": "FarmwiseAI — current role",
+      "path": [
+        "FarmwiseAI — current role"
+      ],
+      "summary": "Associate Data Scientist, April 2025 – now. Where I ship production GenAI end-to-end.",
+      "children": [
+        {
+          "id": "farmwiseai-current-role.vectorless-rag-agentic-system",
+          "title": "Vectorless RAG agentic system",
+          "path": [
+            "FarmwiseAI — current role",
+            "Vectorless RAG agentic system"
+          ],
+          "summary": "PageIndex-style retrieval — no vector DB, no semantic similarity. LLM reasons over a tree-of-contents.",
+          "children": [
+            {
+              "id": "farmwiseai-current-role.vectorless-rag-agentic-system.what-it-is",
+              "title": "What it is",
+              "path": [
+                "FarmwiseAI — current role",
+                "Vectorless RAG agentic system",
+                "What it is"
+              ],
+              "content": "I built a retrieval pipeline that walks a hierarchical tree index of our internal documents using LLM reasoning, rather than cosine similarity over embeddings. The core insight from the PageIndex paper is that similarity ≠ relevance: vector search finds text that *looks like* the query, not text that *answers* it. By letting an LLM reason over a tree-of-contents, we get retrieval that's traceable, interpretable, and more accurate on long structured docs."
+            },
+            {
+              "id": "farmwiseai-current-role.vectorless-rag-agentic-system.why-it-beats-semantic-search-here",
+              "title": "Why it beats semantic search here",
+              "path": [
+                "FarmwiseAI — current role",
+                "Vectorless RAG agentic system",
+                "Why it beats semantic search here"
+              ],
+              "content": "Our internal docs have real hierarchy — policies, product specs, runbooks. A chunked-and-embedded approach flattens that structure and relies on surface similarity. A tree walk preserves the doc's logical organization and lets the model explicitly reason \"this question is about X, which lives under Y > Z\" before fetching content. For long docs with sections that talk about the same topic in different contexts, this is a big quality win."
+            },
+            {
+              "id": "farmwiseai-current-role.vectorless-rag-agentic-system.how-it-s-wired-up",
+              "title": "How it's wired up",
+              "path": [
+                "FarmwiseAI — current role",
+                "Vectorless RAG agentic system",
+                "How it's wired up"
+              ],
+              "content": "Build time: docs get parsed into a tree (headings become nodes; content lives at leaves). Query time: an LLM reads the ToC (titles + summaries), picks node IDs, and a second LLM call answers from just those nodes. Two calls, stateless, no vector DB to maintain."
+            }
+          ]
+        },
+        {
+          "id": "farmwiseai-current-role.production-voice-agents",
+          "title": "Production voice agents",
+          "path": [
+            "FarmwiseAI — current role",
+            "Production voice agents"
+          ],
+          "summary": "Reliable STT ↔ LLM ↔ TTS loops with guardrails and latency budgets.",
+          "children": [
+            {
+              "id": "farmwiseai-current-role.production-voice-agents.what-i-built",
+              "title": "What I built",
+              "path": [
+                "FarmwiseAI — current role",
+                "Production voice agents",
+                "What I built"
+              ],
+              "content": "Voice agents that actually hold up in production — meaning they don't break when a user interrupts, when STT returns garbage, when the LLM starts rambling, or when network latency spikes. The hard parts aren't the individual models; it's the orchestration: interrupt handling, partial-transcript routing, silence detection, and fallbacks when any component times out."
+            },
+            {
+              "id": "farmwiseai-current-role.production-voice-agents.what-makes-them-reliable",
+              "title": "What makes them reliable",
+              "path": [
+                "FarmwiseAI — current role",
+                "Production voice agents",
+                "What makes them reliable"
+              ],
+              "content": "Strict latency budgets on every hop, hard cutoffs on LLM generation length, guardrails against prompt injection over voice, and a state machine that handles the \"user started talking mid-response\" case cleanly. I also version the system prompt aggressively — voice is less forgiving than chat because users can't see or edit their input before it gets sent."
+            }
+          ]
+        },
+        {
+          "id": "farmwiseai-current-role.universal-ingestion-pipelines",
+          "title": "Universal ingestion pipelines",
+          "path": [
+            "FarmwiseAI — current role",
+            "Universal ingestion pipelines"
+          ],
+          "summary": "Normalize any input — PDFs, scans, audio, spreadsheets, images — into LLM-friendly structured context.",
+          "children": [
+            {
+              "id": "farmwiseai-current-role.universal-ingestion-pipelines.the-problem",
+              "title": "The problem",
+              "path": [
+                "FarmwiseAI — current role",
+                "Universal ingestion pipelines",
+                "The problem"
+              ],
+              "content": "Every RAG system is only as good as the context it gets. Real-world inputs are messy: scanned PDFs, Excel files with merged cells, audio files, mixed-language text. Naive ingestion produces noisy context, which produces bad answers."
+            },
+            {
+              "id": "farmwiseai-current-role.universal-ingestion-pipelines.what-i-built",
+              "title": "What I built",
+              "path": [
+                "FarmwiseAI — current role",
+                "Universal ingestion pipelines",
+                "What I built"
+              ],
+              "content": "A pipeline that routes each input by type, applies the right normalization (OCR for scans, speech-to-text for audio, table parsers for spreadsheets, image-to-text for screenshots), and produces a clean, structured, LLM-friendly representation with metadata. Output is consistent regardless of source format, which means downstream retrieval and generation don't have to special-case anything."
+            }
+          ]
+        },
+        {
+          "id": "farmwiseai-current-role.internal-intelligence-platform-openwebui",
+          "title": "Internal intelligence platform (OpenWebUI)",
+          "path": [
+            "FarmwiseAI — current role",
+            "Internal intelligence platform (OpenWebUI)"
+          ],
+          "summary": "A company-wide assistant — employees query internal docs, policies, and data through a RAG-backed chat.",
+          "children": [
+            {
+              "id": "farmwiseai-current-role.internal-intelligence-platform-openwebui.what-it-does",
+              "title": "What it does",
+              "path": [
+                "FarmwiseAI — current role",
+                "Internal intelligence platform (OpenWebUI)",
+                "What it does"
+              ],
+              "content": "Anyone at FarmwiseAI can open the internal OpenWebUI instance and ask questions about company documents, policies, onboarding material, or internal data. Answers come from a RAG pipeline sitting behind the UI, pulling from curated internal sources."
+            },
+            {
+              "id": "farmwiseai-current-role.internal-intelligence-platform-openwebui.why-openwebui",
+              "title": "Why OpenWebUI",
+              "path": [
+                "FarmwiseAI — current role",
+                "Internal intelligence platform (OpenWebUI)",
+                "Why OpenWebUI"
+              ],
+              "content": "Self-hosted, open-source, easy to customize. No vendor lock-in, no per-seat cost, full control over the retrieval backend. It also means we can swap models (local, Groq, whatever) without changing the UI."
+            }
+          ]
+        },
+        {
+          "id": "farmwiseai-current-role.fine-tuned-geospatial-small-models-on-aws",
+          "title": "Fine-tuned geospatial small models on AWS",
+          "path": [
+            "FarmwiseAI — current role",
+            "Fine-tuned geospatial small models on AWS"
+          ],
+          "summary": "Specialized small models deployed on AWS for location / terrain / coordinate queries that frontier LLMs get wrong.",
+          "children": [
+            {
+              "id": "farmwiseai-current-role.fine-tuned-geospatial-small-models-on-aws.why-fine-tune",
+              "title": "Why fine-tune",
+              "path": [
+                "FarmwiseAI — current role",
+                "Fine-tuned geospatial small models on AWS",
+                "Why fine-tune"
+              ],
+              "content": "Frontier LLMs hallucinate on geospatial questions constantly — they'll confidently give you wrong coordinates, mis-identify terrain types, or invent relationships between regions. For our agricultural use case, that's unacceptable. A small model fine-tuned on curated geospatial data, deployed on AWS, answers correctly where GPT-4-class models fail."
+            },
+            {
+              "id": "farmwiseai-current-role.fine-tuned-geospatial-small-models-on-aws.how-it-s-deployed",
+              "title": "How it's deployed",
+              "path": [
+                "FarmwiseAI — current role",
+                "Fine-tuned geospatial small models on AWS",
+                "How it's deployed"
+              ],
+              "content": "Small model (quantized where possible), hosted on SageMaker, fronted by a lightweight API. Calls are cheap and fast enough to be invoked as a tool from the main agent when a question looks geospatial."
+            }
+          ]
+        },
+        {
+          "id": "farmwiseai-current-role.ocr-at-scale-lightonocr-2-on-vllm",
+          "title": "OCR at scale (LightOnOCR-2 on vLLM)",
+          "path": [
+            "FarmwiseAI — current role",
+            "OCR at scale (LightOnOCR-2 on vLLM)"
+          ],
+          "summary": "Production OCR for document extraction.",
+          "children": [
+            {
+              "id": "farmwiseai-current-role.ocr-at-scale-lightonocr-2-on-vllm.what-i-shipped",
+              "title": "What I shipped",
+              "path": [
+                "FarmwiseAI — current role",
+                "OCR at scale (LightOnOCR-2 on vLLM)",
+                "What I shipped"
+              ],
+              "content": "I deployed the LightOnOCR-2 1B model from HuggingFace on AWS SageMaker and served it through vLLM with PagedAttention and KV caching. This made OCR throughput high enough for real document pipelines — we use it as the scan-extraction step of the ingestion system above."
+            }
+          ]
+        },
+        {
+          "id": "farmwiseai-current-role.satellite-imagery-time-series",
+          "title": "Satellite imagery time-series",
+          "path": [
+            "FarmwiseAI — current role",
+            "Satellite imagery time-series"
+          ],
+          "summary": "A year of Tamil Nadu field imagery, pixel-level vegetation curves, DTW to infer sowing dates.",
+          "children": [
+            {
+              "id": "farmwiseai-current-role.satellite-imagery-time-series.what-i-built",
+              "title": "What I built",
+              "path": [
+                "FarmwiseAI — current role",
+                "Satellite imagery time-series",
+                "What I built"
+              ],
+              "content": "Processed one year of satellite imagery data from Tamil Nadu agricultural fields. For each field, I extracted per-pixel vegetation signals across time and applied Dynamic Time Warping to align growth curves across fields planted at different dates. The aligned curves let us infer sowing dates for fields without explicit metadata — useful for yield prediction and insurance."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "previous-roles",
+      "title": "Previous roles",
+      "path": [
+        "Previous roles"
+      ],
+      "summary": "Before FarmwiseAI — internships that shaped how I think about data and ML.",
+      "children": [
+        {
+          "id": "previous-roles.infosys-feb-apr-2025",
+          "title": "Infosys (Feb – Apr 2025)",
+          "path": [
+            "Previous roles",
+            "Infosys (Feb – Apr 2025)"
+          ],
+          "summary": "Data Visualization & Analyst Engineer Intern, remote.",
+          "children": [
+            {
+              "id": "previous-roles.infosys-feb-apr-2025.what-i-did",
+              "title": "What I did",
+              "path": [
+                "Previous roles",
+                "Infosys (Feb – Apr 2025)",
+                "What I did"
+              ],
+              "content": "I worked on turning messy internal datasets into interactive dashboards and visual reports using Power BI and Python. A lot of the job was EDA and trend analysis — the kind of boring-but-critical work that keeps downstream models from being trained on garbage. Taught me that most ML failures upstream are data failures, not model failures."
+            }
+          ]
+        },
+        {
+          "id": "previous-roles.descpro-dec-2023-apr-2024",
+          "title": "Descpro (Dec 2023 – Apr 2024)",
+          "path": [
+            "Previous roles",
+            "Descpro (Dec 2023 – Apr 2024)"
+          ],
+          "summary": "ML Developer Intern, NBFC Loan Approval System, Palakkad.",
+          "children": [
+            {
+              "id": "previous-roles.descpro-dec-2023-apr-2024.what-i-built",
+              "title": "What I built",
+              "path": [
+                "Previous roles",
+                "Descpro (Dec 2023 – Apr 2024)",
+                "What I built"
+              ],
+              "content": "An end-to-end AI-powered loan approval and monitoring system for a non-banking financial company. Three pieces: (1) a loan eligibility model scoring applicants on income, age, and expenses, (2) an LSTM-based per-customer monitor that predicted repayment delays, and (3) a loan inquiry forecasting model that predicted upcoming application volumes so the team could staff ahead of demand."
+            },
+            {
+              "id": "previous-roles.descpro-dec-2023-apr-2024.what-i-learned",
+              "title": "What I learned",
+              "path": [
+                "Previous roles",
+                "Descpro (Dec 2023 – Apr 2024)",
+                "What I learned"
+              ],
+              "content": "Deploying ML in a regulated domain means interpretability and data lineage matter as much as accuracy. You can't ship a black box that says \"reject\" to a loan officer — they need to understand why."
+            }
+          ]
+        },
+        {
+          "id": "previous-roles.thapovan-info-systems-sep-nov-2023",
+          "title": "Thapovan Info Systems (Sep – Nov 2023)",
+          "path": [
+            "Previous roles",
+            "Thapovan Info Systems (Sep – Nov 2023)"
+          ],
+          "summary": "ML Intern, predictive disease modeling, Chennai.",
+          "children": [
+            {
+              "id": "previous-roles.thapovan-info-systems-sep-nov-2023.what-i-built",
+              "title": "What I built",
+              "path": [
+                "Previous roles",
+                "Thapovan Info Systems (Sep – Nov 2023)",
+                "What I built"
+              ],
+              "content": "A heart-attack risk prediction system. Curated 20+ health indicators from raw medical data, trained the model, and applied SHAP and LIME to explain predictions so doctors could trust them. Added an LSTM-based alert system that flagged concerning trends over time, not just single-reading risks."
+            },
+            {
+              "id": "previous-roles.thapovan-info-systems-sep-nov-2023.why-xai-mattered",
+              "title": "Why XAI mattered",
+              "path": [
+                "Previous roles",
+                "Thapovan Info Systems (Sep – Nov 2023)",
+                "Why XAI mattered"
+              ],
+              "content": "In healthcare, a model that says \"67% risk\" without explanation is useless. Doctors need to see which indicators drove the score. SHAP/LIME were the right tools for that."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "side-projects",
+      "title": "Side projects",
+      "path": [
+        "Side projects"
+      ],
+      "summary": "Things I've built outside my job — each one taught me something specific.",
+      "children": [
+        {
+          "id": "side-projects.domain-specific-loan-officer-agent",
+          "title": "Domain-Specific Loan Officer Agent",
+          "path": [
+            "Side projects",
+            "Domain-Specific Loan Officer Agent"
+          ],
+          "summary": "Fine-tuned Gemma-2B with QLoRA, quantized to GGUF, deployed on CPU via llama.cpp.",
+          "children": [
+            {
+              "id": "side-projects.domain-specific-loan-officer-agent.what-it-is",
+              "title": "What it is",
+              "path": [
+                "Side projects",
+                "Domain-Specific Loan Officer Agent",
+                "What it is"
+              ],
+              "content": "A compliance-aware loan officer agent fine-tuned on a synthetic instruction dataset. I used QLoRA and Unsloth for memory-efficient training, then quantized the model to GGUF format and ran it through llama.cpp. The point was domain-specific tone and compliance-adherence without needing GPU inference."
+            },
+            {
+              "id": "side-projects.domain-specific-loan-officer-agent.why-it-matters",
+              "title": "Why it matters",
+              "path": [
+                "Side projects",
+                "Domain-Specific Loan Officer Agent",
+                "Why it matters"
+              ],
+              "content": "Most people think serious LLM work needs a GPU. For a lot of narrow domains, a well-fine-tuned small model on CPU is plenty — and dramatically cheaper. This project was my proof that QLoRA + quantization + llama.cpp is a real production path."
+            }
+          ]
+        },
+        {
+          "id": "side-projects.companion-ai-voice-enabled-icu-support",
+          "title": "Companion AI — voice-enabled ICU support",
+          "path": [
+            "Side projects",
+            "Companion AI — voice-enabled ICU support"
+          ],
+          "summary": "Real-time STT + BERT sentiment to detect emotional distress, empathetic TTS response.",
+          "children": [
+            {
+              "id": "side-projects.companion-ai-voice-enabled-icu-support.what-it-is",
+              "title": "What it is",
+              "path": [
+                "Side projects",
+                "Companion AI — voice-enabled ICU support",
+                "What it is"
+              ],
+              "content": "A voice support system for ICU patients. Real-time speech-to-text feeds a BERT-based sentiment classifier; when it detects emotional distress, the system triggers context-aware empathetic responses via TTS. Built with PyTorch and HuggingFace transformers."
+            },
+            {
+              "id": "side-projects.companion-ai-voice-enabled-icu-support.why-i-built-it",
+              "title": "Why I built it",
+              "path": [
+                "Side projects",
+                "Companion AI — voice-enabled ICU support",
+                "Why I built it"
+              ],
+              "content": "Because ICU patients are often alone, disoriented, and not physically able to use a phone or tablet. Voice is the right modality for them, and sentiment-aware response is the minimum viable amount of empathy."
+            }
+          ]
+        },
+        {
+          "id": "side-projects.agentic-recruitment-platform",
+          "title": "Agentic Recruitment Platform",
+          "path": [
+            "Side projects",
+            "Agentic Recruitment Platform"
+          ],
+          "summary": "Autonomous job-scraping agent with resume rewriting via Google Opal.",
+          "children": [
+            {
+              "id": "side-projects.agentic-recruitment-platform.what-it-is",
+              "title": "What it is",
+              "path": [
+                "Side projects",
+                "Agentic Recruitment Platform",
+                "What it is"
+              ],
+              "content": "An agent that scrapes job boards and, for each relevant posting, uses Google's experimental Opal model to rewrite the candidate's resume on the fly — mapping skills to the specific job description using a RAG pipeline. Built with Selenium and LangChain."
+            },
+            {
+              "id": "side-projects.agentic-recruitment-platform.what-i-learned",
+              "title": "What I learned",
+              "path": [
+                "Side projects",
+                "Agentic Recruitment Platform",
+                "What I learned"
+              ],
+              "content": "Agentic systems that act on real-world web pages are much harder than they look. Most of the engineering is error recovery: stale selectors, captcha walls, rate limits, partial loads. The LLM part is almost the easy bit."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "my-stack",
+      "title": "My stack",
+      "path": [
+        "My stack"
+      ],
+      "summary": "What I actually reach for, and why.",
+      "children": [
+        {
+          "id": "my-stack.genai-llm-systems",
+          "title": "GenAI & LLM systems",
+          "path": [
+            "My stack",
+            "GenAI & LLM systems"
+          ],
+          "summary": "Where I spend most of my time.",
+          "children": [
+            {
+              "id": "my-stack.genai-llm-systems.models-and-serving",
+              "title": "Models and serving",
+              "path": [
+                "My stack",
+                "GenAI & LLM systems",
+                "Models and serving"
+              ],
+              "content": "For inference: vLLM when I need throughput (PagedAttention + KV caching are huge), LiteLLM when I want a unified interface across providers, Groq when I want free fast inference for prototypes. For fine-tuning: Unsloth and QLoRA — memory-efficient, fast, and the output is compatible with llama.cpp for CPU deployment."
+            },
+            {
+              "id": "my-stack.genai-llm-systems.retrieval-agents",
+              "title": "Retrieval & agents",
+              "path": [
+                "My stack",
+                "GenAI & LLM systems",
+                "Retrieval & agents"
+              ],
+              "content": "Qdrant or FAISS when I need traditional vector RAG. PageIndex-style vectorless RAG when the docs have real structure and accuracy matters more than speed. Google ADK and MCP (Model Context Protocol) for agentic workflows with tool calls — MCP especially is underrated for building tool-use systems that work across clients."
+            }
+          ]
+        },
+        {
+          "id": "my-stack.machine-learning-data-science",
+          "title": "Machine learning & data science",
+          "path": [
+            "My stack",
+            "Machine learning & data science"
+          ],
+          "summary": "The classical side.",
+          "children": [
+            {
+              "id": "my-stack.machine-learning-data-science.models-i-reach-for",
+              "title": "Models I reach for",
+              "path": [
+                "My stack",
+                "Machine learning & data science",
+                "Models I reach for"
+              ],
+              "content": "LSTM for time-series with clear sequential structure. Random Forest when I need a strong baseline or when I need feature importances for free. DTW for time-series alignment across different scales. XAI via SHAP or LIME whenever I'm shipping to non-ML stakeholders."
+            },
+            {
+              "id": "my-stack.machine-learning-data-science.things-that-matter-more-than-the-model",
+              "title": "Things that matter more than the model",
+              "path": [
+                "My stack",
+                "Machine learning & data science",
+                "Things that matter more than the model"
+              ],
+              "content": "Data leakage prevention, proper train/test splits, interpolation strategies for missing data, feature engineering informed by domain experts. 80% of ML wins come from these, not from picking the fanciest model."
+            }
+          ]
+        },
+        {
+          "id": "my-stack.backend-infrastructure",
+          "title": "Backend & infrastructure",
+          "path": [
+            "My stack",
+            "Backend & infrastructure"
+          ],
+          "summary": "How I actually ship things.",
+          "children": [
+            {
+              "id": "my-stack.backend-infrastructure.what-i-use",
+              "title": "What I use",
+              "path": [
+                "My stack",
+                "Backend & infrastructure",
+                "What I use"
+              ],
+              "content": "Python is my daily driver. FastAPI for APIs — Pydantic validation is non-negotiable when the API is fronting an LLM. WebSockets for real-time updates (agent execution logs, streaming responses). Streamlit for quick internal tools and demos. AWS SageMaker for hosted inference, Git for everything."
+            }
+          ]
+        },
+        {
+          "id": "my-stack.data-analytics",
+          "title": "Data & analytics",
+          "path": [
+            "My stack",
+            "Data & analytics"
+          ],
+          "summary": "When I need to understand a dataset before modeling it.",
+          "children": [
+            {
+              "id": "my-stack.data-analytics.tools",
+              "title": "Tools",
+              "path": [
+                "My stack",
+                "Data & analytics",
+                "Tools"
+              ],
+              "content": "SQL and PySpark for anything tabular at scale. Pandas and NumPy for smaller exploratory work. Power BI for stakeholder-facing dashboards. Satellite imagery processing for geospatial work."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "background",
+      "title": "Background",
+      "path": [
+        "Background"
+      ],
+      "summary": "Where I'm from, where I studied, how I got into AI.",
+      "children": [
+        {
+          "id": "background.education",
+          "title": "Education",
+          "path": [
+            "Background",
+            "Education"
+          ],
+          "summary": "Formal qualifications.",
+          "children": [
+            {
+              "id": "background.education.vit-chennai-2021-2025",
+              "title": "VIT Chennai (2021 – 2025)",
+              "path": [
+                "Background",
+                "Education",
+                "VIT Chennai (2021 – 2025)"
+              ],
+              "content": "B.Tech in Computer Science with Specialization in AI and ML. CGPA 7.98. This is where I started actually writing ML code — most of my early projects were assignments that I pushed further than the spec asked for, because the spec was usually bored."
+            },
+            {
+              "id": "background.education.palghat-lions-school-through-2021",
+              "title": "Palghat Lions School (through 2021)",
+              "path": [
+                "Background",
+                "Education",
+                "Palghat Lions School (through 2021)"
+              ],
+              "content": "Class XII, 86.8%. Palakkad, Kerala."
+            }
+          ]
+        },
+        {
+          "id": "background.how-i-got-into-ai",
+          "title": "How I got into AI",
+          "path": [
+            "Background",
+            "How I got into AI"
+          ],
+          "summary": "The honest version.",
+          "children": [
+            {
+              "id": "background.how-i-got-into-ai.the-entry-point",
+              "title": "The entry point",
+              "path": [
+                "Background",
+                "How I got into AI",
+                "The entry point"
+              ],
+              "content": "I started with classical ML — random forests, LSTMs, the usual university curriculum. The turning point was the 2023 internship at Thapovan doing predictive disease modeling: it was the first time I worked on something where getting the ML right *mattered* to a real person. Everything after that has been about closing the gap between \"this works in a notebook\" and \"this works for a real user.\""
+            },
+            {
+              "id": "background.how-i-got-into-ai.why-genai-specifically",
+              "title": "Why GenAI specifically",
+              "path": [
+                "Background",
+                "How I got into AI",
+                "Why GenAI specifically"
+              ],
+              "content": "Because the interface problem is finally solvable. For decades, the bottleneck for most AI applications wasn't the model — it was that users couldn't talk to the model. LLMs fixed that, which opened up an enormous space of real applications that were previously impossible. That's what I want to work on."
+            }
+          ]
+        },
+        {
+          "id": "background.location",
+          "title": "Location",
+          "path": [
+            "Background",
+            "Location"
+          ],
+          "summary": "Where I live and where I work.",
+          "children": [
+            {
+              "id": "background.location.palakkad-chennai",
+              "title": "Palakkad & Chennai",
+              "path": [
+                "Background",
+                "Location",
+                "Palakkad & Chennai"
+              ],
+              "content": "Home is Palakkad, Kerala. Work is Chennai (FarmwiseAI is in Perungudi). I split time between the two."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "how-i-think",
+      "title": "How I think",
+      "path": [
+        "How I think"
+      ],
+      "summary": "Opinions, preferences, and the way I work.",
+      "children": [
+        {
+          "id": "how-i-think.engineering-philosophy",
+          "title": "Engineering philosophy",
+          "path": [
+            "How I think",
+            "Engineering philosophy"
+          ],
+          "summary": "What I believe about shipping software.",
+          "children": [
+            {
+              "id": "how-i-think.engineering-philosophy.on-complexity",
+              "title": "On complexity",
+              "path": [
+                "How I think",
+                "Engineering philosophy",
+                "On complexity"
+              ],
+              "content": "Most production AI systems fail because they're too clever. A stack of three simple components with clear interfaces is almost always easier to reason about, debug, and extend than a single \"smart\" system that tries to do too much. When in doubt, split."
+            },
+            {
+              "id": "how-i-think.engineering-philosophy.on-vector-dbs",
+              "title": "On vector DBs",
+              "path": [
+                "How I think",
+                "Engineering philosophy",
+                "On vector DBs"
+              ],
+              "content": "I'm not anti-vector — they're the right answer for a lot of retrieval problems. But they've become the default when they shouldn't be. Vector similarity is a blunt instrument. If your docs have real structure, vectorless RAG over a tree often wins on accuracy, interpretability, and operational simplicity."
+            },
+            {
+              "id": "how-i-think.engineering-philosophy.on-fine-tuning",
+              "title": "On fine-tuning",
+              "path": [
+                "How I think",
+                "Engineering philosophy",
+                "On fine-tuning"
+              ],
+              "content": "Fine-tune small models when a frontier model is wrong in a specific, narrow way. Don't fine-tune as a first response — prompt engineering and better context are usually cheaper. But when the failure mode is consistent and domain-specific (like geospatial), a fine-tuned small model is often the right answer."
+            }
+          ]
+        },
+        {
+          "id": "how-i-think.how-i-work",
+          "title": "How I work",
+          "path": [
+            "How I think",
+            "How I work"
+          ],
+          "summary": "Day-to-day habits.",
+          "children": [
+            {
+              "id": "how-i-think.how-i-work.on-prototyping",
+              "title": "On prototyping",
+              "path": [
+                "How I think",
+                "How I work",
+                "On prototyping"
+              ],
+              "content": "Ship the ugly version first. Streamlit or a quick CLI, not a polished UI. The faster you get something end-to-end, the faster you find out what's actually hard — and what was a worry that didn't matter."
+            },
+            {
+              "id": "how-i-think.how-i-work.on-debugging",
+              "title": "On debugging",
+              "path": [
+                "How I think",
+                "How I work",
+                "On debugging"
+              ],
+              "content": "Read the error. Read the actual error, not the first line. Most LLM-adjacent bugs are upstream of the LLM — bad context, wrong format, a quiet exception in an ingestion step. The model is almost never the problem."
+            }
+          ]
+        },
+        {
+          "id": "how-i-think.what-i-d-like-to-work-on-next",
+          "title": "What I'd like to work on next",
+          "path": [
+            "How I think",
+            "What I'd like to work on next"
+          ],
+          "summary": "The unfair version of \"where do you see yourself in 5 years.\"",
+          "children": [
+            {
+              "id": "how-i-think.what-i-d-like-to-work-on-next.direction",
+              "title": "Direction",
+              "path": [
+                "How I think",
+                "What I'd like to work on next",
+                "Direction"
+              ],
+              "content": "Production-grade agentic systems — not demos, not prototypes. The kind that run unattended for weeks, recover from failure, and make real decisions on real data. Voice is part of this. Reliable tool use is part of this. Interpretability is part of this."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
