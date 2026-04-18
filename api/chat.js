@@ -62,8 +62,8 @@ export default async function handler(req, res) {
   const send = obj => res.write(formatEvent(obj));
 
   try {
-    const { tree, toc } = await loadTree();
     send({ type: 'thinking' });
+    const { tree, toc } = await loadTree();
 
     const groq = new Groq({ apiKey: process.env.GROQ_API_KEY });
 
