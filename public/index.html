@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Pranav P — Data Scientist &amp; GenAI Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+
+<nav>
+  <div class="logo">pranav<span class="dot">.</span>p</div>
+  <ul class="nav-links">
+    <li><a href="#work">Work</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#stack">Stack</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a class="nav-cta" href="#chat"><span class="blip"></span>Ask my AI twin</a>
+</nav>
+
+<!-- HERO · cream -->
+<section id="hero" class="no-border">
+  <div class="wrap">
+    <div class="eyebrow"><span class="dot-sq"></span>Data Scientist &mdash; GenAI Engineer</div>
+
+    <h1 class="name">Pranav <span class="ital">P.</span></h1>
+
+    <p class="intro">
+      I build <span class="reg">LLM systems</span> that actually ship &mdash;<br/>
+      agents, RAG, and the infra around them.
+    </p>
+
+    <p class="intro-sub">
+      Currently at <strong>FarmwiseAI</strong>, shipping production GenAI end-to-end &mdash; agentic RAG on
+      <em>vectorless retrieval</em>, reliable voice agents, ingestion pipelines that turn any input into
+      LLM-friendly context, and fine-tuned small models deployed on AWS. Ask my AI twin anything &mdash;
+      it&rsquo;s trained on everything I&rsquo;ve built.
+    </p>
+
+    <div class="ask-box" id="chat">
+      <span class="kbd">/</span>
+      <input type="text" id="ask-input" placeholder="Ask me about vectorless RAG, voice agents, or why frontier LLMs botch geospatial…" />
+      <button id="ask-submit">Ask <span style="opacity:.7">↵</span></button>
+    </div>
+    <div class="ask-hint">
+      try &rarr;
+      <span class="pill" data-question="What is vectorless RAG and why use it?">What is vectorless RAG and why use it?</span>
+      <span class="pill" data-question="How do you ship reliable voice agents?">How do you ship reliable voice agents?</span>
+      <span class="pill" data-question="Walk me through your ingestion pipeline">Walk me through your ingestion pipeline</span>
+    </div>
+    <div id="chat-thread" aria-live="polite"></div>
+  </div>
+</section>
+
+<!-- NOW · sand -->
+<section class="bg-alt" style="padding:2.2rem 0">
+  <div class="wrap">
+    <div class="now">
+      <div class="avatar">P</div>
+      <div class="text">
+        <div class="label"><span class="live"></span>Now playing</div>
+        <div class="line">Shipping a <strong>vectorless-RAG agentic system</strong> &mdash; PageIndex-style tree retrieval, no vector DB, reasoning-driven. Turns out &ldquo;similarity&rdquo; isn&rsquo;t relevance.</div>
+      </div>
+      <div class="where">Chennai, IN<br/><span style="color:var(--muted-2)">Apr 2026</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- WORK · sand -->
+<section id="work" class="bg-alt">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Selected <span class="ital">work</span></h2>
+      <span class="sec-num">01 / Experience</span>
+    </div>
+    <div class="work-list">
+
+      <div class="work-item">
+        <div class="date">2025 — Now</div>
+        <div>
+          <h3>FarmwiseAI</h3>
+          <div class="role">Associate Data Scientist · Chennai</div>
+          <p>Shipping the full production GenAI stack &mdash; from ingestion to inference to reliable agents in the wild.</p>
+          <ul class="work-bullets">
+            <li><strong>Vectorless-RAG agentic systems</strong> &mdash; PageIndex-style tree retrieval + reasoning-driven search. No vector DB, traceable, and more accurate than semantic-similarity RAG on long, structured docs.</li>
+            <li><strong>Production voice agents</strong> &mdash; reliable STT &harr; LLM &harr; TTS loops with interruption handling, guardrails, and latency budgets that hold up under real users.</li>
+            <li><strong>Universal ingestion pipelines</strong> &mdash; normalize PDFs, scans, audio, spreadsheets, and images into clean, LLM-friendly structured context.</li>
+            <li><strong>Internal intelligence platform</strong> &mdash; an <em>OpenWebUI</em>-based assistant for the whole company: employees query internal docs, policies, and data through a RAG-backed chat.</li>
+            <li><strong>Fine-tuned geospatial small models on AWS</strong> &mdash; deployed specialized models that correctly answer location-, terrain-, and coordinate-heavy queries where frontier LLMs hallucinate.</li>
+            <li><strong>OCR at scale</strong> &mdash; LightOnOCR-2 1B on SageMaker via vLLM with PagedAttention &amp; KV-cache for high-throughput document extraction.</li>
+            <li><strong>Satellite time-series</strong> &mdash; a year of Tamil Nadu field imagery processed pixel-wise, DTW-aligned vegetation curves to infer sowing dates.</li>
+          </ul>
+          <div class="tags">
+            <span class="tag">Vectorless RAG</span><span class="tag">PageIndex</span><span class="tag">Google ADK</span>
+            <span class="tag">MCP</span><span class="tag">OpenWebUI</span><span class="tag">Voice Agents</span>
+            <span class="tag">vLLM</span><span class="tag">SageMaker</span><span class="tag">Fine-tuning</span>
+            <span class="tag">DTW</span>
+          </div>
+        </div>
+        <div class="arrow">→</div>
+      </div>
+
+      <div class="work-item">
+        <div class="date">Feb — Apr 2025</div>
+        <div>
+          <h3>Infosys</h3>
+          <div class="role">Data Visualization &amp; Analyst Intern · Remote</div>
+          <p>Turned messy datasets into interactive Power BI + Python dashboards. EDA, trend analysis, and visual reports non-analysts could actually read.</p>
+          <div class="tags"><span class="tag">Power BI</span><span class="tag">Pandas</span><span class="tag">EDA</span></div>
+        </div>
+        <div class="arrow">→</div>
+      </div>
+
+      <div class="work-item">
+        <div class="date">Dec 2023 — Apr 2024</div>
+        <div>
+          <h3>Descpro</h3>
+          <div class="role">ML Developer Intern · NBFC Loan Approval</div>
+          <p>Built an end-to-end loan approval stack &mdash; eligibility scoring, an LSTM that predicted repayment delays per customer, and a forecasting model for upcoming loan application volumes.</p>
+          <div class="tags"><span class="tag">LSTM</span><span class="tag">Random Forest</span><span class="tag">Forecasting</span></div>
+        </div>
+        <div class="arrow">→</div>
+      </div>
+
+      <div class="work-item">
+        <div class="date">Sep — Nov 2023</div>
+        <div>
+          <h3>Thapovan Info Systems</h3>
+          <div class="role">ML Intern · Predictive Disease Modeling</div>
+          <p>Built a heart-attack risk model from 20+ curated health indicators. Used SHAP and LIME so doctors could actually trust the predictions. Added an LSTM alert system for timely warnings.</p>
+          <div class="tags"><span class="tag">SHAP</span><span class="tag">LIME</span><span class="tag">LSTM</span><span class="tag">XAI</span></div>
+        </div>
+        <div class="arrow">→</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS · cream -->
+<section id="projects">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Things I&rsquo;ve built on the <span class="ital">side</span></h2>
+      <span class="sec-num">02 / Projects</span>
+    </div>
+    <div class="proj-grid">
+
+      <div class="proj">
+        <div class="idx">P / 01</div>
+        <h4>Domain-Specific Loan Officer Agent</h4>
+        <p>Fine-tuned Gemma-2B with QLoRA &amp; Unsloth on a synthetic instruction set &mdash; then quantized to GGUF and ran it on CPU via llama.cpp. Low-latency, compliance-aware, no GPU required.</p>
+        <div class="foot">
+          <div class="stack"><span>Gemma</span><span>QLoRA</span><span>llama.cpp</span></div>
+          <span>→</span>
+        </div>
+      </div>
+
+      <div class="proj">
+        <div class="idx">P / 02</div>
+        <h4>Companion AI</h4>
+        <p>A voice-enabled ICU support system. Real-time STT + BERT sentiment to detect emotional distress, then trigger context-aware empathetic responses over TTS.</p>
+        <div class="foot">
+          <div class="stack"><span>PyTorch</span><span>BERT</span><span>STT/TTS</span></div>
+          <span>→</span>
+        </div>
+      </div>
+
+      <div class="proj">
+        <div class="idx">P / 03</div>
+        <h4>Agentic Recruitment Platform</h4>
+        <p>Autonomous agent that scrapes job boards and uses Google&rsquo;s experimental Opal model to rewrite resumes live, mapping candidate skills to JDs via RAG.</p>
+        <div class="foot">
+          <div class="stack"><span>Opal</span><span>Selenium</span><span>LangChain</span></div>
+          <span>→</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- STACK · sand -->
+<section id="stack" class="bg-alt">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>The <span class="ital">stack</span> I reach for</h2>
+      <span class="sec-num">03 / Tooling</span>
+    </div>
+    <div class="stack-grid">
+      <div class="stack-cat">
+        <div class="cat-label">GenAI &amp; LLM</div>
+        <ul>
+          <li>RAG &amp; Agentic Systems</li>
+          <li>Model Context Protocol</li>
+          <li>vLLM · LiteLLM · Unsloth</li>
+          <li>Qdrant · FAISS</li>
+          <li>HuggingFace</li>
+        </ul>
+      </div>
+      <div class="stack-cat">
+        <div class="cat-label">ML &amp; Data Science</div>
+        <ul>
+          <li>LSTM · Random Forest</li>
+          <li>Time-Series · DTW</li>
+          <li>SHAP · LIME (XAI)</li>
+          <li>Interpolation</li>
+          <li>Leakage Prevention</li>
+        </ul>
+      </div>
+      <div class="stack-cat">
+        <div class="cat-label">Backend &amp; Infra</div>
+        <ul>
+          <li>Python · FastAPI</li>
+          <li>Pydantic · WebSockets</li>
+          <li>Streamlit</li>
+          <li>AWS SageMaker</li>
+          <li>Git</li>
+        </ul>
+      </div>
+      <div class="stack-cat">
+        <div class="cat-label">Data &amp; Analytics</div>
+        <ul>
+          <li>SQL · PySpark</li>
+          <li>Pandas · NumPy</li>
+          <li>Power BI</li>
+          <li>Satellite Imagery</li>
+          <li>Large-scale ETL</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT · cream -->
+<section id="contact">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Let&rsquo;s <span class="ital">talk.</span></h2>
+      <span class="sec-num">04 / Contact</span>
+    </div>
+    <div class="contact-card">
+      <div>
+        <h2>Got a <span class="ital">hard problem</span><br/>worth solving?</h2>
+        <p>Happy to chat about GenAI roles, consulting, or anything at the intersection of LLMs and real-world data. My AI twin handles the easy questions &mdash; I&rsquo;ll take the rest.</p>
+      </div>
+      <div class="contact-links">
+        <a href="mailto:aikkara.pranav@gmail.com">aikkara.pranav@gmail.com <span class="arrow-small">↗</span></a>
+        <a href="https://www.linkedin.com/in/pranavaikkara" target="_blank">linkedin.com/in/pranavaikkara <span class="arrow-small">↗</span></a>
+        <a href="tel:+917025052042">+91 70250 52042 <span class="arrow-small">↗</span></a>
+        <a href="/assets/resume.pdf">Download résumé (PDF) <span class="arrow-small">↓</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER · stone -->
+<footer>
+  <div class="wrap">
+    <div class="foot-row">
+      <span>© 2026 Pranav P</span>
+      <span class="meta-chat">Chat powered by <span class="hl">vectorless RAG</span> (PageIndex) · Groq Llama-3.3</span>
+      <span>Built from scratch, no template</span>
+    </div>
+  </div>
+</footer>
+
+<a class="chat-fab" href="#chat"><span class="dotpulse"></span>Ask my AI twin →</a>
+
+<script src="/js/chat.js" defer></script>
+</body>
+</html>
