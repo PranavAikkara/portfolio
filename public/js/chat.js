@@ -14,14 +14,23 @@
     });
   });
 
-  submit.addEventListener('click', send);
-  input.addEventListener('keydown', e => {
-    if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); send(); }
-  });
+  const form = document.getElementById('chat-panel-composer');
+  const empty = document.getElementById('chat-empty');
+  if (form) {
+    form.addEventListener('submit', e => { e.preventDefault(); send(); });
+  } else {
+    submit.addEventListener('click', send);
+    input.addEventListener('keydown', e => {
+      if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); send(); }
+    });
+  }
 
   async function send() {
     const text = input.value.trim();
     if (!text || state.streaming || state.limited) return;
+
+    // Hide empty state on first real turn
+    if (empty && !empty.hidden) empty.hidden = true;
 
     // User turn
     state.messages.push({ role: 'user', content: text });
@@ -166,10 +175,44 @@
     return el;
   }
 
-  // Floating FAB → focus the hero input
-  document.querySelector('.chat-fab')?.addEventListener('click', e => {
-    e.preventDefault();
-    document.getElementById('chat')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    setTimeout(() => input.focus(), 500);
+  // ─── Panel open/close ───
+  const panel = document.getElementById('chat-panel');
+  const fab = document.getElementById('chat-fab');
+  const closeBtn = document.getElementById('chat-panel-close');
+  const body = document.getElementById('chat-panel-body');
+
+  function openPanel() {
+    if (!panel) return;
+    panel.classList.add('open');
+    panel.setAttribute('aria-hidden', 'false');
+    fab?.setAttribute('aria-expanded', 'true');
+    setTimeout(() => input.focus(), 220);
+  }
+  function closePanel() {
+    if (!panel) return;
+    panel.classList.remove('open');
+    panel.setAttribute('aria-hidden', 'true');
+    fab?.setAttribute('aria-expanded', 'false');
+  }
+
+  fab?.addEventListener('click', openPanel);
+  closeBtn?.addEventListener('click', closePanel);
+
+  // Nav CTA also opens the panel.
+  document.querySelectorAll('a.nav-cta').forEach(a => {
+    a.addEventListener('click', e => { e.preventDefault(); openPanel(); });
   });
+
+  // ESC closes the panel.
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && panel?.classList.contains('open')) closePanel();
+  });
+
+  // Auto-scroll thread to bottom as content streams in.
+  if (body) {
+    const observer = new MutationObserver(() => {
+      body.scrollTop = body.scrollHeight;
+    });
+    observer.observe(thread, { childList: true, subtree: true, characterData: true });
+  }
 })();
