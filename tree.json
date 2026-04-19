@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-18T20:04:23.551Z",
+  "generated_at": "2026-04-19T06:27:30.363Z",
   "nodes": [
     {
       "id": "about-pranav",
@@ -481,6 +481,88 @@
                 "What I learned"
               ],
               "content": "Agentic systems that act on real-world web pages are much harder than they look. Most of the engineering is error recovery: stale selectors, captcha walls, rate limits, partial loads. The LLM part is almost the easy bit."
+            }
+          ]
+        },
+        {
+          "id": "side-projects.this-portfolio-site-the-one-you-re-on",
+          "title": "This portfolio site (the one you're on)",
+          "path": [
+            "Side projects",
+            "This portfolio site (the one you're on)"
+          ],
+          "summary": "Vectorless-RAG chatbot, Groq, Vercel — the site itself is also a side project of mine.",
+          "children": [
+            {
+              "id": "side-projects.this-portfolio-site-the-one-you-re-on.what-it-is",
+              "title": "What it is",
+              "path": [
+                "Side projects",
+                "This portfolio site (the one you're on)",
+                "What it is"
+              ],
+              "content": "The website you're reading right now is one of my projects. The chatbot you're talking to uses a PageIndex-style vectorless RAG setup over a hand-authored markdown knowledge base that describes my work. Instead of embedding text and doing cosine similarity, an LLM reads a tree-of-contents of the knowledge base, picks the relevant nodes, then answers using just those nodes. Two LLM calls per question, no vector store, no database."
+            },
+            {
+              "id": "side-projects.this-portfolio-site-the-one-you-re-on.the-stack",
+              "title": "The stack",
+              "path": [
+                "Side projects",
+                "This portfolio site (the one you're on)",
+                "The stack"
+              ],
+              "content": "Vercel for hosting (static site + one Node serverless function at /api/chat), Groq Llama-3.3-70b for both the router call and the streaming answer call, plain HTML/CSS/vanilla JS on the frontend, markdown for the knowledge base. The whole thing runs on free tiers — I pay zero dollars a month for it."
+            },
+            {
+              "id": "side-projects.this-portfolio-site-the-one-you-re-on.why-i-built-the-chatbot-this-way",
+              "title": "Why I built the chatbot this way",
+              "path": [
+                "Side projects",
+                "This portfolio site (the one you're on)",
+                "Why I built the chatbot this way"
+              ],
+              "content": "I wanted the chatbot to actually *demonstrate* the vectorless-RAG story from my resume, not just talk about it. The reasoning panel under each of my answers shows the exact tree nodes the model routed through — so the retrieval approach is a live demo, not a claim. It also proves the $0 infra story: you're watching a production chatbot that costs nothing to run."
+            }
+          ]
+        },
+        {
+          "id": "side-projects.newsletter-reader-a-cleaner-way-to-read-what-i-subscribe-to",
+          "title": "Newsletter Reader — a cleaner way to read what I subscribe to",
+          "path": [
+            "Side projects",
+            "Newsletter Reader — a cleaner way to read what I subscribe to"
+          ],
+          "summary": "A personal web app that pulls newsletters out of my Gmail and displays them in one clean reading view.",
+          "children": [
+            {
+              "id": "side-projects.newsletter-reader-a-cleaner-way-to-read-what-i-subscribe-to.the-problem",
+              "title": "The problem",
+              "path": [
+                "Side projects",
+                "Newsletter Reader — a cleaner way to read what I subscribe to",
+                "The problem"
+              ],
+              "content": "My personal Gmail was a mess. Important newsletters — the ones I actually wanted to read — were buried under receipts, work threads, notifications, and promotions. I was skipping issues I cared about just because I couldn't find them in the noise."
+            },
+            {
+              "id": "side-projects.newsletter-reader-a-cleaner-way-to-read-what-i-subscribe-to.what-i-built",
+              "title": "What I built",
+              "path": [
+                "Side projects",
+                "Newsletter Reader — a cleaner way to read what I subscribe to",
+                "What I built"
+              ],
+              "content": "A web app that connects to my Gmail account via the Gmail API, identifies messages from the newsletters I'm subscribed to, and renders them in a dedicated reader view. Single page, chronological, clean typography, nothing else on screen. My inbox stays chaotic; the newsletter reader stays quiet."
+            },
+            {
+              "id": "side-projects.newsletter-reader-a-cleaner-way-to-read-what-i-subscribe-to.why-it-works",
+              "title": "Why it works",
+              "path": [
+                "Side projects",
+                "Newsletter Reader — a cleaner way to read what I subscribe to",
+                "Why it works"
+              ],
+              "content": "The problem wasn't \"too many newsletters\" — it was \"newsletters mixed with everything else.\" Pulling them into their own view costs almost nothing (they still live in Gmail; I don't forward or copy anything) and it makes me much more likely to actually read them. Small project, disproportionately useful to me day-to-day."
             }
           ]
         }
