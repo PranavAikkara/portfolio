@@ -130,10 +130,17 @@ def sync(request: Request) -> HTMLResponse:
             if writer.write_newsletter(settings.content_dir, entry):
                 written += 1
 
+    pushed = True
     if written > 0:
-        writer.commit_and_push(settings.PORTFOLIO_REPO_PATH, written)
+        pushed = writer.commit_and_push(settings.PORTFOLIO_REPO_PATH, written)
 
     _write_last_sync(datetime.now(timezone.utc).isoformat().replace("+00:00", "Z"))
+
+    base_flash = f"Synced {written} new newsletter{'s' if written != 1 else ''}."
+    if written > 0 and not pushed:
+        flash = f"{base_flash} Committed locally — push failed (no remote or auth issue). Push manually when ready."
+    else:
+        flash = base_flash
 
     return templates.TemplateResponse(
         request,
@@ -142,6 +149,6 @@ def sync(request: Request) -> HTMLResponse:
             "authed": True,
             "last_sync": _read_last_sync(),
             "sender_count": len(store.all()),
-            "flash": f"Synced {written} new newsletter{'s' if written != 1 else ''}.",
+            "flash": flash,
         },
     )
