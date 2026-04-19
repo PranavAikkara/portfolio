@@ -44,9 +44,9 @@ def healthz() -> dict[str, str]:
 @app.get("/", response_class=HTMLResponse)
 def dashboard(request: Request) -> HTMLResponse:
     return templates.TemplateResponse(
+        request,
         "dashboard.html",
         {
-            "request": request,
             "authed": oauth.is_authorized(settings.token_path),
             "last_sync": _read_last_sync(),
             "sender_count": len(_store().all()),
@@ -67,8 +67,9 @@ def auth() -> RedirectResponse:
 @app.get("/senders", response_class=HTMLResponse)
 def senders_page(request: Request) -> HTMLResponse:
     return templates.TemplateResponse(
+        request,
         "senders.html",
-        {"request": request, "senders": _store().all()},
+        {"senders": _store().all()},
     )
 
 
@@ -135,9 +136,9 @@ def sync(request: Request) -> HTMLResponse:
     _write_last_sync(datetime.now(timezone.utc).isoformat().replace("+00:00", "Z"))
 
     return templates.TemplateResponse(
+        request,
         "dashboard.html",
         {
-            "request": request,
             "authed": True,
             "last_sync": _read_last_sync(),
             "sender_count": len(store.all()),
