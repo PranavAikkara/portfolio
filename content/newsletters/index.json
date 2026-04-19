@@ -1,0 +1,9 @@
+[
+  {
+    "slug": "2026-04-18-sample-welcome",
+    "subject": "Welcome — a sample newsletter entry",
+    "sender_name": "Sample Sender",
+    "date": "2026-04-18T09:00:00Z",
+    "snippet": "This is a sample newsletter used to verify the build script renders correctly. Replace it by running the sync tool."
+  }
+]
