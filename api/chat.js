@@ -79,19 +79,26 @@ export default async function handler(req, res) {
       return;
     }
 
-    const nodes = resolveNodes(tree, node_ids);
+    let nodes = resolveNodes(tree, node_ids);
+
+    // Fallback: router found nothing (open-ended/ambiguous question).
+    // Build an overview context from the top-level tree so the answerer can still reply.
+    if (nodes.length === 0) {
+      const overviewText = toc
+        .filter(n => n.summary && n.path.length <= 2)
+        .map(n => `- ${n.path.join(' › ')}: ${n.summary}`)
+        .join('\n');
+      nodes = [{
+        id: 'overview',
+        path: ['Overview of everything I\'ve built'],
+        content: `High-level overview of my work and projects. For questions I can't route to a specific section, I should use this to give a representative answer, and offer to go deeper on any of these.\n\n${overviewText}`,
+      }];
+    }
+
     send({
       type: 'selected_nodes',
       nodes: nodes.map(n => ({ id: n.id, path: n.path })),
     });
-
-    // No-context short-circuit
-    if (nodes.length === 0) {
-      send({ type: 'token', text: CANNED_NO_CONTEXT });
-      send({ type: 'done' });
-      res.end();
-      return;
-    }
 
     // Call #2 — streaming answer
     send({ type: 'answering' });
