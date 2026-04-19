@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Live in 1 Hour: Scale Kubernetes with Certainty — Pranav P</title>
+<meta name="description" content="Kubernetes Shouldn&#39;t Require a Superhero. Join us live to move beyond operational heroics with an immutable foundation. ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏…" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/styles.css" />
+<link rel="stylesheet" href="/newsletter/styles.css" />
+</head>
+<body>
+
+  <nav>
+    <div class="logo"><a href="/" style="text-decoration:none;color:inherit">pranav<span class="dot">.</span>p</a></div>
+    <ul class="nav-links">
+      <li><a href="/#work">Work</a></li>
+      <li><a href="/#projects">Projects</a></li>
+      <li><a href="/newsletter/" class="active">Reading</a></li>
+      <li><a href="/#contact">Contact</a></li>
+    </ul>
+    <a class="nav-cta" href="/#chat"><span class="blip"></span>Ask my AI twin</a>
+  </nav>
+
+
+<main class="nl-wrap nl-detail-wrap">
+  <a class="nl-back" href="/newsletter/">← back to list</a>
+  <article class="nl-detail">
+    <header class="nl-detail-header">
+      <div class="nl-card-meta">
+        <span class="nl-sender">The New Stack</span>
+        <span class="nl-date">Apr 9, 2026</span>
+      </div>
+      <h1 class="nl-detail-title">Live in 1 Hour: Scale Kubernetes with Certainty</h1>
+    </header>
+    <div class="nl-detail-body">
+      <div id="preview_text" lang="en" style="display:none;font-size:1px;color:#d9e9f7;line-height:1px;max-height:0px;max-width:0px;opacity:0;overflow:hidden;">Kubernetes Shouldn't Require a Superhero. Join us live to move beyond operational heroics with an immutable foundation. ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­  
+</div>
+<!--[if gte mso 9]>
+<v:background xmlns:v="urn:schemas-microsoft-com:vml" fill="t">
+    <v:fill type="tile" size="100%,100%" color="#ffffff"/>
+</v:background>
+<![endif]-->
+<div bgcolor="#d9e9f7" class="hse-body-background" lang="en" style="background-color:#d9e9f7">
+<table cellpadding="0" cellspacing="0" class="hse-body-wrapper-table" height="100%" role="presentation" style="margin:0; padding:0; width:100% !important; min-width:320px !important; height:100% !important" width="100%">
+<tbody><tr>
+<td class="hse-body-wrapper-td" style="font-family:Lato, Tahoma, sans-serif; font-size:16px; color:#000000; word-break:break-word; padding-top:20px; padding-bottom:20px" valign="top">
+<div class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_dnd_area" data-hs-cos-general-type="widget" data-hs-cos-type="dnd_area" id="hs_cos_wrapper_main" style="color: inherit; font-size: inherit; line-height: inherit;"> <div class="hse-section hse-section-first" id="section_1757371798835" style="padding-left:10px; padding-right:10px">
+<div class="hse-column-container" style="min-width:280px; max-width:600px; margin:0 auto">
+<!--[if (mso)|(IE)]>
+      <table align="center" style="width:600px;" cellpadding="0" cellspacing="0" role="presentation">
+      <tr>
+    <![endif]-->
+<!--[if (mso)|(IE)]>
+  <td valign="top" style="width:600px;">
+<![endif]-->
+<!--[if gte mso 9]>
+  <table role="presentation" width="600" cellpadding="0" cellspacing="0" style="width:600px">
+<![endif]-->
+<div class="hse-column hse-size-12" id="column_1757371798835_0">
+<div class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module" data-hs-cos-general-type="widget" data-hs-cos-type="module" id="hs_cos_wrapper_module_17573717988332" style="color: inherit; font-size: inherit; line-height: inherit;"><div style="overflow:hidden">
+<table align="right" cellpadding="0" cellspacing="0" class="hse-pre-header hse-secondary" role="presentation" style="text-align:right; font-family:Arial, sans-serif; font-size:12px; line-height:135%; color:#23496d; margin-bottom:0; padding:0" width="100%">
+<tbody>
+<tr>
+<td align="right" style="color:#000000; word-break:break-word; text-align:right; font-family:Arial, sans-serif; font-size:12px; padding:10px 0; margin-bottom:0; line-height:135%" valign="top">
+
+</td>
+</tr>
+</tbody>
+</table>
+</div></div>
+</div>
+<!--[if gte mso 9]></table><![endif]-->
+<!--[if (mso)|(IE)]></td><![endif]-->
+<!--[if (mso)|(IE)]></tr></table><![endif]-->
+</div>
+</div>
+<div class="hse-section" id="section-0" style="padding-left:10px; padding-right:10px">
+<div bgcolor="#ffffff" class="hse-column-container" style="min-width:280px; max-width:600px; margin:0 auto; background-color:#ffffff">
+<!--[if (mso)|(IE)]>
+      <table align="center" style="width:600px;" cellpadding="0" cellspacing="0" role="presentation" width="600" bgcolor="#ffffff">
+      <tr style="background-color:#ffffff;">
+    <![endif]-->
+<!--[if (mso)|(IE)]>
+  <td valign="top" style="width:600px;">
+<![endif]-->
+<!--[if gte mso 9]>
+  <table role="presentation" width="600" cellpadding="0" cellspacing="0" style="width:600px">
+<![endif]-->
+<div class="hse-column hse-size-12" id="column-0-0">
+<div class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module" data-hs-cos-general-type="widget" data-hs-cos-type="module" id="hs_cos_wrapper_module-0-0-0" style="color: inherit; font-size: inherit; line-height: inherit;"><table cellpadding="0" cellspacing="0" class="hse-image-wrapper" role="presentation" width="100%">
+<tbody>
+<tr>
+<td align="center" style="font-family:Lato, Tahoma, sans-serif; color:#000000; word-break:break-word; text-align:center; padding:0px; font-size:0px" valign="top">
+<a data-hs-link-id="0" data-hs-link-id-v2="C0o+A0XS" href="https://info.thenewstack.io/e3t/Ctc/L2+113/d5qLSh04/VW8r0f3kRm7bN2Q3XM6RBVpBW15bp5B5MGykcN1f4_XH3hCZYW6N1vHY6lZ3pSW4nQnQD6jk1t2W1wGRd-1X8WRmV8_tzv98SKGLVSjLs44T9hqkW81WvgB67HPtDW68lmJv5XV552N3VwtRH8JY9CW4LnQLk2yLjw2W3WTKJW7GKM95W4CVxPq3GtZpFN94bJmM2qm8DW1FJQly6kyblFW2TBnzZ8vBRZTW8p_cSx1mMzX5W50mpZd8XqzlgW2DKBdK6l50rdN2tnDXgwQTqrW4S24n38LYcVSW3Jx6_B1wQ33GW6ZGyBp5Djf0VW85ZMk23Tc3nWW7xDBVZ36fd2_f1C8CF-04" style="color:#00a4bd" target="_blank">
+<img align="middle" alt="TNS_Banner_Email" src="https://info.thenewstack.io/hs-fs/hubfs/TNS_Banner_Email.png?width=1200&amp;upscale=true&amp;name=TNS_Banner_Email.png" style="outline:none; text-decoration:none; border:none; max-width:100%; font-size:16px" width="600"/>
+</a>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<!--[if gte mso 9]></table><![endif]-->
+<!--[if (mso)|(IE)]></td><![endif]-->
+<!--[if (mso)|(IE)]></tr></table><![endif]-->
+</div>
+</div>
+<div class="hse-section" id="section-1" style="padding-left:10px; padding-right:10px">
+<div bgcolor="#ffffff" class="hse-column-container" style="min-width:280px; max-width:600px; margin:0 auto; background-color:#ffffff">
+<!--[if (mso)|(IE)]>
+      <table align="center" style="width:600px;" cellpadding="0" cellspacing="0" role="presentation" width="600" bgcolor="#ffffff">
+      <tr style="background-color:#ffffff;">
+    <![endif]-->
+<!--[if (mso)|(IE)]>
+  <td valign="top" style="width:600px;">
+<![endif]-->
+<!--[if gte mso 9]>
+  <table role="presentation" width="600" cellpadding="0" cellspacing="0" style="width:600px">
+<![endif]-->
+<div class="hse-column hse-size-12" id="column-1-0">
+<div class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module" data-hs-cos-general-type="widget" data-hs-cos-type="module" id="hs_cos_wrapper_module-1-0-0" style="color: inherit; font-size: inherit; line-height: inherit;"><table cellpadding="0" cellspacing="0" class="hse-image-wrapper" role="presentation" width="100%">
+<tbody>
+<tr>
+<td align="center" style="font-family:Lato, Tahoma, sans-serif; color:#000000; word-break:break-word; text-align:center; padding:0px; font-size:0px" valign="top">
+<a data-hs-link-id="0" data-hs-link-id-v2="LIANWrSq" href="https://info.thenewstack.io/e3t/Ctc/L2+113/d5qLSh04/VW8r0f3kRm7bN2Q3XM6RBVpBW15bp5B5MGykcN1f4_WP5g8t6W50kH_H6lZ3m0W3pppRt65Gr9yW5nmL3Z4zL3G-W8L2mW76mCGY-N3Nhv995_0YVW80s9kx1pdvPYW51pyTW1Vtjb8W66mG6F3QK8vyW2vxLTW2lLzz4W3Lbvqh3ls_1pW32nywM2cLPhkW1Nc_qH3RgrZLN1PH8Dh_86rzW2cknmC7_KKbWW4FnfTP3BYH2qW6ftxr41LcQp_W5z75DY3_mPjmW5R5_XH8JC2KzW5gWTVQ3K2TSVW4xSlKr1rkHkdVrl5y53l4_frW2q4my84-GQt6W3BXqVC1Xp6XyW8x5qBs8mNt3PW8jjtb51-kpdJVpGJMz2PlMS1W1RtTZH5XbPBXW1TC-R23J6b-qW19bDgz8GVJh3W5qM4D61gb9H3W3Cchn17j7nBCW8Z5D942CH3ldW6kkXgX3f7BZcf6Wb-S204" style="color:#00a4bd" target="_blank">
+<img align="middle" alt="SideroLabs_Webinar_9Apr26_Remember_16x9" src="https://info.thenewstack.io/hs-fs/hubfs/SideroLabs_Webinar_9Apr26_Remember_16x9.jpg?width=1200&amp;upscale=true&amp;name=SideroLabs_Webinar_9Apr26_Remember_16x9.jpg" style="outline:none; text-decoration:none; border:none; max-width:100%; font-size:16px" width="600"/>
+</a>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<!--[if gte mso 9]></table><![endif]-->
+<!--[if (mso)|(IE)]></td><![endif]-->
+<!--[if (mso)|(IE)]></tr></table><![endif]-->
+</div>
+</div>
+<div class="hse-section" id="section-2" style="padding-left:10px; padding-right:10px">
+<div bgcolor="#ffffff" class="hse-column-container" style="min-width:280px; max-width:600px; margin:0 auto; background-color:#ffffff; padding-bottom:5px; padding-top:10px">
+<!--[if (mso)|(IE)]>
+      <table align="center" style="width:600px;" cellpadding="0" cellspacing="0" role="presentation" width="600" bgcolor="#ffffff">
+      <tr style="background-color:#ffffff;">
+    <![endif]-->
+<!--[if (mso)|(IE)]>
+  <td valign="top" style="width:600px;padding-bottom:5px; padding-top:10px;">
+<![endif]-->
+<!--[if gte mso 9]>
+  <table role="presentation" width="600" cellpadding="0" cellspacing="0" style="width:600px">
+<![endif]-->
+<div class="hse-column hse-size-12" id="column-2-0">
+<table cellpadding="0" cellspacing="0" class="" role="presentation" style="" width="100%"><tbody><tr><td class="hs_padded" style="font-family:Lato, Tahoma, sans-serif; font-size:16px; color:#000000; word-break:break-word; padding:20px 20px 10px"><div class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module" data-hs-cos-general-type="widget" data-hs-cos-type="module" id="hs_cos_wrapper_module-2-0-0" style="color: inherit; font-size: inherit; line-height: inherit;"><div class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_rich_text" data-hs-cos-general-type="widget" data-hs-cos-type="rich_text" id="hs_cos_wrapper_module-2-0-0_" style="color: inherit; font-size: inherit; line-height: inherit;"><p align="left" style="text-align:left; font-weight:normal; font-size:16px; line-height:150%"><span style="font-family: Lato, Tahoma, sans-serif;">Hi A,</span></p>
+<p align="left" style="text-align:left; font-weight:normal; font-size:16px; line-height:150%"> </p>
+<p align="left" style="text-align:left; font-weight:normal; font-size:16px; line-height:150%"><span style="font-family: Lato, Tahoma, sans-serif;">Is your platform team spending more time firefighting than building? As Kubernetes scales, manual patching and infrastructure drift often become bottlenecks that stall your roadmap and create compliance risks. <a data-hs-link-id="1" data-hs-link-id-v2="9/t0TGSK" href="https://info.thenewstack.io/e3t/Ctc/L2+113/d5qLSh04/VW8r0f3kRm7bN2Q3XM6RBVpBW15bp5B5MGykcN1f4_WP5g8t6W50kH_H6lZ3q1W7CyNXf87L-X5W5MdvxC577c4qW84wLWs2t0x6DW4WYBkb6C2Sh2W5BZbjw2Pj5l8W6s0kdS7xcnMtW76zPFd1NTFvJW1w4Vks5GJ1fqW4msfvm6pPPqKW42GtY-8Ycf3WW1FXrsm7MGwqRW8P6X4H4bX2QCW2D770c2qCbR3W6T_Lbn891ylBN1_2NG7XZ-BVW94bVVc2y8xDkW7TGgm-1kZjqTW5yBxjp1kc4V0W6q3Xj54RgzLvW9838ZG77YNxYW7tkbBs1Q9w9dW4g35qY73jGyPW1dKMT24_pzkwV56nlC1VCkMnW7C8BSP6wyVD8W3dRnQ245prQ4W7R7Spy5Nwls6W3dSnD02sqd5xW2V-lZs85NgQGW8_nKSW1Dq1c0W3DBdnt4G0YV3N7GtF8XHfTh7f32xxKR04" rel="noopener" style="color:#ff3287" target="_blank">Join us live in 1 hour</a> to learn how to move beyond a coping-based strategy and adopt an API-driven, immutable foundation that scales without increasing your headcount.</span></p></div></div></td></tr></tbody></table>
+<table cellpadding="0" cellspacing="0" class="" role="presentation" style="" width="100%"><tbody><tr><td class="hs_padded" style="font-family:Lato, Tahoma, sans-serif; font-size:16px; color:#000000; word-break:break-word; padding:20px 20px 10px"><div class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module" data-hs-cos-general-type="widget" data-hs-cos-type="module" id="hs_cos_wrapper_module-3-0-0" style="color: inherit; font-size: inherit; line-height: inherit;"><table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="border-collapse:separate!important">
+<tbody><tr>
+<td align="center" bgcolor="#FF3287" style="font-family:Lato, Tahoma, sans-serif; font-size:16px; color:#000000; word-break:break-word; border-radius:8px; cursor:auto; background-color:#FF3287; mso-padding-alt:12px 18px" valign="middle">
+<a data-hs-link-id="2" data-hs-link-id-v2="huHkZMnX" href="https://info.thenewstack.io/e3t/Ctc/L2+113/d5qLSh04/VW8r0f3kRm7bN2Q3XM6RBVpBW15bp5B5MGykcN1f4_WP5g8t6W50kH_H6lZ3m2W2YtxMj67lp97W4MPHWW2C8Z5NW7WnKCX47fw65W2BpNnF5pn8N1W2DRqNr5fLXY7W4fPvnB2lQYSDW62wlM_7TYqxtW3blMb876gRPCW1LQ52T1-xKNhW67PSwl20-MQMW3j4N7X5hK-w4W1ngh2C4hxYNhW4GJSRp48WVfHW3KhwFm1DdfxsW97TPgL94VbYrN92wyX9y2WcCW8kFJVC2FZ6m7W7hqVSN8ZhdtLW2RDcVH72BbNwW1GcqGP8pGMKnVSsVQf700ZdvW7sn__z1_8ssyW5rZcDh6BvJ7wW3h7WRM7xYS_VW2SqJpv1qJbbHW6MYMk98dLYHQW1tCZh26gGjmmW3XKkxb6By20PW4WqqC91_DVmYW1qG-ST8FfpPYW99tSKg1dKXHtW60HMNt7L3P1df15Qmfz04" style="color:#00a4bd; font-size:18px; font-family:Lato,Tahoma,sans-serif; Margin:0; text-transform:none; text-decoration:none; padding:12px 18px; display:block" target="_blank">
+<strong style="color:#ffffff;font-weight:bold;text-decoration:none;font-style:normal;">Register to Join</strong>
+</a>
+</td>
+</tr>
+</tbody></table></div></td></tr></tbody></table>
+<table cellpadding="0" cellspacing="0" class="" role="presentation" style="" width="100%"><tbody><tr><td class="hs_padded" style="font-family:Lato, Tahoma, sans-serif; font-size:16px; color:#000000; word-break:break-word; padding:20px 20px 0px"><div class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module" data-hs-cos-general-type="widget" data-hs-cos-type="module" id="hs_cos_wrapper_module_17756109919481" style="color: inherit; font-size: inherit; line-height: inherit;"><div class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_rich_text" data-hs-cos-general-type="widget" data-hs-cos-type="rich_text" id="hs_cos_wrapper_module_17756109919481_" style="color: inherit; font-size: inherit; line-height: inherit;"><p align="left" style="text-align:left; font-size:18px; line-height:150%; font-weight:bold"><span style="font-family: Lato, Tahoma, sans-serif;">Webinar Key Takeaways:</span></p>
+<ul style="line-height:175%">
+<li style="text-align: left; font-weight: normal; font-size: 16px; line-height: 150%;"><strong>Stop the Toil: </strong>Identify the hidden infrastructure patterns stalling your delivery.</li>
+<li style="text-align: left; font-weight: normal; font-size: 16px; line-height: 150%;"><strong>Hardened Security:</strong> Eliminate the conditions that create risk in regulated industries.</li>
+<li style="text-align: left; font-weight: normal; font-size: 16px; line-height: 150%;"><strong>Quantify Cost:</strong> Build the business case for a more stable, automated foundation.</li>
+<li style="text-align: left; font-weight: normal; font-size: 16px; line-height: 150%;"><strong>Systemic Certainty</strong>: Shift to a model where predictability is engineered-in from the start.</li>
+</ul>
+<p style="line-height:175%"><span style="font-size: 16px; font-family: Lato, Tahoma, sans-serif;">Can't make it live? No worries, register anyway and we'll send you the recording.</span></p></div></div></td></tr></tbody></table>
+</div>
+<!--[if gte mso 9]></table><![endif]-->
+<!--[if (mso)|(IE)]></td><![endif]-->
+<!--[if (mso)|(IE)]></tr></table><![endif]-->
+</div>
+</div>
+<div class="hse-section" id="section-3" style="padding-left:10px; padding-right:10px">
+<div bgcolor="#ffffff" class="hse-column-container" style="min-width:280px; max-width:600px; margin:0 auto; background-color:#ffffff; padding-bottom:30px">
+<!--[if (mso)|(IE)]>
+      <table align="center" style="width:600px;" cellpadding="0" cellspacing="0" role="presentation" width="600" bgcolor="#ffffff">
+      <tr style="background-color:#ffffff;">
+    <![endif]-->
+<!--[if (mso)|(IE)]>
+  <td valign="top" style="width:600px;padding-bottom:30px;">
+<![endif]-->
+<!--[if gte mso 9]>
+  <table role="presentation" width="600" cellpadding="0" cellspacing="0" style="width:600px">
+<![endif]-->
+<div class="hse-column hse-size-12" id="column-3-0">
+<table cellpadding="0" cellspacing="0" class="" role="presentation" style="" width="100%"><tbody><tr><td style="font-family:Lato, Tahoma, sans-serif; font-size:16px; color:#000000; word-break:break-word; padding:20px 0px 0px"><div class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module" data-hs-cos-general-type="widget" data-hs-cos-type="module" id="hs_cos_wrapper_module_17587476179191" style="color: inherit; font-size: inherit; line-height: inherit;"><table border="0" cellpadding="0" cellspacing="0" role="none" style="vertical-align:top" width="100%">
+<tbody><tr>
+<td align="center" style="font-family:Lato, Tahoma, sans-serif; color:#000000; font-size:0; word-break:break-word">
+<p style="font-size:1px;border-top:6px solid #d9e9f7;width:100%;margin:0 auto;"></p>
+<!--[if mso]>
+        <table role="none" align="center" border="0" cellpadding="0" cellspacing="0" style="font-size:1px;border-top:6px solid #d9e9f7;width:600px;">
+          <tr>
+            <td style="height:0;line-height:0">&nbsp;</td>
+          </tr>
+        </table>
+      <![endif]-->
+</td>
+</tr>
+</tbody></table></div></td></tr></tbody></table>
+<table cellpadding="0" cellspacing="0" class="" role="presentation" style="" width="100%"><tbody><tr><td class="hs_padded" style="font-family:Lato, Tahoma, sans-serif; font-size:16px; color:#000000; word-break:break-word; padding:20px 20px 10px"><div class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module" data-hs-cos-general-type="widget" data-hs-cos-type="module" id="hs_cos_wrapper_module_17573730052523" style="color: inherit; font-size: inherit; line-height: inherit;"><div class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_rich_text" data-hs-cos-general-type="widget" data-hs-cos-type="rich_text" id="hs_cos_wrapper_module_17573730052523_" style="color: inherit; font-size: inherit; line-height: inherit;"><h1 align="center" style="margin:0; font-family:Merriweather, Georgia, sans-serif; color:#000000; text-align:center; font-weight:bold; line-height:175%; font-size:22px"><span style="font-family: Lato, Tahoma, sans-serif;">Featured Webinars</span></h1></div></div></td></tr></tbody></table>
+<table cellpadding="0" cellspacing="0" class="" role="presentation" style="" width="100%"><tbody><tr><td class="hs_padded" style="font-family:Lato, Tahoma, sans-serif; font-size:16px; color:#000000; word-break:break-word; padding:10px 20px"><div class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module" data-hs-cos-general-type="widget" data-hs-cos-type="module" id="hs_cos_wrapper_module_17573730292354" style="color: inherit; font-size: inherit; line-height: inherit;"><div class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_rich_text" data-hs-cos-general-type="widget" data-hs-cos-type="rich_text" id="hs_cos_wrapper_module_17573730292354_" style="color: inherit; font-size: inherit; line-height: inherit;"><p style="line-height:175%"><a data-hs-link-id="0" data-hs-link-id-v2="9s1AikNX" href="https://info.thenewstack.io/e3t/Ctc/L2+113/d5qLSh04/VW8r0f3kRm7bN2Q3XM6RBVpBW15bp5B5MGykcN1f4_X45g8t6W5BWr2F6lZ3nVW3QRx2l6r8vB0W4fR-T73M9c0rW8XsL2321VD7JN19GWGgfFFRDW49D3pR6bKvVHW3vL70J540H1_W6DdtxL56Q-7LW83crLx35svK-W3XSzHw3Q6fFqW4bvqFf3TnxkYVrw-df6ghz2qW69T2Jp1BWgkfW90N5lt8-_KLzW78vChW8B6G9LW8c5YF_2n1Q6GW7D6ZNc2_Hsl8N2bs4lF9lKmYW1d7nz53_KJ2tW2sbVr55F2w3kW51T-lW4MLfwyW4-_GMB68TshfW40cymZ77lq3CW8ykWXJ6YRTJyW8rLLvD8mvkFgW1_GDqN7bVfTFW6_ndDF1x9pnfW8h7cmf6sPGZxN62t5hx57DYVW1yjX9f5hmv0JW3-cKm08K03xRW9bp9gd1Qy_rpVG9S6G2XKFyYW8K-HQN6JvJ7kN4XQQRKYx_xZf5x-sb404" rel="noopener" style="color:#ff3287" target="_blank">Developer-led observability: Debugging distributed and AI systems with runtime telemetry</a><br/><span style="font-weight: bold;">Join us on April 16</span> for a live webinar on integrating observability into everyday workflows. You’ll see real-world examples and live debugging demonstrations that show how to move faster, escalate less, and build more reliable AI-driven systems from the start.<br/><br/></p>
+<p style="line-height:175%"><a data-hs-link-id="0" data-hs-link-id-v2="4Kv41gx8" href="https://info.thenewstack.io/e3t/Ctc/L2+113/d5qLSh04/VW8r0f3kRm7bN2Q3XM6RBVpBW15bp5B5MGykcN1f4_YT3hCZYW95jsWP6lZ3lWW3YvG0L5htPzvW5DsDX789ztNsW9bnMGf6c6lFvW38nHQj3pPJT8W3cc7xf5_C986W1yb_JY8x7B0xW6sjP9N4ws6F9W1nMhfK7DjK52W7L477l6gr8WFW596rP-2-lD-RW53rFj_7W6VhzW8rqVcq83Ypy4W8yw58b3f8yz-W8KDM5J2YV_R6W1THPRh43zzC2W50nZWV6BmbpRN51sVXTK3M01W2c_hvT20Br4vW99cQnN7ztJV9W9bhR758SS7BdVqfg735M0n2NW70mznM5WlFFJW5RdYSc7z2S3yW6h2pRk8xY76CW7Hpq5831GY7MW3jp0NM7BPNtsW5KXh682FlWKSW6Txv1T3dY3gzW923sV73ZG84SW4Xdq3r3jrN_Df2KZ1BP04" rel="noopener" style="color:#ff3287" target="_blank">The next step for continuous delivery: An IDP-driven platform</a></p>
+<p style="line-height:175%">Continuous Delivery solved deployment, but it hasn't solved the 'access' problem. As AI speeds up coding, pipelines remain gated by tribal knowledge and manual handoffs. <span style="font-weight: bold;">Join us on April 23</span> to learn how platform teams bridge the gap between catalog data, environments, and pipelines to eliminate friction and automate consistency.</p>
+<p style="line-height:175%"> </p>
+<p style="line-height:175%"><a data-hs-link-id="0" data-hs-link-id-v2="J8k/Mtlj" href="https://info.thenewstack.io/e3t/Ctc/L2+113/d5qLSh04/VW8r0f3kRm7bN2Q3XM6RBVpBW15bp5B5MGykcN1f4_X45g8t6W5BWr2F6lZ3mfW9kcmqZ9gHHTyVqqZMX3pGg3XVRZqBZ4bvMT3N5xKWkcdp3LMW3fdx454yKVmHW401tTL7VHTjqW5Mr80l92QzC_W93c7w-2gw7DzW5p6B1Z7w3K8RN6-jrNg9f-3HW8rlTTk11yzdhW6nmHwX4hSFKmW2qtm527xpKrxW4JD2_88FXw8jW20s5CD1VmbVgN1Jh43_tGdP4W7MFWJM6DjhVzW4bjrFZ4zBRkJW9hQmX27TpDZpW2Z3n7-3vCw0nW89X9kP4PPwZZW7VX3Hv1HsxqWW6s3B4-6wxyYcW6Slpsp3gbRbyW9cFgFR4lfVxnW3dfBGB67cxkHW3ggKB_4vtD4tW3T1TN45wGZN_W557ydk5tNp7ZW5yrrdQ39m-YcW2VM_fj4sl7TwW8h8qRb3Tgj6cN3JkVwM5M_jtVt_yPR1-ckXmf2f-QkT04" rel="noopener" style="color:#ff3287" target="_blank">Break the cycle of spending $250bn on manual IT operations with the IT knowledge graph</a><br/>Rules-based automation solves only 20% of IT problems, leaving a $250 billion manual burden. BigPanda’s IT Knowledge Graph fixes this by connecting fragmented data and institutional knowledge, allowing AI to handle the complex reasoning rules cannot. <span style="font-weight: bold;">Join us on April 28</span> to see how this shift drives 430% ROI and reduces outages by replacing reactive, manual operations.</p>
+<p style="line-height:175%"> </p>
+<p style="line-height:175%"><a data-hs-link-id="0" data-hs-link-id-v2="MT3QajJq" href="https://info.thenewstack.io/e3t/Ctc/L2+113/d5qLSh04/VW8r0f3kRm7bN2Q3XM6RBVpBW15bp5B5MGykcN1f4_YT3hCZYW95jsWP6lZ3mZW5m7CnL9l1rLVW98ZJlj4CNh-cW9fpTZx1v8dJ2W6c1r1M2_ByVCW93l6mM70Ps8fVTd1KR2msFGkW6QYH9C4nqkFzM4rKlLmt_ckW3TpkLl5_ssB3W6WTgj193SLH1W2w1sg42v1yHQW59vcYw6c2_TTW35sFZ26tMjwwW3X7SJY8Z44LjW2fyL2G6-86BvW9kySmF8CSvN4W89mMsh519blWW8hKJN45hV-DjW8s5KvN7kMkycW9299JZ3SzvvMW2SylB67-9y_mW8Q6mN15nngD0VB0ysP7LmCg9N8sDPj2Q0KG8W4LsvfM1vXdGBW1ym59y3vzQyTW7GqZ5x8g1c7ZW4JcQSG4TG-C8W5DdcGS78Z2KkW62YF5c5-RrSdf5SCWMC04" rel="noopener" style="color:#ff3287" target="_blank">Beyond the SRE: Democratizing observability data with GenAI</a><br/>GenAI is transforming observability from a specialized SRE domain into a democratized asset, allowing anyone to query complex system data using plain language. <span style="font-weight: bold;">Join us on May 12</span> to democratize insights via natural language, bridge data silos with OpenTelemetry, and future-proof your platform for proactive, agentic AI.</p></div></div></td></tr></tbody></table>
+</div>
+<!--[if gte mso 9]></table><![endif]-->
+<!--[if (mso)|(IE)]></td><![endif]-->
+<!--[if (mso)|(IE)]></tr></table><![endif]-->
+</div>
+</div>
+<div class="hse-section" id="section-4" style="padding-left:10px; padding-right:10px">
+<div bgcolor="#9abad3" class="hse-column-container" style="min-width:280px; max-width:600px; margin:0 auto; background-color:#9abad3">
+<!--[if (mso)|(IE)]>
+      <table align="center" style="width:600px;" cellpadding="0" cellspacing="0" role="presentation" width="600" bgcolor="#9abad3">
+      <tr style="background-color:#9abad3;">
+    <![endif]-->
+<!--[if (mso)|(IE)]>
+  <td valign="top" style="width:600px;">
+<![endif]-->
+<!--[if gte mso 9]>
+  <table role="presentation" width="600" cellpadding="0" cellspacing="0" style="width:600px">
+<![endif]-->
+<div class="hse-column hse-size-12" id="column-4-0">
+<table cellpadding="0" cellspacing="0" class="" role="presentation" style="" width="100%"><tbody><tr><td class="hs_padded" style="font-family:Lato, Tahoma, sans-serif; font-size:16px; color:#000000; word-break:break-word; padding:20px 20px 10px"><div class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module" data-hs-cos-general-type="widget" data-hs-cos-type="module" id="hs_cos_wrapper_module-4-0-0" style="color: inherit; font-size: inherit; line-height: inherit;"><div class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_rich_text" data-hs-cos-general-type="widget" data-hs-cos-type="rich_text" id="hs_cos_wrapper_module-4-0-0_" style="color: inherit; font-size: inherit; line-height: inherit;"><p align="center" style="text-align:center; font-size:20px; line-height:175%"><span style="color: #ffffff; font-family: Lato, Tahoma, sans-serif;">Connect with The New Stack</span></p></div></div></td></tr></tbody></table>
+<table cellpadding="0" cellspacing="0" class="" role="presentation" style="" width="100%"><tbody><tr><td class="hs_padded" style="font-family:Lato, Tahoma, sans-serif; font-size:16px; color:#000000; word-break:break-word; padding:5px 20px 10px"><div class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module" data-hs-cos-general-type="widget" data-hs-cos-type="module" id="hs_cos_wrapper_module-4-0-1" style="color: inherit; font-size: inherit; line-height: inherit;"><table align="center" class="hs_cos_wrapper_type_social_module" role="presentation" style="width: auto; text-align: center; margin: 0 auto; ">
+<tbody>
+<tr>
+<td align="center" class="social-network-cell" style="font-family:Lato, Tahoma, sans-serif; font-size:16px; color:#000000; word-break:break-word">
+<table align="center" class="hs_cos_wrapper_type_social_module_single" role="presentation" style="width: auto; text-align: center; margin: 0 auto; ">
+<tbody>
+<tr>
+<td align="center" class="display_block_on_small_screens" style="font-family:Lato, Tahoma, sans-serif; font-size:16px; color:#000000; word-break:break-word; padding:8px 7px; line-height:1; vertical-align:middle" valign="middle">
+<a data-hs-link-id="1" data-hs-link-id-v2="EOSendBE" href="https://info.thenewstack.io/e3t/Ctc/L2+113/d5qLSh04/VW8r0f3kRm7bN2Q3XM6RBVpBW15bp5B5MGykcN1f4_XH3hCZYW6N1vHY6lZ3mwW6kvdC71gGsvHVQWnDF34s6vHW4__X5K7y-XyzW27BNlg4rQX4GW2rkT_G6z7LsJW73Bzsl8HG-syW8gLGWJ8n_PDzN2sCTBvwj8HlW426QT06rztHMW5cKrBf9b4LXkW1XwpC27q4L6nVXhM1W59XXM7W6F281g1tZ-wrW7TS1zD7mBLBZW79qDJh2qfJPCW4P6hFF10npL7W2krJR72xqrg4W5FcQTZ39tW_jVC14qb5msP1BW7Vgl4V42Y90KV6gWNG9hlllrW5p-rfw4jS5k7f79T-F404" style="color:#00a4bd; text-decoration:none !important" target="_blank"><img alt="TNS Website" height="35" src="https://info.thenewstack.io/hs-fs/hubfs/website_white-3.png?height=70&amp;upscale=true&amp;name=website_white-3.png" style="outline:none; text-decoration:none; border:none; width:auto!important; height:35px!important; vertical-align:middle" valign="middle" width="auto"/>
+</a>
+</td>
+</tr>
+</tbody>
+</table>
+</td><td align="center" class="social-network-cell" style="font-family:Lato, Tahoma, sans-serif; font-size:16px; color:#000000; word-break:break-word">
+<table align="center" class="hs_cos_wrapper_type_social_module_single" role="presentation" style="width: auto; text-align: center; margin: 0 auto; ">
+<tbody>
+<tr>
+<td align="center" class="display_block_on_small_screens" style="font-family:Lato, Tahoma, sans-serif; font-size:16px; color:#000000; word-break:break-word; padding:8px 7px; line-height:1; vertical-align:middle" valign="middle">
+<a data-hs-link-id="0" data-hs-link-id-v2="XxpBZhJ5" href="https://info.thenewstack.io/e3t/Ctc/L2+113/d5qLSh04/VW8r0f3kRm7bN2Q3XM6RBVpBW15bp5B5MGykcN1f4_Yg3qgz0W7Y8-PT6lZ3lbW2zWBRZ117LH4W4dPKXJ4rdx_hN85BkPZDtQ0KW8W5hg-5-LWjPW1q341r2F68qqW7YK-7T3PpwjfW4Pbmxp1n4ZygW8wTcrh8V6x8STq7PM3TgxLKN3BNrbbpkZL5N5HYKX7LJfG2W80fXRh6L7T7LW9lxVMg65xvwCW5bfznT7Xj-98W7bsTr98QTcxgW5wzM563bH4HnW8Z6FlD8_C7P8W8DTSnM1yMprnW6y5yhc33TFWJVsVbVv4hXhH4W7jNTm38XC7XpW7JQ6QX6X_gDdW7s7SF-2ybvB1W7NVf-840ZmF0W6DJK0N1jZHLlV-xLsD1KWX65f26RxCj04" style="color:#00a4bd; text-decoration:none !important" target="_blank"><img alt="LinkedIn" height="35" src="https://info.thenewstack.io/hs-fs/hubfs/LinkedIn_White-1.png?height=70&amp;upscale=true&amp;name=LinkedIn_White-1.png" style="outline:none; text-decoration:none; border:none; width:auto!important; height:35px!important; vertical-align:middle" valign="middle" width="auto"/>
+</a>
+</td>
+</tr>
+</tbody>
+</table>
+</td><td align="center" class="social-network-cell" style="font-family:Lato, Tahoma, sans-serif; font-size:16px; color:#000000; word-break:break-word">
+<table align="center" class="hs_cos_wrapper_type_social_module_single" role="presentation" style="width: auto; text-align: center; margin: 0 auto; ">
+<tbody>
+<tr>
+<td align="center" class="display_block_on_small_screens" style="font-family:Lato, Tahoma, sans-serif; font-size:16px; color:#000000; word-break:break-word; padding:8px 7px; line-height:1; vertical-align:middle" valign="middle">
+<a data-hs-link-id="0" data-hs-link-id-v2="KF65hrfo" href="https://info.thenewstack.io/e3t/Ctc/L2+113/d5qLSh04/VW8r0f3kRm7bN2Q3XM6RBVpBW15bp5B5MGykcN1f4_X-3qgz0W7lCdLW6lZ3p8W1dlp215x04-bW3V5LRj6PD8TRW3Z_5xP86B1NRW3n7z3_8S2lGRW7fT0Kh5dw8fvW7sggDz6d13t3W7GCrw94XxgQ4W47kd618Y3YrCN7J_MMlyxl-VVzd4rv4m-mX2W7K-X6b1xzqkSW8rKdPf5ppR7WW492yNx6NlGkYW1z3dD_6l45MyVF0W9X14Mc1MW1LCjsp4-sN0hV9dhsd1Rb5mKW2ZN6mq4Rh4nqW3g0vSF3F-17CW4_6ZSk6vZF47VM3R_T5Vr-ccW7j7FLT19mj9qW8FmBc_4fcHRVW57d1bx5TvVrrf37Vgvn04" style="color:#00a4bd; text-decoration:none !important" target="_blank"><img alt="X" height="35" src="https://info.thenewstack.io/hs-fs/hubfs/X_White.png?height=70&amp;upscale=true&amp;name=X_White.png" style="outline:none; text-decoration:none; border:none; width:auto!important; height:35px!important; vertical-align:middle" valign="middle" width="auto"/>
+</a>
+</td>
+</tr>
+</tbody>
+</table>
+</td><td align="center" class="social-network-cell" style="font-family:Lato, Tahoma, sans-serif; font-size:16px; color:#000000; word-break:break-word">
+<table align="center" class="hs_cos_wrapper_type_social_module_single" role="presentation" style="width: auto; text-align: center; margin: 0 auto; ">
+<tbody>
+<tr>
+<td align="center" class="display_block_on_small_screens" style="font-family:Lato, Tahoma, sans-serif; font-size:16px; color:#000000; word-break:break-word; padding:8px 7px; line-height:1; vertical-align:middle" valign="middle">
+<a data-hs-link-id="0" data-hs-link-id-v2="RPFqdvSr" href="https://info.thenewstack.io/e3t/Ctc/L2+113/d5qLSh04/VW8r0f3kRm7bN2Q3XM6RBVpBW15bp5B5MGykcN1f4_Yg3qgz0W7Y8-PT6lZ3mHW1zSBfs82gkrDVlpv7696rXT7W2mcMkN4_qm-kW8QjHQR5J6-cFW1JStyb8BfS1RW2QCYj48q53kTW1B99yC8gNz4CW6YdfP03MD1DXW3pWj0R3cgqK7W6Tz7P-8jD-kTW6SWL0s77VZpRW4L1_hB4ZsRrlW992Zn52bS033W1_3rL92NsVzQW2Y7_gS7JNpXsW1dR-Fw8zyvvbW8rRvlL6yy0kMW8Cs4Lm2XWXSKW5ZM3HH1B9_pHW7SJ2HZ10r6nHVmn6dm1cJRYcW3YyhkY3dj8W9N34lKDGvvvK6W8jgCFD23qNgXW7W4Y4-6Z5CHSN8XMfJdXQj2Wf7mSlJF04" style="color:#00a4bd; text-decoration:none !important" target="_blank"><img alt="Facebook" height="35" src="https://info.thenewstack.io/hs-fs/hubfs/Facebook_White.png?height=70&amp;upscale=true&amp;name=Facebook_White.png" style="outline:none; text-decoration:none; border:none; width:auto!important; height:35px!important; vertical-align:middle" valign="middle" width="auto"/>
+</a>
+</td>
+</tr>
+</tbody>
+</table>
+</td><td align="center" class="social-network-cell" style="font-family:Lato, Tahoma, sans-serif; font-size:16px; color:#000000; word-break:break-word">
+<table align="center" class="hs_cos_wrapper_type_social_module_single" role="presentation" style="width: auto; text-align: center; margin: 0 auto; ">
+<tbody>
+<tr>
+<td align="center" class="display_block_on_small_screens" style="font-family:Lato, Tahoma, sans-serif; font-size:16px; color:#000000; word-break:break-word; padding:8px 7px; line-height:1; vertical-align:middle" valign="middle">
+<a data-hs-link-id="0" data-hs-link-id-v2="8X8FTMoj" href="https://info.thenewstack.io/e3t/Ctc/L2+113/d5qLSh04/VW8r0f3kRm7bN2Q3XM6RBVpBW15bp5B5MGykcN1f4_X-3qgz0W7lCdLW6lZ3q4W1BMg9G3lLnQPW9jDwt385JFJsW4cDd1x14QjbSW169zYK32vkwTW18J02r32jXkTW5p2lSn7Q-VvcW8-BKKp301nJqVB-zMV4bqk7NW5h9YpR8ChLXjW82qVWM27t6TFW8KGb842kLGSRW91XnWB3hV0mkW8KJD2b5vwkLpW3ZNMG31KS19_W6TP2814rjG_bW6C37b77CHgLZW2JS9K67Myb2VN6YJpbDpgZd5W4DFlKP8Rpl_2W2s-hkF7X96dMW2Bwn641_GBTYW2ckWQ68J1RZqW3ttHvw78bXGbV5w1Sn7Bgl5nf7h9hHH04" style="color:#00a4bd; text-decoration:none !important" target="_blank"><img alt="Mastodon" height="35" src="https://info.thenewstack.io/hs-fs/hubfs/Mastodon_White.png?height=70&amp;upscale=true&amp;name=Mastodon_White.png" style="outline:none; text-decoration:none; border:none; width:auto!important; height:35px!important; vertical-align:middle" valign="middle" width="auto"/>
+</a>
+</td>
+</tr>
+</tbody>
+</table>
+</td><td align="center" class="social-network-cell" style="font-family:Lato, Tahoma, sans-serif; font-size:16px; color:#000000; word-break:break-word">
+<table align="center" class="hs_cos_wrapper_type_social_module_single" role="presentation" style="width: auto; text-align: center; margin: 0 auto; ">
+<tbody>
+<tr>
+<td align="center" class="display_block_on_small_screens" style="font-family:Lato, Tahoma, sans-serif; font-size:16px; color:#000000; word-break:break-word; padding:8px 7px; line-height:1; vertical-align:middle" valign="middle">
+<a data-hs-link-id="0" data-hs-link-id-v2="0UOJZmI9" href="https://info.thenewstack.io/e3t/Ctc/L2+113/d5qLSh04/VW8r0f3kRm7bN2Q3XM6RBVpBW15bp5B5MGykcN1f4_Yg3qgz0W7Y8-PT6lZ3lWW1fj9hT6FShZzW2FTjq99fzgx9W817bJw1zvRY0W8q226x8j_Jd2W12-HhY6YwjF3W2BhKmV8V_yCyW10xvSK6l5f20N35cyT8McxPhW4JcRzs5y2BZKN8Xvh1ScK0q3W4s6Jt75TM0pgW8p1004736p8yW7SSVVG4jR0JzW4NDv0V2X1bvyW9fdfLY1MzvXNW8WNXFt2L5Z-TW4_7N8P1khDVHW1RZCT086jmN4W1XBVQ98Q1KDRW8L-c_w6y0YpTW7ckZpQ3q_NBXW6VFNHx235nZgW19vXbJ2wPjVMW7yWmVN7_SfTLW1WB3Rh4d-PZYW3bybyb7SrH6Qf4L2sGz04" style="color:#00a4bd; text-decoration:none !important" target="_blank"><img alt="Threads" height="35" src="https://info.thenewstack.io/hs-fs/hubfs/Threads_White.png?height=70&amp;upscale=true&amp;name=Threads_White.png" style="outline:none; text-decoration:none; border:none; width:auto!important; height:35px!important; vertical-align:middle" valign="middle" width="auto"/>
+</a>
+</td>
+</tr>
+</tbody>
+</table>
+</td><td align="center" class="social-network-cell" style="font-family:Lato, Tahoma, sans-serif; font-size:16px; color:#000000; word-break:break-word">
+<table align="center" class="hs_cos_wrapper_type_social_module_single" role="presentation" style="width: auto; text-align: center; margin: 0 auto; ">
+<tbody>
+<tr>
+<td align="center" class="display_block_on_small_screens" style="font-family:Lato, Tahoma, sans-serif; font-size:16px; color:#000000; word-break:break-word; padding:8px 7px; line-height:1; vertical-align:middle" valign="middle">
+<a data-hs-link-id="0" data-hs-link-id-v2="o6toNfvf" href="https://info.thenewstack.io/e3t/Ctc/L2+113/d5qLSh04/VW8r0f3kRm7bN2Q3XM6RBVpBW15bp5B5MGykcN1f4_Yg3qgz0W7Y8-PT6lZ3nVW28hCZ67j4SjNN1fzdwP_PM9-W3DKZz28YxGTBW3gkjNl2P6447W97v1fQ2_xx42W1cb_LF1ktVJxW2mNz1s4HRSGqW3bTqv059p4g4W2cTRm17V9NyBW3p1Xvw35PmhzW48fmkw4XQBv1W1fmwDB6GDb6JW8nkbrv7yJ4MKW4wq58F7fjcG9W4vrd8R6frtmNW1JCbp92hBv1_W1PHYKG6Z2wDCN3cJD-TM5PvjN6yDPk4S1HFBW3WVfGD1n1YbJW2fV0X86h8vQFW9kY9pZ6q_G4LVPdNcL19btSKW8JmKLj7WjCH6W3sT1Vx5NPH_3W7_VqpM153W4gf3dyMNF04" style="color:#00a4bd; text-decoration:none !important" target="_blank"><img alt="Bluesky" height="35" src="https://info.thenewstack.io/hs-fs/hubfs/Bluesky_White.png?height=70&amp;upscale=true&amp;name=Bluesky_White.png" style="outline:none; text-decoration:none; border:none; width:auto!important; height:35px!important; vertical-align:middle" valign="middle" width="auto"/>
+</a>
+</td>
+</tr>
+</tbody>
+</table>
+</td><td align="center" class="social-network-cell" style="font-family:Lato, Tahoma, sans-serif; font-size:16px; color:#000000; word-break:break-word">
+<table align="center" class="hs_cos_wrapper_type_social_module_single" role="presentation" style="width: auto; text-align: center; margin: 0 auto; ">
+<tbody>
+<tr>
+<td align="center" class="display_block_on_small_screens" style="font-family:Lato, Tahoma, sans-serif; font-size:16px; color:#000000; word-break:break-word; padding:8px 7px; line-height:1; vertical-align:middle" valign="middle">
+<a data-hs-link-id="0" data-hs-link-id-v2="605q6VJ3" href="https://info.thenewstack.io/e3t/Ctc/L2+113/d5qLSh04/VW8r0f3kRm7bN2Q3XM6RBVpBW15bp5B5MGykcN1f4_Yz3qgz0W8wLKSR6lZ3lhW35RYp-476v3hW2SGj5Y7gPzkLW1LTknN5tqN3NVFrG2T1KgpwKVFsPT54_M_8JW7TB-ys4BXx2FSMyW8CDWY1W6yV4cb82c_m6N42B-DyKSrdHW4lNYyd3Ys87GW1PmgSh3QNK8rW2xmV5c3d0kSXW77xJpD6YCB2XW1sq_1n9bM2HzW2nxn-f3X3c7nW4d9xnw3H12DjW5kKRY63tJ6Y6W55Z7072V5nb1VymRbG72ltyYVGNt6D5p50LGW2jzTjn3DtWNbW13wxTr7t1k4qW3P0Qqg3f5Qn_W3yBhG86sxGvPW3NqsfR60FxS0W2K416X5xM81zW1mSgmR6ymfvYVqRMbj198D5Gf33P3vs04" style="color:#00a4bd; text-decoration:none !important" target="_blank"><img alt="Youtube" height="35" src="https://info.thenewstack.io/hs-fs/hubfs/Youtube_White.png?height=70&amp;upscale=true&amp;name=Youtube_White.png" style="outline:none; text-decoration:none; border:none; width:auto!important; height:35px!important; vertical-align:middle" valign="middle" width="auto"/>
+</a>
+</td>
+</tr>
+</tbody>
+</table>
+</td><td align="center" class="social-network-cell" style="font-family:Lato, Tahoma, sans-serif; font-size:16px; color:#000000; word-break:break-word">
+<table align="center" class="hs_cos_wrapper_type_social_module_single" role="presentation" style="width: auto; text-align: center; margin: 0 auto; ">
+<tbody>
+<tr>
+<td align="center" class="display_block_on_small_screens" style="font-family:Lato, Tahoma, sans-serif; font-size:16px; color:#000000; word-break:break-word; padding:8px 7px; line-height:1; vertical-align:middle" valign="middle">
+<a data-hs-link-id="0" data-hs-link-id-v2="SeTLz/R1" href="https://info.thenewstack.io/e3t/Ctc/L2+113/d5qLSh04/VW8r0f3kRm7bN2Q3XM6RBVpBW15bp5B5MGykcN1f4_Yz3qgz0W8wLKSR6lZ3pQW39v2gR7KWhNvF80_vZG2LYRVSqllr2kJyy_W4gf30J30zkjsW8Q19YB5SpFhDW50RMM583p82RN3tnkyzVPS05W2BCGHg3w5rm4N5XlGsDHKDNcW1j4jbZ9dJrtNW6QW1465MMfmwW3VB57W5hc6XBW8VQyLm5KFM6xW5VK00k3TqptCW919wtr4B5XJGW8BLzx74r8zQpW90mYs53sF3HHW4mZqmv3sw9BjW7cn9sP83LhXqW1XS5c02HNt8pW77mnWw15WTQHV8Wj2n483xDWW4DtyLM7QTbK1W1k6kXg5Q0n2rW4_JjLD5N-C8sW7CgrcT1CzQPjW3t4XnZ9dBKMXW14Wzkz3jLwYZf4CMbTH04" style="color:#00a4bd; text-decoration:none !important" target="_blank"><img alt="Spotify" height="35" src="https://info.thenewstack.io/hs-fs/hubfs/Spotify_White.png?height=70&amp;upscale=true&amp;name=Spotify_White.png" style="outline:none; text-decoration:none; border:none; width:auto!important; height:35px!important; vertical-align:middle" valign="middle" width="auto"/>
+</a>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div></td></tr></tbody></table>
+</div>
+<!--[if gte mso 9]></table><![endif]-->
+<!--[if (mso)|(IE)]></td><![endif]-->
+<!--[if (mso)|(IE)]></tr></table><![endif]-->
+</div>
+</div>
+<div class="hse-section hse-section-last" id="section-5" style="padding-left:10px; padding-right:10px">
+<div bgcolor="#9abad3" class="hse-column-container" style="min-width:280px; max-width:600px; margin:0 auto; background-color:#9abad3; padding-bottom:24px">
+<!--[if (mso)|(IE)]>
+      <table align="center" style="width:600px;" cellpadding="0" cellspacing="0" role="presentation" width="600" bgcolor="#9abad3">
+      <tr style="background-color:#9abad3;">
+    <![endif]-->
+<!--[if (mso)|(IE)]>
+  <td valign="top" style="width:600px;padding-bottom:24px;">
+<![endif]-->
+<!--[if gte mso 9]>
+  <table role="presentation" width="600" cellpadding="0" cellspacing="0" style="width:600px">
+<![endif]-->
+<div class="hse-column hse-size-12" id="column-5-0">
+<table cellpadding="0" cellspacing="0" class="" role="presentation" style="" width="100%"><tbody><tr><td class="hs_padded" style="font-family:Lato, Tahoma, sans-serif; font-size:16px; color:#000000; word-break:break-word; padding:10px 20px"><div class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module" data-hs-cos-general-type="widget" data-hs-cos-type="module" id="hs_cos_wrapper_module-5-0-0" style="color: inherit; font-size: inherit; line-height: inherit;"><table border="0" cellpadding="0" cellspacing="0" role="none" style="vertical-align:top" width="100%">
+<tbody><tr>
+<td align="center" style="font-family:Lato, Tahoma, sans-serif; color:#000000; font-size:0; word-break:break-word">
+<p style="font-size:1px;border-top:1px solid #FFFFFF;width:93%;margin:0 auto;"></p>
+<!--[if mso]>
+        <table role="none" align="center" border="0" cellpadding="0" cellspacing="0" style="font-size:1px;border-top:1px solid #FFFFFF;width:520px;">
+          <tr>
+            <td style="height:0;line-height:0">&nbsp;</td>
+          </tr>
+        </table>
+      <![endif]-->
+</td>
+</tr>
+</tbody></table></div></td></tr></tbody></table>
+<table cellpadding="0" cellspacing="0" class="" role="presentation" style="" width="100%"><tbody><tr><td class="hs_padded" style="font-family:Lato, Tahoma, sans-serif; font-size:16px; color:#000000; word-break:break-word; padding:10px 20px"><div class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module" data-hs-cos-general-type="widget" data-hs-cos-type="module" id="hs_cos_wrapper_module-5-0-1" style="color: inherit; font-size: inherit; line-height: inherit;"></div></td></tr></tbody></table>
+</div>
+<!--[if gte mso 9]></table><![endif]-->
+<!--[if (mso)|(IE)]></td><![endif]-->
+<!--[if (mso)|(IE)]></tr></table><![endif]-->
+</div>
+</div></div>
+</td>
+</tr>
+</tbody></table>
+</div>
+    </div>
+  </article>
+</main>
+</body>
+</html>

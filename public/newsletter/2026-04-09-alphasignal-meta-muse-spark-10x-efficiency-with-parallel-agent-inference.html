@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>⚡️ Meta Muse Spark: 10x efficiency with parallel agent inference — Pranav P</title>
+<meta name="description" content="Anthropic builds Managed Agents to remove agent infrastructure, Google Gemini adds NotebookLM for project organization. Anthropic builds Managed Agents to remove agent infrastructure, Google Gemini adds NotebookLM for project organization.…" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/styles.css" />
+<link rel="stylesheet" href="/newsletter/styles.css" />
+</head>
+<body>
+
+  <nav>
+    <div class="logo"><a href="/" style="text-decoration:none;color:inherit">pranav<span class="dot">.</span>p</a></div>
+    <ul class="nav-links">
+      <li><a href="/#work">Work</a></li>
+      <li><a href="/#projects">Projects</a></li>
+      <li><a href="/newsletter/" class="active">Reading</a></li>
+      <li><a href="/#contact">Contact</a></li>
+    </ul>
+    <a class="nav-cta" href="/#chat"><span class="blip"></span>Ask my AI twin</a>
+  </nav>
+
+
+<main class="nl-wrap nl-detail-wrap">
+  <a class="nl-back" href="/newsletter/">← back to list</a>
+  <article class="nl-detail">
+    <header class="nl-detail-header">
+      <div class="nl-card-meta">
+        <span class="nl-sender">AlphaSignal</span>
+        <span class="nl-date">Apr 9, 2026</span>
+      </div>
+      <h1 class="nl-detail-title">⚡️ Meta Muse Spark: 10x efficiency with parallel agent inference</h1>
+    </header>
+    <div class="nl-detail-body">
+      <div style="display:none!important;max-height:0;overflow:hidden;mso-hide:all;font-size:1px;line-height:1px;opacity:0;color:transparent;">Anthropic builds Managed Agents to remove agent infrastructure, Google Gemini adds NotebookLM for project organization.</div>
+<div style="display:none;max-height:0;overflow:hidden;">Anthropic builds Managed Agents to remove agent infrastructure, Google Gemini adds NotebookLM for project organization.</div>
+<table bgcolor="#fcfcfc" border="0" cellpadding="0" cellspacing="0" role="presentation" width="100%">
+<tr>
+<td align="center" style="padding:0 10px;">
+<!-- all your inner tables start here -->
+<!-- Hidden Preheader -->
+<div style="display:none !important;font-size:1px;color:#ffffff;line-height:1px;
+              max-height:0px;max-width:0px;overflow:hidden;opacity:0;">
+    Stay updated with today’s top AI news, papers, and repos.
+  </div>
+<!-- ✅ Centered footer menu (desktop + mobile) -->
+<table border="0" cellpadding="0" cellspacing="0" role="presentation" style="max-width:600px;margin:0 auto;" width="100%">
+<tr>
+<td align="center" style="padding:6px 0 2px 0;text-align:center;">
+<table align="center" border="0" cellpadding="0" cellspacing="0" class="menu-bar" role="presentation" style="display:inline-table;margin:0 auto;text-align:center;">
+<tr>
+<td style="font-size:12px;line-height:18px;font-family:Helvetica, Arial, sans-serif;">
+<a href="https://alphasignal.ai/?utm_source=email" style="text-decoration:none;color:#000000 !important;
+                      font-family:Helvetica, Arial, sans-serif;
+                      font-size:12px;line-height:18px;" target="_blank">
+              Signup
+            </a>
+</td>
+<td style="font-size:13px;line-height:18px;color:#000000;
+                     font-family:Helvetica, Arial, sans-serif;">|</td>
+<td style="font-size:12px;line-height:18px;font-family:Helvetica, Arial, sans-serif;">
+<a href="https://app.alphasignal.ai/c?uid=Z26xdR15QjDeeM2j&amp;cid=5cec6debee3e8c39&amp;lid=1tMM9xNSKwZM6cCbG&amp;mid=c0adfe7a-c8db-4577-86cf-b1c1c3ecebe0" style="text-decoration:none;color:#000000 !important;
+                      font-family:Helvetica, Arial, sans-serif;
+                      font-size:12px;line-height:18px;" target="_blank">
+              Work With Us
+            </a>
+</td>
+<td style="font-size:13px;line-height:18px;color:#000000;
+                     font-family:Helvetica, Arial, sans-serif;">|</td>
+<td style="font-size:12px;line-height:18px;font-family:Helvetica, Arial, sans-serif;">
+<a href="https://app.alphasignal.ai/c?uid=Z26xdR15QjDeeM2j&amp;cid=5cec6debee3e8c39&amp;lid=1lsPGmRzc3Pq3o2iM&amp;mid=c0adfe7a-c8db-4577-86cf-b1c1c3ecebe0" style="text-decoration:none;color:#000000 !important;
+                      font-family:Helvetica, Arial, sans-serif;
+                      font-size:12px;line-height:18px;" target="_blank">
+              Follow on X
+            </a>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+<!-- SINGLE BLOCK: BLACK BACKGROUND, WHITE TEXT -->
+<table border="0" cellpadding="0" cellspacing="0" role="presentation" style="max-width:600px;margin:auto;border:1px solid #000;background-color:#000000;margin-bottom:30px;" width="100%">
+<tr>
+<td style="padding:20px;">
+<!-- Logo -->
+<img alt="AlphaSignal Logo" border="0" src="https://alphasignal.ai/image/1764279764256-wj5ohs.png" style="display:block;width:32px;height:auto;margin-bottom:10px;" width="32"/>
+<!-- White Divider Under Logo -->
+<table border="0" cellpadding="0" cellspacing="0" role="presentation" style="margin:0 0 20px 0;" width="100%">
+<tr>
+<td style="border-top:1px solid #FFFFFF;"></td>
+</tr>
+</table>
+<!-- Greeting -->
+<p style="font-family:Helvetica, Arial, sans-serif;font-size:16px;line-height:24px;
+                font-weight:bold;color:#ffffff;margin:0 0 10px 0;">
+        Hey Aikkara,
+      </p>
+<!-- Intro Text -->
+<p style="font-family:Helvetica, Arial, sans-serif;font-size:15px;line-height:22px;
+                color:#ffffff;margin:0;">
+Your daily briefing is ready. You can finally take a break from the AI firehose.<br/><br/>
+Our algos spent the night splitting signal from noise and pulled the top news, models, papers, and repos.<br/><br/>
+Here’s the must-read:
+      </p>
+</td>
+</tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" role="presentation" style="max-width:600px;margin:auto;border:1px solid #000;background-color:#ffffff;padding:0 20px;margin-bottom:30px;padding-bottom:20px;" width="100%">
+<tr>
+<td class="h1" style="font-family:system-ui, sans-serif;font-size:17px;font-weight:bold;line-height:22.5px;
+                          margin:0;padding:15px 0 10px 0;
+                          color:#000000 !important;mso-color-alt:windowtext;mso-style-textfill-fill-color:#000000;">
+      Summary
+    </td>
+</tr>
+<tr>
+<td style="padding:0 0 10px 0;color:#000000 !important;">
+<table border="0" cellpadding="0" cellspacing="0" role="presentation" width="100%">
+<tr><td style="border-top:1px solid #000000;"></td></tr>
+</table>
+</td>
+</tr>
+<tr>
+<td style="color:#000000 !important;">
+<p style="font-family:system-ui; font-size:13px;line-height:22.5px;font-weight:normal;
+                margin:0;padding:0;
+                color:#000000 !important;mso-color-alt:windowtext;mso-style-textfill-fill-color:#000000;">
+        Read time: 4 min 26 sec
+      </p>
+</td>
+</tr>
+<tr>
+<td style="padding:10px 0;color:#000000 !important;">
+<table border="0" cellpadding="0" cellspacing="0" role="presentation" width="100%">
+<tr><td style="border-top:1px solid #cbcbcb;"></td></tr>
+</table>
+</td>
+</tr>
+<tr>
+<td style="padding:5px 0 0 0;color:#000000 !important;">
+<p style="font-family:Helvetica, sans-serif;font-size:15px;font-weight:bold;line-height:22.5px;
+                margin:0;padding:0;
+                color:#000000 !important;mso-color-alt:windowtext;
+                mso-style-textfill-fill-color:#000000;">
+<u>Top News</u>
+</p>
+</td>
+</tr>
+<tr>
+<td style="padding:10px 0;color:#000000 !important;">
+<a href="https://app.alphasignal.ai/c?uid=Z26xdR15QjDeeM2j&amp;cid=5cec6debee3e8c39&amp;lid=1eDLeXACnqpBqTnmc&amp;mid=c0adfe7a-c8db-4577-86cf-b1c1c3ecebe0" style="font-family:Helvetica, sans-serif;font-size:15px;line-height:22.5px;
+                         color:#000000 !important;text-decoration:none;display:block;
+                         mso-color-alt:windowtext;mso-style-textfill-fill-color:#000000;">
+        ▸ Meta releases <span style="color:#f74904 !important;mso-color-alt:#f74904;mso-style-textfill-fill-color:#f74904;">Muse Spark</span>, a reasoning model with parallel agent inference
+      </a>
+</td>
+</tr>
+<tr>
+<td style="padding:10px 0;color:#000000 !important;">
+<table border="0" cellpadding="0" cellspacing="0" role="presentation" width="100%">
+<tr><td style="border-top:1px solid #cbcbcb;"></td></tr>
+</table>
+</td>
+</tr>
+<tr>
+<td style="padding:5px 0 0 0;color:#000000 !important;">
+<p style="font-family:Helvetica, sans-serif;font-size:15px;font-weight:bold;line-height:22.5px;
+                margin:0;padding:0;
+                color:#000000 !important;mso-color-alt:windowtext;
+                mso-style-textfill-fill-color:#000000;">
+<u>Top News</u>
+</p>
+</td>
+</tr>
+<tr>
+<td style="padding:10px 0;color:#000000 !important;">
+<a href="https://app.alphasignal.ai/c?uid=Z26xdR15QjDeeM2j&amp;cid=5cec6debee3e8c39&amp;lid=1tGq3ffNawG882B1B&amp;mid=c0adfe7a-c8db-4577-86cf-b1c1c3ecebe0" style="font-family:Helvetica, sans-serif;font-size:15px;line-height:22.5px;
+                         color:#000000 !important;text-decoration:none;display:block;
+                         mso-color-alt:windowtext;mso-style-textfill-fill-color:#000000;">
+        ▸ Anthropic builds Managed Agents to handle <span style="color:#f74904 !important;mso-color-alt:#f74904;mso-style-textfill-fill-color:#f74904;">agent infrastructure</span> automatically
+      </a>
+</td>
+</tr>
+<tr>
+<td style="padding:10px 0;color:#000000 !important;">
+<table border="0" cellpadding="0" cellspacing="0" role="presentation" width="100%">
+<tr><td style="border-top:1px solid #cbcbcb;"></td></tr>
+</table>
+</td>
+</tr>
+<tr>
+<td style="padding:5px 0 0 0;color:#000000 !important;">
+<p style="font-family:Helvetica, sans-serif;font-size:15px;font-weight:bold;line-height:22.5px;
+                margin:0;padding:0;
+                color:#000000 !important;mso-color-alt:windowtext;
+                mso-style-textfill-fill-color:#000000;">
+<u>TELUS Digital</u>
+</p>
+</td>
+</tr>
+<tr>
+<td style="padding:10px 0;color:#000000 !important;">
+<a href="https://app.alphasignal.ai/c?uid=Z26xdR15QjDeeM2j&amp;cid=5cec6debee3e8c39&amp;lid=1D5Sx8z9Q4VvVYfZD&amp;mid=c0adfe7a-c8db-4577-86cf-b1c1c3ecebe0" style="font-family:Helvetica, sans-serif;font-size:15px;line-height:22.5px;
+                         color:#000000 !important;text-decoration:none;display:block;
+                         mso-color-alt:windowtext;mso-style-textfill-fill-color:#000000;">
+        ▸ Test your LLM against <span style="color:#f74904 !important;mso-color-alt:#f74904;mso-style-textfill-fill-color:#f74904;">prompt injection attacks</span> using real benchmarks
+      </a>
+</td>
+</tr>
+<tr>
+<td style="padding:10px 0;color:#000000 !important;">
+<table border="0" cellpadding="0" cellspacing="0" role="presentation" width="100%">
+<tr><td style="border-top:1px solid #cbcbcb;"></td></tr>
+</table>
+</td>
+</tr>
+<tr>
+<td style="padding:5px 0 0 0;color:#000000 !important;">
+<p style="font-family:Helvetica, sans-serif;font-size:15px;font-weight:bold;line-height:22.5px;
+                margin:0;padding:0;
+                color:#000000 !important;mso-color-alt:windowtext;
+                mso-style-textfill-fill-color:#000000;">
+<u>Top News</u>
+</p>
+</td>
+</tr>
+<tr>
+<td style="padding:10px 0;color:#000000 !important;">
+<a href="https://app.alphasignal.ai/c?uid=Z26xdR15QjDeeM2j&amp;cid=5cec6debee3e8c39&amp;lid=1xnRzKoXs06Lo2Ksy&amp;mid=c0adfe7a-c8db-4577-86cf-b1c1c3ecebe0" style="font-family:Helvetica, sans-serif;font-size:15px;line-height:22.5px;
+                         color:#000000 !important;text-decoration:none;display:block;
+                         mso-color-alt:windowtext;mso-style-textfill-fill-color:#000000;">
+        ▸ Google integrates <span style="color:#f74904 !important;mso-color-alt:#f74904;mso-style-textfill-fill-color:#f74904;">NotebookLM with Gemini</span> for persistent project workspaces
+      </a>
+</td>
+</tr>
+<tr>
+<td style="padding:10px 0;color:#000000 !important;">
+<table border="0" cellpadding="0" cellspacing="0" role="presentation" width="100%">
+<tr><td style="border-top:1px solid #cbcbcb;"></td></tr>
+</table>
+</td>
+</tr>
+<tr>
+<td style="padding:5px 0 0 0;color:#000000 !important;">
+<p style="font-family:Helvetica, sans-serif;font-size:15px;font-weight:bold;line-height:22.5px;
+                margin:0;padding:0;
+                color:#000000 !important;mso-color-alt:windowtext;
+                mso-style-textfill-fill-color:#000000;">
+<u>Signals</u>
+</p>
+</td>
+</tr>
+<tr>
+<td style="padding:10px 0;color:#000000 !important;">
+<a href="https://app.alphasignal.ai/c?uid=Z26xdR15QjDeeM2j&amp;cid=5cec6debee3e8c39&amp;lid=CZFkvjpu0WmSbT7g&amp;mid=c0adfe7a-c8db-4577-86cf-b1c1c3ecebe0" style="font-family:Helvetica, sans-serif;font-size:15px;line-height:22.5px;
+                         color:#000000 !important;text-decoration:none;display:block;
+                         mso-color-alt:windowtext;mso-style-textfill-fill-color:#000000;">
+        ▸ Cursor lets you <span style="color:#f74904 !important;mso-color-alt:#f74904;mso-style-textfill-fill-color:#f74904;">run agents remotely</span> and control them from phone
+      </a>
+</td>
+</tr>
+<tr>
+<td style="padding:10px 0;color:#000000 !important;">
+<a href="https://app.alphasignal.ai/c?uid=Z26xdR15QjDeeM2j&amp;cid=5cec6debee3e8c39&amp;lid=fCDTtJic9QTPlWlr&amp;mid=c0adfe7a-c8db-4577-86cf-b1c1c3ecebe0" style="font-family:Helvetica, sans-serif;font-size:15px;line-height:22.5px;
+                         color:#000000 !important;text-decoration:none;display:block;
+                         mso-color-alt:windowtext;mso-style-textfill-fill-color:#000000;">
+        ▸ Evaluate <span style="color:#f74904 !important;mso-color-alt:#f74904;mso-style-textfill-fill-color:#f74904;">computer-use agents</span> achieving human-level performance on OSW-V
+      </a>
+</td>
+</tr>
+<tr>
+<td style="padding:10px 0;color:#000000 !important;">
+<a href="https://app.alphasignal.ai/c?uid=Z26xdR15QjDeeM2j&amp;cid=5cec6debee3e8c39&amp;lid=8orHBY9s2fwFg2gZ&amp;mid=c0adfe7a-c8db-4577-86cf-b1c1c3ecebe0" style="font-family:Helvetica, sans-serif;font-size:15px;line-height:22.5px;
+                         color:#000000 !important;text-decoration:none;display:block;
+                         mso-color-alt:windowtext;mso-style-textfill-fill-color:#000000;">
+        ▸ Anthropic explains <span style="color:#f74904 !important;mso-color-alt:#f74904;mso-style-textfill-fill-color:#f74904;">Managed Agents architecture</span> for long-running agent systems
+      </a>
+</td>
+</tr>
+<tr>
+<td style="padding:10px 0;color:#000000 !important;">
+<a href="https://app.alphasignal.ai/c?uid=Z26xdR15QjDeeM2j&amp;cid=5cec6debee3e8c39&amp;lid=bVeIV89vFrPscm7I&amp;mid=c0adfe7a-c8db-4577-86cf-b1c1c3ecebe0" style="font-family:Helvetica, sans-serif;font-size:15px;line-height:22.5px;
+                         color:#000000 !important;text-decoration:none;display:block;
+                         mso-color-alt:windowtext;mso-style-textfill-fill-color:#000000;">
+        ▸ OpenAI outlines framework to prevent AI-enabled child exploitation risks
+      </a>
+</td>
+</tr>
+<tr>
+<td style="padding:10px 0;color:#000000 !important;">
+<a href="https://app.alphasignal.ai/c?uid=Z26xdR15QjDeeM2j&amp;cid=5cec6debee3e8c39&amp;lid=1t9T46vwlfbYDkKHI&amp;mid=c0adfe7a-c8db-4577-86cf-b1c1c3ecebe0" style="font-family:Helvetica, sans-serif;font-size:15px;line-height:22.5px;
+                         color:#000000 !important;text-decoration:none;display:block;
+                         mso-color-alt:windowtext;mso-style-textfill-fill-color:#000000;">
+        ▸ Perplexity kicks off <span style="color:#f74904 !important;mso-color-alt:#f74904;mso-style-textfill-fill-color:#f74904;">startup competition</span> powered by Computer agents
+      </a>
+</td>
+</tr>
+</table><!-- Author Box -->
+<table border="0" cellpadding="0" cellspacing="0" role="presentation" style="max-width:600px;margin:auto;border:1px solid #000000;
+              background-color:#ffffff;padding:15px 20px 20px 20px;margin-bottom:30px;" width="100%">
+<tr>
+<!-- Profile Image -->
+<td style="padding-right:12px;" valign="top" width="70">
+<img alt="Author photo" height="60" src="https://alphasignal.ai/image/1773273870123-brvvx0.png" style="display:block;border:1px solid #000000;outline:none;text-decoration:none;" width="60"/>
+</td>
+<!-- Text Content -->
+<td style="font-family:system-ui, Helvetica, Arial, sans-serif;color:#000000;" valign="middle">
+<div style="font-size:15px;font-weight:700;line-height:20px;margin:0 0 3px 0;padding:0;">
+        Today's Author
+      </div>
+<div style="font-size:15px;line-height:20px;margin:0;padding:0;">
+        Lior Alexander. Founder of AlphaSignal and former ML Engineer.
+Previously built ML systems at Iguazio, Guesty, Enphase, Mila.
+      </div>
+</td>
+</tr>
+</table>
+<!-- Outer Box -->
+<table border="0" cellpadding="0" cellspacing="0" role="presentation" style="max-width:600px;margin:auto;border:1px solid #6B6B6B;background-color:#ffffff;padding:15px 20px 20px 20px;margin-bottom:30px;" width="100%">
+<!-- Section Title -->
+<tr>
+<td style="font-family:system-ui, sans-serif;font-size:16px;line-height:22px;font-weight:bold;
+               color:#000000 !important;mso-color-alt:windowtext;mso-style-textfill-fill-color:#000000;
+               padding:0 0 10px 0;">
+      Top News
+    </td>
+</tr>
+<!-- Divider -->
+<tr>
+<td style="padding:0 0 10px 0;">
+<table border="0" cellpadding="0" cellspacing="0" role="presentation" width="100%">
+<tr><td style="border-top:1px solid #6B6B6B;"></td></tr>
+</table>
+</td>
+</tr>
+<!-- Headline -->
+<tr>
+<td class="h1" style="font-family:Helvetica, sans-serif;font-size:17px;line-height:22px;font-weight:bold;
+             color:#000000 !important;mso-color-alt:windowtext;
+             mso-style-textfill-fill-color:#000000;
+             padding:0 0 5px 0;">
+<span style="color:#000000 !important;text-decoration:none;">
+      Meta debuts Muse Spark combining multimodal inputs, tool use, and agent orchestration in one system
+    </span>
+</td>
+</tr>
+<tr>
+<td style="font-family:system-ui;
+                font-size:13px;line-height:18px;font-weight:normal;
+                padding:0 0 10px 0;
+                color:#f74904 !important;
+                mso-color-alt:#f74904;
+                mso-style-textfill-fill-color:#f74904;">
+        23,539 Likes
+      </td>
+</tr>
+<!-- Feature Image -->
+<tr>
+<td style="padding:0 0 10px 0;"> <!-- bottom only -->
+<img alt="Grok 4 Fast Benchmark" border="0" src="https://alphasignal.ai/image/1775737600007-slfzhn.png" style="display:block;width:100%;max-width:560px;height:auto;" width="560"/>
+</td>
+</tr>
+<!-- Body Text (processed with code highlighting) -->
+<tr>
+<td style="font-family:Helvetica, sans-serif;font-size:15px;line-height:22px;font-weight:normal;
+           color:#000000 !important;mso-color-alt:windowtext;mso-style-textfill-fill-color:#000000;
+           padding:0;">
+<div style="margin-top:0;">
+<p>Meta introduces Muse Spark, the first model from its rebuilt AI stack after nine months of changes across infrastructure, architecture, and data. It powers Meta AI and combines multimodal reasoning, tool use, and agent orchestration in one system.</p>
+<p>The key idea is simple: instead of one long reasoning chain, multiple agents work in parallel to solve harder problems.</p>
+<p><strong>What it does</strong></p>
+<p>Muse Spark processes text and images together and runs structured reasoning across them.</p>
+<ul>
+<li>Handles multimodal inputs in a single pipeline without separate models</li>
+<li>Uses visual chain-of-thought to reason over images step by step</li>
+<li>Calls tools to execute multi-step workflows during inference</li>
+<li>Solves visual STEM tasks with object recognition and spatial understanding</li>
+</ul>
+<p><strong>Key results</strong></p>
+<p>Meta shows scaling across training and inference stages.</p>
+<ul>
+<li>Scores <strong>58% on Humanity’s Last Exam</strong>, <strong>38% on FrontierScience Research</strong></li>
+<li>Improves efficiency by <strong>10× vs Llama 4 Maverick</strong> during pretraining</li>
+<li>Uses RL to increase pass@1 and pass@16 accuracy with stable gains</li>
+<li>Runs parallel agents to improve reasoning without increasing latency</li>
+</ul>
+<p><strong>How to use it</strong></p>
+<p>You can access Muse Spark through Meta AI apps or API preview.</p>
+<ul>
+<li>Input text, images, or both for multimodal reasoning tasks</li>
+<li>Enable Contemplating mode for deeper reasoning on complex queries</li>
+<li>Build workflows that combine tool calls and structured outputs</li>
+<li>Use it for tasks like debugging, annotation, or interactive UI generation</li>
+</ul>
+</div>
+</td>
+</tr>
+<!-- Button -->
+<tr>
+<td align="center" style="padding:15px 0 0px 0;">
+<table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation">
+<tr>
+<td align="center" bgcolor="#f74904" class="btn" style="font-family:Helvetica, sans-serif;font-size:16px;font-weight:bold;
+                     padding:12px 12px;color:#ffffff !important;
+                     border:1px solid #000;display:block;">
+<a href="https://app.alphasignal.ai/c?uid=Z26xdR15QjDeeM2j&amp;cid=5cec6debee3e8c39&amp;lid=1eDLeXACnqpBqTnmc&amp;mid=c0adfe7a-c8db-4577-86cf-b1c1c3ecebe0" style="text-decoration:none;color:#ffffff !important;display:inline-block;font-size:16px;" target="_blank">
+<span style="color:#ffffff !important;">TRY MUSE SPARK</span>
+</a>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+<!-- Outer Box -->
+<table border="0" cellpadding="0" cellspacing="0" role="presentation" style="max-width:600px;margin:auto;border:1px solid #6B6B6B;background-color:#ffffff;padding:15px 20px 20px 20px;margin-bottom:30px;" width="100%">
+<!-- Section Title -->
+<tr>
+<td style="font-family:system-ui, sans-serif;font-size:16px;line-height:22px;font-weight:bold;
+               color:#000000 !important;mso-color-alt:windowtext;mso-style-textfill-fill-color:#000000;
+               padding:0 0 10px 0;">
+      Top News
+    </td>
+</tr>
+<!-- Divider -->
+<tr>
+<td style="padding:0 0 10px 0;">
+<table border="0" cellpadding="0" cellspacing="0" role="presentation" width="100%">
+<tr><td style="border-top:1px solid #6B6B6B;"></td></tr>
+</table>
+</td>
+</tr>
+<!-- Headline -->
+<tr>
+<td class="h1" style="font-family:Helvetica, sans-serif;font-size:17px;line-height:22px;font-weight:bold;
+             color:#000000 !important;mso-color-alt:windowtext;
+             mso-style-textfill-fill-color:#000000;
+             padding:0 0 5px 0;">
+<span style="color:#000000 !important;text-decoration:none;">
+      Anthropic launches Managed Agents to build and deploy agents without managing infrastructure or orchestration
+    </span>
+</td>
+</tr>
+<tr>
+<td style="font-family:system-ui;
+                font-size:13px;line-height:18px;font-weight:normal;
+                padding:0 0 10px 0;
+                color:#f74904 !important;
+                mso-color-alt:#f74904;
+                mso-style-textfill-fill-color:#f74904;">
+        49,536 Stars
+      </td>
+</tr>
+<!-- Feature Image -->
+<tr>
+<td style="padding:0 0 10px 0;"> <!-- bottom only -->
+<img alt="Grok 4 Fast Benchmark" border="0" src="https://alphasignal.ai/image/1775740592583-yx0agd.png" style="display:block;width:100%;max-width:560px;height:auto;" width="560"/>
+</td>
+</tr>
+<!-- Body Text (processed with code highlighting) -->
+<tr>
+<td style="font-family:Helvetica, sans-serif;font-size:15px;line-height:22px;font-weight:normal;
+           color:#000000 !important;mso-color-alt:windowtext;mso-style-textfill-fill-color:#000000;
+           padding:0;">
+<div style="margin-top:0;">
+<p>Anthropic introduces Claude Managed Agents, a new API suite for building and deploying cloud-hosted agents with production infrastructure built in.</p>
+<p>The key shift is removing the need to build agent infrastructure from scratch. You define tasks and tools, and Claude runs, evaluates, and iterates on the agent automatically.</p>
+<p><strong>What it does</strong></p>
+<p>It replaces backend engineering work with a managed system for agent execution.</p>
+<ul>
+<li>Runs agents in a secure sandbox with built-in authentication and tool access control</li>
+<li>Handles tool calling, context updates, retries, and error recovery automatically</li>
+<li>Supports long-running tasks with persistent state even after disconnections</li>
+<li>Enables multi-agent setups where agents delegate work to other agents</li>
+</ul>
+<p><strong>How to use it</strong></p>
+<p>You describe the agent, then deploy and monitor it.</p>
+<ul>
+<li>Define tasks, tools, and guardrails using APIs or configuration</li>
+<li>Deploy via Claude Console, CLI, or Claude Code</li>
+<li>Track execution with logs showing each decision, tool call, and failure step</li>
+<li>Pay per token usage plus runtime cost based on active session hours</li>
+</ul>
+</div>
+</td>
+</tr>
+<!-- Button -->
+<tr>
+<td align="center" style="padding:15px 0 0px 0;">
+<table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation">
+<tr>
+<td align="center" bgcolor="#f74904" class="btn" style="font-family:Helvetica, sans-serif;font-size:16px;font-weight:bold;
+                     padding:12px 12px;color:#ffffff !important;
+                     border:1px solid #000;display:block;">
+<a href="https://app.alphasignal.ai/c?uid=Z26xdR15QjDeeM2j&amp;cid=5cec6debee3e8c39&amp;lid=1tGq3ffNawG882B1B&amp;mid=c0adfe7a-c8db-4577-86cf-b1c1c3ecebe0" style="text-decoration:none;color:#ffffff !important;display:inline-block;font-size:16px;" target="_blank">
+<span style="color:#ffffff !important;">LAUNCH YOUR AGENT</span>
+</a>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+<!-- Outer Box -->
+<table border="0" cellpadding="0" cellspacing="0" role="presentation" style="max-width:600px;margin:auto;border:1px solid #6B6B6B;background-color:#ffffff;padding:15px 20px 20px 20px;margin-bottom:30px;" width="100%">
+<tr>
+<td style="font-family:system-ui;
+                font-size:13px;line-height:18px;font-weight:normal;
+                padding:0 0 10px 0;
+                color:#999999 !important;
+                mso-color-alt:#999999;
+                mso-style-textfill-fill-color:#999999;">
+        Presented by TELUS Digital
+      </td>
+</tr>
+<!-- Headline -->
+<tr>
+<td class="h1" style="font-family:Helvetica, sans-serif;font-size:17px;line-height:22px;font-weight:bold;
+             color:#000000 !important;mso-color-alt:windowtext;
+             mso-style-textfill-fill-color:#000000;
+             padding:0 0 5px 0;">
+<span style="color:#000000 !important;text-decoration:none;">
+      Can your LLM withstand a prompt injection attack?
+    </span>
+</td>
+</tr>
+<!-- Feature Image -->
+<tr>
+<td style="padding:0 0 10px 0;"> <!-- bottom only -->
+<a href="https://app.alphasignal.ai/c?uid=Z26xdR15QjDeeM2j&amp;cid=5cec6debee3e8c39&amp;lid=1D5Sx8z9Q4VvVYfZD&amp;mid=c0adfe7a-c8db-4577-86cf-b1c1c3ecebe0" style="text-decoration:none;" target="_blank"><img alt="alpha_signal_image_1" border="0" src="https://alphasignal.ai/image/1775729128882-g6kg0q.png" style="display:block;width:100%;max-width:560px;height:auto;" width="560"/></a>
+</td>
+</tr>
+<!-- Body Text (processed with code highlighting) -->
+<tr>
+<td style="font-family:Helvetica, sans-serif;font-size:15px;line-height:22px;font-weight:normal;
+           color:#000000 !important;mso-color-alt:windowtext;mso-style-textfill-fill-color:#000000;
+           padding:0;">
+<div style="margin-top:0;">
+<p>We tested 24 leading GenAI models for vulnerabilities. All 24 failed, with attack success rates up to 64%. Every model demonstrated exploitable flaws that turn AI into an attack vector. <br/><br/><a href="https://app.alphasignal.ai/c?uid=Z26xdR15QjDeeM2j&amp;cid=5cec6debee3e8c39&amp;lid=1D5Sx8z9Q4VvVYfZD&amp;mid=c0adfe7a-c8db-4577-86cf-b1c1c3ecebe0">Download our report</a> for security profiles on all 24 models and strategies to secure your AI stack.</p>
+</div>
+</td>
+</tr>
+<!-- Button -->
+<tr>
+<td align="center" style="padding:15px 0 0px 0;">
+<table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation">
+<tr>
+<td align="center" bgcolor="#f74904" class="btn" style="font-family:Helvetica, sans-serif;font-size:16px;font-weight:bold;
+                     padding:12px 12px;color:#ffffff !important;
+                     border:1px solid #000;display:block;">
+<a href="https://app.alphasignal.ai/c?uid=Z26xdR15QjDeeM2j&amp;cid=5cec6debee3e8c39&amp;lid=1D5Sx8z9Q4VvVYfZD&amp;mid=c0adfe7a-c8db-4577-86cf-b1c1c3ecebe0" style="text-decoration:none;color:#ffffff !important;display:inline-block;font-size:16px;" target="_blank">
+<span style="color:#ffffff !important;">ACCESS THE REPORT</span>
+</a>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<!-- Promo Text -->
+<tr>
+<td style="padding:0; text-align:right;">
+<a href="https://app.alphasignal.ai/c?uid=Z26xdR15QjDeeM2j&amp;cid=5cec6debee3e8c39&amp;lid=1tMM9xNSKwZM6cCbG&amp;mid=c0adfe7a-c8db-4577-86cf-b1c1c3ecebe0" style="text-decoration:none;color:#000000 !important;font-family:Helvetica, sans-serif;font-size:13px;" target="_blank">
+<span style="color:#000000 !important;">partner with us</span>
+</a>
+</td>
+</tr>
+</table>
+<!-- Outer Box -->
+<table border="0" cellpadding="0" cellspacing="0" role="presentation" style="max-width:600px;margin:auto;border:1px solid #6B6B6B;background-color:#ffffff;padding:15px 20px 20px 20px;margin-bottom:30px;" width="100%">
+<!-- Section Title -->
+<tr>
+<td style="font-family:system-ui, sans-serif;font-size:16px;line-height:22px;font-weight:bold;
+               color:#000000 !important;mso-color-alt:windowtext;mso-style-textfill-fill-color:#000000;
+               padding:0 0 10px 0;">
+      Top News
+    </td>
+</tr>
+<!-- Divider -->
+<tr>
+<td style="padding:0 0 10px 0;">
+<table border="0" cellpadding="0" cellspacing="0" role="presentation" width="100%">
+<tr><td style="border-top:1px solid #6B6B6B;"></td></tr>
+</table>
+</td>
+</tr>
+<!-- Headline -->
+<tr>
+<td class="h1" style="font-family:Helvetica, sans-serif;font-size:17px;line-height:22px;font-weight:bold;
+             color:#000000 !important;mso-color-alt:windowtext;
+             mso-style-textfill-fill-color:#000000;
+             padding:0 0 5px 0;">
+<span style="color:#000000 !important;text-decoration:none;">
+      Google introduces notebooks to reduce repeated prompts by maintaining context and files within a single workspace
+    </span>
+</td>
+</tr>
+<tr>
+<td style="font-family:system-ui;
+                font-size:13px;line-height:18px;font-weight:normal;
+                padding:0 0 10px 0;
+                color:#f74904 !important;
+                mso-color-alt:#f74904;
+                mso-style-textfill-fill-color:#f74904;">
+        6,528 Likes
+      </td>
+</tr>
+<!-- Feature Image -->
+<tr>
+<td style="padding:0 0 10px 0;"> <!-- bottom only -->
+<img alt="Grok 4 Fast Benchmark" border="0" src="https://alphasignal.ai/image/1775742245088-putecd.png" style="display:block;width:100%;max-width:560px;height:auto;" width="560"/>
+</td>
+</tr>
+<!-- Body Text (processed with code highlighting) -->
+<tr>
+<td style="font-family:Helvetica, sans-serif;font-size:15px;line-height:22px;font-weight:normal;
+           color:#000000 !important;mso-color-alt:windowtext;mso-style-textfill-fill-color:#000000;
+           padding:0;">
+<div style="margin-top:0;">
+<p>Google adds notebooks to Google Gemini, extending its integration with NotebookLM. The update introduces dedicated spaces where you group chats, files, and instructions for a single task.</p>
+<p>The key change is persistent context, so work continues without reintroducing information each time.</p>
+<p><strong>How it works</strong></p>
+<p>Notebooks act as a structured memory layer shared across both apps.</p>
+<ul>
+<li>Store chats, documents, and notes together as a single project context</li>
+<li>Add up to <strong>100 sources</strong> to define what Gemini reads and uses</li>
+<li>Sync changes automatically between Gemini and NotebookLM environments</li>
+<li>Apply custom instructions to control how responses use notebook content</li>
+</ul>
+<p><strong>What it solves</strong></p>
+<p>Standard chat resets context, which breaks long or multi-step workflows.</p>
+<ul>
+<li>Avoid repeating prompts to reintroduce files, notes, or prior discussions</li>
+<li>Keep related information scoped inside one notebook instead of separate chats</li>
+<li>Maintain continuity across sessions without manual copying between tools</li>
+</ul>
+<p><strong>Availability</strong></p>
+<p>Access depends on subscription tier and rollout phase.</p>
+<ul>
+<li>Available on web for <strong>AI Ultra, Pro, and Plus</strong> subscribers</li>
+<li>Expands to mobile, additional regions, and free users in later stages</li>
+</ul>
+</div>
+</td>
+</tr>
+<!-- Button -->
+<tr>
+<td align="center" style="padding:15px 0 0px 0;">
+<table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation">
+<tr>
+<td align="center" bgcolor="#f74904" class="btn" style="font-family:Helvetica, sans-serif;font-size:16px;font-weight:bold;
+                     padding:12px 12px;color:#ffffff !important;
+                     border:1px solid #000;display:block;">
+<a href="https://app.alphasignal.ai/c?uid=Z26xdR15QjDeeM2j&amp;cid=5cec6debee3e8c39&amp;lid=1xnRzKoXs06Lo2Ksy&amp;mid=c0adfe7a-c8db-4577-86cf-b1c1c3ecebe0" style="text-decoration:none;color:#ffffff !important;display:inline-block;font-size:16px;" target="_blank">
+<span style="color:#ffffff !important;">START A PROJECT</span>
+</a>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" role="presentation" style="max-width:600px;margin:auto;border:1px solid #000;padding:0 20px;background-color:#ffffff;margin-bottom:30px;" width="100%">
+<!-- Section Title -->
+<tr>
+<td class="h1" style="font-family:system-ui;font-size:17px;font-weight:bold;line-height:22.5px;
+                    margin:0;padding:15px 0 10px 0;
+                    color:#000000 !important;mso-color-alt:windowtext;
+                    mso-style-textfill-fill-color:#000000;">
+            Signals
+          </td>
+</tr>
+<tr>
+<td>
+<table border="0" cellpadding="0" cellspacing="0" role="presentation" width="100%">
+<tr><td style="border-top:1px solid #000000;"></td></tr>
+</table>
+</td>
+</tr>
+<!-- Item 1 -->
+<tr>
+<td style="padding:15px 0;">
+<table border="0" cellpadding="0" cellspacing="0" role="presentation" width="100%">
+<tr>
+<td style="font-family:Helvetica;font-size:17px;font-weight:bold;color:#f74904;padding-right:10px;" valign="top" width="30">1</td>
+<td valign="top">
+<a class="h1" href="https://app.alphasignal.ai/c?uid=Z26xdR15QjDeeM2j&amp;cid=5cec6debee3e8c39&amp;lid=CZFkvjpu0WmSbT7g&amp;mid=c0adfe7a-c8db-4577-86cf-b1c1c3ecebe0" style="font-family:Helvetica;font-size:16px !important;font-weight:bold;line-height:22.5px;
+                                  color:#000000 !important;mso-color-alt:windowtext;
+                                  text-decoration:none;display:block;margin:0 0 5px 0;">
+                          Cursor enables running agents on any machine while controlling them remotely from your phone
+                        </a>
+<span style="font-family:system-ui;color:#f74904;font-weight:normal;font-size:13px;line-height:22.5px;margin:0;padding:0;display:block;">4,301 Likes</span>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr><td><table border="0" cellpadding="0" cellspacing="0" role="presentation" width="100%">
+<tr><td style="border-top:1px solid #cbcbcb;"></td></tr>
+</table></td></tr>
+<!-- Item 2 -->
+<tr>
+<td style="padding:15px 0;">
+<table border="0" cellpadding="0" cellspacing="0" role="presentation" width="100%">
+<tr>
+<td style="font-family:Helvetica;font-size:17px;font-weight:bold;color:#f74904;padding-right:10px;" valign="top" width="30">2</td>
+<td valign="top">
+<a class="h1" href="https://app.alphasignal.ai/c?uid=Z26xdR15QjDeeM2j&amp;cid=5cec6debee3e8c39&amp;lid=fCDTtJic9QTPlWlr&amp;mid=c0adfe7a-c8db-4577-86cf-b1c1c3ecebe0" style="font-family:Helvetica;font-size:16px !important;font-weight:bold;line-height:22.5px;
+                                  color:#000000 !important;mso-color-alt:windowtext;
+                                  text-decoration:none;display:block;margin:0 0 5px 0;">
+                          H Company presents Computer Use Agent at HumanX reaching human level performance and topping OSW-V
+                        </a>
+<span style="font-family:system-ui;color:#999999;font-weight:normal;font-size:13px;line-height:22.5px;margin:0;padding:0;display:block;">Presented by H Company</span>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr><td><table border="0" cellpadding="0" cellspacing="0" role="presentation" width="100%">
+<tr><td style="border-top:1px solid #cbcbcb;"></td></tr>
+</table></td></tr>
+<!-- Item 3 -->
+<tr>
+<td style="padding:15px 0;">
+<table border="0" cellpadding="0" cellspacing="0" role="presentation" width="100%">
+<tr>
+<td style="font-family:Helvetica;font-size:17px;font-weight:bold;color:#f74904;padding-right:10px;" valign="top" width="30">3</td>
+<td valign="top">
+<a class="h1" href="https://app.alphasignal.ai/c?uid=Z26xdR15QjDeeM2j&amp;cid=5cec6debee3e8c39&amp;lid=8orHBY9s2fwFg2gZ&amp;mid=c0adfe7a-c8db-4577-86cf-b1c1c3ecebe0" style="font-family:Helvetica;font-size:16px !important;font-weight:bold;line-height:22.5px;
+                                  color:#000000 !important;mso-color-alt:windowtext;
+                                  text-decoration:none;display:block;margin:0 0 5px 0;">
+                          Anthropic outlines Managed Agents system enabling reliable execution with decoupled infrastructure components
+                        </a>
+<span style="font-family:system-ui;color:#f74904;font-weight:normal;font-size:13px;line-height:22.5px;margin:0;padding:0;display:block;">3,332 Likes</span>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr><td><table border="0" cellpadding="0" cellspacing="0" role="presentation" width="100%">
+<tr><td style="border-top:1px solid #cbcbcb;"></td></tr>
+</table></td></tr>
+<!-- Item 4 -->
+<tr>
+<td style="padding:15px 0;">
+<table border="0" cellpadding="0" cellspacing="0" role="presentation" width="100%">
+<tr>
+<td style="font-family:Helvetica;font-size:17px;font-weight:bold;color:#f74904;padding-right:10px;" valign="top" width="30">4</td>
+<td valign="top">
+<a class="h1" href="https://app.alphasignal.ai/c?uid=Z26xdR15QjDeeM2j&amp;cid=5cec6debee3e8c39&amp;lid=bVeIV89vFrPscm7I&amp;mid=c0adfe7a-c8db-4577-86cf-b1c1c3ecebe0" style="font-family:Helvetica;font-size:16px !important;font-weight:bold;line-height:22.5px;
+                                  color:#000000 !important;mso-color-alt:windowtext;
+                                  text-decoration:none;display:block;margin:0 0 5px 0;">
+                          OpenAI publishes Child Safety Blueprint outlining policies to prevent AI-enabled exploitation and improve safeguards
+                        </a>
+<span style="font-family:system-ui;color:#f74904;font-weight:normal;font-size:13px;line-height:22.5px;margin:0;padding:0;display:block;">2,419 Likes</span>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr><td><table border="0" cellpadding="0" cellspacing="0" role="presentation" width="100%">
+<tr><td style="border-top:1px solid #cbcbcb;"></td></tr>
+</table></td></tr>
+<!-- Item 5 -->
+<tr>
+<td style="padding:15px 0;">
+<table border="0" cellpadding="0" cellspacing="0" role="presentation" width="100%">
+<tr>
+<td style="font-family:Helvetica;font-size:17px;font-weight:bold;color:#f74904;padding-right:10px;" valign="top" width="30">5</td>
+<td valign="top">
+<a class="h1" href="https://app.alphasignal.ai/c?uid=Z26xdR15QjDeeM2j&amp;cid=5cec6debee3e8c39&amp;lid=1t9T46vwlfbYDkKHI&amp;mid=c0adfe7a-c8db-4577-86cf-b1c1c3ecebe0" style="font-family:Helvetica;font-size:16px !important;font-weight:bold;line-height:22.5px;
+                                  color:#000000 !important;mso-color-alt:windowtext;
+                                  text-decoration:none;display:block;margin:0 0 5px 0;">
+                          Perplexity rolls out startup competition focused on building companies powered entirely by Computer agents
+                        </a>
+<span style="font-family:system-ui;color:#f74904;font-weight:normal;font-size:13px;line-height:22.5px;margin:0;padding:0;display:block;">4,725 Likes</span>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" class="mobile-hidden" role="presentation" style="max-width:600px;width:100%;margin:auto;border:1px solid #A4ACB6;
+         background-color:#ffffff;margin-bottom:30px;" width="100%">
+<tr>
+<td style="padding:20px;">
+<table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" width="100%">
+<tr>
+<td align="center" class="p" style="font-family:Helvetica, Arial, sans-serif;
+                 font-size:10px !important;
+                 line-height:22.5px;
+                 font-weight:normal;
+                 color:#a1a1a1 !important;
+                 mso-color-alt:#6a7788;
+                 mso-style-textfill-fill-color:#6a7788;
+                 padding:0 0 10px 0;">
+        At Alpha Signal, our mission is to build a sharp, engaged community focused on AI, machine learning, and cutting-edge language models, helping over 200,000 developers stay informed and ahead. We’re passionate about curating the best in AI, from top research and trending technical blogs to expert insights and tailored job opportunities. We keep you connected to the breakthroughs and discussions that matter, so you can stay in the loop without endless searching. We also work closely with partners who value the future of AI, including employers and advertisers who want to reach an audience as passionate about AI as we are.
+<br/><br/>Our partnerships are based on shared values of ethics, responsibility, and a commitment to building a better world through technology.Privacy is a priority at Alpha Signal. Our Privacy Policy clearly explains how we collect, store, and use your personal and non-personal information. By using our website, you accept these terms, which you can review on our website. This policy applies across all Alpha Signal pages, outlining your rights and how to contact us if you want to adjust the use of your information. We’re based in the United States. By using our site, you agree to be governed by U.S. laws.
+      </td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" role="presentation" style="max-width:600px;width:100%;margin:auto;border:1px solid #000000;
+         background-color:#ffffff;margin-bottom:30px;" width="100%">
+<tr>
+<!-- Outer wrapper with 20px padding -->
+<td style="padding:20px;">
+<table border="0" cellpadding="0" cellspacing="0" role="presentation" width="100%">
+<!-- Text Content -->
+<tr>
+<td align="center" class="p" style="font-family:Helvetica, Arial, sans-serif;
+           font-size:15px !important;
+           line-height:22.5px;
+           font-weight:normal;
+           color:#000000 !important;
+           mso-color-alt:#000000;
+           mso-style-textfill-fill-color:#000000;
+           padding:0;">
+  Looking to promote your company, product, service, or event to 250,000+ AI developers?
+</td>
+</tr>
+<tr>
+<td align="center" style="padding:10px 0 0 0;">
+<table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="margin:auto;">
+<tr>
+<td align="center" bgcolor="#f74904" style="font-family:Helvetica, Arial, sans-serif;font-size:16px;line-height:20px;
+                           font-weight:bold;padding:12px 12px;color:#ffffff !important;
+                           border:1px solid #000000;display:block;">
+<a href="https://app.alphasignal.ai/c?uid=Z26xdR15QjDeeM2j&amp;cid=5cec6debee3e8c39&amp;lid=1tMM9xNSKwZM6cCbG&amp;mid=c0adfe7a-c8db-4577-86cf-b1c1c3ecebe0" style="color:#ffffff !important;text-decoration:none;display:inline-block;" target="_blank">
+                    WORK WITH US
+                  </a>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+<!-- Feedback Box -->
+<table border="0" cellpadding="0" cellspacing="0" role="presentation" style="max-width:600px;margin:auto;border:1px solid #000;background-color:#ffffff;" width="100%">
+<tr>
+<td align="center" style="padding:30px 20px;background-color:#ffffff;">
+<!-- Title -->
+<div style="font-family:Helvetica, Arial, sans-serif;
+               font-size:18px;line-height:24px;font-weight:bold;
+               color:#000000;
+               padding:0 0 20px 0;">
+        How was today’s email?
+      </div>
+<!-- Buttons -->
+<div style="font-family:Helvetica, Arial, sans-serif;font-size:16px;line-height:22px;">
+<a href="https://app.alphasignal.ai/fb/Z26xdR15QjDeeM2j?cid=5cec6debee3e8c39&amp;feedback=Awesome" style="display:inline-block;
+                  text-decoration:none;
+                  color:#000000;
+                  border:1px solid #000000;
+                  padding:10px 16px;
+                  margin:0 6px;" target="_blank">
+          Awesome
+        </a>
+<a href="https://app.alphasignal.ai/fb/Z26xdR15QjDeeM2j?cid=5cec6debee3e8c39&amp;feedback=Decent" style="display:inline-block;
+                  text-decoration:none;
+                  color:#000000;
+                  border:1px solid #000000;
+                  padding:10px 16px;
+                  margin:0 6px;" target="_blank">
+          Decent
+        </a>
+<a href="https://app.alphasignal.ai/fb/Z26xdR15QjDeeM2j?cid=5cec6debee3e8c39&amp;feedback=Not%20Great" style="display:inline-block;
+                  text-decoration:none;
+                  color:#000000;
+                  border:1px solid #000000;
+                  padding:10px 16px;
+                  margin:0 6px;" target="_blank">
+          Not Great
+        </a>
+</div>
+</td>
+</tr>
+</table>
+<!-- Footer -->
+<table border="0" cellpadding="0" cellspacing="0" role="presentation" style="max-width:600px;margin:auto;" width="100%">
+<tr>
+<td align="center" style="padding:20px 10px;">
+<!-- Unsubscribe -->
+
+<!-- Address -->
+<div style="padding-top:20px; font-family:system-ui;font-size:14px;color:#a1a1a1;">
+{"AlphaSignal": "214 Barton Springs Rd, Austin, USA"}
+</div>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+    </div>
+  </article>
+</main>
+</body>
+</html>

@@ -138,3 +138,21 @@ def sanitize_html(html: str, personal_email: str, first_name: str) -> str:
     if body is not None:
         return body.decode_contents().strip()
     return str(soup).strip()
+
+
+def plaintext_from_html(html: str) -> str:
+    """Extract plain text from (ideally already-sanitized) HTML.
+
+    Used to generate clean snippets for the list view.
+    """
+    if not html or not html.strip():
+        return ""
+    soup = BeautifulSoup(html, "lxml")
+    # Drop anything tag-ish we don't want in plaintext.
+    for tag in soup.find_all(["script", "style", "noscript"]):
+        tag.decompose()
+    text = soup.get_text(" ", strip=True)
+    # Collapse whitespace and strip any leftover markdown link syntax.
+    text = re.sub(r"\[([^\]]+)\]\s*\([^)]+\)", r"\1", text)
+    text = re.sub(r"\s+", " ", text).strip()
+    return text
