@@ -1,0 +1,22 @@
+[
+  {
+    "value": "news@alphasignal.ai",
+    "display_name": "Alpha Signal Ai"
+  },
+  {
+    "value": "newsletter@towardsdatascience.com",
+    "display_name": "Towards Data Science"
+  },
+  {
+    "value": "evolvingai@mail.beehiiv.com",
+    "display_name": "Evolving Ai"
+  },
+  {
+    "value": "tns@thenewstack.io",
+    "display_name": "The News Stack"
+  },
+  {
+    "value": "robotic@substack.com",
+    "display_name": "Robotic"
+  }
+]
