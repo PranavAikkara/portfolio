@@ -1,0 +1,14 @@
+# secrets & state — never commit
+.env
+.env.*
+!.env.example
+data/token.json
+data/last_sync.json
+
+# Python junk
+__pycache__/
+*.pyc
+*.egg-info/
+.venv/
+.pytest_cache/
+.coverage
