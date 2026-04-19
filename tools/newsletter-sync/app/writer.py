@@ -64,14 +64,31 @@ def write_newsletter(content_dir: Path, entry: dict) -> bool:
     return True
 
 
-def commit_and_push(repo_path: Path, count: int) -> None:
-    """Run git add / commit / push for the newsletter content dir."""
+def commit_and_push(repo_path: Path, count: int) -> bool:
+    """Run git add / commit / push for the newsletter content dir.
+
+    Returns True if push succeeded, False if commit succeeded but push failed
+    (no remote, auth error, etc.). The local commit remains in either case.
+    """
     if count <= 0:
-        return
+        return True
     rel = Path("content") / "newsletters"
     subprocess.run(["git", "-C", str(repo_path), "add", str(rel)], check=True)
-    subprocess.run(
+    # commit may also be a no-op if nothing staged changed; ignore that case.
+    commit = subprocess.run(
         ["git", "-C", str(repo_path), "commit", "-m", f"sync: {count} newsletter{'s' if count != 1 else ''}"],
-        check=True,
+        capture_output=True,
+        text=True,
     )
-    subprocess.run(["git", "-C", str(repo_path), "push"], check=True)
+    if commit.returncode != 0 and "nothing to commit" not in (commit.stdout + commit.stderr):
+        raise subprocess.CalledProcessError(commit.returncode, commit.args, commit.stdout, commit.stderr)
+
+    push = subprocess.run(
+        ["git", "-C", str(repo_path), "push"],
+        capture_output=True,
+        text=True,
+    )
+    if push.returncode != 0:
+        print(f"[commit_and_push] push skipped: {push.stderr.strip()}")
+        return False
+    return True
