@@ -116,13 +116,16 @@ def sync(request: Request) -> HTMLResponse:
                 settings.PERSONAL_EMAIL,
                 settings.PERSONAL_FIRST_NAME,
             )
+            # Snippet from the SANITIZED HTML's plaintext (not raw body_text) so
+            # "View in browser", markdown link syntax, and unsubscribe chrome are already stripped.
+            clean_text = sanitize.plaintext_from_html(clean_html)
             entry = {
                 "slug": writer.slugify(msg.date_iso, msg.sender_name, msg.subject),
                 "subject": msg.subject,
                 "sender_name": msg.sender_name or (s.display_name or s.value),
                 "sender_email": msg.sender_email,
                 "date": msg.date_iso,
-                "snippet": gmail_mod.snippet_from(msg.body_text or clean_html, limit=280),
+                "snippet": gmail_mod.snippet_from(clean_text or msg.body_text, limit=240),
                 "body_html": clean_html,
                 "body_text": msg.body_text,
                 "gmail_id": msg.gmail_id,

@@ -4,7 +4,7 @@
   "sender_name": "Sample Sender",
   "sender_email": "hello@example.com",
   "date": "2026-04-18T09:00:00Z",
-  "snippet": "This is a sample newsletter used to verify the build script renders correctly. Replace it by running the sync tool.",
+  "snippet": "Hello. This is a sample newsletter, used only to verify the build script. The sync app will replace this file with real content. Heading Lorem ipsum dolor sit amet, consectetur adipiscing elit. Point one Point two",
   "body_html": "<p>Hello.</p><p>This is a <strong>sample</strong> newsletter, used only to verify the build script. The sync app will replace this file with real content.</p><h2>Heading</h2><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p><ul><li>Point one</li><li>Point two</li></ul>",
   "body_text": "Hello.\n\nThis is a sample newsletter, used only to verify the build script.",
   "gmail_id": "sample-0001"

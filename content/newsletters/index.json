@@ -4,14 +4,14 @@
     "subject": "Welcome — a sample newsletter entry",
     "sender_name": "Sample Sender",
     "date": "2026-04-18T09:00:00Z",
-    "snippet": "This is a sample newsletter used to verify the build script renders correctly. Replace it by running the sync tool."
+    "snippet": "Hello. This is a sample newsletter, used only to verify the build script. The sync app will replace this file with real content. Heading Lorem ipsum dolor sit amet, consectetur adipiscing elit. Point one Point two"
   },
   {
     "slug": "2026-04-17-alphasignal-anthropic-opus-4-7-3-75mp-vision-desktop-agent-controls",
     "subject": "🚀 Anthropic Opus 4.7: 3.75MP vision + desktop agent controls",
     "sender_name": "AlphaSignal",
     "date": "2026-04-17T15:36:23Z",
-    "snippet": "🏆 Anthropic drops Opus 4.7: higher-res vision, new agent controls OpenAI's Codex controls your desktop, Alibaba open-sources a lean MoE model, Perplexity runs Mac agents. Stay updated with today’s top AI news, papers, and repos. Signup | Work With Us | Follow on X Hey Aikkara, Yo…",
+    "snippet": "OpenAI Codex gets screen reading + cursor control, Alibaba MoE coding model, Perplexity Personal Computer launch OpenAI's Codex controls your desktop, Alibaba open-sources a lean MoE model, Perplexity runs Mac agents. Stay updated with toda…",
     "_gmail_id": "19d9c160c7118b81"
   },
   {
@@ -19,7 +19,7 @@
     "subject": "Your Chunks Failed Your RAG in Production",
     "sender_name": "Towards Data Science",
     "date": "2026-04-17T13:37:17Z",
-    "snippet": "Plus: Modernize your data pipelines for AI before it falls behind. View in browser (https://newsletter.towardsdatascience.com/e3t/Ctc/L2+113/d5qLSh04/VVW74f8kGnKvW7NGvd4270P3pW8tMMP_5M-zrDMpKrlK5m_5PW7lCGcx6lZ3mqN3mkBbblhv9hW6S7pL3101TPjW1_7zSX4TKHtmW8W3p7N8lP0VJW65_NwR2g8Cb6W4QK…",
+    "snippet": "Plus: Modernize your data pipelines for AI before it falls behind. ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏…",
     "_gmail_id": "19d9ba94952cb9a6"
   },
   {
@@ -27,7 +27,7 @@
     "subject": "🧠 Anthropic Launches Claude Opus 4.7",
     "sender_name": "Evolving AI Insights",
     "date": "2026-04-17T10:25:50Z",
-    "snippet": "[Subscribe](http://evolvingai.io/subscribe) | [Advertise](https://app.beehiiv.com/direct_sponsorships/b0b3eadc-1525-42f7-a9bd-8ac2680c49db) ---------- View image: (https://media.beehiiv.com/cdn-cgi/image/fit=scale-down,format=auto,onerror=redirect,quality=80/uploads/asset/file/83…",
+    "snippet": "Also: Codex Becomes OpenAI's Always-On Coding Agent ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌…",
     "_gmail_id": "19d9af9bd0cd29a2"
   },
   {
@@ -35,7 +35,7 @@
     "subject": "🎙️ Google Gemini 3.1 Flash TTS: multi-speaker + scene direction contro",
     "sender_name": "AlphaSignal",
     "date": "2026-04-16T16:04:41Z",
-    "snippet": "🔥 Google ships Flash TTS with scene direction, multi-speaker control OpenAI's Agents SDK gets sandbox, Anthropic reveals how LLMs transfer traits and Cursor adds visual canvases. Stay updated with today’s top AI news, papers, and repos. Signup | Work With Us | Follow on X Hey Aik…",
+    "snippet": "On OpenAI's model-native harness, Anthropic trait transfer patterns, Cursor canvases, Windsurf agent center OpenAI's Agents SDK gets sandbox, Anthropic reveals how LLMs transfer traits and Cursor adds visual canvases. Stay updated with toda…",
     "_gmail_id": "19d9709983697ada"
   },
   {
@@ -43,7 +43,7 @@
     "subject": "Live in 1 Hour: Observability for AI Systems",
     "sender_name": "The New Stack",
     "date": "2026-04-16T16:03:45Z",
-    "snippet": "One attendee will win a Dynatrace Developer Experience Swag Pack. View in browser (https://info.thenewstack.io/e3t/Ctc/L2+113/d5qLSh04/VWjrQx8qQZVcW8mfPPb11_9ngVJvnzy5MYFtdN7MjfxF5m_5PW6N1X8z6lZ3kJW5DvKM25nyZT7W4TmPHK42hqTjW4MZy5n71mj8KW51fCJc5P-yL3W595JS34Tm4wjW9cCLdG83cw_4W3ht2…",
+    "snippet": "One attendee will win a Dynatrace Developer Experience Swag Pack. ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏…",
     "_gmail_id": "19d9708d66cc9c4b"
   },
   {
@@ -51,7 +51,7 @@
     "subject": "How to Keep Your Agentic Workflows Sustainable",
     "sender_name": "Towards Data Science",
     "date": "2026-04-16T12:59:01Z",
-    "snippet": "Don't end up with sprawling, costly pipelines, overly complex systems, and poor ROI View in browser (https://newsletter.towardsdatascience.com/e3t/Ctc/L2+113/d5qLSh04/VWyNQD7dxKGgW4ndzZx1qrjmRW3hB9jJ5MYmBtN5n2LRv5m_5PW8wM7ks6lZ3mmW5qF2Py7bp9TTW38GQFL4vr3KlVJbnzp6cxF5qW4CJrtv5vVJv…",
+    "snippet": "Don't end up with sprawling, costly pipelines, overly complex systems, and poor ROI ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏…",
     "_gmail_id": "19d96615d8b9b48d"
   },
   {
@@ -59,7 +59,7 @@
     "subject": "💻 Anthropic presents always-on Routines in Claude Code",
     "sender_name": "AlphaSignal",
     "date": "2026-04-15T19:30:46Z",
-    "snippet": "💻 Anthropic presents always-on Routines in Claude Code OpenAI arms defenders with GPT-5.4-Cyber, Cursor speeds CUDA 38%, Anthropic rebuilds Claude Code desktop. Stay updated with today’s top AI news, papers, and repos. Signup | Work With Us | Follow on X Hey Aikkara, Your daily b…",
+    "snippet": "OpenAI arms defenders with GPT-5.4-Cyber, Cursor speeds CUDA 38%, Anthropic rebuilds Claude Code desktop. OpenAI arms defenders with GPT-5.4-Cyber, Cursor speeds CUDA 38%, Anthropic rebuilds Claude Code desktop. Stay updated with today’s to…",
     "_gmail_id": "19d929fe9d3804d9"
   },
   {
@@ -67,7 +67,7 @@
     "subject": "My bets on open models, mid-2026",
     "sender_name": "Interconnects by Nathan Lambert",
     "date": "2026-04-15T18:20:00Z",
-    "snippet": "View this post on the web at https://www.interconnects.ai/p/my-bets-on-open-models-mid-2026 We’re living through the period of time when we’ll learn if open models can keep up with closed labs. The obvious answer is that no, they won’t. This answer is a form of saying they won’t …",
+    "snippet": "What I expect to come next and why, focused on the open-closed gap. ͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏…",
     "_gmail_id": "19d92605d6ed9d73"
   },
   {
@@ -75,7 +75,7 @@
     "subject": "TDS Daily | April 15",
     "sender_name": "Towards Data Science",
     "date": "2026-04-15T16:10:23Z",
-    "snippet": "Here's what's trending, what's new, and what you shouldn't miss View in browser (https://newsletter.towardsdatascience.com/e3t/Ctc/L2+113/d5qLSh04/VX19rN80PQGMW55BVSC62WNM1W9fbdmV5MWshPN99fz8T5m_5PW6N1X8z6lZ3mkW524Q5z1fqMfrW5J3_bk8GP41KW7_95JB6_G0RdW1LPp4t6sJBgcW2Sr59K3YPN7-Vtnqs…",
+    "snippet": "Here's what's trending, what's new, and what you shouldn't miss ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏…",
     "_gmail_id": "19d91e87359b8123"
   },
   {
@@ -83,7 +83,7 @@
     "subject": "🎨 Anthropic's Design Tool Sends Creative Stocks Tumbling",
     "sender_name": "Evolving AI Insights",
     "date": "2026-04-15T10:28:37Z",
-    "snippet": "[Subscribe](http://evolvingai.io/subscribe) | [Advertise](https://app.beehiiv.com/direct_sponsorships/b0b3eadc-1525-42f7-a9bd-8ac2680c49db) ---------- View image: (https://media.beehiiv.com/cdn-cgi/image/fit=scale-down,format=auto,onerror=redirect,quality=80/uploads/asset/file/83…",
+    "snippet": "Also: Gen Z Is Sabotaging AI at Work ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌…",
     "_gmail_id": "19d90af91c334aa8"
   },
   {
@@ -91,7 +91,7 @@
     "subject": "What I’ve been building: ATOM Report, post-training course, finishing my book, and ongoing research",
     "sender_name": "Interconnects by Nathan Lambert",
     "date": "2026-04-14T20:41:37Z",
-    "snippet": "View this post on the web at https://www.interconnects.ai/p/what-ive-been-building-atom-report This post is a roundup of my recent efforts that did not warrant a standalone Interconnects post, why I’m spending time on them, and what they accomplished. The ATOM Report: Measuring t…",
+    "snippet": "What I've been up to! ͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏…",
     "_gmail_id": "19d8dbb20ef4731d"
   },
   {
@@ -99,7 +99,7 @@
     "subject": "⚡️ Cursor adds parallel agent tiles, cuts dropped frames 87%",
     "sender_name": "AlphaSignal",
     "date": "2026-04-14T17:55:29Z",
-    "snippet": "⚡️ Cursor adds tiled agents, cuts dropped frames by 87% Vercel opens cloud coding agents, Google improves long-context AI, Lovable adds app monetization. Stay updated with today’s top AI news, papers, and repos. Signup | Work With Us | Follow on X Hey Aikkara, Your daily briefing…",
+    "snippet": "Vercel opens cloud coding agents, Google improves long-context AI, Lovable adds app monetization. Vercel opens cloud coding agents, Google improves long-context AI, Lovable adds app monetization. Stay updated with today’s top AI news, paper…",
     "_gmail_id": "19d8d22506841779"
   },
   {
@@ -107,7 +107,7 @@
     "subject": "TDS Daily | April 14",
     "sender_name": "Towards Data Science",
     "date": "2026-04-14T15:09:15Z",
-    "snippet": "Here's what's trending, what's new, and what you shouldn't miss View in browser (https://newsletter.towardsdatascience.com/e3t/Ctc/L2+113/d5qLSh04/VVvbkN8gVNVrW2kvQv47NGwRPW8VsNl15MTgB0N7TcW2b5m_5PW6N1X8z6lZ3nPVzYDPg7snbrnW30xyJv57pQnnW24PxyS8jkSNVW28Sw9_8kGdhSN7X16wgG-HBwVN4YXB3…",
+    "snippet": "Here's what's trending, what's new, and what you shouldn't miss ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏…",
     "_gmail_id": "19d8c8a828462021"
   },
   {
@@ -115,7 +115,7 @@
     "subject": "🛠️ Anthropic Ultraplan: Cloud Planning + Local Execution for Claude",
     "sender_name": "AlphaSignal",
     "date": "2026-04-13T16:33:03Z",
-    "snippet": "🚨 Anthropic adds Ultraplan for cloud planning in Claude Code Karpathy's CLAUDE.md trick cuts LLM errors, Google writes papers from raw notes, Anthropic's Cowork adds enterprise cont Stay updated with today’s top AI news, papers, and repos. Signup | Work With Us | Follow on X Hey …",
+    "snippet": "Karpathy's CLAUDE.md rules fix coding errors, Google's PaperOrchestra generates LaTeX from notes Karpathy's CLAUDE.md trick cuts LLM errors, Google writes papers from raw notes, Anthropic's Cowork adds enterprise cont Stay updated with toda…",
     "_gmail_id": "19d87b07c09b23db"
   },
   {
@@ -123,7 +123,7 @@
     "subject": "TDS Daily | April 13",
     "sender_name": "Towards Data Science",
     "date": "2026-04-13T13:37:57Z",
-    "snippet": "Here's what's trending, what's new, and what you shouldn't miss View in browser (https://newsletter.towardsdatascience.com/e3t/Ctc/L2+113/d5qLSh04/VWjHnS2lq8K-N6lRgD6_74YwW37H_hZ5MQ_wMN6R-BZ05m_5PW6N1X8z6lZ3q2N5WLCG5Kq_gfW4LcxD55jz70xVtS0vZ8tbHTcV5PlvL1Bkbw5Vxry-L1xJYXFW2XvfXG2FG…",
+    "snippet": "Here's what's trending, what's new, and what you shouldn't miss ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏…",
     "_gmail_id": "19d871064118dbe7"
   },
   {
@@ -131,7 +131,7 @@
     "subject": "⚠️ Sam Altman’s home targeted in second attack",
     "sender_name": "Evolving AI Insights",
     "date": "2026-04-13T10:14:38Z",
-    "snippet": "[Subscribe](http://evolvingai.io/subscribe) | [Advertise](https://app.beehiiv.com/direct_sponsorships/b0b3eadc-1525-42f7-a9bd-8ac2680c49db) ---------- View image: (https://media.beehiiv.com/cdn-cgi/image/fit=scale-down,format=auto,onerror=redirect,quality=80/uploads/asset/file/83…",
+    "snippet": "Also: Claude Code's Leaked Source Spread Too Fast to Stop ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌…",
     "_gmail_id": "19d86560c031c60a"
   },
   {
@@ -139,7 +139,7 @@
     "subject": "🔍 Anthropic's 512K Line Code Leak Reveals AI Engineering's Future",
     "sender_name": "AlphaSignal",
     "date": "2026-04-12T15:32:02Z",
-    "snippet": "💻 What the Claude Leak Says About the Future of Software Engineering The 512,000-Line Proof That Software Engineers Aren't Going Anywhere Stay updated with today’s top AI news, papers, and repos. Signup | Work With Us | Follow on X Hey Aikkara, For months, some of the loudest voi…",
+    "snippet": "KAIROS daemon, sleep-time compute, self-healing query loops, and why LLMs need complex scaffolding to function The 512,000-Line Proof That Software Engineers Aren't Going Anywhere Stay updated with today’s top AI news, papers, and repos. Si…",
     "_gmail_id": "19d82524578b0922"
   },
   {
@@ -147,7 +147,7 @@
     "subject": "⏳ Q1 is done. Are you ahead or behind?",
     "sender_name": "Evolving AI Insights",
     "date": "2026-04-12T10:26:45Z",
-    "snippet": "View image: (https://media.beehiiv.com/cdn-cgi/image/fit=scale-down,format=auto,onerror=redirect,quality=80/uploads/asset/file/bf258eda-a3cc-483a-a2cd-a8f0ab8971e6/evolving-ai-logo.png?t=1775813177) Follow image link: (http://aibrief.evolvingai.io/) Caption: [Subscribe](http://ev…",
+    "snippet": "Stop watching AI. Start using it in your work ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌…",
     "_gmail_id": "19d813ac6d53354d"
   },
   {
@@ -155,7 +155,7 @@
     "subject": "The inevitable need for an open model consortium",
     "sender_name": "Interconnects by Nathan Lambert",
     "date": "2026-04-11T13:02:06Z",
-    "snippet": "View this post on the web at https://www.interconnects.ai/p/the-inevitable-need-for-an-open-model Recently, I was talking with Percy Liang [ https://substack.com/redirect/f5fcfc1e-1a65-4bf8-93b7-d30731ca7115?j=eyJ1IjoiNTgwZmVlIn0.KU9z2VP5zsMx1mWE4Io_PhEeKSCzHKzfUpahFNZNh5Q ], Sta…",
+    "snippet": "And yes, I hate consortia too. ͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏…",
     "_gmail_id": "19d7ca6d3def7d89"
   },
   {
@@ -163,7 +163,7 @@
     "subject": "🔄 Anthropic Opus Advisor cuts agent costs 12% with auto-escalation",
     "sender_name": "AlphaSignal",
     "date": "2026-04-10T15:33:42Z",
-    "snippet": "🚨 Anthropic introduces Opus advisor for Sonnet agents in one API call OpenAI's new $100 plan, Anthropic's Claude can now run scripts in background, Perplexity adds Plaid API. Stay updated with today’s top AI news, papers, and repos. Signup | Work With Us | Follow on X Hey Aikkara…",
+    "snippet": "SWE-bench gains 2.7 points, Haiku jumps to 19.2% on BrowseComp, 85% cheaper than Sonnet for comparable workloads OpenAI's new $100 plan, Anthropic's Claude can now run scripts in background, Perplexity adds Plaid API. Stay updated with toda…",
     "_gmail_id": "19d780715abec1df"
   },
   {
@@ -171,7 +171,7 @@
     "subject": "TDS Daily | April 10",
     "sender_name": "Towards Data Science",
     "date": "2026-04-10T14:59:21Z",
-    "snippet": "Here's what's trending, what's new, and what you shouldn't miss View in browser (https://newsletter.towardsdatascience.com/e3t/Ctc/L2+113/d5qLSh04/VWFTrp74_P-jN5J93JzKyxfmW5NMkyh5MJHSWN5QLhSR5m_5PW6N1X8z6lZ3pRW5FDWzX71HPDJW6fF6rK944Cr7W43m5F829b7f_N64GK0vTdLF7Ttjhd1Wp7FdW3-_gJR2W…",
+    "snippet": "Here's what's trending, what's new, and what you shouldn't miss ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏…",
     "_gmail_id": "19d77e7af36fbdfa"
   },
   {
@@ -179,7 +179,7 @@
     "subject": "🚀 Claude Cowork Goes Company-Wide",
     "sender_name": "Evolving AI Insights",
     "date": "2026-04-10T10:20:47Z",
-    "snippet": "View image: (https://media.beehiiv.com/cdn-cgi/image/fit=scale-down,format=auto,onerror=redirect,quality=80/uploads/asset/file/bf258eda-a3cc-483a-a2cd-a8f0ab8971e6/evolving-ai-logo.png?t=1775813177) Follow image link: (http://aibrief.evolvingai.io/) Caption: [Subscribe](http://ev…",
+    "snippet": "Also: Florida Investigates OpenAI Over Campus Shooting ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌…",
     "_gmail_id": "19d76e898ed44c2c"
   },
   {
@@ -187,7 +187,7 @@
     "subject": "Claude Mythos and misguided open-weight fearmongering",
     "sender_name": "Interconnects by Nathan Lambert",
     "date": "2026-04-09T21:28:39Z",
-    "snippet": "View this post on the web at https://www.interconnects.ai/p/claude-mythos-and-misguided-open With the announcement of the Claude Mythos model this week and the admittedly very strong stated abilities, especially in cybersecurity, a new [ https://substack.com/redirect/9e7ba054-22e…",
+    "snippet": "Another dance around fears of open-source. ͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏…",
     "_gmail_id": "19d7426c82633d3c"
   },
   {
@@ -195,7 +195,7 @@
     "subject": "⚡️ Meta Muse Spark: 10x efficiency with parallel agent inference",
     "sender_name": "AlphaSignal",
     "date": "2026-04-09T16:09:14Z",
-    "snippet": "⚡️ Meta rolls out Muse Spark, new AI stack with 10× efficiency Anthropic builds Managed Agents to remove agent infrastructure, Google Gemini adds NotebookLM for project organization. Stay updated with today’s top AI news, papers, and repos. Signup | Work With Us | Follow on X Hey…",
+    "snippet": "Anthropic builds Managed Agents to remove agent infrastructure, Google Gemini adds NotebookLM for project organization. Anthropic builds Managed Agents to remove agent infrastructure, Google Gemini adds NotebookLM for project organization.…",
     "_gmail_id": "19d73014022f6371"
   },
   {
@@ -203,7 +203,7 @@
     "subject": "Live in 1 Hour: Scale Kubernetes with Certainty",
     "sender_name": "The New Stack",
     "date": "2026-04-09T15:01:59Z",
-    "snippet": "Kubernetes Shouldn't Require a Superhero. Join us live to move beyond operational heroics with an immutable foundation. View in browser (https://info.thenewstack.io/e3t/Ctc/L2+113/d5qLSh04/VW8r0f3kRm7bN2Q3XM6RBVpBW15bp5B5MGykcN1f4_XH5m_5PW6N1X8z6lZ3msW6JJt-p5BSw4qW1NnPS551dZVQW5l…",
+    "snippet": "Kubernetes Shouldn't Require a Superhero. Join us live to move beyond operational heroics with an immutable foundation. ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏…",
     "_gmail_id": "19d72c3d10492e13"
   },
   {
@@ -211,7 +211,7 @@
     "subject": "Data Science in the Age of Agentic AI",
     "sender_name": "Towards Data Science",
     "date": "2026-04-09T13:00:39Z",
-    "snippet": "Sharp insights, actionable advice, and a healthy (if nuanced) sense of optimism. View in browser (https://newsletter.towardsdatascience.com/e3t/Ctc/L2+113/d5qLSh04/VVQyTb2m-jWpW5Q3TpC1_FJPzW2qd3df5MGmzQN3pwdFv5m_5PW8wM7ks6lZ3l2W2-9K183V0_lBW6SRfR74qLpltVFWwlN1PPt9qW3HZ4GT3z64BlW1…",
+    "snippet": "Sharp insights, actionable advice, and a healthy (if nuanced) sense of optimism. ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏…",
     "_gmail_id": "19d72549ce2e10ce"
   },
   {
@@ -219,7 +219,7 @@
     "subject": "🔍 Anthropic Glasswing: Claude Mythos finds zero-day vulnerabilities",
     "sender_name": "AlphaSignal",
     "date": "2026-04-08T15:36:26Z",
-    "snippet": "🔥 Anthropic presents Glasswing: Claude Mythos detects software flaws Z.ai ships open-source GLM-5.1 for long coding runs, Claude Code can now autofix PRs from CLI. Stay updated with today’s top AI news, papers, and repos. Signup | Work With Us | Follow on X Hey Aikkara, Your dail…",
+    "snippet": "Project automates zero-day detection across critical infrastructure, restricts access to approved security partners only Z.ai ships open-source GLM-5.1 for long coding runs, Claude Code can now autofix PRs from CLI. Stay updated with today’…",
     "_gmail_id": "19d6dbcdc80d498d"
   },
   {
@@ -227,7 +227,7 @@
     "subject": "TDS Daily | April 8",
     "sender_name": "Towards Data Science",
     "date": "2026-04-08T13:07:31Z",
-    "snippet": "Here's what's trending, what's new, and what you shouldn't miss View in browser (https://newsletter.towardsdatascience.com/e3t/Ctc/L2+113/d5qLSh04/VVP0_L53pGk5W3Hl16-8mZN51W1xTZ7Q5MDd9PN3kz7Dd5m_5PW6N1X8z6lZ3kSF7g1V4qLYGvN2Sl2GzsBBjCN7vtfkyzYB7HN2N31RszqFJkW2BpsBL1Zl15QW7gdgLf28f…",
+    "snippet": "Here's what's trending, what's new, and what you shouldn't miss ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏…",
     "_gmail_id": "19d6d34920e3e164"
   },
   {
@@ -235,7 +235,7 @@
     "subject": "🤝 OpenAI, Anthropic & Google team up to stop Chinese rivals",
     "sender_name": "Evolving AI Insights",
     "date": "2026-04-08T10:07:40Z",
-    "snippet": "[Subscribe](http://evolvingai.io/subscribe) | [Advertise](https://app.beehiiv.com/direct_sponsorships/b0b3eadc-1525-42f7-a9bd-8ac2680c49db) ---------- View image: (https://media.beehiiv.com/cdn-cgi/image/fit=scale-down,format=auto,onerror=redirect,quality=80/uploads/asset/file/83…",
+    "snippet": "Also: Anthropic Launches Project Glasswing ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌…",
     "_gmail_id": "19d6c8fe208c9079"
   },
   {
@@ -243,7 +243,7 @@
     "subject": "🏛️ OpenAI proposes AI tax policy linking systems to economic infrastru",
     "sender_name": "AlphaSignal",
     "date": "2026-04-07T16:52:22Z",
-    "snippet": "🔥 OpenAI unveils plan to tax AI profits and share returns Cursor changes MoE inference pipeline, gains 1.84× speed, Actress Milla Jovovich’s MemPalace hits 100% on LongMemEval. Stay updated with today’s top AI news, papers, and repos. Signup | Work With Us | Follow on X Hey Aikka…",
+    "snippet": "On warp decode removing expert batching, xAI API Playground launch, MemPalace replacing vector DBs with structured retrieval Cursor changes MoE inference pipeline, gains 1.84× speed, Actress Milla Jovovich’s MemPalace hits 100% on LongMemEv…",
     "_gmail_id": "19d68dc06a8d2cd9"
   },
   {
@@ -251,7 +251,7 @@
     "subject": "TDS Daily | April 7",
     "sender_name": "Towards Data Science",
     "date": "2026-04-07T13:06:44Z",
-    "snippet": "Here's what's trending, what's new, and what you shouldn't miss View in browser (https://newsletter.towardsdatascience.com/e3t/Ctc/L2+113/d5qLSh04/VVzFg_92SbHjW4VQHs83hrGWRW6mk3Cf5MB4r-N2jjSx25m_5PW6N1X8z6lZ3nkW7Gy3HH8BvrRYW3GMH_T4VQPhdW9fXqKM7VpGblW3Sw6_W3TCjCjW24wh9P6P5NJ7W5Ffx…",
+    "snippet": "Here's what's trending, what's new, and what you shouldn't miss ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏…",
     "_gmail_id": "19d680d7496795fc"
   },
   {
@@ -259,7 +259,7 @@
     "subject": "🚨 Anthropic blocks OpenClaw access, requires API keys starting April 4",
     "sender_name": "AlphaSignal",
     "date": "2026-04-06T16:16:41Z",
-    "snippet": "🚨 Anthropic blocks OpenClaw on Claude plans, requires API keys Netflix ships open model for interaction-aware video editing, Anthropic's Claude gets Microsoft 365 connectors. Stay updated with today’s top AI news, papers, and repos. Signup | Work With Us | Follow on X Hey Aikkara…",
+    "snippet": "Credits replace subscription quotas, Netflix VOID handles physics in video removal, Hermes gets modular memory Netflix ships open model for interaction-aware video editing, Anthropic's Claude gets Microsoft 365 connectors. Stay updated with…",
     "_gmail_id": "19d6394ffe0e2947"
   },
   {
@@ -267,7 +267,7 @@
     "subject": "TDS Daily | April 6",
     "sender_name": "Towards Data Science",
     "date": "2026-04-06T16:09:14Z",
-    "snippet": "Here's what's trending, what's new, and what you shouldn't miss View in browser (https://newsletter.towardsdatascience.com/e3t/Ctc/L2+113/d5qLSh04/VWcmwP5M9ztqW7kQtVR3HlP6PW2qd3df5MycrMN65wGVj5m_5PW6N1X8z6lZ3lrW7VC1697pkR59W5J_ndF5QH3TQW17b5SB4g_4DSN3FGTCmGVQvSW6H4r8C4FsYRzW4CXth…",
+    "snippet": "Here's what's trending, what's new, and what you shouldn't miss ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏…",
     "_gmail_id": "19d638e3c2b76e8e"
   },
   {
@@ -275,7 +275,7 @@
     "subject": "💊 The $1.8B \"AI Success Story\" Built on 800 Fake Doctors",
     "sender_name": "Evolving AI Insights",
     "date": "2026-04-06T10:25:39Z",
-    "snippet": "[Subscribe](http://evolvingai.io/subscribe) | [Advertise](https://app.beehiiv.com/direct_sponsorships/b0b3eadc-1525-42f7-a9bd-8ac2680c49db) ---------- View image: (https://media.beehiiv.com/cdn-cgi/image/fit=scale-down,format=auto,onerror=redirect,quality=80/uploads/asset/file/83…",
+    "snippet": "Also: MIT study warns AI sycophancy can cause delusional spirals ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌…",
     "_gmail_id": "19d62539cfeeff74"
   },
   {
@@ -283,7 +283,7 @@
     "subject": "🛠️ The memory bottleneck killing your long-context agents",
     "sender_name": "AlphaSignal",
     "date": "2026-04-05T18:03:09Z",
-    "snippet": "🛠️ The memory bottleneck killing your long-context agents Your agent crawls, crashes, or racks up a runaway bill. Here's how attention optimization fixes it. Stay updated with today’s top AI news, papers, and repos. Signup | Work With Us | Follow on X Hey Aikkara, Agentic workflo…",
+    "snippet": "Your agent crawls, crashes, or racks up a runaway bill. Here's how attention optimization fixes it. Your agent crawls, crashes, or racks up a runaway bill. Here's how attention optimization fixes it. Stay updated with today’s top AI news, p…",
     "_gmail_id": "19d5ed01c557d1b6"
   },
   {
@@ -291,7 +291,7 @@
     "subject": "Gemma 4 and what makes an open model succeed",
     "sender_name": "Interconnects by Nathan Lambert",
     "date": "2026-04-03T16:57:36Z",
-    "snippet": "View this post on the web at https://www.interconnects.ai/p/gemma-4-and-what-makes-an-open-model Having written a lot of model release blog posts, there’s something much harder about reviewing open models when they drop relative to closed models, especially in 2026. In recent yea…",
+    "snippet": "Hint: it's not benchmark scores. ͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­…",
     "_gmail_id": "19d544800f10d6a1"
   },
   {
@@ -299,7 +299,7 @@
     "subject": "🔥 Google open-sources Gemma 4, runs locally, beats 20x larger models",
     "sender_name": "AlphaSignal",
     "date": "2026-04-03T16:10:09Z",
-    "snippet": "🔥 Google open-sources Gemma 4 for local AI, beats models 20× larger Anthropic explains how Claude emotions affect decisions, Cursor rolls out with easy local and cloud switching. Stay updated with today’s top AI news, papers, and repos. Signup | Work With Us | Follow on X Hey Aik…",
+    "snippet": "31B model ranks #3 on Arena AI, handles 256K context, supports tool calling with structured JSON output Anthropic explains how Claude emotions affect decisions, Cursor rolls out with easy local and cloud switching. Stay updated with today’s…",
     "_gmail_id": "19d541bee72221b2"
   },
   {
@@ -307,7 +307,7 @@
     "subject": "TDS Daily | April 3",
     "sender_name": "Towards Data Science",
     "date": "2026-04-03T15:04:06Z",
-    "snippet": "Here's what's trending, what's new, and what you shouldn't miss View in browser (https://newsletter.towardsdatascience.com/e3t/Ctc/L2+113/d5qLSh04/VWDpxS4jvMNsW4Xr8pR4vdfsNW4sKGqD5MqJ2mN8XrLFz5m_5PW6N1X8z6lZ3q4W550x235BHq2CW1C6hh-7NKB3WN5jdq2_43HlnW2xbzmF7Q6_rKW41m2ZC8LbsBjW3g4by…",
+    "snippet": "Here's what's trending, what's new, and what you shouldn't miss ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏…",
     "_gmail_id": "19d53df9a48dd9fb"
   },
   {
@@ -315,7 +315,7 @@
     "subject": "🚗 ChatGPT Comes to Your Car Dashboard",
     "sender_name": "Evolving AI Insights",
     "date": "2026-04-03T10:17:41Z",
-    "snippet": "[Subscribe](http://evolvingai.io/subscribe) | [Advertise](https://app.beehiiv.com/direct_sponsorships/b0b3eadc-1525-42f7-a9bd-8ac2680c49db) ---------- View image: (https://media.beehiiv.com/cdn-cgi/image/fit=scale-down,format=auto,onerror=redirect,quality=80/uploads/asset/file/83…",
+    "snippet": "Also: Claude Code's Leaked Source Spread Too Fast to Stop ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌…",
     "_gmail_id": "19d52d93d8ef079f"
   },
   {
@@ -323,7 +323,7 @@
     "subject": "🔄 Z.ai GLM-5V-Turbo converts screenshots to runnable code",
     "sender_name": "AlphaSignal",
     "date": "2026-04-02T16:34:18Z",
-    "snippet": "⚡️ Z.ai turns UI screenshots into code with GLM-5V-Turbo Alibaba's Qwen3.6-Plus gets1M context, DeepMind says the web attacks AI agents, Claude Code can now smoothly render UI. Stay updated with today’s top AI news, papers, and repos. Signup | Work With Us | Follow on X Hey Aikka…",
+    "snippet": "Alibaba ships Qwen3.6-Plus with 1M context for multi-step coding, DeepMind exposes web-based agent manipulation attacks Alibaba's Qwen3.6-Plus gets1M context, DeepMind says the web attacks AI agents, Claude Code can now smoothly render UI.…",
     "_gmail_id": "19d4f0bb47b747eb"
   },
   {
@@ -331,7 +331,7 @@
     "subject": "March Must-Reads: Claude Skills, Contextual RAG, and More",
     "sender_name": "Towards Data Science",
     "date": "2026-04-02T13:06:28Z",
-    "snippet": "Don't miss our most popular articles from the past month! View in browser (https://newsletter.towardsdatascience.com/e3t/Ctc/L2+113/d5qLSh04/VXdcFc3kNbz7W3KJhv85Yksl0W805GfB5MnmRqN50kgPY5m_5PW95jVnq6lZ3mYW5MXL3j6xdnl-N5NmKkdKqQzgW6Xb2cD3zz3RHW5z6KFW1VtfdnW6CrFf95Xz9w4VFksYc7szcT3…",
+    "snippet": "Don't miss our most popular articles from the past month! ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏…",
     "_gmail_id": "19d4e4dc51f72cae"
   },
   {
@@ -339,7 +339,7 @@
     "subject": "🚨 Anthropic Claude Code leak reveals pointer-based memory system",
     "sender_name": "AlphaSignal",
     "date": "2026-04-01T17:25:03Z",
-    "snippet": "🚨Anthropic leak details Claude Code memory index and retrieval system Stanford study shows models reason without images, Google's Veo Lite as low cost video model, Slackbot gets updated. Stay updated with today’s top AI news, papers, and repos. Signup | Work With Us | Follow on X…",
+    "snippet": "Leaked files show 44 feature flags, memory rewriting system, and agent runtime with three-layer retrieval Stanford study shows models reason without images, Google's Veo Lite as low cost video model, Slackbot gets updated. Stay updated with…",
     "_gmail_id": "19d4a13cbadf8db2"
   },
   {
@@ -347,7 +347,7 @@
     "subject": "TDS Daily | April 1",
     "sender_name": "Towards Data Science",
     "date": "2026-04-01T14:05:49Z",
-    "snippet": "Here's what's trending, what's new, and what you shouldn't miss View in browser (https://newsletter.towardsdatascience.com/e3t/Ctc/L2+113/d5qLSh04/VWChDm3KLZyyW3RlWsh4_JZn4W4-ljtc5MljR-N1n_9Yq5m_5PW6N1X8z6lZ3nDN8wCMXhV4GZTW5RhWb01jD22TW71VR2M7NlM8_W3bTKQJ8JQ76MW2sPHkt2vN5SWN5cD9y…",
+    "snippet": "Here's what's trending, what's new, and what you shouldn't miss ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏…",
     "_gmail_id": "19d495d80f688ee6"
   },
   {
@@ -355,7 +355,7 @@
     "subject": "🔓 Anthropic Accidentally Ships Its Own Source Code",
     "sender_name": "Evolving AI Insights",
     "date": "2026-04-01T10:06:43Z",
-    "snippet": "**In partnership with** View image: (https://media.beehiiv.com/cdn-cgi/image/fit=scale-down,format=auto,onerror=redirect,quality=80/uploads/asset/file/ed8e4b25-9e90-4360-bd2a-4725fb70975a/elevenlabs-logo-black__1_.png?t=1773393446) Follow image link: (https://r2trck.com/evolving-…",
+    "snippet": "Also: OpenAI Raises $122B ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌…",
     "_gmail_id": "19d48827bbc03203"
   },
   {
@@ -363,7 +363,7 @@
     "subject": "🖥️ Claude runs full UI testing + debugging from single CLI prompt",
     "sender_name": "AlphaSignal",
     "date": "2026-03-31T15:36:02Z",
-    "snippet": "🔥 Anthropic lets Claude run apps and test UI from CLI Alibaba adds voice-to-app coding, OpenAI Codex now available in Claude Code, Google's Agent Kit gets Java support. Stay updated with today’s top AI news, papers, and repos. Signup | Work With Us | Follow on X Hey Aikkara, Your…",
+    "snippet": "Anthropic adds computer control to Claude Code v2.85, Alibaba's Qwen3.5-Omni beats Gemini Pro on audio benchmarks Alibaba adds voice-to-app coding, OpenAI Codex now available in Claude Code, Google's Agent Kit gets Java support. Stay update…",
     "_gmail_id": "19d44899eb4013e0"
   },
   {
@@ -371,7 +371,7 @@
     "subject": "TDS Daily | March 31",
     "sender_name": "Towards Data Science",
     "date": "2026-03-31T14:04:24Z",
-    "snippet": "Here's what's trending, what's new, and what you shouldn't miss View in browser (https://newsletter.towardsdatascience.com/e3t/Ctc/L2+113/d5qLSh04/VWV16y7tMQMtW2pg9TP3JcS8LW28qdJZ5Mj8_GN9cd5H25m_5PW6N1X8z6lZ3mLW6lKkqP6qF-DdVWt_1G1vqM7kW21kJfr6gzPBvW3GZZC83d20lvW2zPcDk3P35GwW4TCRj…",
+    "snippet": "Here's what's trending, what's new, and what you shouldn't miss ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏…",
     "_gmail_id": "19d44360bd403913"
   },
   {
@@ -379,7 +379,7 @@
     "subject": "🚀 Meta SAM 3.1: 2x faster video tracking with 16-object multiplexing",
     "sender_name": "AlphaSignal",
     "date": "2026-03-30T17:57:48Z",
-    "snippet": "⚡️ Meta updates SAM 3.1: 2x faster video tracking Open-source Supermemory replaces vector DB, hits 81.6% LongMemEval, 🚨 OpenClaw adds x_search + tool approval hooks. Stay updated with today’s top AI news, papers, and repos. Signup | Work With Us | Follow on X Hey Aikkara, Your da…",
+    "snippet": "H100 GPU throughput jumps from 16 to 32 FPS, Supermemory hits 81.6% LongMemEval, reasoning queries use 33 Wh vs 0.4 Wh Open-source Supermemory replaces vector DB, hits 81.6% LongMemEval, 🚨 OpenClaw adds x_search + tool approval hooks. Stay…",
     "_gmail_id": "19d3fe50c6f45149"
   },
   {
@@ -387,7 +387,7 @@
     "subject": "TDS Daily | March 30",
     "sender_name": "Towards Data Science",
     "date": "2026-03-30T15:02:43Z",
-    "snippet": "Here's what's trending, what's new, and what you shouldn't miss View in browser (https://newsletter.towardsdatascience.com/e3t/Ctc/L2+113/d5qLSh04/VVyHF76nSTStVk67Hv5bY3bLW5g6HvJ5Mg5YPN78LwtH5m_5PW6N1X8z6lZ3nJW2qVkzj4gNC0pW5h8qd83BNnl0N5DLqynlxbvpW3HyP4544LyBJN3K3XXYzb0XhW1HQsPN6…",
+    "snippet": "Here's what's trending, what's new, and what you shouldn't miss ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏…",
     "_gmail_id": "19d3f44e5aad117b"
   },
   {
@@ -395,7 +395,7 @@
     "subject": "Latest open artifacts (#20): New orgs! New types of models! With Nemotron Super, Sarvam, Cohere Transcribe, & othe…",
     "sender_name": "Interconnects by Nathan Lambert",
     "date": "2026-03-30T13:02:45Z",
-    "snippet": "View this post on the web at https://www.interconnects.ai/p/latest-open-artifacts-20-new-orgs This Artifacts Log post is unusual in how many diverse, quirky models there are across use-cases and modalities. Normally these model roundups are dominated by big models from the likes …",
+    "snippet": "New orgs! New types of models! With Nemotron Super, Sarvam, Cohere Transcribe, & others ͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏…",
     "_gmail_id": "19d3ed9a5730ac16"
   },
   {
@@ -403,7 +403,7 @@
     "subject": "🚨 Anthropic's Secret AI Model Just Got Leaked",
     "sender_name": "Evolving AI Insights",
     "date": "2026-03-30T10:26:28Z",
-    "snippet": "**In partnership with** View image: (https://media.beehiiv.com/cdn-cgi/image/fit=scale-down,format=auto,onerror=redirect,quality=80/uploads/asset/file/6789f758-78e6-41d5-83da-bb6853026e14/dd_logo_h_rgb.png?t=1770316647) Follow image link: (https://r2trck.com/evolving-ai-datadog-9…",
+    "snippet": "Also: Google's \"Pied Piper\" Algorithm Rattles Memory Stocks ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌…",
     "_gmail_id": "19d3e47dc6d76aef"
   },
   {
@@ -411,7 +411,7 @@
     "subject": "🦞 The end of the Mac Mini era for scaling OpenClaw agents?",
     "sender_name": "AlphaSignal",
     "date": "2026-03-29T14:33:05Z",
-    "snippet": "🦞 The end of the Mac Mini era for scaling OpenClaw agents? Running OpenClaw in production is a security nightmare. Here's how to build zero-trust for your agents. Stay updated with today’s top AI news, papers, and repos. Signup | Work With Us | Follow on X Hey Aikkara, The honeym…",
+    "snippet": "Running OpenClaw in production is a security nightmare. Here's how to build zero-trust for your agents. Running OpenClaw in production is a security nightmare. Here's how to build zero-trust for your agents. Stay updated with today’s top AI…",
     "_gmail_id": "19d3a0347dbc44b1"
   },
   {
@@ -419,7 +419,7 @@
     "subject": "🎙️ Google Gemini Flash Live: Real-time speech-to-speech voice agents",
     "sender_name": "AlphaSignal",
     "date": "2026-03-27T16:57:19Z",
-    "snippet": "🎙️ Google unveils real-time voice agents with Gemini Flash Live API Mistral's open voice agents, OpenAI's plugins for Codex, Meta's brain activity prediction model. Stay updated with today’s top AI news, papers, and repos. Signup | Work With Us | Follow on X Hey Aikkara, Your dai…",
+    "snippet": "Streaming API removes text pipeline, maintains stateful sessions across 90+ languages without resets Mistral's open voice agents, OpenAI's plugins for Codex, Meta's brain activity prediction model. Stay updated with today’s top AI news, pap…",
     "_gmail_id": "19d303a9b9b82dfe"
   },
   {
@@ -427,7 +427,7 @@
     "subject": "TDS Daily | March 27",
     "sender_name": "Towards Data Science",
     "date": "2026-03-27T13:01:07Z",
-    "snippet": "Here's what's trending, what's new, and what you shouldn't miss View in browser (https://newsletter.towardsdatascience.com/e3t/Ctc/L2+113/d5qLSh04/VVFLw-2k9gmHN3-r1z9T5LstW5DT7xy5M7vXMN4KxWMg5m_5PW6N1X8z6lZ3pYW1L0LsF64KJBtW92-WyY5Jn6xtW59D2wg3HL-fyW6bG3B973y9ZrW1cFvSb3j3GS_N4KQ4F…",
+    "snippet": "Here's what's trending, what's new, and what you shouldn't miss ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏…",
     "_gmail_id": "19d2f62b66a2c4f2"
   },
   {
@@ -435,7 +435,7 @@
     "subject": "🤖 The White House Received Its First Robot Guest",
     "sender_name": "Evolving AI Insights",
     "date": "2026-03-27T11:08:25Z",
-    "snippet": "[Subscribe](http://evolvingai.io/subscribe) | [Advertise](https://app.beehiiv.com/direct_sponsorships/b0b3eadc-1525-42f7-a9bd-8ac2680c49db) ---------- View image: (https://media.beehiiv.com/cdn-cgi/image/fit=scale-down,format=auto,onerror=redirect,quality=80/uploads/asset/file/83…",
+    "snippet": "Also: Meta Teaches AI to Read the Brain ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌…",
     "_gmail_id": "19d2efb2ecdbd1ab"
   },
   {
@@ -443,7 +443,7 @@
     "subject": "🧠 ARC Prize AGI-3 benchmark: Top AI models score under 1%",
     "sender_name": "AlphaSignal",
     "date": "2026-03-26T15:34:31Z",
-    "snippet": "🚨 ARC-AGI-3 is here: Top AI models score under 1% Cursor enables self-hosted agents, runs inside your network, Google’s Lyria 3 update adds 3-min music generation. Stay updated with today’s top AI news, papers, and repos. Signup | Work With Us | Follow on X Hey Aikkara, Your dail…",
+    "snippet": "ARC-AGI-3 tests real-time learning in 135 new environments, humans solve all tasks while AI systems fail at 1% Cursor enables self-hosted agents, runs inside your network, Google’s Lyria 3 update adds 3-min music generation. Stay updated wi…",
     "_gmail_id": "19d2ac8717389918"
   },
   {
@@ -451,7 +451,7 @@
     "subject": "Vibe Check: AI Coding Agents Are Inescapable",
     "sender_name": "Towards Data Science",
     "date": "2026-03-26T13:01:59Z",
-    "snippet": "Nuanced perspectives on what is quickly becoming the defining phenomenon of a new tech landscape. View in browser (https://newsletter.towardsdatascience.com/e3t/Ctc/L2+113/d5qLSh04/VX4tdc24s84dW6vq35k3tzHpGW26rJbN5M5mg5N2nfYyj5m_5PW8wM7ks6lZ3pGW4Gm60z3S5jYBW6n7QD37H-ljXW7r-QS-7Tk…",
+    "snippet": "Nuanced perspectives on what is quickly becoming the defining phenomenon of a new tech landscape. ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏…",
     "_gmail_id": "19d2a3d5f0c73a63"
   },
   {
@@ -459,7 +459,7 @@
     "subject": "🤖 Anthropic Claude Code Auto Mode + Figma AI Agent Design Tool",
     "sender_name": "AlphaSignal",
     "date": "2026-03-25T15:34:54Z",
-    "snippet": "⚙️ Anthropic updates Claude Code with auto permission mode Figma can now be used by agents directly, Google research improves LLM attention 8x, Lovable pentests vibe coded apps. Stay updated with today’s top AI news, papers, and repos. Signup | Work With Us | Follow on X Hey Aikk…",
+    "snippet": "On Figma's use_figma MCP tool, Google's TurboQuant 6x cache compression, Wispr Flow voice documentation, Cursor Composer 2 Figma can now be used by agents directly, Google research improves LLM attention 8x, Lovable pentests vibe coded apps…",
     "_gmail_id": "19d25a26f717c885"
   },
   {
@@ -467,7 +467,7 @@
     "subject": "TDS Daily | March 25",
     "sender_name": "Towards Data Science",
     "date": "2026-03-25T13:06:41Z",
-    "snippet": "Here's what's trending, what's new, and what you shouldn't miss View in browser (https://newsletter.towardsdatascience.com/e3t/Ctc/L2+113/d5qLSh04/VWRFz65n26k6W6nF8zg8lNtC6W2nfwL35M3cS1N8pR4Cg5m_5PW7lCGcx6lZ3pCW8tpPBK8PnSMgVTqc1w5bJhFXW4MTgMZ4ZFDFGW5PY3jW2ntRTPW8Kp3Z67FHq7tW3HZ1K…",
+    "snippet": "Here's what's trending, what's new, and what you shouldn't miss ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏…",
     "_gmail_id": "19d251b27b020dfc"
   },
   {
@@ -475,7 +475,7 @@
     "subject": "🖥️ Claude Can Now Control Your Computer",
     "sender_name": "Evolving AI Insights",
     "date": "2026-03-25T11:06:30Z",
-    "snippet": "**In partnership with** View image: (https://media.beehiiv.com/cdn-cgi/image/fit=scale-down,format=auto,onerror=redirect,quality=80/uploads/asset/file/d245f100-c599-4d44-a20b-2994085a13dd/Full_Logo_Black.png?t=1774377288) Follow image link: (https://higgsfield.ai/s/cinema-studio-…",
+    "snippet": "Also: WeChat Becomes an AI Agent Hub ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌…",
     "_gmail_id": "19d24acb732aa844"
   },
   {
@@ -483,7 +483,7 @@
     "subject": "🖥️ Anthropic's Claude automates desktop apps without APIs",
     "sender_name": "AlphaSignal",
     "date": "2026-03-24T16:20:36Z",
-    "snippet": "🖥️ Anthropic’s Claude now controls desktop apps without APIs on macOS Yann LeCun’s team introduces LeWorldModel, 48x faster planning, Luma's image model with reasoning. Stay updated with today’s top AI news, papers, and repos. Signup | Work With Us | Follow on X Hey Aikkara, Your…",
+    "snippet": "LeWorldModel trains stable JEPA in under 1 second, Luma's Uni-1 combines reasoning with image generation Yann LeCun’s team introduces LeWorldModel, 48x faster planning, Luma's image model with reasoning. Stay updated with today’s top AI new…",
     "_gmail_id": "19d20a5eb0ea2734"
   },
   {
@@ -491,7 +491,7 @@
     "subject": "🔧 ByteDance DeerFlow 2.0: Multi-Agent Framework with Memory Isolation",
     "sender_name": "AlphaSignal",
     "date": "2026-03-23T23:46:53Z",
-    "snippet": "🚨 ByteDance ships DeerFlow 2.0: one prompt, full agent pipeline LeCun's V-JEPA 2.1 improves full-scene video learning without labels, OpenAI's Container Pooling for 10x agent tool call Stay updated with today’s top AI news, papers, and repos. Signup | Work With Us | Follow on X H…",
+    "snippet": "DeerFlow orchestrates isolated sub-agents with individual memory + tools, plus OpenAI 10x speed boost via container reuse LeCun's V-JEPA 2.1 improves full-scene video learning without labels, OpenAI's Container Pooling for 10x agent tool ca…",
     "_gmail_id": "19d1d182105a29e2"
   },
   {
@@ -499,7 +499,7 @@
     "subject": "🎯 Palantir's AI now runs the U.S. Military",
     "sender_name": "Evolving AI Insights",
     "date": "2026-03-23T11:25:30Z",
-    "snippet": "[Subscribe](http://evolvingai.io/subscribe) | [Advertise](https://app.beehiiv.com/direct_sponsorships/b0b3eadc-1525-42f7-a9bd-8ac2680c49db) ---------- View image: (https://media.beehiiv.com/cdn-cgi/image/fit=scale-down,format=auto,onerror=redirect,quality=80/uploads/asset/file/83…",
+    "snippet": "Also: Cursor got caught (again) hiding a Chinese model under the hood ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌…",
     "_gmail_id": "19d1a71608e646b4"
   },
   {
@@ -507,7 +507,7 @@
     "subject": "🔥 Nvidia's Nemotron 3 cuts AI agent costs with 120B MoE model",
     "sender_name": "AlphaSignal",
     "date": "2026-03-22T20:26:37Z",
-    "snippet": "How Nvidia is silently building an open-source AI empire Running AI agents is getting absurdly expensive. Here's how Nvidia plans to break the cost ceiling. Stay updated with today’s top AI news, papers, and repos. Signup | Work With Us | Follow on X Hey {FIRSTNAME}, Agentic work…",
+    "snippet": "120B parameter MoE architecture with hybrid Mamba-Transformer beats token tax on B200 GPUs via multi-token prediction Running AI agents is getting absurdly expensive. Here's how Nvidia plans to break the cost ceiling. Stay updated with toda…",
     "_gmail_id": "19d173a6dde639ef"
   },
   {
@@ -515,7 +515,7 @@
     "subject": "Lossy self-improvement",
     "sender_name": "Interconnects by Nathan Lambert",
     "date": "2026-03-22T19:39:40Z",
-    "snippet": "View this post on the web at https://www.interconnects.ai/p/lossy-self-improvement Fast takeoff, the singularity, and recursive self-improvement (RSI) are all top of mind in AI circles these days. There are elements of truth to them in what’s happening in the AI industry. Two, ma…",
+    "snippet": "The case for why self-improvement is real but it doesn't lead to fast takeoff. ͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏…",
     "_gmail_id": "19d171071c8773e4"
   },
   {
@@ -523,7 +523,7 @@
     "subject": "🚀 Cursor Composer 2 cuts coding costs 50% with multi-file workflows",
     "sender_name": "AlphaSignal",
     "date": "2026-03-20T19:14:24Z",
-    "snippet": "🔥 Cursor brings frontier coding cheaper with new Composer 2 Google adds Firebase + APIs to AI Studio coding agent, Microsoft releases MAI-Image-2, +115 text rendering score. Stay updated with today’s top AI news, papers, and repos. Signup | Work With Us | Follow on X Hey Aikkara,…",
+    "snippet": "$0.50/M tokens standard mode, 61.3 CursorBench score, reinforcement learning trains on hundreds of actions Google adds Firebase + APIs to AI Studio coding agent, Microsoft releases MAI-Image-2, +115 text rendering score. Stay updated with t…",
     "_gmail_id": "19d0cab973ba43a9"
   },
   {
@@ -531,7 +531,7 @@
     "subject": "🌍 What 81,000 People Really Want From AI",
     "sender_name": "Evolving AI Insights",
     "date": "2026-03-20T11:05:00Z",
-    "snippet": "[Subscribe](http://evolvingai.io/subscribe) | [Advertise](https://app.beehiiv.com/direct_sponsorships/b0b3eadc-1525-42f7-a9bd-8ac2680c49db) ---------- View image: (https://media.beehiiv.com/cdn-cgi/image/fit=scale-down,format=auto,onerror=redirect,quality=80/uploads/asset/file/83…",
+    "snippet": "Also: Google Stitch Brings \"Vibe Design\" to UI Creation ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌…",
     "_gmail_id": "19d0aeb8a26189bb"
   },
   {
@@ -539,7 +539,7 @@
     "subject": "🚀 Google Stitch Voice UI builds apps from prompts, MiniMax M2.7 self-t",
     "sender_name": "AlphaSignal",
     "date": "2026-03-20T01:16:45Z",
-    "snippet": "⚡️ Google unveils Stitch voice UI, builds apps from prompts On Prinston's open model learns from real interactions, MiniMax's model trains its own code, Baidu's open OCR model. Stay updated with today’s top AI news, papers, and repos. Signup | Work With Us | Follow on X Hey Aikka…",
+    "snippet": "On DESIGN.md system, Princeton's OpenClaw-RL1, Mistral Vibe terminal agent, Baidu OCR replacing pipelines On Prinston's open model learns from real interactions, MiniMax's model trains its own code, Baidu's open OCR model. Stay updated with…",
     "_gmail_id": "19d08d0f6ee67854"
   }
 ]

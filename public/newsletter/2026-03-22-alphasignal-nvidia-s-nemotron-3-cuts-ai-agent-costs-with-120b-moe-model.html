@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>🔥 Nvidia&#39;s Nemotron 3 cuts AI agent costs with 120B MoE model — Pranav P</title>
+<meta name="description" content="120B parameter MoE architecture with hybrid Mamba-Transformer beats token tax on B200 GPUs via multi-token prediction Running AI agents is getting absurdly expensive. Here&#39;s how Nvidia plans to break the cost ceiling. Stay updated with toda…" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/styles.css" />
+<link rel="stylesheet" href="/newsletter/styles.css" />
+</head>
+<body>
+
+  <nav>
+    <div class="logo"><a href="/" style="text-decoration:none;color:inherit">pranav<span class="dot">.</span>p</a></div>
+    <ul class="nav-links">
+      <li><a href="/#work">Work</a></li>
+      <li><a href="/#projects">Projects</a></li>
+      <li><a href="/newsletter/" class="active">Reading</a></li>
+      <li><a href="/#contact">Contact</a></li>
+    </ul>
+    <a class="nav-cta" href="/#chat"><span class="blip"></span>Ask my AI twin</a>
+  </nav>
+
+
+<main class="nl-wrap nl-detail-wrap">
+  <a class="nl-back" href="/newsletter/">← back to list</a>
+  <article class="nl-detail">
+    <header class="nl-detail-header">
+      <div class="nl-card-meta">
+        <span class="nl-sender">AlphaSignal</span>
+        <span class="nl-date">Mar 22, 2026</span>
+      </div>
+      <h1 class="nl-detail-title">🔥 Nvidia&#39;s Nemotron 3 cuts AI agent costs with 120B MoE model</h1>
+    </header>
+    <div class="nl-detail-body">
+      <div style="display:none!important;max-height:0;overflow:hidden;mso-hide:all;font-size:1px;line-height:1px;opacity:0;color:transparent;">120B parameter MoE architecture with hybrid Mamba-Transformer beats token tax on B200 GPUs via multi-token prediction</div>
+<div style="display:none;max-height:0;overflow:hidden;">Running AI agents is getting absurdly expensive. Here's how Nvidia plans to break the cost ceiling.</div>
+<table bgcolor="#fcfcfc" border="0" cellpadding="0" cellspacing="0" role="presentation" width="100%">
+<tr>
+<td align="center" style="padding:0 10px;">
+<!-- all your inner tables start here -->
+<!-- Hidden Preheader -->
+<div style="display:none !important;font-size:1px;color:#ffffff;line-height:1px;
+              max-height:0px;max-width:0px;overflow:hidden;opacity:0;">
+    Stay updated with today’s top AI news, papers, and repos.
+  </div>
+<!-- ✅ Centered footer menu (desktop + mobile) -->
+<table border="0" cellpadding="0" cellspacing="0" role="presentation" style="max-width:600px;margin:0 auto;" width="100%">
+<tr>
+<td align="center" style="padding:6px 0 2px 0;text-align:center;">
+<table align="center" border="0" cellpadding="0" cellspacing="0" class="menu-bar" role="presentation" style="display:inline-table;margin:0 auto;text-align:center;">
+<tr>
+<td style="font-size:12px;line-height:18px;font-family:Helvetica, Arial, sans-serif;">
+<a href="https://alphasignal.ai/?utm_source=email" style="text-decoration:none;color:#000000 !important;
+                      font-family:Helvetica, Arial, sans-serif;
+                      font-size:12px;line-height:18px;" target="_blank">
+              Signup
+            </a>
+</td>
+<td style="font-size:13px;line-height:18px;color:#000000;
+                     font-family:Helvetica, Arial, sans-serif;">|</td>
+<td style="font-size:12px;line-height:18px;font-family:Helvetica, Arial, sans-serif;">
+<a href="https://wsndcchuur6.typeform.com/to/t0Ry7qsf" style="text-decoration:none;color:#000000 !important;
+                      font-family:Helvetica, Arial, sans-serif;
+                      font-size:12px;line-height:18px;" target="_blank">
+              Work With Us
+            </a>
+</td>
+<td style="font-size:13px;line-height:18px;color:#000000;
+                     font-family:Helvetica, Arial, sans-serif;">|</td>
+<td style="font-size:12px;line-height:18px;font-family:Helvetica, Arial, sans-serif;">
+<a href="https://x.com/AlphaSignalAI" style="text-decoration:none;color:#000000 !important;
+                      font-family:Helvetica, Arial, sans-serif;
+                      font-size:12px;line-height:18px;" target="_blank">
+              Follow on X
+            </a>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+<!-- SINGLE BLOCK: BLACK BACKGROUND, WHITE TEXT -->
+<table border="0" cellpadding="0" cellspacing="0" role="presentation" style="max-width:600px;margin:auto;border:1px solid #000;background-color:#000000;margin-bottom:30px;" width="100%">
+<tr>
+<td style="padding:20px;">
+<!-- Logo -->
+<img alt="AlphaSignal Logo" border="0" src="https://alphasignal.ai/image/1764279764256-wj5ohs.png" style="display:block;width:32px;height:auto;margin-bottom:10px;" width="32"/>
+<!-- White Divider Under Logo -->
+<table border="0" cellpadding="0" cellspacing="0" role="presentation" style="margin:0 0 20px 0;" width="100%">
+<tr>
+<td style="border-top:1px solid #FFFFFF;"></td>
+</tr>
+</table>
+<!-- Greeting -->
+<p style="font-family:Helvetica, Arial, sans-serif;font-size:16px;line-height:24px;
+                font-weight:bold;color:#ffffff;margin:0 0 10px 0;">
+        Hey {FIRSTNAME},
+      </p>
+<!-- Intro Text -->
+<p style="font-family:Helvetica, Arial, sans-serif;font-size:15px;line-height:22px;
+                color:#ffffff;margin:0;"> 
+Agentic workflows are proving that AI can finally act as reliable background infrastructure, orchestrating tasks and managing tools while you sleep.
+<br/><br/>
+The catch? That autonomy comes with a staggering token tax. Continuous background heartbeats and infinite context loops are turning frontier models into a massive financial liability. Developers desperately need a cheaper, local off-ramp.
+<br/><br/>
+Today, we break down how Nvidia's new open-source play might solve this exact bottleneck.
+
+    </p></td>
+</tr>
+</table><!-- Author Box -->
+<table border="0" cellpadding="0" cellspacing="0" role="presentation" style="max-width:600px;margin:auto;border:1px solid #000000;
+              background-color:#ffffff;padding:15px 20px 20px 20px;margin-bottom:30px;" width="100%">
+<tr>
+<!-- Profile Image -->
+<td style="padding-right:12px;" valign="top" width="70">
+<img alt="Author photo" height="60" src="https://alphasignal.ai/image/1774205593112-b5ig5e.png" style="display:block;border:1px solid #000000;outline:none;text-decoration:none;" width="60"/>
+</td>
+<!-- Text Content -->
+<td style="font-family:system-ui, Helvetica, Arial, sans-serif;color:#000000;" valign="middle">
+<div style="font-size:15px;font-weight:700;line-height:20px;margin:0 0 3px 0;padding:0;">
+        Today's Author
+      </div>
+<div style="font-size:15px;line-height:20px;margin:0;padding:0;">
+        
+   Ben Dickson is a veteran software engineer and former CTO known as the "Engineer's Journalist" for translating technical AI research into practical, production-focused insights. He is a lead contributor to TechCrunch and VentureBeat.
+      
+      </div>
+</td>
+</tr>
+</table><table border="0" cellpadding="0" cellspacing="0" role="presentation" style="max-width:600px;margin:auto;border:1px solid #000;padding:0 20px;background-color:#ffffff;margin-bottom:30px;" width="100%">
+<!-- Item 1 -->
+<tr>
+<td style="padding:15px 0;">
+<table border="0" cellpadding="0" cellspacing="0" role="presentation" width="100%">
+<tr>
+<td valign="top">
+<span style="font-family:system-ui;color:#f74904;font-weight:normal;font-size:13px;line-height:22.5px;margin:0;padding:0;display:block;">From Augment Code</span>
+<a class="h1" href="https://example.com/openai-codex" style="font-family:Helvetica;font-size:16px !important;font-weight:bold;line-height:22.5px; color:#000000 !important;mso-color-alt:windowtext; text-decoration:none;display:block;margin:0 0 5px 0;">The coordination layer your AI agent stack is missing</a>
+<div style="font-family:Helvetica;font-size:15px;line-height:22.5px;color:#000000 !important;mso-color-alt:windowtext;mso-style-textfill-fill-color:#000000;margin-top:5px;"><p>Stop herding AI agents across terminals and branches. Intent bundles each task into a single workspace with a living spec, agent notes, and full change visibility. <br/><br/><a href="https://app.alphasignal.ai/c?uid=Z26xdR15QjDeeM2j&amp;cid=32e5915dd0957624&amp;lid=qFleFZ9A070p2yXx" rel="noopener noreferrer nofollow" target="_blank">Orchestrate agents like a system</a>, not a swarm: direct specialists, keep work aligned, and ship without copy-pasting context. <br/><br/> Works with Augment, Claude Code, Codex, or OpenCode.</p></div>
+<div style="padding-top:20px;"><a href="https://app.alphasignal.ai/c?uid=Z26xdR15QjDeeM2j&amp;cid=32e5915dd0957624&amp;lid=qFleFZ9A070p2yXx" style="font-family:Helvetica;font-size:15px;font-weight:bold;text-decoration:underline;color:#000000 !important;" target="_blank"><span style="color:#000000 !important;">Build with Intent ↗</span></a></div>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+<!-- Outer Box -->
+<table border="0" cellpadding="0" cellspacing="0" role="presentation" style="max-width:600px;margin:auto;border:1px solid #6B6B6B;background-color:#ffffff;padding:15px 20px 20px 20px;margin-bottom:30px;" width="100%">
+<!-- Section Title -->
+<tr>
+<td style="font-family:system-ui, sans-serif;font-size:16px;line-height:22px;font-weight:bold;
+               color:#000000 !important;mso-color-alt:windowtext;mso-style-textfill-fill-color:#000000;
+               padding:0 0 10px 0;">
+      Sunday Deep Dive
+    </td>
+</tr>
+<!-- Divider -->
+<tr>
+<td style="padding:0 0 10px 0;">
+<table border="0" cellpadding="0" cellspacing="0" role="presentation" width="100%">
+<tr><td style="border-top:1px solid #6B6B6B;"></td></tr>
+</table>
+</td>
+</tr>
+<!-- Headline -->
+<tr>
+<td class="h1" style="font-family:Helvetica, sans-serif;font-size:17px;line-height:22px;font-weight:bold;
+             color:#000000 !important;mso-color-alt:windowtext;
+             mso-style-textfill-fill-color:#000000;
+             padding:0 0 5px 0;">
+<span style="color:#000000 !important;text-decoration:none;">
+      How Nvidia’s open-source powerplay might reshape the economics of AI agents
+    </span>
+</td>
+</tr>
+<!-- Body Text -->
+<tr>
+<td style="font-family:Helvetica, sans-serif;font-size:15px;line-height:22px;font-weight:normal;
+               color:#000000 !important;mso-color-alt:windowtext;mso-style-textfill-fill-color:#000000;
+               padding:0;">
+<div style="margin-top:0;">
+<p>Agentic AI workflows are currently hitting a massive financial wall. Frameworks like OpenClaw are racking up thousands of dollars in monthly API bills for developers simply by running routine automated tasks.</p>
+<p>This astronomical cost happens because these agents rely on continuous background "heartbeats" and infinite storage of tool outputs and conversation histories, causing the context window to accumulate rapidly and burn through millions of tokens every week.</p>
+<p>The financial strain is compounding with the latest frontier models. Anthropic's Claude Opus 4.6, which is the model of choice for many agentic tasks, costs $25 per million output tokens (and up to $150 if you want faster responses).</p>
+<p>Developers and enterprises are quickly realizing that routing every automated action through closed APIs is economically unviable, forcing a hard shift toward smart routing architectures that rely on open-weight models that provide more flexibility on pricing and hosting environments.</p>
+<p>However, the open-source landscape is simultaneously fracturing. Meta has notably slowed its release cadence for the Llama family. DeepSeek's highly anticipated R2 model is facing severe delays due to training instability on Huawei Ascend chips. The future of Alibaba's Qwen team is in question after several high-profile departures.</p>
+<p>This void leaves an opening for a new leader. Nvidia might become the next champion of the open-source AI ecosystem while quietly solidifying its hardware dominance. And its recent open source releases reinforce this image.</p>
+<p><b>Under the hood of Nemotron 3</b></p>
+<p>Nvidia's direct answer to the agentic token tax is the newly released Nemotron 3 Super. It is a large 120-billion-parameter mixture-of-experts (MoE) model (12 billion active parameters), placing it in the class of OpenAI's gpt-oss-120b and Qwen3.5-122B. It also boasts a 1 million-token context window, making it suitable for long reasoning and coding tasks.</p>
+<p>Independent benchmarks show this architecture works in practice. Nemotron 3 Super scored a 36 on the Artificial Analysis Intelligence Index (ahead of gpt-oss-120b, slightly behind Qwen3.5-122B). More importantly for developers, it delivers significantly higher throughput on B200 GPUs compared to similar open models.</p>
+<img alt="alpha_signal_image_1" border="0" src="https://alphasignal.ai/image/1774088763675-nvh8zv.png" style="display:block;width:100%;max-width:560px;height:auto;" width="560"/>
+<p>This efficiency comes from specific architectural choices designed to solve real-world bottlenecks:</p>
+<ul>
+<li><b>Hybrid Mamba-Transformer:</b> Standard Transformer models compare every token to every other token, meaning memory requirements scale exponentially as the context window grows. By integrating Mamba layers, Nemotron 3 bypasses this memory explosion on long context tasks.</li>
+<li><b>Latent MoE:</b> Nemotron 3 performs the MoE routing stage in a compressed latent space, slashing communication overhead and allowing the model to use 4x more experts (and get higher accuracy) with the same compute budget.</li>
+<li><b>Multi-token prediction:</b> The model predicts multiple future tokens simultaneously, speeding up the time-to-first-token and improving performance on reasoning tasks that require thinking several steps ahead.</li>
+</ul>
+<img alt="alpha_signal_image_2" border="0" src="https://alphasignal.ai/image/1774089045871-312y26.png" style="display:block;width:100%;max-width:560px;height:auto;" width="560"/>
+<p><b>The lightweight complement</b></p>
+<p>AI builders rarely need a 120-billion parameter model for every minor step in an agentic loop. To address the need for high-frequency, single-step tasks, Nvidia previously released Nemotron 3 Nano. Available in 30-billion and highly compact 4-billion parameter versions, Nano completes the developer ecosystem.</p>
+<p>Developers can deploy Nano on smaller hardware partitions or edge devices for routine work like sorting files or parsing simple user inputs. Meanwhile Super can take care of deep reasoning, planning, and orchestration tasks. This keeps the entire workflow fast, cost-effective, and fully optimized within a single model family.</p>
+<img alt="alpha_signal_image_3" border="0" src="https://alphasignal.ai/image/1774104667297-3m9t2u.png" style="display:block;width:100%;max-width:560px;height:auto;" width="560"/>
+<p><b>Nvidia's advantage</b></p>
+<p>While many companies and labs release open models, Nvidia is particularly positioned to turn it into a profitable business.</p>
+<p>Training LLMs is very costly, which is why AI companies are usually inclined to keep the models to themselves. They usually release the weights to raise brand awareness and drive customers to their higher end closed models (examples include OpenAI and Mistral).</p>
+<p>For Nvidia, open models are a direct revenue driver built on hardware and software co-design.</p>
+<p>Nvidia specifically designed its Blackwell B200 GPUs to train and run models using NVFP4, a 4-bit floating-point format that natively reduces precision requirements and doubles processing speed without losing accuracy.</p>
+<img alt="alpha_signal_image_4" border="0" src="https://alphasignal.ai/image/1774104792649-rdyni0.png" style="display:block;width:100%;max-width:560px;height:auto;" width="560"/>
+<p>Nemotron 3 models are trained natively in this NVFP4 format from the ground up. This means the software is physically co-designed with the silicon. If developers want to run these highly efficient, standard-setting models at peak speed, the financial and performance incentives dictate they run them on Nvidia chips.</p>
+<p>At the same time, Nvidia is releasing a bunch of other optimization techniques at different levels of the model architecture (e.g., KV cache optimization, quantization), all of which are designed to drive down costs and increase the speed of LLM inference on Nvidia hardware.</p>
+<p><b>A $26 billion developer flywheel</b></p>
+<p>Nvidia is reportedly investing $26 billion over the next five years on open-weight AI models. This massive investment serves a clear business purpose: building a robust new software moat alongside its existing CUDA platform to protect against hardware-agnostic compilers.</p>
+<p>This might not sound much compared to the $100-billion+ rounds that AI labs are raising. But keep in mind that Nvidia has huge profit margins on its chips, which means it can do a lot more with less.</p>
+<p>Broad developer adoption of Nvidia's open models directly translates to infrastructure sales. As developers build agents around Nvidia models, the demand for Nvidia hardware increases. This creates a developer flywheel where software adoption drives hardware dominance, drastically shortening the return on investment window for enterprise data centers.</p>
+<p>Pushing state-of-the-art open models also keeps intense pressure on proprietary giants like OpenAI and Anthropic to innovate at a breakneck pace. Continued advances in open source AI prevents monopolies or duopolies and keeps innovation moving forward.</p>
+<p>For the researcher community, this means higher incentives to share knowledge. For the AI developer community, this ensures lower inference costs and a massive win for the future of decentralized agentic applications.</p>
+</div>
+</td>
+</tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" class="" role="presentation" style="max-width:600px;width:100%;margin:auto;border:1px solid #6B6B6B;
+         background-color:#ffffff;margin-bottom:30px;" width="100%">
+<tr>
+<td style="padding:20px;">
+<table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" width="100%">
+<tr>
+<td align="center" class="p" style="font-family:Helvetica, Arial, sans-serif;
+                 font-size:15px !important;
+                 line-height:22.5px;
+                 font-weight:normal;
+                 color:#000000 !important;
+                 mso-color-alt:#000000;
+                 mso-style-textfill-fill-color:#000000;
+                 padding:0 0 10px 0;">
+<b>Together with:</b>
+</td>
+</tr>
+<tr>
+<td align="center" style="padding:0;">
+<a href="https://app.alphasignal.ai/c?uid=Z26xdR15QjDeeM2j&amp;cid=32e5915dd0957624&amp;lid=qFleFZ9A070p2yXx" style="display:inline-block;" target="_blank">
+<img alt="Sponsor Logo" border="0" src="https://alphasignal.ai/image/1774171465882-plrqhg.png" style="display:block;margin:auto;max-width:100px;height:auto;"/>
+</a>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" class="mobile-hidden" role="presentation" style="max-width:600px;width:100%;margin:auto;border:1px solid #A4ACB6;
+         background-color:#ffffff;margin-bottom:30px;" width="100%">
+<tr>
+<td style="padding:20px;">
+<table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" width="100%">
+<tr>
+<td align="center" class="p" style="font-family:Helvetica, Arial, sans-serif;
+                 font-size:10px !important;
+                 line-height:22.5px;
+                 font-weight:normal;
+                 color:#a1a1a1 !important;
+                 mso-color-alt:#6a7788;
+                 mso-style-textfill-fill-color:#6a7788;
+                 padding:0 0 10px 0;">
+        At Alpha Signal, our mission is to build a sharp, engaged community focused on AI, machine learning, and cutting-edge language models, helping over 200,000 developers stay informed and ahead. We’re passionate about curating the best in AI, from top research and trending technical blogs to expert insights and tailored job opportunities. We keep you connected to the breakthroughs and discussions that matter, so you can stay in the loop without endless searching. We also work closely with partners who value the future of AI, including employers and advertisers who want to reach an audience as passionate about AI as we are.
+<br/><br/>Our partnerships are based on shared values of ethics, responsibility, and a commitment to building a better world through technology.Privacy is a priority at Alpha Signal. Our Privacy Policy clearly explains how we collect, store, and use your personal and non-personal information. By using our website, you accept these terms, which you can review on our website. This policy applies across all Alpha Signal pages, outlining your rights and how to contact us if you want to adjust the use of your information. We’re based in the United States. By using our site, you agree to be governed by U.S. laws.
+      </td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" role="presentation" style="max-width:600px;width:100%;margin:auto;border:1px solid #000000;
+         background-color:#ffffff;margin-bottom:30px;" width="100%">
+<tr>
+<!-- Outer wrapper with 20px padding -->
+<td style="padding:20px;">
+<table border="0" cellpadding="0" cellspacing="0" role="presentation" width="100%">
+<!-- Text Content -->
+<tr>
+<td align="center" class="p" style="font-family:Helvetica, Arial, sans-serif;
+           font-size:15px !important;
+           line-height:22.5px;
+           font-weight:normal;
+           color:#000000 !important;
+           mso-color-alt:#000000;
+           mso-style-textfill-fill-color:#000000;
+           padding:0;">
+  Looking to promote your company, product, service, or event to 250,000+ AI developers?
+</td>
+</tr>
+<tr>
+<td align="center" style="padding:10px 0 0 0;">
+<table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="margin:auto;">
+<tr>
+<td align="center" bgcolor="#f74904" style="font-family:Helvetica, Arial, sans-serif;font-size:16px;line-height:20px;
+                           font-weight:bold;padding:12px 12px;color:#ffffff !important;
+                           border:1px solid #000000;display:block;">
+<a href="https://wsndcchuur6.typeform.com/to/t0Ry7qsf" style="color:#ffffff !important;text-decoration:none;display:inline-block;" target="_blank">
+                    WORK WITH US
+                  </a>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+<!-- Feedback Box -->
+<table border="0" cellpadding="0" cellspacing="0" role="presentation" style="max-width:600px;margin:auto;border:1px solid #000;background-color:#ffffff;" width="100%">
+<tr>
+<td align="center" style="padding:30px 20px;background-color:#ffffff;">
+<!-- Title -->
+<div style="font-family:Helvetica, Arial, sans-serif;
+               font-size:18px;line-height:24px;font-weight:bold;
+               color:#000000;
+               padding:0 0 20px 0;">
+        How was today’s email?
+      </div>
+<!-- Buttons -->
+<div style="font-family:Helvetica, Arial, sans-serif;font-size:16px;line-height:22px;">
+<a href="https://app.alphasignal.ai/fb/Z26xdR15QjDeeM2j?cid=32e5915dd0957624&amp;feedback=Awesome" style="display:inline-block;
+                  text-decoration:none;
+                  color:#000000;
+                  border:1px solid #000000;
+                  padding:10px 16px;
+                  margin:0 6px;" target="_blank">
+          Awesome
+        </a>
+<a href="https://app.alphasignal.ai/fb/Z26xdR15QjDeeM2j?cid=32e5915dd0957624&amp;feedback=Decent" style="display:inline-block;
+                  text-decoration:none;
+                  color:#000000;
+                  border:1px solid #000000;
+                  padding:10px 16px;
+                  margin:0 6px;" target="_blank">
+          Decent
+        </a>
+<a href="https://app.alphasignal.ai/fb/Z26xdR15QjDeeM2j?cid=32e5915dd0957624&amp;feedback=Not%20Great" style="display:inline-block;
+                  text-decoration:none;
+                  color:#000000;
+                  border:1px solid #000000;
+                  padding:10px 16px;
+                  margin:0 6px;" target="_blank">
+          Not Great
+        </a>
+</div>
+</td>
+</tr>
+</table>
+<!-- Footer -->
+<table border="0" cellpadding="0" cellspacing="0" role="presentation" style="max-width:600px;margin:auto;" width="100%">
+<tr>
+<td align="center" style="padding:20px 10px;">
+<!-- Unsubscribe -->
+
+<!-- Address -->
+<div style="padding-top:20px; font-family:system-ui;font-size:14px;color:#a1a1a1;">
+{"AlphaSignal": "214 Barton Springs Rd, Austin, USA"}
+</div>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+    </div>
+  </article>
+</main>
+</body>
+</html>

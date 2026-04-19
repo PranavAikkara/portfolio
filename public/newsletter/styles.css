@@ -19,37 +19,39 @@
 }
 
 .nl-list{
-  display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:1rem;
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:.8rem;
 }
 
 .nl-card{
-  background:var(--surface);border:1px solid var(--border);border-radius:14px;
-  padding:1.4rem 1.5rem;display:flex;flex-direction:column;gap:.7rem;
-  text-decoration:none;color:inherit;transition:all .2s;
-  position:relative;overflow:hidden;
+  background:var(--surface);border:1px solid var(--border);border-radius:12px;
+  padding:1.1rem 1.25rem 1.2rem;display:flex;flex-direction:column;gap:.55rem;
+  text-decoration:none;color:inherit;transition:border-color .15s, transform .15s, box-shadow .2s;
+  position:relative;
 }
-.nl-card:hover{border-color:var(--ink);transform:translateY(-2px);box-shadow:0 20px 40px -24px rgba(14,14,12,.18)}
-.nl-card::after{
-  content:"";position:absolute;top:0;right:0;width:80px;height:80px;
-  background:radial-gradient(circle at top right,var(--accent-soft),transparent 70%);
-  opacity:0;transition:opacity .25s;
+.nl-card:hover{
+  border-color:var(--ink);transform:translateY(-1px);
+  box-shadow:0 12px 28px -18px rgba(14,14,12,.18);
 }
-.nl-card:hover::after{opacity:1}
 
 .nl-card-meta{
-  display:flex;justify-content:space-between;align-items:center;
-  font-family:var(--mono);font-size:.7rem;letter-spacing:.08em;color:var(--muted);
+  display:flex;justify-content:space-between;align-items:center;gap:1rem;
+  font-family:var(--mono);font-size:.66rem;letter-spacing:.12em;color:var(--muted);
 }
-.nl-sender{color:var(--accent);text-transform:uppercase}
-.nl-date{color:var(--muted-2)}
+.nl-sender{
+  color:var(--accent);text-transform:uppercase;font-weight:500;
+  overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0;
+}
+.nl-date{color:var(--muted-2);white-space:nowrap;flex-shrink:0}
 
 .nl-card-title{
-  font-family:var(--serif);font-weight:400;font-size:1.5rem;line-height:1.15;
-  letter-spacing:-.01em;color:var(--ink);
+  font-family:var(--sans);font-weight:600;
+  font-size:1.02rem;line-height:1.35;letter-spacing:-.005em;color:var(--ink);
+  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;
 }
 .nl-card-snippet{
-  font-size:.93rem;line-height:1.55;color:var(--ink-2);
-  display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;
+  font-size:.86rem;line-height:1.55;color:var(--muted);
+  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;
+  margin:0;
 }
 
 /* Detail page */
