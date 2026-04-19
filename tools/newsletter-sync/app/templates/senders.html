@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block body %}
+<h1>Senders</h1>
+<p class="muted"><a href="/">&larr; dashboard</a></p>
+
+<form method="post" action="/senders/add" class="row">
+  <input name="value" type="text" placeholder="newsletter@openai.com or @openai.com" required />
+  <input name="display_name" type="text" placeholder="Display name (optional)" />
+  <button type="submit">Add</button>
+</form>
+
+<table>
+  {% for s in senders %}
+  <tr>
+    <td><strong>{{ s.display_name or s.value }}</strong>
+      {% if s.display_name %}<span class="muted"> &middot; {{ s.value }}</span>{% endif %}
+      {% if s.is_domain %}<span class="status">domain</span>{% endif %}
+    </td>
+    <td style="text-align:right">
+      <form method="post" action="/senders/remove" style="display:inline">
+        <input type="hidden" name="value" value="{{ s.value }}" />
+        <button class="secondary" type="submit">remove</button>
+      </form>
+    </td>
+  </tr>
+  {% else %}
+  <tr><td colspan="2" class="muted">No senders yet.</td></tr>
+  {% endfor %}
+</table>
+{% endblock %}

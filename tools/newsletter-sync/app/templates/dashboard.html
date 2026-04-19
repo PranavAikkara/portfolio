@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block body %}
+<h1>newsletter-sync</h1>
+<p class="muted">Local Gmail → portfolio sync. Bound to 127.0.0.1 only.</p>
+
+<h2>Gmail</h2>
+<p>
+  {% if authed %}
+    <span class="status ok">authorized</span>
+  {% else %}
+    <span class="status warn">not authorized</span>
+    &nbsp; <a href="/auth">Connect Gmail</a>
+  {% endif %}
+</p>
+
+<h2>Senders</h2>
+<p>{{ sender_count }} allowlisted sender{{ 's' if sender_count != 1 else '' }} &middot; <a href="/senders">manage</a></p>
+
+<h2>Last sync</h2>
+<p>{{ last_sync or 'never' }}</p>
+
+<h2>Sync now</h2>
+<form method="post" action="/sync">
+  <button type="submit">Fetch + sanitize + commit + push</button>
+</form>
+{% endblock %}
