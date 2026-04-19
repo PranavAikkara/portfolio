@@ -1,0 +1,107 @@
+/* Newsletter section — inherits CSS variables from /styles.css */
+
+.nl-wrap{
+  max-width:1100px;margin:0 auto;padding:7rem 2.5rem 5rem;
+}
+.nl-detail-wrap{max-width:780px}
+
+.nl-header{margin-bottom:3.5rem;max-width:760px}
+.nl-display{
+  font-family:var(--serif);font-weight:400;
+  font-size:clamp(3rem,7vw,5.5rem);line-height:.95;letter-spacing:-.02em;
+  margin:1.4rem 0 1.2rem;
+}
+.nl-lede{font-size:1.1rem;color:var(--ink-2);max-width:620px;line-height:1.6}
+
+.nl-empty{
+  padding:3rem;background:var(--surface);border:1px dashed var(--border);border-radius:16px;
+  color:var(--muted);text-align:center;font-family:var(--mono);font-size:.9rem;
+}
+
+.nl-list{
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:1rem;
+}
+
+.nl-card{
+  background:var(--surface);border:1px solid var(--border);border-radius:14px;
+  padding:1.4rem 1.5rem;display:flex;flex-direction:column;gap:.7rem;
+  text-decoration:none;color:inherit;transition:all .2s;
+  position:relative;overflow:hidden;
+}
+.nl-card:hover{border-color:var(--ink);transform:translateY(-2px);box-shadow:0 20px 40px -24px rgba(14,14,12,.18)}
+.nl-card::after{
+  content:"";position:absolute;top:0;right:0;width:80px;height:80px;
+  background:radial-gradient(circle at top right,var(--accent-soft),transparent 70%);
+  opacity:0;transition:opacity .25s;
+}
+.nl-card:hover::after{opacity:1}
+
+.nl-card-meta{
+  display:flex;justify-content:space-between;align-items:center;
+  font-family:var(--mono);font-size:.7rem;letter-spacing:.08em;color:var(--muted);
+}
+.nl-sender{color:var(--accent);text-transform:uppercase}
+.nl-date{color:var(--muted-2)}
+
+.nl-card-title{
+  font-family:var(--serif);font-weight:400;font-size:1.5rem;line-height:1.15;
+  letter-spacing:-.01em;color:var(--ink);
+}
+.nl-card-snippet{
+  font-size:.93rem;line-height:1.55;color:var(--ink-2);
+  display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;
+}
+
+/* Detail page */
+.nl-back{
+  font-family:var(--mono);font-size:.75rem;letter-spacing:.1em;color:var(--muted);
+  text-decoration:none;display:inline-block;margin-bottom:2rem;transition:color .15s;
+}
+.nl-back:hover{color:var(--ink)}
+
+.nl-detail{
+  background:var(--surface);border:1px solid var(--border);border-radius:16px;
+  padding:3rem 3rem 3.5rem;
+}
+.nl-detail-header{padding-bottom:1.8rem;border-bottom:1px solid var(--border);margin-bottom:2rem}
+.nl-detail-title{
+  font-family:var(--serif);font-weight:400;font-size:clamp(2rem,4vw,3rem);
+  line-height:1.05;letter-spacing:-.015em;color:var(--ink);margin-top:.7rem;
+}
+.nl-detail-body{
+  font-size:1rem;line-height:1.7;color:var(--ink-2);
+}
+.nl-detail-body h1,.nl-detail-body h2,.nl-detail-body h3{
+  font-family:var(--serif);font-weight:400;color:var(--ink);
+  margin:2rem 0 .9rem;line-height:1.2;
+}
+.nl-detail-body h1{font-size:1.8rem}
+.nl-detail-body h2{font-size:1.4rem}
+.nl-detail-body h3{font-size:1.15rem}
+.nl-detail-body p{margin-bottom:1.1rem}
+.nl-detail-body a{color:var(--accent);text-decoration:underline;text-underline-offset:2px}
+.nl-detail-body a:hover{color:var(--ink)}
+.nl-detail-body ul,.nl-detail-body ol{margin:0 0 1.1rem 1.6rem}
+.nl-detail-body li{margin-bottom:.4rem}
+.nl-detail-body img{max-width:100%;height:auto;border-radius:8px;margin:1rem 0}
+.nl-detail-body blockquote{
+  border-left:3px solid var(--accent);
+  padding:.4rem 0 .4rem 1.2rem;margin:1.3rem 0;
+  color:var(--ink-2);font-style:italic;
+}
+.nl-detail-body code{
+  font-family:var(--mono);font-size:.88em;
+  background:var(--surface-2);padding:2px 6px;border-radius:4px;
+}
+.nl-detail-body pre{
+  background:var(--surface-2);border:1px solid var(--border);
+  padding:1rem;border-radius:8px;overflow-x:auto;font-size:.85rem;
+  margin:1.2rem 0;
+}
+.nl-detail-body pre code{background:transparent;padding:0}
+
+@media (max-width:640px){
+  .nl-wrap{padding:6rem 1.2rem 3rem}
+  .nl-detail{padding:2rem 1.4rem 2.5rem}
+  .nl-list{grid-template-columns:1fr}
+}
