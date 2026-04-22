@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 1100" fill="none">
+  <defs>
+    <filter id="bw" x="-5%" y="-5%" width="110%" height="110%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.012" numOctaves="2" seed="4"/>
+      <feDisplacementMap in="SourceGraphic" scale="2.5"/>
+    </filter>
+    <style>
+      .stem  { stroke: #8B6F4C; stroke-width: 1.4; fill: none; stroke-linecap: round; filter: url(#bw); }
+      .tendril { stroke: #8B6F4C; stroke-width: .9; fill: none; stroke-linecap: round; filter: url(#bw); }
+      .leaf  { fill: #9C8666; filter: url(#bw); }
+      .leaf-light { fill: #B89F7C; filter: url(#bw); }
+      .leaf-accent { fill: #D94B0C; filter: url(#bw); }
+    </style>
+  </defs>
+
+  <!-- main stem — one long organic curve -->
+  <path class="stem"
+        d="M260,40
+           C300,180 230,290 280,420
+           C320,540 240,640 300,760
+           C340,860 280,950 310,1060" />
+
+  <!-- tendril / secondary branch -->
+  <path class="tendril"
+        d="M290,300 C340,320 380,360 420,410" />
+  <path class="tendril"
+        d="M275,680 C230,710 210,760 220,820" />
+
+  <!-- leaves along the stem (ellipses tilted like real leaves) -->
+  <g opacity="0.8">
+    <ellipse class="leaf"        cx="220" cy="120" rx="58" ry="18" transform="rotate(-32 220 120)"/>
+    <ellipse class="leaf-light"  cx="320" cy="210" rx="64" ry="20" transform="rotate(22 320 210)"/>
+    <ellipse class="leaf"        cx="210" cy="330" rx="70" ry="22" transform="rotate(-42 210 330)"/>
+    <ellipse class="leaf-accent" cx="420" cy="410" rx="56" ry="18" transform="rotate(28 420 410)" opacity="0.55"/>
+    <ellipse class="leaf-light"  cx="340" cy="490" rx="62" ry="20" transform="rotate(24 340 490)"/>
+    <ellipse class="leaf"        cx="200" cy="610" rx="72" ry="22" transform="rotate(-38 200 610)"/>
+    <ellipse class="leaf-light"  cx="360" cy="720" rx="58" ry="18" transform="rotate(30 360 720)"/>
+    <ellipse class="leaf"        cx="220" cy="840" rx="66" ry="20" transform="rotate(-34 220 840)"/>
+    <ellipse class="leaf-light"  cx="370" cy="950" rx="54" ry="18" transform="rotate(26 370 950)"/>
+  </g>
+
+  <!-- small bud near the top -->
+  <ellipse class="leaf-accent" cx="258" cy="50" rx="6" ry="10" transform="rotate(-18 258 50)" opacity="0.7"/>
+</svg>
