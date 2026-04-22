@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 700" fill="none">
+  <defs>
+    <filter id="wobble" x="-5%" y="-5%" width="110%" height="110%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="2" seed="3"/>
+      <feDisplacementMap in="SourceGraphic" scale="3"/>
+    </filter>
+    <style>
+      .ink { stroke: #0E0E0C; stroke-width: 1; stroke-linecap: round; fill: none; filter: url(#wobble); }
+      .thin { stroke: #0E0E0C; stroke-width: .6; stroke-linecap: round; fill: none; filter: url(#wobble); }
+      .dash { stroke: #0E0E0C; stroke-width: .8; stroke-dasharray: 3 4; stroke-linecap: round; fill: none; }
+      .node-fill { fill: #0E0E0C; }
+      .accent-fill { fill: #D94B0C; }
+      .mono { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 9px; fill: #74706A; }
+    </style>
+  </defs>
+
+  <!-- scattered node graph, deliberately loose -->
+  <g>
+    <!-- edges (drawn first so they sit behind the nodes) -->
+    <path class="thin" d="M130,110 C210,90 260,150 310,195" />
+    <path class="dash" d="M310,195 L480,120" />
+    <path class="thin" d="M310,195 C420,230 520,240 600,270" />
+    <path class="dash" d="M480,120 C550,170 580,220 600,270" />
+    <path class="thin" d="M310,195 C320,310 300,380 280,430" />
+    <path class="thin" d="M280,430 C340,460 450,470 530,450" />
+    <path class="dash" d="M600,270 C610,350 580,400 530,450" />
+    <path class="thin" d="M530,450 C620,500 720,510 800,490" />
+    <path class="thin" d="M130,110 C150,230 200,340 280,430" />
+    <path class="dash" d="M800,490 C790,580 700,620 620,610" />
+    <path class="thin" d="M620,610 C520,620 420,600 370,560" />
+
+    <!-- nodes -->
+    <circle class="node-fill" cx="130" cy="110" r="4"/>
+    <circle class="accent-fill" cx="310" cy="195" r="6"/>
+    <circle class="node-fill" cx="480" cy="120" r="3"/>
+    <circle class="node-fill" cx="600" cy="270" r="5"/>
+    <circle class="accent-fill" cx="280" cy="430" r="5"/>
+    <circle class="node-fill" cx="530" cy="450" r="4"/>
+    <circle class="node-fill" cx="800" cy="490" r="3"/>
+    <circle class="accent-fill" cx="620" cy="610" r="4" opacity=".7"/>
+    <circle class="node-fill" cx="370" cy="560" r="3"/>
+
+    <!-- soft rings around flagship nodes -->
+    <circle cx="310" cy="195" r="12" stroke="#D94B0C" stroke-width=".6" fill="none" stroke-dasharray="1 3"/>
+    <circle cx="280" cy="430" r="11" stroke="#D94B0C" stroke-width=".6" fill="none" stroke-dasharray="1 3"/>
+
+    <!-- hand-written annotations -->
+    <text class="mono" x="322" y="187">rag</text>
+    <text class="mono" x="292" y="423">agent</text>
+    <text class="mono" x="610" y="263">tool</text>
+  </g>
+</svg>

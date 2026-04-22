@@ -33,11 +33,16 @@
   a{color:inherit;text-decoration:none}
   ::selection{background:var(--accent);color:#fff}
 
-  /* paper grain */
+  /* paper grain + topographic contour sketch (full-page, fixed, subtle) */
   body::before{
     content:"";position:fixed;inset:0;pointer-events:none;z-index:1;
-    background-image:radial-gradient(rgba(14,14,12,0.035) 1px,transparent 1px);
-    background-size:3px 3px;opacity:.6;mix-blend-mode:multiply;
+    background-image:
+      radial-gradient(rgba(14,14,12,0.035) 1px,transparent 1px),
+      url("/assets/sketch-contour.svg");
+    background-size: 3px 3px, 1200px auto;
+    background-position: 0 0, center center;
+    background-repeat: repeat, no-repeat;
+    opacity:.55;mix-blend-mode:multiply;
   }
 
   /* ─── NAV ─── */
@@ -72,11 +77,23 @@
   .sec-head .sec-num{font-family:var(--mono);font-size:.72rem;color:var(--muted);letter-spacing:.15em}
 
   /* ─── HERO ─── */
-  #hero{padding:10rem 0 6rem;border-top:0;overflow:hidden}
+  #hero{padding:10rem 0 6rem;border-top:0;overflow:hidden;position:relative}
+  #hero::before{
+    /* hand-drawn node-graph sketch sitting behind the text */
+    content:"";position:absolute;top:4rem;right:-6%;
+    width:min(820px, 78vw);aspect-ratio:9/7;
+    background:url("/assets/sketch-nodes.svg") no-repeat center/contain;
+    opacity:.14;pointer-events:none;z-index:1;
+  }
   #hero::after{
     content:"";position:absolute;top:20%;right:-10%;width:600px;height:600px;
     background:radial-gradient(circle,var(--accent-soft) 0%,transparent 65%);
-    opacity:.55;pointer-events:none;z-index:1;
+    opacity:.5;pointer-events:none;z-index:1;
+  }
+  #hero > .wrap{position:relative;z-index:2}
+  .hero-flourish{
+    display:block;margin:-.4rem 0 .8rem;width:180px;max-width:40vw;opacity:.85;
+    transform:translateX(-4px);
   }
   .eyebrow{
     display:inline-flex;align-items:center;gap:.6rem;
