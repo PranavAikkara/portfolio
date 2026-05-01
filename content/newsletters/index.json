@@ -1,5 +1,261 @@
 [
   {
+    "slug": "2026-05-01-towards-data-science-agents-on-a-token-diet",
+    "subject": "Agents on a token diet",
+    "sender_name": "Towards Data Science",
+    "date": "2026-05-01T18:03:41Z",
+    "snippet": "Plus: Are engineers done with LangChain? ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏…",
+    "_gmail_id": "19de4b5f27930042"
+  },
+  {
+    "slug": "2026-05-01-alphasignal-claude-security-public-beta-ai-vulnerability-scanning-no-api-setup-needed",
+    "subject": "Claude Security public beta: AI vulnerability scanning, no API setup needed",
+    "sender_name": "AlphaSignal",
+    "date": "2026-05-01T12:12:09Z",
+    "snippet": "Anthropic launches Claude Security, Cursor releases agent SDK, Ant Group open-sources 1T-param model, agent optimizer boosts AppWorld score to 89.5 Stay updated with today's top AI news, papers, and repos. Signup | Work With Us | Follow on …",
+    "_gmail_id": "19de3741aca688db"
+  },
+  {
+    "slug": "2026-05-01-evolving-ai-insights-anthropic-opens-claude-security-to-all",
+    "subject": "🛡️ Anthropic Opens Claude Security to All",
+    "sender_name": "Evolving AI Insights",
+    "date": "2026-05-01T10:21:56Z",
+    "snippet": "Also: Gemini Drives Into Millions of Cars ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ …",
+    "_gmail_id": "19de30f35f901e51"
+  },
+  {
+    "slug": "2026-04-30-alphasignal-warp-terminal-open-source-37k-stars-full-rust-codebase-released",
+    "subject": "🚀 Warp Terminal Open Source: 37k stars, full Rust codebase released",
+    "sender_name": "AlphaSignal",
+    "date": "2026-04-30T13:19:56Z",
+    "snippet": "Full Rust codebase on GitHub hits 37k stars, Cursor SDK deploys coding agents anywhere, Abstract CoT cuts reasoning 11.6x Stay updated with today's top AI news, papers, and repos. Signup | Work With Us | Follow on X | Archive Hey Aikkara, T…",
+    "_gmail_id": "19dde8bccf7909d6"
+  },
+  {
+    "slug": "2026-04-30-towards-data-science-april-must-reads-context-layers-claude-cowork-and-more",
+    "subject": "April Must-Reads: Context Layers, Claude Cowork, and More",
+    "sender_name": "Towards Data Science",
+    "date": "2026-04-30T13:04:30Z",
+    "snippet": "Don't miss our most popular articles from the past month! ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ …",
+    "_gmail_id": "19dde7dedd2d37a1"
+  },
+  {
+    "slug": "2026-04-29-alphasignal-warp-terminal-goes-open-source-40k-stars-agpl-v3-agent-first-contributions",
+    "subject": "Warp terminal goes open source: 40k stars, AGPL v3, agent-first contributions",
+    "sender_name": "AlphaSignal",
+    "date": "2026-04-29T20:09:48Z",
+    "snippet": "Warp goes open-source, Zed ships 1.0, Google Gemma 4 31B runs on Apple Silicon, Sakana 7B manages other LLMs Stay updated with today's top AI news, papers, and repos. Signup | Work With Us | Follow on X | Archive Hey Aikkara, The dev toolch…",
+    "_gmail_id": "19ddadcafffba670"
+  },
+  {
+    "slug": "2026-04-29-alphasignal-how-assemblyai-closes-the-last-mile-for-real-time-voice-agents",
+    "subject": "🗣️ How AssemblyAI closes the last mile for real-time voice agents",
+    "sender_name": "AlphaSignal",
+    "date": "2026-04-29T18:05:53Z",
+    "snippet": "The bottleneck isn't your LLM, it's your transcription layer. AssemblyAI's Universal-3 Pro was built to close that gap. The bottleneck isn't your LLM, it's your transcription layer. AssemblyAI's Universal-3 Pro was built to close that gap. …",
+    "_gmail_id": "19dda6b3cb9458a4"
+  },
+  {
+    "slug": "2026-04-29-towards-data-science-nans-are-quietly-killing-your-model",
+    "subject": "NaNs are quietly killing your model",
+    "sender_name": "Towards Data Science",
+    "date": "2026-04-29T18:01:23Z",
+    "snippet": "Here's how to catch them in 3ms. ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏…",
+    "_gmail_id": "19dda671c97db1bd"
+  },
+  {
+    "slug": "2026-04-29-evolving-ai-insights-openai-lands-on-aws-as-microsoft-exclusivity-ends",
+    "subject": "☁️ OpenAI Lands on AWS as Microsoft Exclusivity Ends",
+    "sender_name": "Evolving AI Insights",
+    "date": "2026-04-29T10:11:36Z",
+    "snippet": "Also: Google Moves Gemini to a Credit System ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌…",
+    "_gmail_id": "19dd8b906e135f7b"
+  },
+  {
+    "slug": "2026-04-28-alphasignal-claude-connects-to-blender-adobe-cc-7-more-creative-tools",
+    "subject": "🔌 Claude connects to Blender, Adobe CC + 7 more creative tools",
+    "sender_name": "AlphaSignal",
+    "date": "2026-04-28T17:48:04Z",
+    "snippet": "On MIT Platonic Hypothesis, Copilot token billing June 1st, Gemma 4 local browser agent, Microsoft 3D photo tool Stay updated with today's top AI news, papers, and repos. Signup | Work With Us | Follow on X | Archive Hey Aikkara, AI is quie…",
+    "_gmail_id": "19dd5349173e6199"
+  },
+  {
+    "slug": "2026-04-28-towards-data-science-the-endangered-general-data-scientist",
+    "subject": "The endangered general data scientist",
+    "sender_name": "Towards Data Science",
+    "date": "2026-04-28T14:05:31Z",
+    "snippet": "And what you need to become instead ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ …",
+    "_gmail_id": "19dd468efa52053a"
+  },
+  {
+    "slug": "2026-04-27-towards-data-science-stop-looping-start-vectorizing-pandas",
+    "subject": "Stop looping, start vectorizing pandas.",
+    "sender_name": "Towards Data Science",
+    "date": "2026-04-27T14:30:17Z",
+    "snippet": "How I cut my Pandas runtime by 95% ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏…",
+    "_gmail_id": "19dcf5931c9e781e"
+  },
+  {
+    "slug": "2026-04-27-alphasignal-anthropic-claude-agents-closed-4000-in-autonomous-deals-quality-b",
+    "subject": "🤖 Anthropic Claude agents closed $4,000 in autonomous deals, quality b",
+    "sender_name": "AlphaSignal",
+    "date": "2026-04-27T13:07:09Z",
+    "snippet": "Claude interviewed users then negotiated 186 deals autonomously, weaker agents lost money without users knowing Stay updated with today's top AI news, papers, and repos. Signup | Work With Us | Follow on X | Archive Hey Aikkara, Everything …",
+    "_gmail_id": "19dcf0d0476998a5"
+  },
+  {
+    "slug": "2026-04-27-evolving-ai-insights-google-is-investing-40b-in-anthropic",
+    "subject": "💰️ Google is investing $40B in Anthropic",
+    "sender_name": "Evolving AI Insights",
+    "date": "2026-04-27T10:15:35Z",
+    "snippet": "Also: White House Calls Out China's AI Copycat Problem ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌…",
+    "_gmail_id": "19dce6ff237ba47d"
+  },
+  {
+    "slug": "2026-04-26-alphasignal-why-deepseek-v4-and-kimi-k2-6-are-a-big-deal-for-agentic-ai",
+    "subject": "🛠️ Why DeepSeek-v4 and Kimi-K2.6 are a big deal for agentic AI",
+    "sender_name": "AlphaSignal",
+    "date": "2026-04-26T14:32:38Z",
+    "snippet": "While everyone watched Claude & GPT-5.5, two open models quietly rewrote the rules for agentic AI. While everyone watched Claude & GPT-5.5, two open models quietly rewrote the rules for agentic AI. Stay updated with today’s top AI news, pap…",
+    "_gmail_id": "19dca34ed781a3f0"
+  },
+  {
+    "slug": "2026-04-24-alphasignal-openai-gpt-5-5-82-7-terminal-bench-5-m-tokens-live-now",
+    "subject": "🚀 OpenAI GPT-5.5: 82.7% Terminal-Bench, $5/M tokens, live now",
+    "sender_name": "AlphaSignal",
+    "date": "2026-04-24T23:34:08Z",
+    "snippet": "API pricing $5/M tokens, Workspace Agents free until May 2026, Qwen 27B runs on 18GB VRAM with Apache 2.0 license Stay updated with today's top AI news, papers, and repos. Signup | Work With Us | Follow on X | Archive Hey Aikkara, OpenAI ha…",
+    "_gmail_id": "19dc1d7f569b205e"
+  },
+  {
+    "slug": "2026-04-24-towards-data-science-stop-winging-your-ai-prompts",
+    "subject": "Stop winging your AI prompts",
+    "sender_name": "Towards Data Science",
+    "date": "2026-04-24T18:01:05Z",
+    "snippet": "Plus: one command to run your whole workflow. ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ …",
+    "_gmail_id": "19dc0a70aedf0d4a"
+  },
+  {
+    "slug": "2026-04-24-evolving-ai-insights-openai-launches-gpt-5-5",
+    "subject": "🎯 OpenAI Launches GPT-5.5",
+    "sender_name": "Evolving AI Insights",
+    "date": "2026-04-24T10:17:37Z",
+    "snippet": "Also: DeepSeek V4 Lands Without a Single Nvidia Chip ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌…",
+    "_gmail_id": "19dbefeba91261d5"
+  },
+  {
+    "slug": "2026-04-23-the-new-stack-live-in-1-hour-the-next-step-for-cd",
+    "subject": "Live in 1 Hour: The Next Step for CD",
+    "sender_name": "The New Stack",
+    "date": "2026-04-23T16:03:32Z",
+    "snippet": "Join us to eliminate tribal knowledge and manual handoffs. ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏…",
+    "_gmail_id": "19dbb151b6c6f8c4"
+  },
+  {
+    "slug": "2026-04-23-towards-data-science-how-to-tackle-agentic-ai-s-memory-problem",
+    "subject": "How to Tackle Agentic AI's Memory Problem",
+    "sender_name": "Towards Data Science",
+    "date": "2026-04-23T13:08:56Z",
+    "snippet": "What's an ambitious AI builder to do? ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ …",
+    "_gmail_id": "19dba753fc134ac1"
+  },
+  {
+    "slug": "2026-04-23-alphasignal-free-claude-code-run-claude-code-free-via-nvidia-nim-40-req-min",
+    "subject": "free-claude-code: run Claude Code free via NVIDIA NIM (40 req/min)",
+    "sender_name": "AlphaSignal",
+    "date": "2026-04-23T12:15:48Z",
+    "snippet": "Claude Code runs free via NVIDIA proxy, GPT Image 2 edits 3D meshes, OpenAI ships multi-agent Python SDK, Sakana AI unlocks diverse LLM outputs Stay updated with today's top AI news, papers, and repos. Signup | Work With Us | Follow on X | …",
+    "_gmail_id": "19dba44905c22971"
+  },
+  {
+    "slug": "2026-04-22-towards-data-science-your-rag-is-lying-to-you",
+    "subject": "Your RAG is lying to you",
+    "sender_name": "Towards Data Science",
+    "date": "2026-04-22T14:02:47Z",
+    "snippet": "Here’s a better way to build a persistent memory layer. ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ …",
+    "_gmail_id": "19db5802ce74ec77"
+  },
+  {
+    "slug": "2026-04-22-alphasignal-chatgpt-images-2-0-readable-text-thinking-mode-2k-resolution",
+    "subject": "ChatGPT Images 2.0: readable text, thinking mode, 2K resolution",
+    "sender_name": "AlphaSignal",
+    "date": "2026-04-22T13:18:48Z",
+    "snippet": "OpenAI ships ChatGPT Images 2.0, Kimi drops 300-agent coding model, Nous ships self-improving agent, 15M world model trains on one GPU Stay updated with today's top AI news, papers, and repos. Signup | Work With Us | Follow on X | Archive H…",
+    "_gmail_id": "19db557e32603345"
+  },
+  {
+    "slug": "2026-04-22-evolving-ai-insights-chatgpt-introduces-images-2-0",
+    "subject": "🎨 ChatGPT Introduces Images 2.0",
+    "sender_name": "Evolving AI Insights",
+    "date": "2026-04-22T10:19:39Z",
+    "snippet": "Also: Apple's AI Problem Gets a New Face ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌…",
+    "_gmail_id": "19db4b3df3b578f1"
+  },
+  {
+    "slug": "2026-04-21-the-new-stack-live-webinar-the-next-step-for-continuous-delivery",
+    "subject": "Live Webinar: The Next Step for Continuous Delivery",
+    "sender_name": "The New Stack",
+    "date": "2026-04-21T18:12:23Z",
+    "snippet": "Learn how to eliminate tribal knowledge and manual handoffs by turning your delivery into a self-service platform. ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏…",
+    "_gmail_id": "19db13e882d41b55"
+  },
+  {
+    "slug": "2026-04-21-alphasignal-claude-live-artifacts-auto-refresh-dashboards-amazon-5b-compute",
+    "subject": "🔄 Claude Live Artifacts: auto-refresh dashboards + Amazon $5B compute",
+    "sender_name": "AlphaSignal",
+    "date": "2026-04-21T17:30:35Z",
+    "snippet": "Auto-refreshing dashboards pull live data from your apps, 5 gigawatts of compute capacity by 2026 Stay updated with today's top AI news, papers, and repos. Signup | Work With Us | Follow on X | Archive Hey Aikkara, Claude is having a big da…",
+    "_gmail_id": "19db1180b3299504"
+  },
+  {
+    "slug": "2026-04-21-towards-data-science-tds-daily-april-21",
+    "subject": "TDS Daily | April 21",
+    "sender_name": "Towards Data Science",
+    "date": "2026-04-21T13:12:12Z",
+    "snippet": "The LLM Gamble. Plus: Join us live in 1 hour to modernize your data pipelines for AI. ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ …",
+    "_gmail_id": "19db02c25777fe44"
+  },
+  {
+    "slug": "2026-04-20-interconnects-by-nathan-lambert-reading-today-s-open-closed-performance-gap",
+    "subject": "Reading today's open-closed performance gap",
+    "sender_name": "Interconnects by Nathan Lambert",
+    "date": "2026-04-20T18:25:03Z",
+    "snippet": "The complex factors that determine the single evaluation number so many focus on. Plus, how this changes in the future. ͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­͏ ­…",
+    "_gmail_id": "19dac25751399baa"
+  },
+  {
+    "slug": "2026-04-20-alphasignal-anthropic-claude-design-chat-to-prototype-with-auto-brand-system",
+    "subject": "🎨 Anthropic Claude Design: chat-to-prototype with auto brand system",
+    "sender_name": "AlphaSignal",
+    "date": "2026-04-20T17:34:03Z",
+    "snippet": "Claude Opus 4 powers Word integration, LingBot-Map hits 20 FPS, GenericAgent cuts tokens 6x, HauhauCS uncensored model Stay updated with today's top AI news, papers, and repos. Signup | Work With Us | Follow on X | Archive Hey Aikkara, Anth…",
+    "_gmail_id": "19dabf4d8941826a"
+  },
+  {
+    "slug": "2026-04-20-towards-data-science-tds-daily-april-20",
+    "subject": "TDS Daily | April 20",
+    "sender_name": "Towards Data Science",
+    "date": "2026-04-20T13:30:20Z",
+    "snippet": "KV Cache is eating your VRAM. Plus: How to modernize your data pipelines for AI. ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏…",
+    "_gmail_id": "19dab1636eef085c"
+  },
+  {
+    "slug": "2026-04-20-evolving-ai-insights-humanoid-robot-beats-human-record-for-half-marathon",
+    "subject": "🏃 Humanoid robot beats human record for half-marathon",
+    "sender_name": "Evolving AI Insights",
+    "date": "2026-04-20T10:21:32Z",
+    "snippet": "Also: Anthropic Launches Claude Design ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌…",
+    "_gmail_id": "19daa68e62a66356"
+  },
+  {
+    "slug": "2026-04-19-alphasignal-heres-how-you-can-turn-gemma-4-into-an-ai-powerhouse",
+    "subject": "🤖Here’s how you can turn Gemma 4 into an AI powerhouse",
+    "sender_name": "AlphaSignal",
+    "date": "2026-04-19T14:31:31Z",
+    "snippet": "Parameter counts are out. Orchestration is in. Here is why Gemma 4 is the model AI engineers are quietly building with. Parameter counts are out. Orchestration is in. Here is why Gemma 4 is the model AI engineers are quietly building with. …",
+    "_gmail_id": "19da62761bc4b8d2"
+  },
+  {
     "slug": "2026-04-18-sample-welcome",
     "subject": "Welcome — a sample newsletter entry",
     "sender_name": "Sample Sender",
