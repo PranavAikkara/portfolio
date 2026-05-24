@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>NaNs are quietly killing your model — Pranav P</title>
+<meta name="description" content="Here&#39;s how to catch them in 3ms. ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏…" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/styles.css" />
+<link rel="stylesheet" href="/newsletter/styles.css" />
+</head>
+<body>
+
+  <nav>
+    <div class="logo"><a href="/" style="text-decoration:none;color:inherit">pranav<span class="dot">.</span>p</a></div>
+    <ul class="nav-links">
+      <li><a href="/#work">Work</a></li>
+      <li><a href="/#projects">Projects</a></li>
+      <li><a href="/newsletter/" class="active">Reading</a></li>
+      <li><a href="/#contact">Contact</a></li>
+    </ul>
+    <a class="nav-cta" href="/#chat"><span class="blip"></span>Ask my AI twin</a>
+  </nav>
+
+
+<main class="nl-wrap nl-detail-wrap">
+  <a class="nl-back" href="/newsletter/">← back to list</a>
+  <article class="nl-detail">
+    <header class="nl-detail-header">
+      <div class="nl-card-meta">
+        <span class="nl-sender">Towards Data Science</span>
+        <span class="nl-date">Apr 29, 2026</span>
+      </div>
+      <h1 class="nl-detail-title">NaNs are quietly killing your model</h1>
+    </header>
+    <div class="nl-detail-body">
+      <div id="preview_text" lang="en" style="display:none;font-size:1px;color:#FFFFFF;line-height:1px;max-height:0px;max-width:0px;opacity:0;overflow:hidden;">Here's how to catch them in 3ms. ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­  
+</div>
+<!--[if gte mso 9]>
+<v:background xmlns:v="urn:schemas-microsoft-com:vml" fill="t">
+    <v:fill type="tile" size="100%,100%" color="#ffffff"/>
+</v:background>
+<![endif]-->
+<div bgcolor="#ffffff" class="hse-body-background" lang="en" style="background-color:#ffffff">
+<table cellpadding="0" cellspacing="0" class="hse-body-wrapper-table" height="100%" role="presentation" style="margin:0; padding:0; width:100% !important; min-width:320px !important; height:100% !important" width="100%">
+<tbody><tr>
+<td class="hse-body-wrapper-td" style="font-family:Merriweather, Georgia, sans-serif; font-size:18px; color:#232342; word-break:break-word; padding-top:20px; padding-bottom:20px" valign="top">
+<div class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_dnd_area" data-hs-cos-general-type="widget" data-hs-cos-type="dnd_area" id="hs_cos_wrapper_main" style="color: inherit; font-size: inherit; line-height: inherit;"> <div class="hse-section hse-section-first" id="section_1773794369892" style="padding-left:10px; padding-right:10px">
+<div class="hse-column-container" style="min-width:280px; max-width:600px; margin:0 auto">
+<!--[if (mso)|(IE)]>
+      <table align="center" style="width:600px;" cellpadding="0" cellspacing="0" role="presentation">
+      <tr>
+    <![endif]-->
+<!--[if (mso)|(IE)]>
+  <td valign="top" style="width:600px;">
+<![endif]-->
+<!--[if gte mso 9]>
+  <table role="presentation" width="600" cellpadding="0" cellspacing="0" style="width:600px">
+<![endif]-->
+<div class="hse-column hse-size-12" id="column_1773794369892_0">
+<table cellpadding="0" cellspacing="0" class="" role="presentation" style="" width="100%"><tbody><tr><td class="hs_padded" style="font-family:Merriweather, Georgia, sans-serif; font-size:18px; color:#232342; word-break:break-word; padding:10px 20px 0px"><div class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module" data-hs-cos-general-type="widget" data-hs-cos-type="module" id="hs_cos_wrapper_module_17737943698892" style="color: inherit; font-size: inherit; line-height: inherit;"><div style="overflow:hidden">
+<table align="right" cellpadding="0" cellspacing="0" class="hse-pre-header hse-secondary" role="presentation" style="text-align:right; font-family:Arial, sans-serif; font-size:12px; line-height:135%; color:#23496d; margin-bottom:0; padding:0" width="100%">
+<tbody>
+<tr>
+<td align="right" style="color:#232342; word-break:break-word; text-align:right; font-family:Arial, sans-serif; font-size:12px; padding:10px 0; margin-bottom:0; line-height:135%" valign="top">
+
+</td>
+</tr>
+</tbody>
+</table>
+</div></div></td></tr></tbody></table>
+</div>
+<!--[if gte mso 9]></table><![endif]-->
+<!--[if (mso)|(IE)]></td><![endif]-->
+<!--[if (mso)|(IE)]></tr></table><![endif]-->
+</div>
+</div>
+<div class="hse-section" id="section_1769626922817" style="padding-left:10px; padding-right:10px">
+<div bgcolor="#ffffff" class="hse-column-container" style="min-width:280px; max-width:600px; margin:0 auto; background-color:#ffffff">
+<!--[if (mso)|(IE)]>
+      <table align="center" style="width:600px;" cellpadding="0" cellspacing="0" role="presentation" width="600" bgcolor="#ffffff">
+      <tr style="background-color:#ffffff;">
+    <![endif]-->
+<!--[if (mso)|(IE)]>
+  <td valign="top" style="width:600px;">
+<![endif]-->
+<!--[if gte mso 9]>
+  <table role="presentation" width="600" cellpadding="0" cellspacing="0" style="width:600px">
+<![endif]-->
+<div class="hse-column hse-size-12" id="column_1769626922817_0">
+<table cellpadding="0" cellspacing="0" class="" role="presentation" style="" width="100%"><tbody><tr><td class="hs_padded" style="font-family:Merriweather, Georgia, sans-serif; font-size:18px; color:#232342; word-break:break-word; padding:10px"><div class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module" data-hs-cos-general-type="widget" data-hs-cos-type="module" id="hs_cos_wrapper_module_17730972689151" style="color: inherit; font-size: inherit; line-height: inherit;"><table border="0" cellpadding="0" cellspacing="0" role="presentation" style="max-width:600px;width:100%;background-color:#48607a;border-radius:8px;" width="600">
+<tbody><tr>
+<td style="font-family:Merriweather, Georgia, sans-serif; font-size:18px; color:#232342; word-break:break-word; padding:32px 36px 28px">
+<!-- Date + Logo/Daily + Tagline -->
+<table border="0" cellpadding="0" cellspacing="0" role="presentation" width="100%">
+<tbody><tr>
+<td style="font-family:Merriweather, Georgia, sans-serif; font-size:18px; color:#232342; word-break:break-word">
+<p style="margin:0 0 12px;font-family:Arial,sans-serif;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#13a7c8;">April 29, 2026</p>
+<!-- TDS Logo + Daily -->
+<table border="0" cellpadding="0" cellspacing="0" role="presentation">
+<tbody><tr>
+<td style="font-family:Merriweather, Georgia, sans-serif; font-size:18px; color:#232342; word-break:break-word; vertical-align:middle">
+<a data-hs-link-id="0" data-hs-link-id-v2="XQs2uACv" href="https://newsletter.towardsdatascience.com/e3t/Ctc/L2+113/d5qLSh04/VWWGFw4kwQLMW6CzDy61-VCHpV7Wb0N5NsHz7N412xb23hCZYW7lCdLW6lZ3nQW3XbgVQ3Htv8wW6fFmJQ1wSR-gW23z2Bs2sMDXZW7GGhZV63lDV0W16gPx_1Ddx_jW3BvHtx4ldzvkVB27zp2qxTJDW36cvPY6LlqxsMRWXXwjd1v6W18HLxS2tNxPcW8kylQL85YCVfVxzTp26HDR--W5VK54D23y_QyW7cbd894n7wYmW89nmjj732lpPW5HQRMg2-ks0zN81rtQCLhJQrW6hqVZs1DG9p4Vnd-wm231P5MW5_wN_T28Rt-yW4S6nYq2HrHlKMZxbsX5-pvSVtGNBW99wTSwW5CQWwJ3C1TKZf6t8KBg04" style="color:#00a4bd" target="_blank">
+<img alt="TDS" height="auto" src="https://newsletter.towardsdatascience.com/hs-fs/hubfs/logo_tds.png?width=120&amp;upscale=true&amp;name=logo_tds.png" style="outline:none; text-decoration:none; border:none; display:block; width:60px; height:auto" width="60"/>
+</a>
+</td>
+<td style="font-family:Merriweather, Georgia, sans-serif; font-size:18px; color:#232342; word-break:break-word; vertical-align:middle; padding-left:16px">
+<a data-hs-link-id="1" data-hs-link-id-v2="0Llr/VNN" href="https://newsletter.towardsdatascience.com/e3t/Ctc/L2+113/d5qLSh04/VWWGFw4kwQLMW6CzDy61-VCHpV7Wb0N5NsHz7N412xb23hCZYW7lCdLW6lZ3pRW6G22HY6PPPw5W1mQ8BC5LsMrhW6rNqKV6bjx_YW2dl9JK8Y_zCgW5l_Xsd2XhvXlV55f1K8m4jSHW7LRpYl13NwS1W4qBPHT224l_9W7KSfHy9dPSJtW16Rc9H2S1gq3W2JZ16m5tgFWLW7ZDWVy8ptVq_W5jCCL52bJTnnW61GZcS10qC_KV8zHk21XvMbdW4hKQZp3qP-8VW3ZB1By6vHYHtW6SfwH36WxdZ1W2NCvYy4dR65FW2JnNb416zd0lW7B662m68x2nmW5ldwHD22vSDfW8QvFpm68LLBqW8DPlHt1456rjf67gwXz04" style="color:#00a4bd; text-decoration:none" target="_blank">
+<span style="font-family:'Merriweather',Georgia,serif;font-size:32px;font-weight:700;color:#ffffff;letter-spacing:-0.3px;">Daily</span>
+</a>
+</td>
+</tr>
+</tbody></table>
+<p style="margin:8px 0 0;font-family:Arial,sans-serif;font-size:14px;color:rgba(255,255,255,0.7);line-height:1.5;">Here's what's trending, what's new, and what you shouldn't miss.</p>
+</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+</tbody></table></div></td></tr></tbody></table>
+</div>
+<!--[if gte mso 9]></table><![endif]-->
+<!--[if (mso)|(IE)]></td><![endif]-->
+<!--[if (mso)|(IE)]></tr></table><![endif]-->
+</div>
+</div>
+<div class="hse-section" id="section-4" style="padding-left:10px; padding-right:10px">
+<div bgcolor="#FFFFFF" class="hse-column-container" style="min-width:280px; max-width:600px; margin:0 auto; background-color:#FFFFFF; padding-bottom:20px">
+<!--[if (mso)|(IE)]>
+      <table align="center" style="width:600px;" cellpadding="0" cellspacing="0" role="presentation" width="600" bgcolor="#FFFFFF">
+      <tr style="background-color:#FFFFFF;">
+    <![endif]-->
+<!--[if (mso)|(IE)]>
+  <td valign="top" style="width:600px;padding-bottom:20px;">
+<![endif]-->
+<!--[if gte mso 9]>
+  <table role="presentation" width="600" cellpadding="0" cellspacing="0" style="width:600px">
+<![endif]-->
+<div class="hse-column hse-size-12" id="column-4-0">
+<table cellpadding="0" cellspacing="0" class="" role="presentation" style="" width="100%"><tbody><tr><td class="hs_padded" style="font-family:Merriweather, Georgia, sans-serif; font-size:18px; color:#232342; word-break:break-word; padding:10px 20px 0px"><div class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module" data-hs-cos-general-type="widget" data-hs-cos-type="module" id="hs_cos_wrapper_module_17731041029161" style="color: inherit; font-size: inherit; line-height: inherit;"><div class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_rich_text" data-hs-cos-general-type="widget" data-hs-cos-type="rich_text" id="hs_cos_wrapper_module_17731041029161_" style="color: inherit; font-size: inherit; line-height: inherit;"><p align="center" style="font-size:16px; line-height:175%; text-align:center"><span style="font-size: 15px;">Submit your insights today to reach our global audience. <span style="color: #13a7c8;"><a data-hs-link-id="0" data-hs-link-id-v2="GmtntzmF" href="https://newsletter.towardsdatascience.com/e3t/Ctc/L2+113/d5qLSh04/VWWGFw4kwQLMW6CzDy61-VCHpV7Wb0N5NsHz7N412xbl3hCZYW7Y8-PT6lZ3mjW2pl0Lh7XJ_yXW5TC8W77xrdK6W3qfLYR55s6YfW1gfD6p8wvykvW9cMJmd6S9MynW6Frj4j2LV_1HW8S8X9p4j7hr9W4QmP7S6ZVfl5W5W07kw3W9MLXVFgbKn3DN0-TW1k2bC290NSkjW1fRHBJ3FywVmW2xGCmg8N1FdBW44NV741850Q3W8x3JQW6hs-6bW6RnPVP5j_4FRW30jwqf2PJJwxW6t47XM8s_hQ3VVnk9F7XKMjhW3g3dyB7W78SfW8r2fHY6hgv3RN5wfrpPXWpFDW3HgNpp36nrpxMP_pdMTHFRZW5_ktZb17P0j9W8Pqn7P2mW3Lpf5j2V2M04" rel="noopener" style="text-decoration:none; color:#13a7c8" target="_blank">Publish on TDS →</a></span></span></p></div></div></td></tr></tbody></table>
+<table cellpadding="0" cellspacing="0" class="" role="presentation" style="" width="100%"><tbody><tr><td class="hs_padded" style="font-family:Merriweather, Georgia, sans-serif; font-size:18px; color:#232342; word-break:break-word; padding:20px 10px 0px"><div class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module" data-hs-cos-general-type="widget" data-hs-cos-type="module" id="hs_cos_wrapper_module_17769855532391" style="color: inherit; font-size: inherit; line-height: inherit;">
+<table border="0" cellpadding="0" cellspacing="0" class="hs-spotlight-wrapper" role="presentation" style="max-width:600px; margin: 0 auto; background-color:#ffffff; border-collapse: separate;
+              border-left: 1px solid #f0f0f0; border-right: 1px solid #f0f0f0;
+              box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+              border-top: 1px solid #f0f0f0; border-radius: 8px 8px 0 0;
+              
+              " width="100%">
+<tbody><tr>
+<td bgcolor="#48607a" class="header-td" style="font-family:Merriweather, Georgia, sans-serif; font-size:18px; color:#232342; word-break:break-word; background-color:#48607a; padding:24px 24px; border-radius:7px 7px 0 0">
+<p style="margin:0 0 4px 0; font-family:'Merriweather',Georgia,serif; font-size:10px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:#13a7c8;">
+        Fresh in the last 24 hour
+      </p>
+<h1 style="margin:0; font-family:'Merriweather',Georgia,serif; font-size:22px; font-weight:700; color:#ffffff; line-height:1.1">
+        Today's Latest Articles
+      </h1>
+</td>
+</tr>
+<tr>
+<td bgcolor="#ffffff" class="inner-td" style="font-family:Merriweather, Georgia, sans-serif; font-size:18px; color:#232342; word-break:break-word; padding:16px 20px; background-color:#ffffff">
+<table border="0" cellpadding="0" cellspacing="0" role="presentation" width="100%">
+<tbody><tr>
+<td bgcolor="#13a7c8" style="font-family:Merriweather, Georgia, sans-serif; font-size:18px; color:#232342; word-break:break-word; background-color:#13a7c8; border-radius:2px; vertical-align:top" width="3"> </td>
+<td style="font-family:Merriweather, Georgia, sans-serif; font-size:18px; color:#232342; word-break:break-word; padding-left:14px; vertical-align:top">
+<p style="margin:0 0 4px 0; font-family:'Merriweather',Georgia,serif; font-size:17px; font-weight:700; color:#2d3748; line-height:1.3;">
+<a data-hs-link-id="0" data-hs-link-id-v2="rLH0xfY0" href="https://newsletter.towardsdatascience.com/e3t/Ctc/L2+113/d5qLSh04/VWWGFw4kwQLMW6CzDy61-VCHpV7Wb0N5NsHz7N412x985g8t6W5BWr2F6lZ3q4W3_XDCw47RlshW25gv5j3FfK_mW1VJsXv5Nw95wW49CxsH49J4flW4YzLHv4sfxqPW38bmyQ7DG0WJN3D_LrSR1t9KVdnkxm8VMkQvW79YY-J8sb7DKW3Lc5246L72pMW60vJCL8pqyFnW58fMyh4ljZ1nN5GRT84mLkBmM-SVS4qM9HzW5DW3g68dxR62W91QsQY4wJ4S5W4pRtwB4_TbdGW7Fr8fM35P8WqW90hN9W83-L_BW86McMD7Hpl5wW7TJYF_5krd1xVSvfnj1GG98BV-6wnK390BGTVGhvFW4XMT7vW7GKtwy14pkF7W2NSLLj99G64WW96H9KX2wlGNgW3BrsyC1LDj2_W4VxHtQ2DfLNSW2ZnsNW760KDsW1mW5bV9hwFtbW44h92-7YZGvhW8Rdggn3tZmZGW6zbkVs1JvkP9f2hl2ld04" style="color:#2d3748; text-decoration:none" target="_blank">PyTorch NaNs Are Silent Killers — So I Built a 3ms Hook to Catch Them at the Exact Layer</a>
+</p>
+<p style="margin:0 0 6px 0; font-family:sans-serif; font-size:12px; color:#718096;">
+              by Emmimal P Alexander
+            </p>
+<p style="margin:0; font-family:sans-serif; font-size:12px; font-weight:700;">
+<a data-hs-link-id="1" data-hs-link-id-v2="2UkMaAJb" href="https://newsletter.towardsdatascience.com/e3t/Ctc/L2+113/d5qLSh04/VWWGFw4kwQLMW6CzDy61-VCHpV7Wb0N5NsHz7N412x985g8t6W5BWr2F6lZ3nFW6WprjK1ksNkzN7DwfkrPR0cxN90wK7K6B0VVW50PyKb8_hp50W2cTkzZ1GFTQ3W6DQ5Mz4nZrPcW5qGKSM88_xvNW1M3Ych4jwd-yN4h32X4CFRLBN2c3ld_fgyQfW5lH-2X3wXvkVN3cmlfggTMl5W5cVzWl4-n_LfVc-0jT3QwKbGW6gZXTQ4w97YwW5gwkMT8z5-ftN4lZtMlNx6yqVgBD6s2LCP73W3y6GTh76KdD2W4Q7sV81V1HcXW5Nn31G6Zz0pPVrKQ0W3pJZkFW1l8cBK5HH6mdW7t5Ttz2TgSYjW8-xyd39jXybTV54SRG2N6vggW2K1ssR46SWZjW4hRbHj760mhJW3vQQc-8QgK17W4q4zN17QdvzlVNbKHR1cZF5pW53Rhdh5kfcG3W5JHJxq4jW0gpW1rffTt3z9nyqd9DbRM04" style="color:#13a7c8; text-decoration:none" target="_blank">
+                Read Article →
+              </a>
+</p>
+</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+<tr>
+<td bgcolor="#f0f0f0" height="1" style="font-family:Merriweather, Georgia, sans-serif; color:#232342; word-break:break-word; background-color:#f0f0f0; line-height:1px; font-size:1px"> </td>
+</tr>
+</tbody></table></div></td></tr></tbody></table>
+<table cellpadding="0" cellspacing="0" class="" role="presentation" style="" width="100%"><tbody><tr><td class="hs_padded" style="font-family:Merriweather, Georgia, sans-serif; font-size:18px; color:#232342; word-break:break-word; padding:0px 10px"><div class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module" data-hs-cos-general-type="widget" data-hs-cos-type="module" id="hs_cos_wrapper_module_17772983808581" style="color: inherit; font-size: inherit; line-height: inherit;">
+<table border="0" cellpadding="0" cellspacing="0" class="hs-spotlight-wrapper" role="presentation" style="max-width:600px; margin: 0 auto; background-color:#ffffff; border-collapse: separate;
+              border-left: 1px solid #f0f0f0; border-right: 1px solid #f0f0f0;
+              box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+              
+              
+              " width="100%">
+<tbody><tr>
+<td bgcolor="#ffffff" class="inner-td" style="font-family:Merriweather, Georgia, sans-serif; font-size:18px; color:#232342; word-break:break-word; padding:16px 20px; background-color:#ffffff">
+<table border="0" cellpadding="0" cellspacing="0" role="presentation" width="100%">
+<tbody><tr>
+<td bgcolor="#13a7c8" style="font-family:Merriweather, Georgia, sans-serif; font-size:18px; color:#232342; word-break:break-word; background-color:#13a7c8; border-radius:2px; vertical-align:top" width="3"> </td>
+<td style="font-family:Merriweather, Georgia, sans-serif; font-size:18px; color:#232342; word-break:break-word; padding-left:14px; vertical-align:top">
+<p style="margin:0 0 4px 0; font-family:'Merriweather',Georgia,serif; font-size:17px; font-weight:700; color:#2d3748; line-height:1.3;">
+<a data-hs-link-id="0" data-hs-link-id-v2="taGhCuD5" href="https://newsletter.towardsdatascience.com/e3t/Ctc/L2+113/d5qLSh04/VWWGFw4kwQLMW6CzDy61-VCHpV7Wb0N5NsHz7N412xbY3hCZYW95jsWP6lZ3l9W20zmBj4wkvgqW3Q49C68yKHXsW2KJ78C28S0PhW8q3n7X7vZvWXW8jfTjn3j_8JSVkdm1q1Sb3xlW2v19FQ4j2MCrW2xp8Qq5GFQ49W2Dcsrr6_TLqYW2vjB3Z3PCmnLW8PCL3x2hKlsPW6PFVK86BRqZDW6DGqnH6dGqlmW2dJBml9gHCVjW3NrGBn3h9hjRW5Pvysl1WJgblW2pczqc3Qw7ZMN3mcvGdg7qM7N6xpLcgKHbrXW8KQjkX5dd8FRW69j-WW7HS7QzW26MpPY1j9KK8VTWs0r1DGxHSW1rYTMG288X4SW68FH-r1V7sx2W4yRd4p5b83VTW9chc0722vlgdW2RK1587tp0L2VxysH79bflqFW8_jNz_8WtxBZf6Wtrn-04" style="color:#2d3748; text-decoration:none" target="_blank">The Next Frontier of AI in Production Is Chaos Engineering</a>
+</p>
+<p style="margin:0 0 6px 0; font-family:sans-serif; font-size:12px; color:#718096;">
+              by Sayali Patil
+            </p>
+<p style="margin:0; font-family:sans-serif; font-size:12px; font-weight:700;">
+<a data-hs-link-id="1" data-hs-link-id-v2="bY3TWff8" href="https://newsletter.towardsdatascience.com/e3t/Ctc/L2+113/d5qLSh04/VWWGFw4kwQLMW6CzDy61-VCHpV7Wb0N5NsHz7N412xbY3hCZYW95jsWP6lZ3nrVSlQnq42Kx1BW3nTLqg8ntGchW28dvzX13rl3kN5tNPPnRmbLGN751YKjZ5-lFW5lWb2C2wpPkkW6nHHjc6wNx_DW5HzJJz2RnNQ1W6QhVXv2HBnDjW2G2T3g8lkq97W6tsGZ925RHZYVlfK3B67MvpGW5nfcTg8KMTN2W2CL_v34zTt4SW1JS-lL3gJXbQW3y8Qyr8Zgh1YW6mbKrF1TXj4YW2qs4Rz5qS-GcW4K4d9B1S5Z4YVNpdxQ812nKQW89hkrd3XVq8sW76g0py4zPn1QW40hpRB4d6-MNW8f-K-F4h4xlGW2xRxkj8dlcZZW6xLNPS7fSy26W3MYrY66kXdBYW8xWdgH7bjXbMW2T5_2B7Ltc9vW42M75b2fvShwf6TRS--04" style="color:#13a7c8; text-decoration:none" target="_blank">
+                Read Article →
+              </a>
+</p>
+</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+<tr>
+<td bgcolor="#f0f0f0" height="1" style="font-family:Merriweather, Georgia, sans-serif; color:#232342; word-break:break-word; background-color:#f0f0f0; line-height:1px; font-size:1px"> </td>
+</tr>
+</tbody></table></div></td></tr></tbody></table>
+<table cellpadding="0" cellspacing="0" class="" role="presentation" style="" width="100%"><tbody><tr><td class="hs_padded" style="font-family:Merriweather, Georgia, sans-serif; font-size:18px; color:#232342; word-break:break-word; padding:0px 10px"><div class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module" data-hs-cos-general-type="widget" data-hs-cos-type="module" id="hs_cos_wrapper_module_17769855625562" style="color: inherit; font-size: inherit; line-height: inherit;">
+<table border="0" cellpadding="0" cellspacing="0" class="hs-spotlight-wrapper" role="presentation" style="max-width:600px; margin: 0 auto; background-color:#ffffff; border-collapse: separate;
+              border-left: 1px solid #f0f0f0; border-right: 1px solid #f0f0f0;
+              box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+              
+              
+              " width="100%">
+<tbody><tr>
+<td bgcolor="#ffffff" class="inner-td" style="font-family:Merriweather, Georgia, sans-serif; font-size:18px; color:#232342; word-break:break-word; padding:16px 20px; background-color:#ffffff">
+<table border="0" cellpadding="0" cellspacing="0" role="presentation" width="100%">
+<tbody><tr>
+<td bgcolor="#13a7c8" style="font-family:Merriweather, Georgia, sans-serif; font-size:18px; color:#232342; word-break:break-word; background-color:#13a7c8; border-radius:2px; vertical-align:top" width="3"> </td>
+<td style="font-family:Merriweather, Georgia, sans-serif; font-size:18px; color:#232342; word-break:break-word; padding-left:14px; vertical-align:top">
+<p style="margin:0 0 4px 0; font-family:'Merriweather',Georgia,serif; font-size:17px; font-weight:700; color:#2d3748; line-height:1.3;">
+<a data-hs-link-id="0" data-hs-link-id-v2="kcJRSewX" href="https://newsletter.towardsdatascience.com/e3t/Ctc/L2+113/d5qLSh04/VWWGFw4kwQLMW6CzDy61-VCHpV7Wb0N5NsHz7N412xbY3hCZYW95jsWP6lZ3lxW920-Jm3X9S06N7bKZpR-FfMPW5z1Txy6s_GxwW2ClnN94yLgGNW5XwKm18ffPfRW6cGyff5cnx5pMf9G9rSchhdW5G9NGc1SLNgsW5TPpCs5dm12mW38zR4-1VvJBkN3j5yQdy4pyNW4qW9KJ6k7M8zW9j_NB32429ZdW2qjQjk533CX5W9h4j-w3V1Q6yW1Db4H564hmfvN81xkdpmpGlNMlXnq1h8F6ZW7NtTSY6w7YTbW2QB7G-34Z3svN4D-q898fGFjW8Shh2Q8BlRG9W10sfsW1LyC7zW4tcpsP8CmF_GW66kJ3n8lZqgMW2_1KCf34XB7nW7H6QM25kC2WdW87GZ1m8j_9CQW6btYVM6mrTGwW58SX4D7j8qSkf8LHX9K04" style="color:#2d3748; text-decoration:none" target="_blank">Correlation Doesn’t Mean Causation! But What Does It Mean?</a>
+</p>
+<p style="margin:0 0 6px 0; font-family:sans-serif; font-size:12px; color:#718096;">
+              by Sara A. Metwalli
+            </p>
+<p style="margin:0; font-family:sans-serif; font-size:12px; font-weight:700;">
+<a data-hs-link-id="1" data-hs-link-id-v2="HB1b2pyW" href="https://newsletter.towardsdatascience.com/e3t/Ctc/L2+113/d5qLSh04/VWWGFw4kwQLMW6CzDy61-VCHpV7Wb0N5NsHz7N412xbY3hCZYW95jsWP6lZ3lRN3cvqQ_8JNqKW7F1dRC4KQ6b2W8RxzyT2JPsJTW8036_y4KmjBlW2WL79v7ZgD68W5LvSpX2NltsWW2dzBvM5y9RmqW6X8Tfg5vPlTmW2k3q4h21R3P7W3q3DjN3zXGxVW91-cpS1_NJRbW4rgy9S2tywdgW2rn20P3xyZ7pW6J8Vth5chyKsW7QB-rF9fSK0WW96Klxs756P13W5RYnFr6kky2-N2xh9ZhmRJLyVgJlyr7LDDyDW7TbdXQ68CzbdVsBj3J459F4kW6gTJrh557jQhW99Pw1Z2nchJFW3tLd-r4V4SgBW7WxPwT2DF-KSW4q8Hj-1bd1Y3W4wMs8x3Jh-v7W8VFcvX8CPvpLVwgHGn8BvS5TV3VSCx1M0pZ-dDhNXT04" style="color:#13a7c8; text-decoration:none" target="_blank">
+                Read Article →
+              </a>
+</p>
+</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+<tr>
+<td bgcolor="#f0f0f0" height="1" style="font-family:Merriweather, Georgia, sans-serif; color:#232342; word-break:break-word; background-color:#f0f0f0; line-height:1px; font-size:1px"> </td>
+</tr>
+</tbody></table></div></td></tr></tbody></table>
+<table cellpadding="0" cellspacing="0" class="" role="presentation" style="" width="100%"><tbody><tr><td class="hs_padded" style="font-family:Merriweather, Georgia, sans-serif; font-size:18px; color:#232342; word-break:break-word; padding:0px 10px"><div class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module" data-hs-cos-general-type="widget" data-hs-cos-type="module" id="hs_cos_wrapper_module_17768159473985" style="color: inherit; font-size: inherit; line-height: inherit;">
+<table border="0" cellpadding="0" cellspacing="0" class="hs-spotlight-wrapper" role="presentation" style="max-width:600px; margin: 0 auto; background-color:#ffffff; border-collapse: separate;
+              border-left: 1px solid #f0f0f0; border-right: 1px solid #f0f0f0;
+              box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+              
+              border-bottom: 1px solid #f0f0f0; border-radius: 0 0 8px 8px;
+              " width="100%">
+<tbody><tr>
+<td bgcolor="#ffffff" class="inner-td" style="font-family:Merriweather, Georgia, sans-serif; font-size:18px; color:#232342; word-break:break-word; padding:16px 20px; background-color:#ffffff; border-radius:0 0 7px 7px">
+<table border="0" cellpadding="0" cellspacing="0" role="presentation" width="100%">
+<tbody><tr>
+<td bgcolor="#13a7c8" style="font-family:Merriweather, Georgia, sans-serif; font-size:18px; color:#232342; word-break:break-word; background-color:#13a7c8; border-radius:2px; vertical-align:top" width="3"> </td>
+<td style="font-family:Merriweather, Georgia, sans-serif; font-size:18px; color:#232342; word-break:break-word; padding-left:14px; vertical-align:top">
+<p style="margin:0 0 4px 0; font-family:'Merriweather',Georgia,serif; font-size:17px; font-weight:700; color:#2d3748; line-height:1.3;">
+<a data-hs-link-id="0" data-hs-link-id-v2="5rKxSNmR" href="https://newsletter.towardsdatascience.com/e3t/Ctc/L2+113/d5qLSh04/VWWGFw4kwQLMW6CzDy61-VCHpV7Wb0N5NsHz7N412xbF3hCZYW8wLKSR6lZ3kWW3sGsby9khq7jW4t_MrW7kPyrsW4176V-8PhWZcN74NWPPg3YQhN906MWDyH_8qN5QjnJhBWFvBF2FrGBHtGh-V6vpQ88LsldxW69PXrd6LYH61W8-DnnQ2NVq1QW2C87yC87_g4nV3knTF1CpkxHW7s3hCp4d2RXZW8ZBT7Z53-cH3W6QjLnF6PdpSxW3M58SH8mGk5KW8-4g-s587W_0W791h222Rr60zW5xg0FL4YV-WFN7DPJPFKn5W7N6NvZhVQsQ1bVwhWCv2H-MmhW4hxpND7FFrWgN2SfF6mmpDBLW6tfvLN3Ng3bVW11PxXx717jrbW7JN9P26tyt91W1WtnWh3pt0Rhf5760-M04" style="color:#2d3748; text-decoration:none" target="_blank">Let the AI Do the Experimenting</a>
+</p>
+<p style="margin:0 0 6px 0; font-family:sans-serif; font-size:12px; color:#718096;">
+              by Mariya Mansurova
+            </p>
+<p style="margin:0; font-family:sans-serif; font-size:12px; font-weight:700;">
+<a data-hs-link-id="1" data-hs-link-id-v2="hlpDxGIy" href="https://newsletter.towardsdatascience.com/e3t/Ctc/L2+113/d5qLSh04/VWWGFw4kwQLMW6CzDy61-VCHpV7Wb0N5NsHz7N412xbF3hCZYW8wLKSR6lZ3m_W6FWcwK1XmsXyW5JPDHD2gr3stW8Nqkb46Hc7QcW41skyg1lw9dSW7MTSdY3pmzKyW4KJNGW2V75nVW3zQ4dx6SRGsmW5kRWZ_2vlwzjW20Tk347HmKlsW7ycyDX23Sqr8N2d22NJ8hnFkW6hx13y1DDrn9W40p6Qc4BDzHTVqtZTL5Rpdm1W7YpMMc2Y_QyFW5zdqgX7HrNKkW7zV8jC8qBbr8W3sPqkk3t9vsyW92rqx_5NvTbtW96ms576Z1cq9W2JL5Pr4-lXTcW1P8bm82N9H02W7P6JVW6J5K8FW5fRg1W94ZLf-W1-b6mf3-jqtlW5WzHPW40Cj07W5-j0vZ1P80qwW4541jX8rfkrYf5vT-TR04" style="color:#13a7c8; text-decoration:none" target="_blank">
+                Read Article →
+              </a>
+</p>
+</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+</tbody></table></div></td></tr></tbody></table>
+</div>
+<!--[if gte mso 9]></table><![endif]-->
+<!--[if (mso)|(IE)]></td><![endif]-->
+<!--[if (mso)|(IE)]></tr></table><![endif]-->
+</div>
+</div>
+<div class="hse-section" id="section_1772500342492" style="padding-left:10px; padding-right:10px">
+<div bgcolor="#ffffff" class="hse-column-container" style="min-width:280px; max-width:600px; margin:0 auto; background-color:#ffffff; padding-bottom:10px">
+<!--[if (mso)|(IE)]>
+      <table align="center" style="width:600px;" cellpadding="0" cellspacing="0" role="presentation" width="600" bgcolor="#ffffff">
+      <tr style="background-color:#ffffff;">
+    <![endif]-->
+<!--[if (mso)|(IE)]>
+  <td valign="top" style="width:600px;padding-bottom:10px;">
+<![endif]-->
+<!--[if gte mso 9]>
+  <table role="presentation" width="600" cellpadding="0" cellspacing="0" style="width:600px">
+<![endif]-->
+<div class="hse-column hse-size-12" id="column_1772500342492_0">
+<table cellpadding="0" cellspacing="0" class="" role="presentation" style="" width="100%"><tbody><tr><td class="hs_padded" style="font-family:Merriweather, Georgia, sans-serif; font-size:18px; color:#232342; word-break:break-word; padding:0px 10px 10px"><div class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module" data-hs-cos-general-type="widget" data-hs-cos-type="module" id="hs_cos_wrapper_module_17725003367461" style="color: inherit; font-size: inherit; line-height: inherit;"><table border="0" cellpadding="0" cellspacing="0" role="presentation" style="max-width:600px;width:100%;background-color:#FAFAFA;border-radius:8px;overflow:hidden;" width="600">
+<tbody><tr>
+<td style="font-family:Merriweather, Georgia, sans-serif; font-size:18px; color:#232342; word-break:break-word; padding:24px 36px">
+<!-- Together with label -->
+<p style="margin:0 0 16px;font-family:'Merriweather',Georgia,serif;font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#13a7c8;">From our sister site, roadmap.sh</p>
+<!-- Sponsor image -->
+<a data-hs-link-id="0" data-hs-link-id-v2="xSmzx113" href="https://newsletter.towardsdatascience.com/e3t/Ctc/L2+113/d5qLSh04/VWWGFw4kwQLMW6CzDy61-VCHpV7Wb0N5NsHz7N412xbl3hCZYW7Y8-PT6lZ3p6W3z5svD2wfvzJN1NJV1Z5pHD8W6100Bs6wsNc8W7ZhxTK5hrmL5W1gDmWX8tLwp2W5_8qH-2KsGByVFKfdM1dfss-W71y0B138X9DKW3HB8ZN862mw6W6PYWL41Bf3rFN6WKTM4s1MB2W96LGg590_ySLW2GLH4n2yz_3lW5zvS9R2Htky_W4s5Hds6-97_bN5hzy1y6ZlCqW89ZLg18wZ8VrW98qFL65sZ4MZW5Bt9vS4cnLYGVbSqB_2rDNVMW8-wspf6LRnFZW1BcCJx1SGLv-W8ylV546NCb36W3YXWFf5ZBG99W5Vf8v98zwwSqW60RMD_19rls7f7Rhgf204" style="color:#00a4bd; display:block; margin-bottom:16px" target="_blank">
+<img alt="Screenshot 2026-04-28 at 5.42.15 PM" height="auto" src="https://newsletter.towardsdatascience.com/hs-fs/hubfs/Screenshot%202026-04-28%20at%205.42.15%20PM.png?width=1056&amp;upscale=true&amp;name=Screenshot%202026-04-28%20at%205.42.15%20PM.png" style="outline:none; text-decoration:none; border:none; display:block; width:100%; max-width:528px; height:auto; border-radius:4px" width="528"/>
+</a>
+<!-- Headline -->
+<p style="margin:0 0 8px;font-family:'Merriweather',Georgia,serif;font-size:20px;font-weight:700;color:#48607a;line-height:1.3;">A Clear Path to Learning Machine Learning</p>
+<!-- Body copy -->
+<div style="margin:0 0 16px;font-family:'Merriweather',Georgia,serif;font-size:16px;color:#666;line-height:1.6;"><p><span style="color: #355876; font-family: Merriweather, Georgia, sans-serif;">This roadmap organizes the many pieces of machine learning into a clear, step-by-step sequence. It’s a helpful way to stay focused on learning the right skills in a logical order.<br/></span></p></div>
+<!-- Bullet points (optional) -->
+<div style="margin:0 0 16px;font-family:'Merriweather',Georgia,serif;font-size:16px;color:#666;line-height:1.6;"><ul>
+<li>
+<p><span style="color: #355876; font-family: Merriweather, Georgia, sans-serif;"><span style="font-weight: bold;">Logical Structure:</span> It starts with the core foundations and builds up to specialized topics, so you know exactly what to tackle next.<br/></span></p>
+</li>
+<li>
+<p><span style="color: #355876; font-family: Merriweather, Georgia, sans-serif;"><span style="font-weight: bold;">Direct Links:</span> Each node on the map connects you to specific documentation and tutorials, saving you the hassle of hunting for materials.</span></p>
+</li>
+<li><span style="color: #355876; font-family: Merriweather, Georgia, sans-serif;"><strong>Broad Overview: </strong>It covers the full spectrum of the field, making it easier to identify which specific areas you want to specialize in.<br/></span></li>
+</ul></div>
+<!-- CTA -->
+<a bgcolor="#203547" data-hs-link-id="1" data-hs-link-id-v2="XT5A9tZg" href="https://newsletter.towardsdatascience.com/e3t/Ctc/L2+113/d5qLSh04/VWWGFw4kwQLMW6CzDy61-VCHpV7Wb0N5NsHz7N412xbl3hCZYW7Y8-PT6lZ3nyW10zHFG3Jq0MGW4-Vykd8Y_mBDW6mKvw88HnXCPW721swN56NgggW1HcWCf8fYPLSMLBY7XlQsfrW4V8Rx95_pDBSW6H8Yqy6SQyV3W3Brby34TsH7QW8DMLK8409r7PW1brcmz3gzCTRW2gB-PF7ZShn2W1tDmSp3hRSRtW22W4N648KGLTN1htDQy_LcPkW8gBj_W6PyHW-W2WN63F40WrYSW18g77C5W3ML3W3jzRrz470KK8W4b5TjV2FyYPHV-xSmz90ZPk6W5cN1RL704c3vW3_kqLD2FWcdVW1bXMWH6_r19VN5CBrXPhLp_YW48k-sN6MnkGhf3v2Sjx04" style="display:inline-block; background-color:#203547; color:#ffffff; font-family:'Merriweather',Georgia,serif; font-size:14px; font-weight:700; text-decoration:none; padding:10px 22px; letter-spacing:0.5px" target="_blank">Explore the Roadmap</a>
+</td>
+</tr>
+</tbody></table></div></td></tr></tbody></table>
+</div>
+<!--[if gte mso 9]></table><![endif]-->
+<!--[if (mso)|(IE)]></td><![endif]-->
+<!--[if (mso)|(IE)]></tr></table><![endif]-->
+</div>
+</div>
+<div class="hse-section" id="section-11" style="padding-left:10px; padding-right:10px">
+<div bgcolor="#ffffff" class="hse-column-container" style="min-width:280px; max-width:600px; margin:0 auto; background-color:#ffffff; padding-bottom:5px">
+<!--[if (mso)|(IE)]>
+      <table align="center" style="width:600px;" cellpadding="0" cellspacing="0" role="presentation" width="600" bgcolor="#ffffff">
+      <tr style="background-color:#ffffff;">
+    <![endif]-->
+<!--[if (mso)|(IE)]>
+  <td valign="top" style="width:600px;padding-bottom:5px;">
+<![endif]-->
+<!--[if gte mso 9]>
+  <table role="presentation" width="600" cellpadding="0" cellspacing="0" style="width:600px">
+<![endif]-->
+<div class="hse-column hse-size-12" id="column-11-0">
+<table cellpadding="0" cellspacing="0" class="" role="presentation" style="" width="100%"><tbody><tr><td class="hs_padded" style="font-family:Merriweather, Georgia, sans-serif; font-size:18px; color:#232342; word-break:break-word; padding:0px 10px"><div class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module" data-hs-cos-general-type="widget" data-hs-cos-type="module" id="hs_cos_wrapper_module_17768153781741" style="color: inherit; font-size: inherit; line-height: inherit;">
+<table border="0" cellpadding="0" cellspacing="0" class="hs-spotlight-wrapper" role="presentation" style="max-width:600px; margin: 0 auto; background-color:#ffffff; border-collapse: separate;
+              border-left: 1px solid #f0f0f0; border-right: 1px solid #f0f0f0;
+              box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+              border-top: 1px solid #f0f0f0; border-radius: 8px 8px 0 0;
+              
+              " width="100%">
+<tbody><tr>
+<td bgcolor="#48607a" class="header-td" style="font-family:Merriweather, Georgia, sans-serif; font-size:18px; color:#232342; word-break:break-word; background-color:#48607a; padding:24px 24px; border-radius:7px 7px 0 0">
+<p style="margin:0 0 4px 0; font-family:'Merriweather',Georgia,serif; font-size:10px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:#13a7c8;">
+        Reads worth your time
+      </p>
+<h1 style="margin:0; font-family:'Merriweather',Georgia,serif; font-size:22px; font-weight:700; color:#ffffff; line-height:1.1">
+        Editor's Picks
+      </h1>
+</td>
+</tr>
+<tr>
+<td bgcolor="#ffffff" class="inner-td" style="font-family:Merriweather, Georgia, sans-serif; font-size:18px; color:#232342; word-break:break-word; padding:16px 20px; background-color:#ffffff">
+<table border="0" cellpadding="0" cellspacing="0" role="presentation" width="100%">
+<tbody><tr>
+<td bgcolor="#13a7c8" style="font-family:Merriweather, Georgia, sans-serif; font-size:18px; color:#232342; word-break:break-word; background-color:#13a7c8; border-radius:2px; vertical-align:top" width="3"> </td>
+<td style="font-family:Merriweather, Georgia, sans-serif; font-size:18px; color:#232342; word-break:break-word; padding-left:14px; vertical-align:top">
+<div style="margin-bottom: 6px; line-height: 1;">
+<a data-hs-link-id="0" style="color:#00a4bd; text-decoration:none" target="_blank">
+<span style="background-color: #e2f4f8; color: #13a7c8; font-family: sans-serif; font-size: 10px; font-weight: 800; padding: 3px 10px; border-radius: 100px; text-transform: uppercase; display: inline-block;">
+                  Author Spotlights
+                </span>
+</a>
+</div>
+<p style="margin:0 0 4px 0; font-family:'Merriweather',Georgia,serif; font-size:17px; font-weight:700; color:#2d3748; line-height:1.3;">
+<a data-hs-link-id="0" data-hs-link-id-v2="5Eb+rCLZ" href="https://newsletter.towardsdatascience.com/e3t/Ctc/L2+113/d5qLSh04/VWWGFw4kwQLMW6CzDy61-VCHpV7Wb0N5NsHz7N412x8T5g8t6W50kH_H6lZ3q7N5n8b0n6-DQKVGjdnX2Psx4DVD9yyB7LBkq3W3RQ88_6lMzFWW93Pc_C6vtr9ZW2KkRL89g8yhRW2mzH5Y4Hxmh4N46kRG0-Y7YRW3N2j0V8CkszqW1pfpvW8qN9sZW8Dbxm969SP2rW225qLk5byJg6W7zSYF912DljKW8RzKNM7gC5rZW3YS_h_7GpdsTW53rxkn58_mJsN4pmWv8Dt6zVW5Wgsmx1TcyVKW6_hhJ86W0Ls_W4y-r-C4Nj53YW157mvV2lGKWBW8Vjplm8JJK-jW24D0rn6QKpnVN4VcZW89H8pyW3hBsd12YB1xVW1Rbqs677gTMzW2xzLPj32CBXkN1KgqRnKRqYvW5R7Sg83FSLx-W5R7gBr3jpnnpVwH5Yd3Cr86NW8MSlXY58N66Mf2LHKH004" style="color:#2d3748; text-decoration:none" target="_blank">A Career in Data Is Not Always a Straight Line, and That’s Okay</a>
+</p>
+<p style="margin:0 0 6px 0; font-family:'Merriweather',Georgia,serif; font-size:13px; font-style:italic; color:#4a5568; line-height:1.4;">
+              Sabrine Bendimerad on why flexibility is a crucial data science skill, the risks of outsourcing human thinking to AI agents, and the changing terrain of career paths today.
+            </p>
+<p style="margin:0 0 6px 0; font-family:sans-serif; font-size:12px; color:#718096;">
+              by The TDS Editors
+            </p>
+<p style="margin:0; font-family:sans-serif; font-size:12px; font-weight:700;">
+<a data-hs-link-id="1" data-hs-link-id-v2="zEYRnASI" href="https://newsletter.towardsdatascience.com/e3t/Ctc/L2+113/d5qLSh04/VWWGFw4kwQLMW6CzDy61-VCHpV7Wb0N5NsHz7N412x8T5g8t6W50kH_H6lZ3ntW57b3Lv6nx8mrW242xYM965pbMVB16jd3LQ2XZW7mqZhK5VK7QzW8192_v4ZNZKgW780lT97sHt29W2Gr3mj90pqszW2FyPGM2j_nfFMCwQs76nBMfW3SSK828Vp9jpW9cPSRZ5DMbvFW7pyVgR7dfxHrW8bkq-27ZpQp2VsPmPr1d2Qm7W8J6hrF8n_J9QW2c8SBd3zzgfxV4FLcz983thQW7Kjkkg4F4k5kW8-V7p88crJjfW5PKYJS8TFNWsW6KllR63dVVQ5W5jq38f7HwfMyW5_Y_3y8CL394W24ZnbQ6NdsvPW7QK4y02Yc4DLW4R1zC_37HV-JVnSGPf5gB76NW7N2YW-5QMWkQW8GY32C8m8qcDW19TS5Y894dr8W7wf2q92nb-tvN2475BMMT-tZf31YcTC04" style="color:#13a7c8; text-decoration:none" target="_blank">
+                Read Article →
+              </a>
+</p>
+</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+<tr>
+<td bgcolor="#f0f0f0" height="1" style="font-family:Merriweather, Georgia, sans-serif; color:#232342; word-break:break-word; background-color:#f0f0f0; line-height:1px; font-size:1px"> </td>
+</tr>
+</tbody></table></div></td></tr></tbody></table>
+<table cellpadding="0" cellspacing="0" class="" role="presentation" style="" width="100%"><tbody><tr><td class="hs_padded" style="font-family:Merriweather, Georgia, sans-serif; font-size:18px; color:#232342; word-break:break-word; padding:0px 10px"><div class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module" data-hs-cos-general-type="widget" data-hs-cos-type="module" id="hs_cos_wrapper_module_17768140722801" style="color: inherit; font-size: inherit; line-height: inherit;">
+<table border="0" cellpadding="0" cellspacing="0" class="hs-spotlight-wrapper" role="presentation" style="max-width:600px; margin: 0 auto; background-color:#ffffff; border-collapse: separate;
+              border-left: 1px solid #f0f0f0; border-right: 1px solid #f0f0f0;
+              box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+              
+              
+              " width="100%">
+<tbody><tr>
+<td bgcolor="#ffffff" class="inner-td" style="font-family:Merriweather, Georgia, sans-serif; font-size:18px; color:#232342; word-break:break-word; padding:16px 20px; background-color:#ffffff">
+<table border="0" cellpadding="0" cellspacing="0" role="presentation" width="100%">
+<tbody><tr>
+<td bgcolor="#13a7c8" style="font-family:Merriweather, Georgia, sans-serif; font-size:18px; color:#232342; word-break:break-word; background-color:#13a7c8; border-radius:2px; vertical-align:top" width="3"> </td>
+<td style="font-family:Merriweather, Georgia, sans-serif; font-size:18px; color:#232342; word-break:break-word; padding-left:14px; vertical-align:top">
+<div style="margin-bottom: 6px; line-height: 1;">
+<a data-hs-link-id="1" style="color:#00a4bd; text-decoration:none" target="_blank">
+<span style="background-color: #e2f4f8; color: #13a7c8; font-family: sans-serif; font-size: 10px; font-weight: 800; padding: 3px 10px; border-radius: 100px; text-transform: uppercase; display: inline-block;">
+                  Deep Learning
+                </span>
+</a>
+</div>
+<p style="margin:0 0 4px 0; font-family:'Merriweather',Georgia,serif; font-size:17px; font-weight:700; color:#2d3748; line-height:1.3;">
+<a data-hs-link-id="0" data-hs-link-id-v2="Dh7EPKN2" href="https://newsletter.towardsdatascience.com/e3t/Ctc/L2+113/d5qLSh04/VWWGFw4kwQLMW6CzDy61-VCHpV7Wb0N5NsHz7N412x985g8t6W5BWr2F6lZ3m-W4CCR0y3911khMcmrvHFsBl-W7znFwt6rLlBgVG4c2J7xk5GtW8P6ddZ3Q_W8BW4_HVH27j_Fm-W4XGY5p1slsPlW4vflQS23LHlfW6rKfr54wbLwcW40X0rq8h43HSW4zBWN48Fsb6jVyfMfR13WrxnW1pzJBD1cm2h0N4XsdGhrfrKJVHbn_M5yDdTmW7J0JcT6MLNKKW45LFYT3VBqVpVwSSFn7T35wGW6Xfzxf7YymjHVTMTn62PyKbMW7BSGYK2rWTGLW1JjxR46kKhF7W1Cp-xq9cjkb9W6CzrTm7SmwMNW5L5yGJ2t08cRW8kvZXx4jCdYHW85PgjK7CBPr8W51gRb66XLlsSN1Hb8nVp4FmxW3-rV6R8mxV6QW7QLsvD2xSMRnW2MLQjl5vMKq7N1C4xq5l8dZVW4gPSD85HKbpNf7fTxb-04" style="color:#2d3748; text-decoration:none" target="_blank">Bytes Speak All Languages: Cross-Script Name Retrieval via Contrastive Learning</a>
+</p>
+<p style="margin:0 0 6px 0; font-family:'Merriweather',Georgia,serif; font-size:13px; font-style:italic; color:#4a5568; line-height:1.4;">
+              Why learn 8 scripts when you can learn 256 bytes?
+            </p>
+<p style="margin:0 0 6px 0; font-family:sans-serif; font-size:12px; color:#718096;">
+              by Vedant Jumle
+            </p>
+<p style="margin:0; font-family:sans-serif; font-size:12px; font-weight:700;">
+<a data-hs-link-id="1" data-hs-link-id-v2="Jupn7PpE" href="https://newsletter.towardsdatascience.com/e3t/Ctc/L2+113/d5qLSh04/VWWGFw4kwQLMW6CzDy61-VCHpV7Wb0N5NsHz7N412x985g8t6W5BWr2F6lZ3nsW5ZqZb17N0MDLV9XxMw4YpPmzN45jyDKlCPh5N2D3FJ6MgqQBW3GZlfm4VGBLSV88Cs86br1hvW2NtW0k6jF-vTW6FzfCp2YQDMTW4XcMVW6rs6JtN8119dWRrD-qW1FkYtK4yk31wMV8JQtKL_cyVq4qB72S-bwcW42Lyw67d_sVzW4jwGW877YsxfW1Bl8j358K5H6W4BgnFC1NQ6pmW39kjz14d5NL2W7C_PNZ1sPVv8W7dq8fn2BF-DCW572WCx9gVcCQW68JD0N5pSbPfW7DNz_M4c_KYMW3CLqq28JxgTmW3Bmkz-5r2D9nN3FdZnfbcHV-W36pBLS95_hzxW73Q_Hs45rmClW17lLb51WWL2rW5nDDBk4DwNwXW5ppWsl3XXhQqW2tp90k173_Q_W7X4L3w4N9p4zVR6Y6c5nZQ0nf7THlgH04" style="color:#13a7c8; text-decoration:none" target="_blank">
+                Read Article →
+              </a>
+</p>
+</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+<tr>
+<td bgcolor="#f0f0f0" height="1" style="font-family:Merriweather, Georgia, sans-serif; color:#232342; word-break:break-word; background-color:#f0f0f0; line-height:1px; font-size:1px"> </td>
+</tr>
+</tbody></table></div></td></tr></tbody></table>
+<table cellpadding="0" cellspacing="0" class="" role="presentation" style="" width="100%"><tbody><tr><td class="hs_padded" style="font-family:Merriweather, Georgia, sans-serif; font-size:18px; color:#232342; word-break:break-word; padding:0px 10px"><div class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module" data-hs-cos-general-type="widget" data-hs-cos-type="module" id="hs_cos_wrapper_module_17768151769751" style="color: inherit; font-size: inherit; line-height: inherit;">
+<table border="0" cellpadding="0" cellspacing="0" class="hs-spotlight-wrapper" role="presentation" style="max-width:600px; margin: 0 auto; background-color:#ffffff; border-collapse: separate;
+              border-left: 1px solid #f0f0f0; border-right: 1px solid #f0f0f0;
+              box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+              
+              border-bottom: 1px solid #f0f0f0; border-radius: 0 0 8px 8px;
+              " width="100%">
+<tbody><tr>
+<td bgcolor="#ffffff" class="inner-td" style="font-family:Merriweather, Georgia, sans-serif; font-size:18px; color:#232342; word-break:break-word; padding:16px 20px; background-color:#ffffff; border-radius:0 0 7px 7px">
+<table border="0" cellpadding="0" cellspacing="0" role="presentation" width="100%">
+<tbody><tr>
+<td bgcolor="#13a7c8" style="font-family:Merriweather, Georgia, sans-serif; font-size:18px; color:#232342; word-break:break-word; background-color:#13a7c8; border-radius:2px; vertical-align:top" width="3"> </td>
+<td style="font-family:Merriweather, Georgia, sans-serif; font-size:18px; color:#232342; word-break:break-word; padding-left:14px; vertical-align:top">
+<div style="margin-bottom: 6px; line-height: 1;">
+<a data-hs-link-id="0" data-hs-link-id-v2="q0JUCiAV" href="https://newsletter.towardsdatascience.com/e3t/Ctc/L2+113/d5qLSh04/VWWGFw4kwQLMW6CzDy61-VCHpV7Wb0N5NsHz7N412xbl3hCZYW7Y8-PT6lZ3mqW2BXG6_4TmyCxW4cRf0w87DtTTW6H1DQB7-S53XW5pknSk7wzD4MW1D7MBH3lbGRMW5z6VT17Mv-mbW1tnFBg19cJWwW3kmj9v3FHrDGN674nhqM3rV9W6sQmqW5qQ-y_W5J0RZ48zSycWW2tNBB68VGHLTMMhm2GSm5YjW2sS0Lp7lMDJfW39D8CD7n1ycbW7gJNWP8J1tTsW3BFRr_6W6r2GW5zrxfd482P0zW60ZGrG5N7QT6W4RTx675rKGtVW25gZSV8rr60zW2bk7RB4vwTQWVjYvxd7mmd_YW1NR4-f8Jt24cVPWYzY1sT-WJW5Zj7V_23f8wDf6BkclC04" style="color:#00a4bd; text-decoration:none" target="_blank">
+<span style="background-color: #e2f4f8; color: #13a7c8; font-family: sans-serif; font-size: 10px; font-weight: 800; padding: 3px 10px; border-radius: 100px; text-transform: uppercase; display: inline-block;">
+                  Data Science
+                </span>
+</a>
+</div>
+<p style="margin:0 0 4px 0; font-family:'Merriweather',Georgia,serif; font-size:17px; font-weight:700; color:#2d3748; line-height:1.3;">
+<a data-hs-link-id="0" data-hs-link-id-v2="ZpcET8RN" href="https://newsletter.towardsdatascience.com/e3t/Ctc/L2+113/d5qLSh04/VWWGFw4kwQLMW6CzDy61-VCHpV7Wb0N5NsHz7N412xbF3hCZYW8wLKSR6lZ3kzW7JFXHc4b8sDgN7TF9fDT67JsW1B6qR33CrRvZW7f45409jLfhxW607ytR30HhJnVgPJQw6R2nxsW55Lz5H80vh8lW8qXdqn3grFz8W5zYxKW65LcfvW7J2Zb02BKR2bW1NPdvx1dt5v6W7BpHt-1xryWlW6Nwvc75cDyf9W5VnqmQ2_lB4MW4xZdQb1X8XJtVx0W3C14_R4BW3qwvrl5JplQdW64m3WB1H2SS-W3FZyW27VtRJgW7ztDSb56PL5PW1rPBkh6W7J-vMv6JFLKwyTMW3BSH5B4Hg0QMVglH613qVCXQN3C5TtjXz50xW1fXMnh4SK3KDM1_rgtSdQXWW3b9hXf5QX4Kvf45sXH-04" style="color:#2d3748; text-decoration:none" target="_blank">Causal Inference Is Different in Business</a>
+</p>
+<p style="margin:0 0 6px 0; font-family:'Merriweather',Georgia,serif; font-size:13px; font-style:italic; color:#4a5568; line-height:1.4;">
+              How does decision-gravity dictate this gap?
+            </p>
+<p style="margin:0 0 6px 0; font-family:sans-serif; font-size:12px; color:#718096;">
+              by Alejandro Alvarez Perez
+            </p>
+<p style="margin:0; font-family:sans-serif; font-size:12px; font-weight:700;">
+<a data-hs-link-id="1" data-hs-link-id-v2="nN1+qP0H" href="https://newsletter.towardsdatascience.com/e3t/Ctc/L2+113/d5qLSh04/VWWGFw4kwQLMW6CzDy61-VCHpV7Wb0N5NsHz7N412xbF3hCZYW8wLKSR6lZ3mvN5rDsfywlmp7N2RqnjD5MHMFN1rGNlqg1-7WN3vBDJNdXTcwW3w2_S48Q25bgW39pgLz5z2mvDW2RPPw85NLKWPW1mtbS97gRj8BW1FDqjq5bk6ryW92gWfb4LXQS_W2GxJTK8CBcxDVbgkcF73_txcW350Rhk1lYC1xW5NX2F366-4LpW5MrPyd2DBffwW5GcPDf8-wym3W3ttyZV4J-SccVK6W8d1gj3kgW1B8ctv7JjJ6NN42Qg0dwVgWBMf5BWcgc6HyVWYcqn3X7DY6W94_hQR7NqGGwW7-g4sr69gN88W4Cgk_Z2XndW2W2PKt8B868zZsW456gMs7pT5rlW6rTc9b696BPmf1798hg04" style="color:#13a7c8; text-decoration:none" target="_blank">
+                Read Article →
+              </a>
+</p>
+</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+</tbody></table></div></td></tr></tbody></table>
+</div>
+<!--[if gte mso 9]></table><![endif]-->
+<!--[if (mso)|(IE)]></td><![endif]-->
+<!--[if (mso)|(IE)]></tr></table><![endif]-->
+</div>
+</div>
+<div class="hse-section" id="section_1776815517955" style="padding-left:10px; padding-right:10px">
+<div bgcolor="#ffffff" class="hse-column-container" style="min-width:280px; max-width:600px; margin:0 auto; background-color:#ffffff">
+<!--[if (mso)|(IE)]>
+      <table align="center" style="width:600px;" cellpadding="0" cellspacing="0" role="presentation" width="600" bgcolor="#ffffff">
+      <tr style="background-color:#ffffff;">
+    <![endif]-->
+<!--[if (mso)|(IE)]>
+  <td valign="top" style="width:600px;">
+<![endif]-->
+<!--[if gte mso 9]>
+  <table role="presentation" width="600" cellpadding="0" cellspacing="0" style="width:600px">
+<![endif]-->
+<div class="hse-column hse-size-12" id="column_1776815517955_0">
+<table cellpadding="0" cellspacing="0" class="" role="presentation" style="" width="100%"><tbody><tr><td class="hs_padded" style="font-family:Merriweather, Georgia, sans-serif; font-size:18px; color:#232342; word-break:break-word; padding:2px 10px 0px"><div class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module" data-hs-cos-general-type="widget" data-hs-cos-type="module" id="hs_cos_wrapper_module_17737938592003" style="color: inherit; font-size: inherit; line-height: inherit;">
+
+
+
+
+<div class="wrapper">
+<table border="0" cellpadding="0" cellspacing="0" role="presentation" style="border:1px solid #e2e8f0; border-radius:8px; overflow:hidden; box-shadow:0 2px 8px rgba(0,0,0,0.08);" width="100%">
+<tbody><tr>
+<td bgcolor="#edf1f4" style="font-family:Merriweather, Georgia, sans-serif; font-size:18px; color:#232342; word-break:break-word; background-color:#edf1f4; padding:18px 36px; border-bottom:1px solid #e2e8f0">
+<p style="margin:0 0 3px; font-family:'Merriweather',Georgia,serif; font-size:12px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:#13a7c8;">About this Newsletter</p>
+<h2 style="margin:0; font-family:'Merriweather',Georgia,serif; font-size:20px; font-weight:700; color:#48607a; line-height:1.2">TDS Daily</h2>
+</td>
+</tr>
+<tr>
+<td style="font-family:Merriweather, Georgia, sans-serif; font-size:18px; color:#232342; word-break:break-word; padding:24px 36px">
+<p style="margin:0; font-family:'Merriweather',Georgia,serif; font-size:16px; color:#48607a; line-height:1.6;">Each day, we bring you a fresh mix of trending topics, practical tutorials, and thought-provoking reads from across the data-science landscape. Whether you're exploring machine learning, AI, or data engineering, you'll find something to spark new ideas and keep you ahead of the curve.</p>
+</td>
+</tr>
+<tr>
+<td style="font-family:Merriweather, Georgia, sans-serif; font-size:18px; color:#232342; word-break:break-word; padding:0 36px"><div style="height:1px; background-color:#e2e8f0;"></div></td>
+</tr>
+<tr>
+<td style="font-family:Merriweather, Georgia, sans-serif; font-size:18px; color:#232342; word-break:break-word; padding:24px 36px 0">
+<p style="margin:0 0 4px; font-size:13px; font-weight:700; letter-spacing:2.5px; color:#13a7c8; text-transform:uppercase; font-family:Arial,sans-serif;">Also From the IMG Family</p>
+<h2 style="line-height:175%; margin:0; font-size:18px; font-weight:800; color:#48607a; font-family:Arial,sans-serif">More communities worth exploring</h2>
+</td>
+</tr>
+<tr>
+<td style="font-family:Merriweather, Georgia, sans-serif; font-size:18px; color:#232342; word-break:break-word; padding:24px 20px 28px">
+<table border="0" cellpadding="0" cellspacing="0" class="card-table" style="border-collapse:separate; border-spacing:12px 0;" width="100%">
+<tbody><tr valign="top">
+<td class="mobile-column" height="270" style="font-family:Merriweather, Georgia, sans-serif; font-size:18px; color:#232342; word-break:break-word; background:#edf1f4; border-radius:10px; border:1px solid #dde3ea; height:270px" width="33%">
+<table border="0" cellpadding="0" cellspacing="0" height="100%" width="100%">
+<tbody><tr>
+<td align="center" height="70" style="font-family:Merriweather, Georgia, sans-serif; font-size:18px; color:#232342; word-break:break-word; padding:20px 10px 0; text-align:center; vertical-align:middle; height:70px">
+<a data-hs-link-id="0" data-hs-link-id-v2="tM0IAsS5" href="https://newsletter.towardsdatascience.com/e3t/Ctc/L2+113/d5qLSh04/VWWGFw4kwQLMW6CzDy61-VCHpV7Wb0N5NsHz7N412xb23hCZYW7lCdLW6lZ3l-W2CkZj228N0R7W7QpT1046WcMYW1zggBp7Zj5R2W4jLH6D8J38pfW99bV4m2dDk_-W3-pGCd375tMWW4L867M2PQg65W6Q4M_d2jtXZnVvMsWP4-dwY7W1kC4SH9g0qZWW3-rK6z185V3NW5Qj7cS82pj9BW29BZYq2cyngGN5hsh_ZB3GGdW4xz3wp1fkLqTN5RzFp7YPnHKN15Zq3lQXh-DW5hHXz86rgFQ6W7ZpgsF1mNZCsVlzgH65VQgwwVSRG-l5Ysk1GN65C53PKDQ05W2HqtX-539tvVW7hw7wq6R3XnCf3WKbzn04" style="color:#00a4bd" target="_blank">
+<img alt="roadmap.sh" height="auto" src="https://newsletter.towardsdatascience.com/hubfs/roadmap-logo-IMG.png" style="outline:none; text-decoration:none; border:none; max-width:100%; max-height:45px; width:auto; height:auto; display:inline-block; object-fit:contain" width="auto"/>
+</a>
+</td>
+</tr>
+<tr>
+<td align="center" style="font-family:Merriweather, Georgia, sans-serif; font-size:18px; color:#232342; word-break:break-word; padding:10px 16px; text-align:center; vertical-align:top">
+<p style="margin:0; font-family:'Merriweather',Georgia,serif; font-size:12px; color:#355876; line-height:1.6;">Community-powered role and skill-based roadmaps to guide your learning journey in tech.</p>
+</td>
+</tr>
+<tr><td height="100%" style="font-family:Merriweather, Georgia, sans-serif; font-size:18px; color:#232342; word-break:break-word; height:100%"></td></tr>
+<tr>
+<td align="center" style="font-family:Merriweather, Georgia, sans-serif; font-size:18px; color:#232342; word-break:break-word; padding:12px 16px 20px; text-align:center; vertical-align:bottom">
+<a data-hs-link-id="1" data-hs-link-id-v2="J6agCYnI" href="https://newsletter.towardsdatascience.com/e3t/Ctc/L2+113/d5qLSh04/VWWGFw4kwQLMW6CzDy61-VCHpV7Wb0N5NsHz7N412xb23hCZYW7lCdLW6lZ3nTN4pKDsBk6fdbW4KxPCl5RNYVRW78LTjL6tB6gXW7VQ-TP4cX54hW2SwyK36cd5tyW1SkS9M46hV1vN75mGfDf8KhnW8YHJFL4SPttrN1cYdgjwBWP3W7tK_5B8Zh7RsN39KRZScvLrWW52_MTk2cD9R8W630F2p3M4s4GW9fH33F8sPL9-W8GxYz16y268QW654jrK50Dky3W4wFFy11vJ6f2W4WLDdg1Xt-R1VL-YkD84qKCRW8wVfdt9bYS_7W17FS2L6qJ78hW2GxznD4Bx4VgW8G-mp23_C7T_W46bgcT1tnnWgf9hBQ4H04" style="display:inline-block; background:#13a7c8; color:#ffffff; font-family:Arial,sans-serif; font-size:12px; font-weight:700; padding:10px 20px; border-radius:6px; text-decoration:none; white-space:nowrap" target="_blank">Subscribe</a>
+</td>
+</tr>
+</tbody></table>
+</td>
+<td class="mobile-column" height="270" style="font-family:Merriweather, Georgia, sans-serif; font-size:18px; color:#232342; word-break:break-word; background:#edf1f4; border-radius:10px; border:1px solid #dde3ea; height:270px" width="33%">
+<table border="0" cellpadding="0" cellspacing="0" height="100%" width="100%">
+<tbody><tr>
+<td align="center" height="70" style="font-family:Merriweather, Georgia, sans-serif; font-size:18px; color:#232342; word-break:break-word; padding:20px 10px 0; text-align:center; vertical-align:middle; height:70px">
+<a data-hs-link-id="0" data-hs-link-id-v2="/MoRDjkg" href="https://newsletter.towardsdatascience.com/e3t/Ctc/L2+113/d5qLSh04/VWWGFw4kwQLMW6CzDy61-VCHpV7Wb0N5NsHz7N412xb23hCZYW7lCdLW6lZ3p8W6vKzCs6Kzv9MMrc2cJZLPGmW8r6LWx8rY-QZVdrpFx8bB37YW7ctkjX1T30rjW8_xFp74q1yjHW5x9qct5CNrbgW5LvHyf5X8yDjW70rCZ02TwRRrW8rSKZR5gQ-CNW4t9PvQ9d-hLxW79ZbwN2p5--kW584qcM1nC8p-N74fpH2C3SC0W3B56_x6ydzKsW70ZjY432wFL5VWf3cH1Pn_mxW4cZ1Jf8BPHx7W3lWy7r1vMPzhW8xl2J71xSNrBW7ZDxMJ4qXDdfW761XrQ4sbp_kW7qCVky1hdhJ6W3YXc6N78Fhq2f4dy5gC04" style="color:#00a4bd" target="_blank">
+<img alt="TNS" height="auto" src="https://newsletter.towardsdatascience.com/hubfs/TNS-logo-IMG.png" style="outline:none; text-decoration:none; border:none; max-width:100%; max-height:55px; width:auto; height:auto; display:inline-block; object-fit:contain" width="auto"/>
+</a>
+</td>
+</tr>
+<tr>
+<td align="center" style="font-family:Merriweather, Georgia, sans-serif; font-size:18px; color:#232342; word-break:break-word; padding:10px 16px; text-align:center; vertical-align:top">
+<p style="margin:0; font-family:'Merriweather',Georgia,serif; font-size:12px; color:#355876; line-height:1.6;">Tech news that software engineering leaders and developers actually read.</p>
+</td>
+</tr>
+<tr><td height="100%" style="font-family:Merriweather, Georgia, sans-serif; font-size:18px; color:#232342; word-break:break-word; height:100%"></td></tr>
+<tr>
+<td align="center" style="font-family:Merriweather, Georgia, sans-serif; font-size:18px; color:#232342; word-break:break-word; padding:12px 16px 20px; text-align:center; vertical-align:bottom">
+<a data-hs-link-id="1" data-hs-link-id-v2="ONezms9y" href="https://newsletter.towardsdatascience.com/e3t/Ctc/L2+113/d5qLSh04/VWWGFw4kwQLMW6CzDy61-VCHpV7Wb0N5NsHz7N412xb23hCZYW7lCdLW6lZ3pwW87NZ358BH77qW6_NnkW51k6CwW5p5_B377VmTlW2ZBvGz2xFLW6W97PFbT3mxV7bVzxC1k8S4kPdN4F9q78Ywr8_N2qmTtPsxcKJN4M2qCys5r2QW4K06_52gbrv-W8cMdN95sDJ1WW1mqCHk3P4Z6xW7ZPB6G342nsJW6cn21x1M1gjWW6R8M6q1036txW56xQPv7DGjNDW8fblss6hc4HlW2xJfqF5cPThkW1xy-fz6rJ1D0W4Qf53V7fXZ8RW3FGWLh7hl76FW3KMWb12xyGrCW174W735bJ-8yW2BG1gD1BfcHsf1Vf6-M04" style="display:inline-block; background:#13a7c8; color:#ffffff; font-family:Arial,sans-serif; font-size:12px; font-weight:700; padding:10px 20px; border-radius:6px; text-decoration:none; white-space:nowrap" target="_blank">Subscribe</a>
+</td>
+</tr>
+</tbody></table>
+</td>
+<td class="mobile-column" height="270" style="font-family:Merriweather, Georgia, sans-serif; font-size:18px; color:#232342; word-break:break-word; background:#edf1f4; border-radius:10px; border:1px solid #dde3ea; height:270px" width="33%">
+<table border="0" cellpadding="0" cellspacing="0" height="100%" width="100%">
+<tbody><tr>
+<td align="center" height="70" style="font-family:Merriweather, Georgia, sans-serif; font-size:18px; color:#232342; word-break:break-word; padding:20px 10px 0; text-align:center; vertical-align:middle; height:70px">
+<a data-hs-link-id="0" data-hs-link-id-v2="fFUizYTW" href="https://newsletter.towardsdatascience.com/e3t/Ctc/L2+113/d5qLSh04/VWWGFw4kwQLMW6CzDy61-VCHpV7Wb0N5NsHz7N412xbl3hCZYW7Y8-PT6lZ3nnW3s3fTC3Mmv_2VnswVc8gjK5vW7-qPXy4Gf0bbW16g4sm19941GW85VM9r21VYZKW5KVj0t4nx9RMW8mHnmz4lfYVMW42HSZ25q7wv-N2XkjYThSZ84W7bPGG16r2zH_W1N2zt_3kzybJW7Nv02-24zlBrW9cqF786WHS4QW980pQR6bx_08W1z9fFK3PTtkPW22DZrm5c7KpyW9bNVyy28CBXmW49_j5L17TMJpW4f7Sbz5-Wr5cW7Krmtb1pmmq2W28ft1v7rRzCgW8MLgV94tW1zsW30-F4777xBQBW6rdxVX3XRsmpW8l1Drc6z0-PgW4gvpnd85cMQtf5FL4NF04" style="color:#00a4bd" target="_blank">
+<img alt="CO" height="auto" src="https://newsletter.towardsdatascience.com/hubfs/CO-logo-IMG.png" style="outline:none; text-decoration:none; border:none; max-width:100%; max-height:45px; width:auto; height:auto; display:inline-block; object-fit:contain" width="auto"/>
+</a>
+</td>
+</tr>
+<tr>
+<td align="center" style="font-family:Merriweather, Georgia, sans-serif; font-size:18px; color:#232342; word-break:break-word; padding:10px 16px; text-align:center; vertical-align:top">
+<p style="margin:0; font-family:'Merriweather',Georgia,serif; font-size:12px; color:#355876; line-height:1.6;">A modestly upbeat breakdown of what's happening with tech, business and power.</p>
+</td>
+</tr>
+<tr><td height="100%" style="font-family:Merriweather, Georgia, sans-serif; font-size:18px; color:#232342; word-break:break-word; height:100%"></td></tr>
+<tr>
+<td align="center" style="font-family:Merriweather, Georgia, sans-serif; font-size:18px; color:#232342; word-break:break-word; padding:12px 16px 20px; text-align:center; vertical-align:bottom">
+<a data-hs-link-id="1" data-hs-link-id-v2="E40OCWV0" href="https://newsletter.towardsdatascience.com/e3t/Ctc/L2+113/d5qLSh04/VWWGFw4kwQLMW6CzDy61-VCHpV7Wb0N5NsHz7N412xbl3hCZYW7Y8-PT6lZ3n_W9f-9sZ4QkPJ_W44f0d83-9bq9W7qk3646JQtX6W33pJsb3TN60wW7_ld8745gBWQW2_4Gqc69jyS2W7dMQXR6hsm4FW5KlyTk7swYfQW1lN4vS7fKqqGW3T5b2X3jcSM-W7X9sXy49g8NtW4PLDf04QR312W5Mly-F3GfwtWVL_v732xJybrW7jzrrH2_5J9VW2CR8wq3P5_8RW77NFYJ4W9BdXW6rQy2w3s0X-BW3K7k4c6xpq9KN6bj-3VWkDbzW1QfbF64rPmfYW6s_gfd5nyLPWW58b0WY95TxNJW3MQb6n89dhSWW75ZxDg19tLgcW7FhMwQ2Y4Ym2f7dW71T04" style="display:inline-block; background:#13a7c8; color:#ffffff; font-family:Arial,sans-serif; font-size:12px; font-weight:700; padding:10px 20px; border-radius:6px; text-decoration:none; white-space:nowrap" target="_blank">Subscribe</a>
+</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+</tbody></table>
+</div>
+</div></td></tr></tbody></table>
+</div>
+<!--[if gte mso 9]></table><![endif]-->
+<!--[if (mso)|(IE)]></td><![endif]-->
+<!--[if (mso)|(IE)]></tr></table><![endif]-->
+</div>
+</div>
+<div class="hse-section" id="section-12" style="padding-left:10px; padding-right:10px">
+<div bgcolor="#ffffff" class="hse-column-container" style="min-width:280px; max-width:600px; margin:0 auto; background-color:#ffffff; padding-bottom:12px">
+<!--[if (mso)|(IE)]>
+      <table align="center" style="width:600px;" cellpadding="0" cellspacing="0" role="presentation" width="600" bgcolor="#ffffff">
+      <tr style="background-color:#ffffff;">
+    <![endif]-->
+<!--[if (mso)|(IE)]>
+  <td valign="top" style="width:600px;padding-bottom:12px;">
+<![endif]-->
+<!--[if gte mso 9]>
+  <table role="presentation" width="600" cellpadding="0" cellspacing="0" style="width:600px">
+<![endif]-->
+<div class="hse-column hse-size-12" id="column-12-0">
+<table cellpadding="0" cellspacing="0" class="" role="presentation" style="" width="100%"><tbody><tr><td class="hs_padded" style="font-family:Merriweather, Georgia, sans-serif; font-size:18px; color:#232342; word-break:break-word; padding:10px 20px 5px"><div class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module" data-hs-cos-general-type="widget" data-hs-cos-type="module" id="hs_cos_wrapper_module-12-0-0" style="color: inherit; font-size: inherit; line-height: inherit;"><table align="center" class="hs_cos_wrapper_type_social_module" role="presentation" style="width: auto; text-align: center; margin: 0 auto; ">
+<tbody>
+<tr>
+<td align="center" class="social-network-cell" style="font-family:Merriweather, Georgia, sans-serif; font-size:18px; color:#232342; word-break:break-word">
+<table align="center" class="hs_cos_wrapper_type_social_module_single" role="presentation" style="width: auto; text-align: center; margin: 0 auto; ">
+<tbody>
+<tr>
+<td align="center" class="display_block_on_small_screens" style="font-family:Merriweather, Georgia, sans-serif; font-size:18px; color:#232342; word-break:break-word; padding:8px 7px; line-height:1; vertical-align:middle" valign="middle">
+<a data-hs-link-id="2" data-hs-link-id-v2="d1mtB86r" href="https://newsletter.towardsdatascience.com/e3t/Ctc/L2+113/d5qLSh04/VWWGFw4kwQLMW6CzDy61-VCHpV7Wb0N5NsHz7N412xb23hCZYW7lCdLW6lZ3n8W5xTBw95KjqcDW6JSlk857qKq6W1fRfS66q7_DHW1nkdrx4yBQzBW6k5wc32H_w7RW8-HC7R2Rks7NW66LdW34_jFgrW3vKSdz7kVM99W5spmyH3688DjW2Wfc1d6TcTvpW59RVVK11NtdVW7WfdPS5JfYpjW12h5h-370vR8W3bWq1180bQmvN98Jz7BXbqdDVrNG4p3FdYDWW1tyx6q40wY-zW54FT274GW86bW38PZXq1gqZLPW4hNn2064XqJ8N8S9b_v81Md7W88G-gG8mC1CRW5DJ9P13PPj18W5ys9gY6ZT4Fwf4RStNz04" style="color:#00a4bd; text-decoration:none !important" target="_blank"><img alt="TDS_Website" height="37" src="https://newsletter.towardsdatascience.com/hs-fs/hubfs/TDS_Website.png?height=74&amp;upscale=true&amp;name=TDS_Website.png" style="outline:none; text-decoration:none; border:none; width:auto!important; height:37px!important; vertical-align:middle" valign="middle" width="auto"/>
+</a>
+</td>
+</tr>
+</tbody>
+</table>
+</td><td align="center" class="social-network-cell" style="font-family:Merriweather, Georgia, sans-serif; font-size:18px; color:#232342; word-break:break-word">
+<table align="center" class="hs_cos_wrapper_type_social_module_single" role="presentation" style="width: auto; text-align: center; margin: 0 auto; ">
+<tbody>
+<tr>
+<td align="center" class="display_block_on_small_screens" style="font-family:Merriweather, Georgia, sans-serif; font-size:18px; color:#232342; word-break:break-word; padding:8px 7px; line-height:1; vertical-align:middle" valign="middle">
+<a data-hs-link-id="0" data-hs-link-id-v2="fhPQ1+iJ" href="https://newsletter.towardsdatascience.com/e3t/Ctc/L2+113/d5qLSh04/VWWGFw4kwQLMW6CzDy61-VCHpV7Wb0N5NsHz7N412xbl3qgz0W7Y8-PT6lZ3nDW3v2CJ23JjNdgW2k2n1d1ZM22lW1XPxxC5xpnc1W1zmnMd8ZbZPbW5hvdql58f6qkW2wQbgL1LjvfJW3yxbdL5H0zhSW1Rv3J35zRglJW6tdZqc8rFwm9W6mmdW77ntkYJW1GyFYf7qHRD0N2QtXbhKzmRBW60_z7B5LlDF5W57HvWz2BJqpmW3yMFKt328H_cW6-7rqw6s61w1W1nTpq441wx4CW92S97v7TSf1rN9jzydS1XgLPW7X1fQB6VxrNWW5-YmDw4RDfCGW8jMHK_4N6zbPW8nXVG35Z3b5TW3x6KHH13RxD3W8Gbnjp8Zz_XvW5dysj21_Xz_xf8049DK04" style="color:#00a4bd; text-decoration:none !important" target="_blank"><img alt="TDS_X" height="37" src="https://newsletter.towardsdatascience.com/hs-fs/hubfs/TDS_X.png?height=74&amp;upscale=true&amp;name=TDS_X.png" style="outline:none; text-decoration:none; border:none; width:auto!important; height:37px!important; vertical-align:middle" valign="middle" width="auto"/>
+</a>
+</td>
+</tr>
+</tbody>
+</table>
+</td><td align="center" class="social-network-cell" style="font-family:Merriweather, Georgia, sans-serif; font-size:18px; color:#232342; word-break:break-word">
+<table align="center" class="hs_cos_wrapper_type_social_module_single" role="presentation" style="width: auto; text-align: center; margin: 0 auto; ">
+<tbody>
+<tr>
+<td align="center" class="display_block_on_small_screens" style="font-family:Merriweather, Georgia, sans-serif; font-size:18px; color:#232342; word-break:break-word; padding:8px 7px; line-height:1; vertical-align:middle" valign="middle">
+<a data-hs-link-id="0" data-hs-link-id-v2="5PoAG+Ut" href="https://newsletter.towardsdatascience.com/e3t/Ctc/L2+113/d5qLSh04/VWWGFw4kwQLMW6CzDy61-VCHpV7Wb0N5NsHz7N412xbY3qgz0W95jsWP6lZ3nBW6F9MFy9dBJ77W6sNKCs1M3Sc1W592RmG3s4xcbW6sLGTp8SXQt-W3D-cvt5scXwMW5sl5H_5XzFZwN6qsr9T_dKwPW30Lz4x58W1hQW2PrzTW6ZNX-TW9lBQ5B219YqkW2F8mNF3jrgQ-W5PCtBQ7SHRtyN7yQhJ0p5RXsW60HwJK3kCTsRW6thJXV75PZKMW7kGWWJ6yvDbsW3fdcMg1tG_s1W6v60G64L6PZ4W5zpFcn6SRl7YN26Svz6C1cmtW8G9R3X5xcymqV2BwhR5rkMH4VSwx2r8f187rV-p4hX4SdGrjW68zCgl7k1WXKW8kLGN047gcgmW3KN6v57D6Lz3W15bX5C4qZQQgW54btMQ2XnmZPW8GX7Qc2K0qSmf2ZK52C04" style="color:#00a4bd; text-decoration:none !important" target="_blank"><img alt="TDS_LinkedIn" height="37" src="https://newsletter.towardsdatascience.com/hs-fs/hubfs/TDS_LinkedIn.png?height=74&amp;upscale=true&amp;name=TDS_LinkedIn.png" style="outline:none; text-decoration:none; border:none; width:auto!important; height:37px!important; vertical-align:middle" valign="middle" width="auto"/>
+</a>
+</td>
+</tr>
+</tbody>
+</table>
+</td><td align="center" class="social-network-cell" style="font-family:Merriweather, Georgia, sans-serif; font-size:18px; color:#232342; word-break:break-word">
+<table align="center" class="hs_cos_wrapper_type_social_module_single" role="presentation" style="width: auto; text-align: center; margin: 0 auto; ">
+<tbody>
+<tr>
+<td align="center" class="display_block_on_small_screens" style="font-family:Merriweather, Georgia, sans-serif; font-size:18px; color:#232342; word-break:break-word; padding:8px 7px; line-height:1; vertical-align:middle" valign="middle">
+<a data-hs-link-id="0" data-hs-link-id-v2="M14qJ2iv" href="https://newsletter.towardsdatascience.com/e3t/Ctc/L2+113/d5qLSh04/VWWGFw4kwQLMW6CzDy61-VCHpV7Wb0N5NsHz7N412xbF3qgz0W8wLKSR6lZ3mWW3hLBXk5qpB-3W54fCRH4d8QfbW3hg8gS4DTphpW2_F4wJ63C_7kW50Gxm97fjXyWW8WCjM64BG3RlW52Sdwc5m81xzW5gwrX23dk5dYW6KlG4J8VLTjLW6GLxBc8M38hXW3RKn8g5fFMnQW2RxsdP7ty83PN43TXPHHDcl0W2B0cSv8xhBTKW4yRXYG28KrBKW47wvRR4FMZ1FW8wjssR4_GqHXW7xm3423MXbgGW7tF0DK5Xq-ZSW8NcL4J9gFMqHVwLfGN65GLsrW1gQNxf2d4jC_W1wkQJn2f6_l1W8wVlHV7BTmZNW4dg_GG2-9g89W2FHgHD8wl8r7W5b1LQ15V1rWqW29qkSb4WdBj-f1GqQGY04" style="color:#00a4bd; text-decoration:none !important" target="_blank"><img alt="TDS_Mastodon" height="37" src="https://newsletter.towardsdatascience.com/hs-fs/hubfs/TDS_Mastodon.png?height=74&amp;upscale=true&amp;name=TDS_Mastodon.png" style="outline:none; text-decoration:none; border:none; width:auto!important; height:37px!important; vertical-align:middle" valign="middle" width="auto"/>
+</a>
+</td>
+</tr>
+</tbody>
+</table>
+</td><td align="center" class="social-network-cell" style="font-family:Merriweather, Georgia, sans-serif; font-size:18px; color:#232342; word-break:break-word">
+<table align="center" class="hs_cos_wrapper_type_social_module_single" role="presentation" style="width: auto; text-align: center; margin: 0 auto; ">
+<tbody>
+<tr>
+<td align="center" class="display_block_on_small_screens" style="font-family:Merriweather, Georgia, sans-serif; font-size:18px; color:#232342; word-break:break-word; padding:8px 7px; line-height:1; vertical-align:middle" valign="middle">
+<a data-hs-link-id="0" data-hs-link-id-v2="so5wSs7F" href="https://newsletter.towardsdatascience.com/e3t/Ctc/L2+113/d5qLSh04/VWWGFw4kwQLMW6CzDy61-VCHpV7Wb0N5NsHz7N412xbF3qgz0W8wLKSR6lZ3l_W1H_2p25-XLsWW86B9C236mNHJW27VXcD3HL36CW6PDlBK7jRFSSW90mYG23YfmVkW1fKrSW4MXPHNW1cW9638F1K0sW6lsTCk4XWFwcN4zdKtykYpZzW23-pr78qXx1PW6BKXbQ8Sr20KN4C1_GrwZqVDN7lDQx2L94jzW3x-hJz3Bb137W677BGX71ls2TW7R5RRg6CP7DZF8C3vQGKNtWVwpJ7J74mdFHW4DzyHr2QWpXVN4CR7DJFpQbwW8HdnLv4TfwHqW2wHmwH6x_jkxN7TKkXq5fHXpW51fbLH9hbXp0W7T_LBT4bcStFW1K0QRk2xM3kwW4HJQrz7nCwQ8W1VdkbF8Lyn1mf7ny5Xz04" style="color:#00a4bd; text-decoration:none !important" target="_blank"><img alt="TDS_Threads" height="37" src="https://newsletter.towardsdatascience.com/hs-fs/hubfs/TDS_Threads.png?height=74&amp;upscale=true&amp;name=TDS_Threads.png" style="outline:none; text-decoration:none; border:none; width:auto!important; height:37px!important; vertical-align:middle" valign="middle" width="auto"/>
+</a>
+</td>
+</tr>
+</tbody>
+</table>
+</td><td align="center" class="social-network-cell" style="font-family:Merriweather, Georgia, sans-serif; font-size:18px; color:#232342; word-break:break-word">
+<table align="center" class="hs_cos_wrapper_type_social_module_single" role="presentation" style="width: auto; text-align: center; margin: 0 auto; ">
+<tbody>
+<tr>
+<td align="center" class="display_block_on_small_screens" style="font-family:Merriweather, Georgia, sans-serif; font-size:18px; color:#232342; word-break:break-word; padding:8px 7px; line-height:1; vertical-align:middle" valign="middle">
+<a data-hs-link-id="0" data-hs-link-id-v2="ITBM0SoE" href="https://newsletter.towardsdatascience.com/e3t/Ctc/L2+113/d5qLSh04/VWWGFw4kwQLMW6CzDy61-VCHpV7Wb0N5NsHz7N412xbF3qgz0W8wLKSR6lZ3kzVnTj0V9c6DQqN7rfmhj6TpnpW5RbhyL7jFqTdW5fLwXR721p0PW2F8tZx6G-w8RW78nVH43R4qQyW4_lLSW6R9vDxW5cRWsh8W8WC3W2sz_tX2kGbl9N8gHMYGzdVp1W5bwbM54-rHY9W4FJ6937BV0D7W92l_1_1kS65bW1Gp6vX96W5xsW4V81B_6BPPZyW7z7CGF5XKnLmW2G-l188h2kc0W2KRNCb8FbMBtW3sCl5C1-M1nWN7qP6_JYj_NFW7V4qhS42G-hPW464LBG4qV25sW3VW-5s8x8VJxW7kC0W96KJqV8W1fP_lL1346JNW6Gh5ky6DwT4DW1xjmzR7ynySHW5KMJLL1X-Hphf85v43g04" style="color:#00a4bd; text-decoration:none !important" target="_blank"><img alt="TDS_Bluesky" height="37" src="https://newsletter.towardsdatascience.com/hs-fs/hubfs/TDS_Bluesky.png?height=74&amp;upscale=true&amp;name=TDS_Bluesky.png" style="outline:none; text-decoration:none; border:none; width:auto!important; height:37px!important; vertical-align:middle" valign="middle" width="auto"/>
+</a>
+</td>
+</tr>
+</tbody>
+</table>
+</td><td align="center" class="social-network-cell" style="font-family:Merriweather, Georgia, sans-serif; font-size:18px; color:#232342; word-break:break-word">
+<table align="center" class="hs_cos_wrapper_type_social_module_single" role="presentation" style="width: auto; text-align: center; margin: 0 auto; ">
+<tbody>
+<tr>
+<td align="center" class="display_block_on_small_screens" style="font-family:Merriweather, Georgia, sans-serif; font-size:18px; color:#232342; word-break:break-word; padding:8px 7px; line-height:1; vertical-align:middle" valign="middle">
+<a data-hs-link-id="0" data-hs-link-id-v2="TOKJrIyM" href="https://newsletter.towardsdatascience.com/e3t/Ctc/L2+113/d5qLSh04/VWWGFw4kwQLMW6CzDy61-VCHpV7Wb0N5NsHz7N412xbF3qgz0W8wLKSR6lZ3nkW6y39zj4Wdk-fN5WXSTTkzGX9W3fCmKh7XplJWW3DMsGr3xx-V3W3k2_xx5_kcHgVsBqWK6LZfrYW3VSQdc1Dxd3MN2LbRx41nzHvW3mHtt071vV7jW7HhlNq8wcG_9W7ZSWwV3R5PD-VKKtt82vF68kN20TRXcmWw57V5D1M57gkrxzW4D0stl4MPV9BW644LLJ8NPQh2W5t9j2X4XTpXvW3-KK8V4NfzXdW1WtZMr3_HmfDW7HXx3P1JTXLcW22Hzh47Ntzv-V5pV1_2r48XSW3mzm7Q4FhSrWW4-lmgc3htpnKN6dR3YS_v_sWW4x7b9H1TtSHpW7QgC_k3zz7sTW3kTFM985HZ4Cf4xT69Y04" style="color:#00a4bd; text-decoration:none !important" target="_blank"><img alt="TDS_YouTube" height="37" src="https://newsletter.towardsdatascience.com/hs-fs/hubfs/TDS_YouTube.png?height=74&amp;upscale=true&amp;name=TDS_YouTube.png" style="outline:none; text-decoration:none; border:none; width:auto!important; height:37px!important; vertical-align:middle" valign="middle" width="auto"/>
+</a>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div></td></tr></tbody></table>
+</div>
+<!--[if gte mso 9]></table><![endif]-->
+<!--[if (mso)|(IE)]></td><![endif]-->
+<!--[if (mso)|(IE)]></tr></table><![endif]-->
+</div>
+</div>
+<div class="hse-section hse-section-last" id="section-14" style="padding-left:10px; padding-right:10px">
+<div bgcolor="#ffffff" class="hse-column-container" style="min-width:280px; max-width:600px; margin:0 auto; background-color:#ffffff">
+<!--[if (mso)|(IE)]>
+      <table align="center" style="width:600px;" cellpadding="0" cellspacing="0" role="presentation" width="600" bgcolor="#ffffff">
+      <tr style="background-color:#ffffff;">
+    <![endif]-->
+<!--[if (mso)|(IE)]>
+  <td valign="top" style="width:600px;">
+<![endif]-->
+<!--[if gte mso 9]>
+  <table role="presentation" width="600" cellpadding="0" cellspacing="0" style="width:600px">
+<![endif]-->
+<div class="hse-column hse-size-12" id="column-14-0">
+<table cellpadding="0" cellspacing="0" class="" role="presentation" style="" width="100%"><tbody><tr><td class="hs_padded" style="font-family:Merriweather, Georgia, sans-serif; font-size:18px; color:#232342; word-break:break-word; padding:10px 20px"><div class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module" data-hs-cos-general-type="widget" data-hs-cos-type="module" id="hs_cos_wrapper_module-14-0-0" style="color: inherit; font-size: inherit; line-height: inherit;"></div></td></tr></tbody></table>
+</div>
+<!--[if gte mso 9]></table><![endif]-->
+<!--[if (mso)|(IE)]></td><![endif]-->
+<!--[if (mso)|(IE)]></tr></table><![endif]-->
+</div>
+</div></div>
+</td>
+</tr>
+</tbody></table>
+</div>
+    </div>
+  </article>
+</main>
+</body>
+</html>
