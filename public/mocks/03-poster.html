@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Pranav P · Poster mock</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300..800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --bg:#F2F0E8;
+    --bg-2:#E5E1CF;
+    --ink:#0E0F0F;
+    --ink-2:#2A2A2A;
+    --muted:#6B6A60;
+    --rule:#D8D3BE;
+    --accent:#FF4D2A;
+    --accent-soft:#FFE5DC;
+    --sans:'Bricolage Grotesque',system-ui,sans-serif;
+    --mono:'JetBrains Mono',ui-monospace,monospace;
+  }
+  *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+  html{font-size:16px;scroll-behavior:smooth}
+  body{
+    font-family:var(--sans);background:var(--bg);color:var(--ink);
+    line-height:1.5;
+    font-variation-settings:"opsz" 14;
+    -webkit-font-smoothing:antialiased;overflow-x:hidden;
+  }
+
+  .mock-bar{
+    position:fixed;top:0;left:0;right:0;z-index:50;
+    padding:.7rem 1.5rem;font-family:var(--mono);font-size:.72rem;
+    background:var(--ink);color:var(--bg);
+    display:flex;justify-content:space-between;align-items:center;
+  }
+  .mock-bar a{color:var(--accent);text-decoration:none;font-weight:500}
+
+  .wrap{max-width:1320px;margin:0 auto;padding:0 2rem;position:relative}
+
+  /* HERO — full-bleed display type with accent block */
+  .hero{
+    padding:8rem 0 4rem;position:relative;overflow:hidden;
+  }
+  .hero .label{
+    font-family:var(--mono);font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;
+    color:var(--accent);font-weight:500;margin-bottom:2rem;
+    display:inline-flex;align-items:center;gap:.6rem;
+  }
+  .hero .label::before{content:"";width:32px;height:2px;background:var(--accent)}
+
+  .hero .name{
+    font-family:var(--sans);font-variation-settings:"opsz" 96,"wght" 700;
+    font-size:clamp(5rem,16vw,16rem);line-height:.85;letter-spacing:-.05em;color:var(--ink);
+    margin-bottom:1.5rem;position:relative;z-index:2;
+  }
+  .hero .name .accent{color:var(--accent)}
+  .hero .name .stroke{
+    -webkit-text-stroke:2px var(--ink);color:transparent;
+    font-variation-settings:"opsz" 96,"wght" 700;
+  }
+
+  .hero .accent-block{
+    position:absolute;top:42%;right:-4%;
+    width:min(360px,32vw);height:min(360px,32vw);
+    background:var(--accent);z-index:1;
+    transform:rotate(-3deg);
+  }
+  .hero .accent-block-2{
+    position:absolute;bottom:18%;right:6%;
+    width:min(140px,14vw);height:min(140px,14vw);
+    border:3px solid var(--ink);background:transparent;z-index:1;
+    transform:rotate(8deg);
+  }
+
+  .hero-bottom{
+    display:grid;grid-template-columns:1fr 1fr;gap:4rem;margin-top:3rem;
+    position:relative;z-index:2;
+  }
+  .hero-bottom .intro{
+    font-size:clamp(1.4rem,2.2vw,1.9rem);font-weight:400;line-height:1.3;color:var(--ink);
+    max-width:24ch;letter-spacing:-.015em;
+    font-variation-settings:"opsz" 24,"wght" 400;
+  }
+  .hero-bottom .intro .accent{color:var(--accent);font-weight:600}
+  .hero-bottom .meta{
+    display:flex;flex-direction:column;gap:1.2rem;align-self:end;
+    border-left:2px solid var(--ink);padding-left:1.4rem;
+  }
+  .hero-bottom .meta .row{display:flex;justify-content:space-between;gap:1rem}
+  .hero-bottom .meta .k{
+    font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);
+  }
+  .hero-bottom .meta .v{font-size:.95rem;color:var(--ink);font-weight:500;text-align:right}
+  .hero-bottom .meta .v a{color:var(--ink);text-decoration:none;border-bottom:2px solid var(--accent)}
+
+  @media(max-width:760px){
+    .hero-bottom{grid-template-columns:1fr;gap:2rem}
+    .hero .accent-block{width:260px;height:260px;right:-30px;top:30%}
+    .hero .accent-block-2{display:none}
+  }
+
+  /* SECTIONS */
+  .section{padding:6rem 0;position:relative}
+  .section.alt{background:var(--bg-2)}
+  .sec-head{
+    display:grid;grid-template-columns:auto 1fr auto;gap:2rem;align-items:end;
+    margin-bottom:3.5rem;
+  }
+  .sec-head .num{
+    font-family:var(--sans);font-variation-settings:"opsz" 96,"wght" 700;
+    font-size:clamp(4rem,8vw,7rem);line-height:.85;color:var(--accent);letter-spacing:-.04em;
+  }
+  .sec-head h2{
+    font-family:var(--sans);font-variation-settings:"opsz" 48,"wght" 500;
+    font-size:clamp(2rem,4vw,3rem);line-height:1;letter-spacing:-.02em;color:var(--ink);
+    padding-bottom:.4rem;
+  }
+  .sec-head .meta-rule{
+    height:2px;background:var(--ink);width:80px;margin-bottom:.7rem;justify-self:end;
+  }
+
+  /* WORK — numbered editorial */
+  .work-list{display:grid;gap:0}
+  .work-entry{
+    display:grid;grid-template-columns:90px 180px 1fr auto;gap:2.5rem;align-items:start;
+    padding:2.4rem 0;border-top:1px solid var(--ink);
+    transition:padding .25s;
+  }
+  .work-entry:hover{padding-left:1.5rem}
+  .work-entry .big-num{
+    font-family:var(--sans);font-variation-settings:"opsz" 96,"wght" 600;
+    font-size:3.2rem;line-height:.85;color:var(--ink);letter-spacing:-.04em;
+  }
+  .work-entry .date{
+    font-family:var(--mono);font-size:.78rem;letter-spacing:.06em;color:var(--muted);text-transform:uppercase;
+    padding-top:.5rem;
+  }
+  .work-entry .body h3{
+    font-family:var(--sans);font-variation-settings:"opsz" 36,"wght" 600;
+    font-size:1.8rem;letter-spacing:-.015em;line-height:1.1;margin-bottom:.3rem;
+  }
+  .work-entry .body .role{
+    color:var(--accent);font-size:.95rem;font-weight:500;margin-bottom:.9rem;
+  }
+  .work-entry .body p{font-size:1rem;color:var(--ink-2);max-width:64ch;line-height:1.6}
+  .work-entry .body ul{list-style:none;margin-top:.8rem;display:grid;gap:.3rem}
+  .work-entry .body li{font-size:.92rem;color:var(--ink-2);padding-left:1.2rem;position:relative}
+  .work-entry .body li::before{content:"→";position:absolute;left:0;color:var(--accent);font-weight:600}
+  .work-entry .body li strong{font-weight:600;color:var(--ink)}
+  .work-entry .arrow{
+    font-size:1.6rem;color:var(--ink);padding-top:.4rem;transition:transform .2s, color .2s;
+  }
+  .work-entry:hover .arrow{transform:translateX(8px);color:var(--accent)}
+
+  @media(max-width:760px){
+    .work-entry{grid-template-columns:60px 1fr;gap:1rem}
+    .work-entry .big-num{font-size:2rem}
+    .work-entry .date{grid-column:2;font-size:.7rem;padding-top:0;margin-bottom:.4rem}
+    .work-entry .arrow{display:none}
+  }
+
+  /* PROJECTS — asymmetric grid */
+  .proj-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:1rem}
+  .proj{
+    background:var(--bg);border:2px solid var(--ink);padding:1.6rem 1.4rem;
+    display:flex;flex-direction:column;gap:.7rem;min-height:240px;
+    transition:background .18s, transform .2s;
+  }
+  .proj:hover{background:var(--accent);color:var(--ink)}
+  .proj:hover .idx, .proj:hover .stack{color:var(--ink)}
+  .proj .idx{
+    font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;color:var(--accent);text-transform:uppercase;font-weight:500;
+  }
+  .proj h4{
+    font-family:var(--sans);font-variation-settings:"opsz" 24,"wght" 600;
+    font-size:1.35rem;line-height:1.1;letter-spacing:-.015em;color:var(--ink);
+  }
+  .proj p{font-size:.92rem;line-height:1.55;color:var(--ink-2);flex:1}
+  .proj:hover p{color:var(--ink-2)}
+  .proj .stack{
+    font-family:var(--mono);font-size:.72rem;letter-spacing:.04em;color:var(--muted);
+    border-top:1px solid var(--rule);padding-top:.7rem;
+  }
+  .proj:hover .stack{border-color:rgba(14,15,15,.3)}
+
+  .proj:nth-child(1){grid-column:span 3}
+  .proj:nth-child(2){grid-column:span 3}
+  .proj:nth-child(3){grid-column:span 2}
+  .proj:nth-child(4){grid-column:span 2}
+  .proj:nth-child(5){grid-column:span 2}
+
+  @media(max-width:900px){
+    .proj-grid{grid-template-columns:1fr}
+    .proj{grid-column:auto !important}
+  }
+
+  /* CONTACT */
+  .contact{
+    padding:6rem 0;background:var(--ink);color:var(--bg);position:relative;overflow:hidden;
+  }
+  .contact .wrap{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:end}
+  .contact h2{
+    font-family:var(--sans);font-variation-settings:"opsz" 144,"wght" 600;
+    font-size:clamp(3rem,7vw,6rem);line-height:.9;letter-spacing:-.04em;color:var(--bg);
+  }
+  .contact h2 .accent{color:var(--accent)}
+  .contact p{
+    font-size:1.05rem;color:#999;margin-top:1.5rem;max-width:48ch;line-height:1.6;
+  }
+  .contact .links{display:flex;flex-direction:column;gap:.6rem}
+  .contact .links a{
+    font-family:var(--mono);font-size:.92rem;color:var(--bg);text-decoration:none;
+    padding:.5rem 0;border-bottom:1px solid #333;
+    display:flex;justify-content:space-between;align-items:center;
+    transition:color .18s, border-color .18s, padding-left .18s;
+  }
+  .contact .links a:hover{color:var(--accent);border-color:var(--accent);padding-left:.6rem}
+  .contact .links a::after{content:"→"}
+
+  @media(max-width:760px){
+    .contact .wrap{grid-template-columns:1fr}
+  }
+
+  footer{
+    background:var(--ink);color:var(--muted);
+    padding:1.4rem 2rem;font-family:var(--mono);font-size:.72rem;text-align:center;
+    border-top:1px solid #333;letter-spacing:.04em;
+  }
+
+  /* scroll reveal — slide in horizontal */
+  .reveal{opacity:0;transform:translateY(30px);transition:opacity .7s ease, transform .7s ease}
+  .reveal.in{opacity:1;transform:translateY(0)}
+  .reveal-x{opacity:0;transform:translateX(-30px);transition:opacity .8s ease, transform .8s ease}
+  .reveal-x.in{opacity:1;transform:translateX(0)}
+</style>
+</head>
+<body>
+  <div class="mock-bar">
+    <span>MOCK 03 · POSTER</span>
+    <a href="/mocks/">← all mocks</a>
+  </div>
+
+  <section class="hero">
+    <div class="accent-block"></div>
+    <div class="accent-block-2"></div>
+    <div class="wrap">
+      <div class="label">Data Scientist &nbsp;/&nbsp; GenAI Engineer</div>
+      <h1 class="name">Pra<span class="accent">nav</span><br/><span class="stroke">P.</span></h1>
+
+      <div class="hero-bottom">
+        <p class="intro">
+          I build <span class="accent">LLM systems</span> that actually ship. Agents, RAG, and the infrastructure around them.
+        </p>
+        <div class="meta">
+          <div class="row"><span class="k">role</span><span class="v">Associate Data Scientist</span></div>
+          <div class="row"><span class="k">at</span><span class="v">FarmwiseAI</span></div>
+          <div class="row"><span class="k">from</span><span class="v">Chennai, IN</span></div>
+          <div class="row"><span class="k">contact</span><span class="v"><a href="mailto:aikkara.pranav@gmail.com">email</a></span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section alt">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="num">01</div>
+        <h2>Selected work, in chronological order</h2>
+        <div class="meta-rule"></div>
+      </div>
+
+      <div class="work-list">
+        <article class="work-entry reveal">
+          <div class="big-num">01</div>
+          <div class="date">2025 — now</div>
+          <div class="body">
+            <h3>FarmwiseAI</h3>
+            <div class="role">Associate Data Scientist · Chennai</div>
+            <p>Shipping the full production GenAI stack &mdash; from ingestion to inference to reliable agents in the wild.</p>
+            <ul>
+              <li><strong>Vectorless-RAG agentic systems</strong> — PageIndex-style tree retrieval; no vector DB.</li>
+              <li><strong>Production voice agents</strong> — STT/LLM/TTS loops with parallel tool-callers + auto-compact context.</li>
+              <li><strong>Universal ingestion pipelines</strong> — PDFs, scans, audio, spreadsheets normalized into clean structured context.</li>
+              <li><strong>Fine-tuned geospatial small models on AWS</strong>.</li>
+            </ul>
+          </div>
+          <div class="arrow">→</div>
+        </article>
+
+        <article class="work-entry reveal">
+          <div class="big-num">02</div>
+          <div class="date">Feb — Apr 2025</div>
+          <div class="body">
+            <h3>Infosys</h3>
+            <div class="role">Data Visualization &amp; Analyst Intern · Remote</div>
+            <p>Turned messy datasets into interactive Power BI + Python dashboards. EDA, trend analysis, and visual reports non-analysts could actually read.</p>
+          </div>
+          <div class="arrow">→</div>
+        </article>
+
+        <article class="work-entry reveal">
+          <div class="big-num">03</div>
+          <div class="date">Dec 2023 — Apr 2024</div>
+          <div class="body">
+            <h3>Descpro</h3>
+            <div class="role">ML Developer Intern · NBFC Loan Approval</div>
+            <p>Built an end-to-end loan approval stack &mdash; eligibility scoring, an LSTM that predicted repayment delays per customer, and a forecasting model for upcoming loan application volumes.</p>
+          </div>
+          <div class="arrow">→</div>
+        </article>
+
+        <article class="work-entry reveal">
+          <div class="big-num">04</div>
+          <div class="date">Sep — Nov 2023</div>
+          <div class="body">
+            <h3>Thapovan Info Systems</h3>
+            <div class="role">ML Intern · Predictive Disease Modeling</div>
+            <p>Built a heart-attack risk model from 20+ curated health indicators. Used SHAP and LIME so doctors could actually trust the predictions.</p>
+          </div>
+          <div class="arrow">→</div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="num">02</div>
+        <h2>Side projects, in no particular order</h2>
+        <div class="meta-rule"></div>
+      </div>
+
+      <div class="proj-grid">
+        <article class="proj reveal">
+          <div class="idx">P / 01 · Fine-tuning</div>
+          <h4>Domain-Specific Loan Officer Agent</h4>
+          <p>Fine-tuned Gemma-2B with QLoRA &amp; Unsloth on a synthetic instruction set &mdash; then quantized to GGUF and ran it on CPU via llama.cpp. Low-latency, compliance-aware, no GPU required.</p>
+          <div class="stack">Gemma · QLoRA · llama.cpp</div>
+        </article>
+
+        <article class="proj reveal">
+          <div class="idx">P / 02 · Voice + Sentiment</div>
+          <h4>Companion AI — voice-enabled ICU support</h4>
+          <p>Real-time STT + BERT sentiment to detect emotional distress, then trigger context-aware empathetic responses over TTS.</p>
+          <div class="stack">PyTorch · BERT · STT/TTS</div>
+        </article>
+
+        <article class="proj reveal">
+          <div class="idx">P / 03 · Agents</div>
+          <h4>Agentic Recruitment Platform</h4>
+          <p>Autonomous agent that scrapes job boards and uses Google&rsquo;s experimental Opal model to rewrite resumes live.</p>
+          <div class="stack">Opal · Selenium · LangChain</div>
+        </article>
+
+        <article class="proj reveal">
+          <div class="idx">P / 04 · Meta</div>
+          <h4>This portfolio</h4>
+          <p>Vectorless RAG chatbot over a hand-authored markdown knowledge base. Groq Llama-3.3, single Node serverless function on Vercel. Zero dollars/month.</p>
+          <div class="stack">Vercel · Groq · PageIndex</div>
+        </article>
+
+        <article class="proj reveal">
+          <div class="idx">P / 05 · Personal</div>
+          <h4>Newsletter Reader</h4>
+          <p>A personal web app that pulls subscribed newsletters out of my Gmail and renders them in a clean, dedicated reader.</p>
+          <div class="stack">Gmail API · Web App</div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact">
+    <div class="wrap">
+      <h2>Got a <span class="accent">hard problem</span><br/>worth solving?</h2>
+      <div>
+        <p>Happy to chat about GenAI roles, consulting, or anything at the intersection of LLMs and real-world data.</p>
+        <div class="links" style="margin-top:2rem">
+          <a href="mailto:aikkara.pranav@gmail.com">aikkara.pranav@gmail.com</a>
+          <a href="https://www.linkedin.com/in/pranavaikkara">linkedin.com/in/pranavaikkara</a>
+          <a href="tel:+917025052042">+91 70250 52042</a>
+          <a href="/assets/resume.pdf">Download résumé</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>© 2026 · PRANAV P · CHENNAI, IN</footer>
+
+<script>
+  const io = new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.1,rootMargin:'-50px 0px'});
+  document.querySelectorAll('.reveal, .reveal-x').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>

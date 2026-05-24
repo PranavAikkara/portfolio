@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Vectorless RAG at FarmwiseAI — Pranav P</title>
+<meta name="description" content="Why I moved off embeddings and onto a tree-walking retriever — and how it works in production today." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/styles.css" />
+<link rel="stylesheet" href="/projects/styles.css" />
+</head>
+<body>
+
+  <nav>
+    <div class="logo"><a href="/" style="text-decoration:none;color:inherit">pranav<span class="dot">.</span>p</a></div>
+    <ul class="nav-links">
+      <li><a href="/#work">Work</a></li>
+      <li><a href="/#projects" class="active">Projects</a></li>
+      <li><a href="/newsletter/">Reading</a></li>
+      <li><a href="/#contact">Contact</a></li>
+    </ul>
+    <a class="nav-cta" href="/#chat"><span class="blip"></span>Ask my AI twin</a>
+  </nav>
+
+
+<main class="cs-wrap">
+  <a class="cs-back" href="/#projects">← Back to projects</a>
+  <article class="cs-article">
+    <header class="cs-header">
+      <div class="eyebrow"><span class="dot-sq"></span>Case study · vectorless-rag</div>
+      <h1 class="cs-title">Vectorless RAG at FarmwiseAI</h1>
+      <p class="cs-lede">Why I moved off embeddings and onto a tree-walking retriever — and how it works in production today.</p>
+    </header>
+    <div class="cs-body">
+<h2>What I built</h2>
+<p>A retrieval pipeline for our internal documents that doesn&#39;t use embeddings or a vector database. An LLM reads a tree-of-contents of the document, picks which nodes look relevant, and a second LLM call answers using just those nodes. Two calls per question. Nothing to maintain between them.</p>
+<h2>The decision that mattered</h2>
+<p>The first version was the standard playbook — Qdrant for the vector store, bge-large for embeddings, cosine similarity for retrieval. It ran fine. But the answers were often wrong. The retriever was pulling text that <em>looked like</em> the question rather than text that <em>answered</em> it. On long structured documents — policies, runbooks, product specs — that gap matters a lot.</p>
+<p>I came across the PageIndex approach (an LLM reasoning over a tree of headings instead of similarity over flat chunks), built a version on top of the same document set, and answer quality went up immediately. We&#39;ve stayed on it since.</p>
+<p>The honest trade-off: two LLM calls per query costs more latency and more tokens than one embedding lookup plus one generation. For internal documents where being correct matters more than being instant, that&#39;s the right side of the trade.</p>
+<h2>How it works</h2>
+<div class="mermaid">graph LR
+  subgraph Build_time["Build time"]
+    A[Document] --> B[Parse to tree]
+    B --> C["Headings → nodes<br/>Content → leaves"]
+  end
+  subgraph Query_time["Query time"]
+    Q[Question] --> R["Router LLM<br/>reads the ToC"]
+    R --> S[Picks node IDs]
+    S --> T["Answer LLM<br/>reads selected nodes"]
+    T --> U[Answer]
+  end</div>
+<h2>How I built it</h2>
+<p>I work as an agent orchestrator. I do the design, the planning, the constraints, the production rules; Claude Code and Cursor do the actual coding. I keep project files that pin down what&#39;s allowed, what isn&#39;t, and which workflow applies — TDD for things that need it, code-then-test where that&#39;s enough — so the model stays inside the lines and I stay focused on the parts that actually need judgement.</p>
+<p>For this project, the migration off Qdrant was the kind of work where a clear spec pays off. I wrote out the new flow and validated retrieval against real questions; the model handled most of the implementation.</p>
+<h2>Try it</h2>
+<p>The chatbot on this site uses the same approach over a markdown knowledge base of my own work. Ask it something and look at the reasoning panel under the answer — you can see the exact nodes the model routed through to get there.</p>
+
+    </div>
+  </article>
+</main>
+
+<script type="module">
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+  mermaid.initialize({
+    startOnLoad: true,
+    theme: 'base',
+    themeVariables: {
+      fontFamily: 'Inter, system-ui, sans-serif',
+      fontSize: '14px',
+      primaryColor: '#f4efe6',
+      primaryTextColor: '#0e0e0c',
+      primaryBorderColor: '#0e0e0c',
+      lineColor: '#0e0e0c',
+      secondaryColor: '#e9e2d4',
+      tertiaryColor: '#fbf8f1'
+    }
+  });
+</script>
+</body>
+</html>

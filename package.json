@@ -7,7 +7,8 @@
   "scripts": {
     "build-index": "node scripts/build-index.mjs",
     "build-newsletters": "node scripts/build-newsletters.mjs",
-    "prebuild": "npm run build-index && npm run build-newsletters",
+    "build-case-studies": "node scripts/build-case-studies.mjs",
+    "prebuild": "npm run build-index && npm run build-newsletters && npm run build-case-studies",
     "build": "echo 'static site — prebuild ran the generators'",
     "test": "node --test \"tests/**/*.test.js\""
   },

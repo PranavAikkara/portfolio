@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Production voice agents at FarmwiseAI — Pranav P</title>
+<meta name="description" content="Two real problems we hit putting voice agents in front of users, and the two-agent architecture that solved them." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/styles.css" />
+<link rel="stylesheet" href="/projects/styles.css" />
+</head>
+<body>
+
+  <nav>
+    <div class="logo"><a href="/" style="text-decoration:none;color:inherit">pranav<span class="dot">.</span>p</a></div>
+    <ul class="nav-links">
+      <li><a href="/#work">Work</a></li>
+      <li><a href="/#projects" class="active">Projects</a></li>
+      <li><a href="/newsletter/">Reading</a></li>
+      <li><a href="/#contact">Contact</a></li>
+    </ul>
+    <a class="nav-cta" href="/#chat"><span class="blip"></span>Ask my AI twin</a>
+  </nav>
+
+
+<main class="cs-wrap">
+  <a class="cs-back" href="/#projects">← Back to projects</a>
+  <article class="cs-article">
+    <header class="cs-header">
+      <div class="eyebrow"><span class="dot-sq"></span>Case study · voice-agents</div>
+      <h1 class="cs-title">Production voice agents at FarmwiseAI</h1>
+      <p class="cs-lede">Two real problems we hit putting voice agents in front of users, and the two-agent architecture that solved them.</p>
+    </header>
+    <div class="cs-body">
+<h2>What I built</h2>
+<p>Voice agents that hold up in production — STT → LLM → TTS loops that don&#39;t break under interruptions, partial transcripts, latency spikes, or tool calls that take time to return. The individual models aren&#39;t the hard part; the orchestration is.</p>
+<h2>The two problems that mattered</h2>
+<p><strong>Context bloat.</strong> Conversations accumulate. Once the running context crosses a couple hundred thousand tokens, latency and cost both climb and the model starts to drift. The fix was an <em>auto-compact agent</em> that runs every 200k–300k tokens — it summarizes the conversation down to what&#39;s actually needed for continuity, then hands the compressed version back to the voice agent&#39;s context. The voice agent never sees the bloat.</p>
+<p><strong>Tool-call latency.</strong> When the voice agent needs to look something up — a RAG call, a resource lookup, anything that takes a real round-trip — the user hears a pause. The fix was a <em>parallel tool-calling agent</em> that lives alongside the main one. The voice agent signals its intent to call a tool before it starts speaking; the second agent runs the tool in parallel while the voice agent is still talking. By the time the result is needed, it&#39;s already there. The user just hears a fluent response.</p>
+<h2>How the two agents sit together</h2>
+<div class="mermaid">graph TB
+  U[User speaks] --> STT
+  STT --> V[Voice Agent]
+  V -->|signals tool intent| T["Tool Agent<br/>runs in parallel"]
+  V --> TTS
+  TTS --> U
+  T -->|result ready| V
+  CTX[(Context)]
+  V <--> CTX
+  CTX -->|every 200–300k tokens| AC[Auto-compact Agent]
+  AC -->|summarized context| CTX</div>
+<h2>How I built it</h2>
+<p>I work as an agent orchestrator. I do the design, the planning, the constraints, the production rules; Claude Code and Cursor do the actual coding. For voice work, the design is the bulk of the job — state machines, latency budgets per hop, what happens when STT returns junk, what happens when the user interrupts mid-response. Get that right on paper first, and the implementation is straightforward.</p>
+<h2>Why this matters</h2>
+<p>Voice is less forgiving than chat. Users can&#39;t see or edit what they&#39;re sending; they hear pauses; they get frustrated faster. The reliability work above isn&#39;t glamorous, but it&#39;s the difference between a voice agent that demos well and one you can leave in front of real users.</p>
+
+    </div>
+  </article>
+</main>
+
+<script type="module">
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+  mermaid.initialize({
+    startOnLoad: true,
+    theme: 'base',
+    themeVariables: {
+      fontFamily: 'Inter, system-ui, sans-serif',
+      fontSize: '14px',
+      primaryColor: '#f4efe6',
+      primaryTextColor: '#0e0e0c',
+      primaryBorderColor: '#0e0e0c',
+      lineColor: '#0e0e0c',
+      secondaryColor: '#e9e2d4',
+      tertiaryColor: '#fbf8f1'
+    }
+  });
+</script>
+</body>
+</html>

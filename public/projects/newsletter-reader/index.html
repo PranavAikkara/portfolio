@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Newsletter Reader — Pranav P</title>
+<meta name="description" content="A small, personal web app I built because my inbox was burying the emails I actually wanted to read." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/styles.css" />
+<link rel="stylesheet" href="/projects/styles.css" />
+</head>
+<body>
+
+  <nav>
+    <div class="logo"><a href="/" style="text-decoration:none;color:inherit">pranav<span class="dot">.</span>p</a></div>
+    <ul class="nav-links">
+      <li><a href="/#work">Work</a></li>
+      <li><a href="/#projects" class="active">Projects</a></li>
+      <li><a href="/newsletter/">Reading</a></li>
+      <li><a href="/#contact">Contact</a></li>
+    </ul>
+    <a class="nav-cta" href="/#chat"><span class="blip"></span>Ask my AI twin</a>
+  </nav>
+
+
+<main class="cs-wrap">
+  <a class="cs-back" href="/#projects">← Back to projects</a>
+  <article class="cs-article">
+    <header class="cs-header">
+      <div class="eyebrow"><span class="dot-sq"></span>Case study · newsletter-reader</div>
+      <h1 class="cs-title">Newsletter Reader</h1>
+      <p class="cs-lede">A small, personal web app I built because my inbox was burying the emails I actually wanted to read.</p>
+    </header>
+    <div class="cs-body">
+<h2>What I built</h2>
+<p>A web app that connects to my Gmail, identifies messages from the newsletters I&#39;m subscribed to, and renders them in a dedicated reader view. Single page, chronological, clean typography, nothing else on screen. My inbox stays chaotic. The reader stays quiet.</p>
+<h2>The decision that mattered</h2>
+<p>The framing was the only real choice. The problem looks like &quot;too many newsletters,&quot; but it isn&#39;t — I want those newsletters; that&#39;s why I subscribed. The problem is <em>newsletters mixed with everything else</em>. Receipts, work threads, promotions, notifications. By the time I find the newsletter I wanted to read, the moment&#39;s gone.</p>
+<p>Once I framed it that way, the build was small. I didn&#39;t need to forward, copy, or restructure anything. The newsletters still live in Gmail. The reader just pulls them into a view where they&#39;re the only thing on screen.</p>
+<h2>How I built it</h2>
+<p>This is a personal project, so the bar is &quot;useful to me, no production constraints.&quot; I used Claude Code to scaffold the Gmail API integration and the reader view, kept the design minimal on purpose, and shipped a working version quickly. No notable obstacles — the Gmail API behaved, the rendering was straightforward, and the app does the thing I wanted it to do.</p>
+<h2>Why I&#39;m including it here</h2>
+<p>Not because it&#39;s technically interesting — it isn&#39;t. I&#39;m including it because it&#39;s the kind of project I&#39;m proud of for a different reason: I noticed a small daily annoyance, built the smallest thing that fixes it, and it&#39;s still useful to me months later. A lot of my work is like that.</p>
+
+    </div>
+  </article>
+</main>
+
+</body>
+</html>

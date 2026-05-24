@@ -5,10 +5,13 @@
 > Where I spend most of my time.
 
 ### Models and serving
-For inference: vLLM when I need throughput (PagedAttention + KV caching are huge), LiteLLM when I want a unified interface across providers, Groq when I want free fast inference for prototypes. For fine-tuning: Unsloth and QLoRA — memory-efficient, fast, and the output is compatible with llama.cpp for CPU deployment.
+For inference: vLLM when I need throughput (PagedAttention + KV caching are huge), LiteLLM as the gateway/router across providers, Groq when I want free fast inference for prototypes, OpenRouter when I want broader provider coverage from one API, Ollama for running open-weight models locally during development. HuggingFace as the model hub I pull from. For fine-tuning: Unsloth and QLoRA — memory-efficient, fast, and the output is compatible with llama.cpp for CPU deployment.
 
 ### Retrieval & agents
-Qdrant or FAISS when I need traditional vector RAG. PageIndex-style vectorless RAG when the docs have real structure and accuracy matters more than speed. Google ADK and MCP (Model Context Protocol) for agentic workflows with tool calls — MCP especially is underrated for building tool-use systems that work across clients.
+Qdrant or FAISS when I need traditional vector RAG. PageIndex-style vectorless RAG when the docs have real structure and accuracy matters more than speed. LangChain and LangGraph for agent orchestration (LangGraph specifically when the flow has real state — branching, retries, human-in-the-loop). Google ADK and MCP (Model Context Protocol) for tool-call workflows — MCP especially is underrated for building tool-use systems that work across clients. Pydantic AI / Instructor when I need structured outputs that won't drift.
+
+### Observability
+Langfuse for traces, prompts, latency, and cost. Every LLM call gets logged so production debugging stops being guesswork.
 
 ## Machine learning & data science
 > The classical side.

@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Pranav P · Dark terminal mock</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --bg:#0B0D11;
+    --bg-2:#14171D;
+    --bg-3:#1A1E26;
+    --surface:#1F242D;
+    --line:#262C36;
+    --line-soft:#1F242D;
+    --text:#E8EAEF;
+    --text-2:#B5BAC6;
+    --muted:#7A8094;
+    --muted-2:#555B6B;
+    --accent:#F59E0B;
+    --accent-2:#FBBF24;
+    --accent-soft:rgba(245,158,11,.12);
+    --green:#4ADE80;
+    --mono:'JetBrains Mono',ui-monospace,monospace;
+    --sans:'IBM Plex Sans',system-ui,sans-serif;
+  }
+  *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+  html{font-size:15px;scroll-behavior:smooth}
+  body{
+    font-family:var(--sans);background:var(--bg);color:var(--text);
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  /* subtle CRT scanlines */
+  body::after{
+    content:"";position:fixed;inset:0;z-index:1;pointer-events:none;
+    background:repeating-linear-gradient(0deg,rgba(255,255,255,.012) 0,rgba(255,255,255,.012) 1px,transparent 1px,transparent 3px);
+    opacity:.5;
+  }
+  /* phosphor vignette */
+  body::before{
+    content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
+    background:radial-gradient(ellipse at 80% 0%,rgba(245,158,11,.06) 0%,transparent 50%);
+  }
+
+  .mock-bar{
+    position:fixed;top:0;left:0;right:0;z-index:50;
+    padding:.5rem 1.4rem;font-family:var(--mono);font-size:.72rem;
+    background:var(--bg-2);color:var(--muted);
+    border-bottom:1px solid var(--line);
+    display:flex;justify-content:space-between;align-items:center;
+  }
+  .mock-bar a{color:var(--accent);text-decoration:none}
+  .mock-bar a:hover{color:var(--accent-2)}
+
+  .wrap{max-width:1180px;margin:0 auto;padding:0 2rem;position:relative;z-index:2}
+
+  /* WINDOW CHROME */
+  .chrome{
+    margin-top:60px;padding:.6rem 1.4rem;background:var(--bg-2);border-bottom:1px solid var(--line);
+    display:flex;align-items:center;gap:.6rem;font-family:var(--mono);font-size:.72rem;color:var(--muted);
+  }
+  .chrome .dots{display:flex;gap:.4rem;margin-right:.6rem}
+  .chrome .dot{width:11px;height:11px;border-radius:50%;background:var(--line)}
+  .chrome .dot.r{background:#FF5F57}
+  .chrome .dot.y{background:#FEBC2E}
+  .chrome .dot.g{background:#28C840}
+  .chrome .path{color:var(--muted)}
+  .chrome .path .sep{color:var(--muted-2)}
+  .chrome .path .leaf{color:var(--accent)}
+
+  /* HERO */
+  .hero{padding:5rem 0 6rem;position:relative}
+  .hero .prompt{
+    font-family:var(--mono);font-size:.85rem;color:var(--accent);margin-bottom:1rem;
+    display:inline-flex;align-items:center;gap:.4rem;
+  }
+  .hero .prompt::before{content:"~";color:var(--green)}
+  .hero .prompt::after{content:"$";color:var(--muted)}
+
+  .hero h1{
+    font-family:var(--mono);font-weight:700;
+    font-size:clamp(3rem,8vw,6rem);letter-spacing:-.04em;line-height:1;color:var(--text);
+    margin-bottom:.6rem;
+  }
+  .hero h1 .accent{color:var(--accent)}
+  .hero h1 .cursor{
+    display:inline-block;width:.55em;height:.85em;vertical-align:-.05em;
+    background:var(--accent);margin-left:.1em;
+    animation:blink 1.05s steps(2) infinite;
+  }
+  @keyframes blink{50%{opacity:0}}
+
+  .hero .comment{
+    font-family:var(--mono);font-size:.85rem;color:var(--green);margin-bottom:2rem;
+  }
+  .hero .comment::before{content:"// "}
+
+  .hero .intro{
+    font-family:var(--sans);font-size:clamp(1.2rem,2vw,1.55rem);font-weight:300;
+    line-height:1.5;color:var(--text-2);max-width:640px;margin-bottom:1.6rem;
+  }
+  .hero .intro .key{color:var(--accent);font-weight:500}
+  .hero .intro .text{color:var(--text);font-weight:400}
+
+  .hero .sub{
+    font-size:.98rem;color:var(--muted);max-width:620px;line-height:1.7;
+  }
+  .hero .sub em{font-style:normal;color:var(--accent)}
+  .hero .sub strong{color:var(--text);font-weight:500}
+
+  .hero .ctas{margin-top:2.4rem;display:flex;gap:.8rem;flex-wrap:wrap}
+  .btn{
+    font-family:var(--mono);font-size:.82rem;font-weight:500;
+    padding:.7rem 1.2rem;border-radius:4px;text-decoration:none;
+    display:inline-flex;align-items:center;gap:.5rem;
+    transition:transform .15s, background .15s, border-color .15s, color .15s;
+  }
+  .btn-primary{background:var(--accent);color:var(--bg);border:1px solid var(--accent)}
+  .btn-primary:hover{background:var(--accent-2);transform:translateY(-1px)}
+  .btn-outline{background:transparent;color:var(--text);border:1px solid var(--line)}
+  .btn-outline:hover{border-color:var(--accent);color:var(--accent)}
+  .btn::before{content:"$ ";color:inherit;opacity:.6}
+
+  /* SECTIONS */
+  .section{padding:5rem 0;border-top:1px solid var(--line)}
+  .sec-head{
+    display:flex;justify-content:space-between;align-items:baseline;
+    margin-bottom:2.4rem;
+  }
+  .sec-head h2{
+    font-family:var(--mono);font-size:1.4rem;font-weight:600;letter-spacing:-.01em;color:var(--text);
+  }
+  .sec-head h2::before{content:"## ";color:var(--accent);font-weight:400}
+  .sec-head .meta{
+    font-family:var(--mono);font-size:.78rem;color:var(--muted);
+  }
+
+  /* WORK — git log style */
+  .commit{
+    display:grid;grid-template-columns:90px 110px 1fr auto;gap:1.5rem;align-items:start;
+    padding:1.5rem 1.4rem;border:1px solid var(--line);border-radius:6px;
+    background:var(--bg-2);margin-bottom:.8rem;
+    transition:background .18s, border-color .18s, transform .18s;
+  }
+  .commit:hover{background:var(--bg-3);border-color:var(--accent);transform:translateX(4px)}
+  .commit .hash{
+    font-family:var(--mono);font-size:.82rem;color:var(--accent);font-weight:500;
+    padding-top:.15rem;
+  }
+  .commit .date{
+    font-family:var(--mono);font-size:.78rem;color:var(--muted);padding-top:.2rem;
+  }
+  .commit .body h3{
+    font-family:var(--sans);font-size:1.2rem;font-weight:600;color:var(--text);margin-bottom:.2rem;letter-spacing:-.01em;
+  }
+  .commit .body .role{
+    font-family:var(--mono);font-size:.78rem;color:var(--accent);margin-bottom:.7rem;
+  }
+  .commit .body p{font-size:.95rem;color:var(--text-2);line-height:1.6;max-width:64ch;margin-bottom:.6rem}
+  .commit .body ul{list-style:none;margin-top:.5rem;display:grid;gap:.25rem}
+  .commit .body li{
+    font-family:var(--mono);font-size:.82rem;color:var(--text-2);padding-left:1.2rem;position:relative;line-height:1.55;
+  }
+  .commit .body li::before{content:"+";position:absolute;left:0;color:var(--green);font-weight:600}
+  .commit .body li strong{color:var(--text);font-weight:500;font-family:var(--sans)}
+  .commit .arrow{
+    font-family:var(--mono);color:var(--muted);font-size:1.1rem;padding-top:.25rem;
+    transition:color .2s, transform .2s;
+  }
+  .commit:hover .arrow{color:var(--accent);transform:translateX(3px)}
+
+  @media(max-width:760px){
+    .commit{grid-template-columns:1fr;gap:.4rem}
+    .commit .arrow{display:none}
+  }
+
+  /* PROJECTS — file tree feel */
+  .proj-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:.8rem}
+  @media(max-width:760px){.proj-grid{grid-template-columns:1fr}}
+  .proj{
+    padding:1.4rem 1.4rem 1.5rem;background:var(--bg-2);border:1px solid var(--line);border-radius:6px;
+    display:flex;flex-direction:column;gap:.6rem;min-height:240px;
+    transition:background .18s, border-color .18s;
+    position:relative;
+  }
+  .proj:hover{background:var(--bg-3);border-color:var(--accent)}
+  .proj .path{
+    font-family:var(--mono);font-size:.74rem;color:var(--muted);
+    border-bottom:1px dashed var(--line);padding-bottom:.5rem;margin-bottom:.3rem;
+  }
+  .proj .path .dir{color:var(--accent);font-weight:500}
+  .proj h4{
+    font-family:var(--sans);font-size:1.25rem;font-weight:600;color:var(--text);letter-spacing:-.015em;line-height:1.15;
+  }
+  .proj p{font-size:.92rem;color:var(--text-2);line-height:1.6;flex:1}
+  .proj .stack{
+    font-family:var(--mono);font-size:.74rem;color:var(--muted);
+    border-top:1px dashed var(--line);padding-top:.6rem;
+  }
+  .proj .stack span{color:var(--accent)}
+
+  /* CONTACT */
+  .contact{
+    padding:5rem 0;border-top:1px solid var(--line);
+    background:linear-gradient(180deg,transparent 0%, var(--bg-2) 100%);
+  }
+  .contact .wrap{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:end}
+  .contact h2{
+    font-family:var(--mono);font-size:clamp(2rem,4.5vw,3rem);font-weight:600;
+    letter-spacing:-.025em;line-height:1.1;color:var(--text);
+  }
+  .contact h2 .accent{color:var(--accent)}
+  .contact p{font-size:1.02rem;color:var(--text-2);margin-top:1.4rem;max-width:48ch;line-height:1.6}
+  .contact .links{display:grid;gap:.4rem}
+  .contact .links a{
+    font-family:var(--mono);font-size:.92rem;color:var(--text);text-decoration:none;
+    padding:.7rem 1rem;border:1px solid var(--line);border-radius:4px;background:var(--bg-2);
+    display:flex;justify-content:space-between;align-items:center;
+    transition:border-color .15s, color .15s, background .15s;
+  }
+  .contact .links a:hover{border-color:var(--accent);color:var(--accent);background:var(--bg-3)}
+  .contact .links a::before{content:"→ ";color:var(--accent);opacity:.5}
+
+  @media(max-width:760px){.contact .wrap{grid-template-columns:1fr}}
+
+  footer{
+    padding:1.4rem 2rem;text-align:center;font-family:var(--mono);font-size:.74rem;color:var(--muted);
+    border-top:1px solid var(--line);background:var(--bg);
+  }
+
+  /* scroll reveal */
+  .reveal{opacity:0;transform:translateY(16px);transition:opacity .55s ease, transform .55s ease}
+  .reveal.in{opacity:1;transform:translateY(0)}
+</style>
+</head>
+<body>
+  <div class="mock-bar">
+    <span>MOCK 04 :: DARK · TERMINAL</span>
+    <a href="/mocks/">← all mocks</a>
+  </div>
+
+  <div class="chrome">
+    <div class="dots"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span></div>
+    <span class="path">~ <span class="sep">/</span> portfolio <span class="sep">/</span> <span class="leaf">pranav.p</span></span>
+  </div>
+
+  <section class="hero">
+    <div class="wrap">
+      <div class="prompt">whoami</div>
+      <h1>Pranav <span class="accent">P</span><span class="cursor"></span></h1>
+      <div class="comment">Data Scientist — GenAI Engineer · Chennai, IN</div>
+
+      <p class="intro">
+        I build <span class="key">LLM systems</span> that <span class="text">actually ship</span> &mdash; agents, RAG, and the infrastructure around them.
+      </p>
+
+      <p class="sub">
+        Currently at <strong>FarmwiseAI</strong>, shipping production GenAI end-to-end &mdash; agentic RAG on <em>vectorless retrieval</em>, reliable voice agents, ingestion pipelines that turn any input into LLM-friendly context, and fine-tuned small models deployed on AWS.
+      </p>
+
+      <div class="ctas">
+        <a class="btn btn-primary" href="#work">cd work/</a>
+        <a class="btn btn-outline" href="/assets/resume.pdf">cat resume.pdf</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="work">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>work_history.log</h2>
+        <span class="meta">git log --since=2023</span>
+      </div>
+
+      <div class="commit reveal">
+        <div class="hash">a82c4f1</div>
+        <div class="date">2025-04 → now</div>
+        <div class="body">
+          <h3>FarmwiseAI</h3>
+          <div class="role">Associate Data Scientist · Chennai</div>
+          <p>Shipping the full production GenAI stack &mdash; from ingestion to inference to reliable agents in the wild.</p>
+          <ul>
+            <li><strong>Vectorless-RAG agentic systems</strong> &mdash; PageIndex-style tree retrieval; no vector DB.</li>
+            <li><strong>Production voice agents</strong> &mdash; STT/LLM/TTS loops with parallel tool-callers + auto-compact context.</li>
+            <li><strong>Universal ingestion pipelines</strong> &mdash; PDFs, scans, audio → clean structured context.</li>
+            <li><strong>Fine-tuned geospatial small models on AWS</strong>.</li>
+            <li><strong>OpenWebUI internal assistant</strong> &mdash; RAG-backed chat for the company.</li>
+          </ul>
+        </div>
+        <div class="arrow">↗</div>
+      </div>
+
+      <div class="commit reveal">
+        <div class="hash">3f5e9b2</div>
+        <div class="date">2025-02 → 04</div>
+        <div class="body">
+          <h3>Infosys</h3>
+          <div class="role">Data Visualization &amp; Analyst Intern · Remote</div>
+          <p>Turned messy datasets into interactive Power BI + Python dashboards. EDA, trend analysis, and visual reports non-analysts could actually read.</p>
+        </div>
+        <div class="arrow">↗</div>
+      </div>
+
+      <div class="commit reveal">
+        <div class="hash">d71a8c0</div>
+        <div class="date">2023-12 → 2024-04</div>
+        <div class="body">
+          <h3>Descpro</h3>
+          <div class="role">ML Developer Intern · NBFC Loan Approval</div>
+          <p>End-to-end loan approval stack: eligibility scoring, LSTM for repayment-delay prediction, forecasting for application volume.</p>
+        </div>
+        <div class="arrow">↗</div>
+      </div>
+
+      <div class="commit reveal">
+        <div class="hash">b29d4ee</div>
+        <div class="date">2023-09 → 11</div>
+        <div class="body">
+          <h3>Thapovan Info Systems</h3>
+          <div class="role">ML Intern · Predictive Disease Modeling</div>
+          <p>Heart-attack risk model from 20+ curated health indicators. SHAP and LIME so doctors could trust the predictions.</p>
+        </div>
+        <div class="arrow">↗</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>side_projects/</h2>
+        <span class="meta">ls -la</span>
+      </div>
+
+      <div class="proj-grid">
+        <article class="proj reveal">
+          <div class="path"><span class="dir">~/projects/</span>loan-officer-agent</div>
+          <h4>Domain-Specific Loan Officer Agent</h4>
+          <p>Fine-tuned Gemma-2B with QLoRA &amp; Unsloth on a synthetic instruction set &mdash; quantized to GGUF, ran on CPU via llama.cpp. Compliance-aware, no GPU.</p>
+          <div class="stack"><span>gemma</span> · <span>qlora</span> · <span>llama.cpp</span></div>
+        </article>
+
+        <article class="proj reveal">
+          <div class="path"><span class="dir">~/projects/</span>companion-ai</div>
+          <h4>Companion AI — ICU support</h4>
+          <p>Real-time STT + BERT sentiment to detect emotional distress, then trigger context-aware empathetic responses via TTS.</p>
+          <div class="stack"><span>pytorch</span> · <span>bert</span> · <span>stt/tts</span></div>
+        </article>
+
+        <article class="proj reveal">
+          <div class="path"><span class="dir">~/projects/</span>agentic-recruitment</div>
+          <h4>Agentic Recruitment Platform</h4>
+          <p>Autonomous agent that scrapes job boards and uses Google&rsquo;s experimental Opal model to rewrite resumes live, mapping skills to JDs via RAG.</p>
+          <div class="stack"><span>opal</span> · <span>selenium</span> · <span>langchain</span></div>
+        </article>
+
+        <article class="proj reveal">
+          <div class="path"><span class="dir">~/projects/</span>this-portfolio</div>
+          <h4>This Portfolio (meta)</h4>
+          <p>Vectorless RAG chatbot over a hand-authored markdown knowledge base. Groq Llama-3.3, single Node serverless function on Vercel. Zero dollars/month.</p>
+          <div class="stack"><span>vercel</span> · <span>groq</span> · <span>pageindex</span></div>
+        </article>
+
+        <article class="proj reveal">
+          <div class="path"><span class="dir">~/projects/</span>newsletter-reader</div>
+          <h4>Newsletter Reader</h4>
+          <p>A personal web app that pulls subscribed newsletters out of my Gmail and renders them in a clean, dedicated reader. Built because my inbox was burying them.</p>
+          <div class="stack"><span>gmail-api</span> · <span>web-app</span></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact">
+    <div class="wrap">
+      <h2>Got a <span class="accent">hard problem?</span></h2>
+      <div>
+        <p>Happy to chat about GenAI roles, consulting, or anything at the intersection of LLMs and real-world data.</p>
+        <div class="links" style="margin-top:1.6rem">
+          <a href="mailto:aikkara.pranav@gmail.com">aikkara.pranav@gmail.com</a>
+          <a href="https://www.linkedin.com/in/pranavaikkara">linkedin.com/in/pranavaikkara</a>
+          <a href="tel:+917025052042">+91 70250 52042</a>
+          <a href="/assets/resume.pdf">resume.pdf</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>© 2026 · pranav.p · last-build 2026-05-24 · uptime ∞</footer>
+
+<script>
+  const io = new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.1,rootMargin:'-30px 0px'});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
