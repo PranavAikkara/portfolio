@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Pranav P — Resume</title>
+<style>
+  @page { size: A4; margin: 14mm 14mm 14mm 14mm; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: "Inter", "Segoe UI", Arial, sans-serif;
+    color: #1a1a1a;
+    font-size: 10.2pt;
+    line-height: 1.42;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  h1 {
+    font-size: 22pt;
+    margin: 0 0 2pt 0;
+    letter-spacing: -0.3pt;
+    font-weight: 700;
+  }
+  .contact {
+    font-size: 9.4pt;
+    color: #333;
+    margin: 0 0 4pt 0;
+  }
+  .links { font-size: 9.4pt; color: #333; margin: 0; }
+  .links a { color: #0a4d8c; text-decoration: none; }
+  hr {
+    border: none;
+    border-top: 0.6pt solid #2a2a2a;
+    margin: 8pt 0 7pt 0;
+  }
+  h2 {
+    font-size: 11.2pt;
+    text-transform: uppercase;
+    letter-spacing: 1.2pt;
+    margin: 10pt 0 5pt 0;
+    padding-bottom: 2pt;
+    border-bottom: 0.6pt solid #0a4d8c;
+    font-weight: 700;
+    color: #0a4d8c;
+  }
+  h3 {
+    font-size: 10.8pt;
+    margin: 7pt 0 1pt 0;
+    font-weight: 700;
+  }
+  .role {
+    font-size: 10pt;
+    margin: 0 0 3pt 0;
+    color: #222;
+  }
+  .role .dates { float: right; color: #555; font-weight: 500; }
+  p { margin: 3pt 0; }
+  ul {
+    margin: 3pt 0 4pt 0;
+    padding-left: 16pt;
+  }
+  li { margin: 2pt 0; }
+  li strong { color: #1a1a1a; }
+  em { color: #444; }
+  .skills li { margin: 3pt 0; }
+  .project-title {
+    font-weight: 700;
+    margin-top: 6pt;
+  }
+  .project-title .stack {
+    font-weight: 400;
+    color: #555;
+    font-size: 9.4pt;
+  }
+  .edu-line { margin: 2pt 0; }
+  .edu-line .right { float: right; color: #555; }
+  .certs { columns: 2; column-gap: 18pt; }
+  .certs li { break-inside: avoid; }
+</style>
+</head>
+<body>
+
+<h1>Pranav P</h1>
+<p class="contact">+91-7025052042 &middot; aikkara.pranav@gmail.com &middot; Palakkad, Kerala</p>
+<p class="links"><strong>Portfolio:</strong> <a href="https://aikkaraportfolio.vercel.app">aikkaraportfolio.vercel.app</a> &nbsp; &middot; &nbsp; <strong>LinkedIn:</strong> <a href="https://linkedin.com/in/pranavaikkara">linkedin.com/in/pranavaikkara</a></p>
+
+<hr>
+
+<h2>Professional Summary</h2>
+<p>Data Scientist and GenAI Engineer building production LLM systems end-to-end — agentic RAG pipelines, reliable voice agents, ingestion infrastructure, and fine-tuned domain models deployed on AWS. I pick the right retrieval approach for the job (vectorless tree-walk when documents have real structure and accuracy matters more than speed; semantic similarity when it doesn't) and ship small fine-tuned models that outperform frontier LLMs on narrow tasks. Strong classical ML background — time-series, satellite imagery, and explainable models for high-stakes decisions — which informs how I evaluate AI systems beyond surface benchmarks.</p>
+
+<h2>Work Experience</h2>
+
+<h3>FarmwiseAI Pvt. Ltd. — Perungudi, Chennai</h3>
+<p class="role"><em>Associate Data Scientist</em> <span class="dates">April 2025 – Present</span></p>
+<ul>
+  <li><strong>Vectorless-RAG agentic system:</strong> Built a PageIndex-style retrieval pipeline for internal documents — an LLM walks a tree-of-contents and answers from selected nodes, without embeddings or a vector database. Migrated off the original Qdrant + bge-large pipeline after cosine similarity kept returning text that <em>looked like</em> the question rather than text that <em>answered</em> it; the tree-walk approach delivered noticeably better answers on long structured documents (policies, runbooks, product specs).</li>
+  <li><strong>Production voice agents:</strong> Built reliable STT ↔ LLM ↔ TTS loops with per-hop latency budgets, interrupt handling, and a state machine that handles mid-response interruptions cleanly. Solved two production issues with a companion-agent pattern: an <em>auto-compact agent</em> that summarizes context every 200k–300k tokens (preventing drift from conversation bloat), and a <em>parallel tool-calling agent</em> that runs tools while the voice agent is still speaking (so the user never hears a pause on lookups).</li>
+  <li><strong>Universal ingestion pipeline:</strong> Built a pipeline that normalizes PDFs, scans, audio, spreadsheets, and images into clean, LLM-friendly structured context. Each input type is routed to the right normalizer (OCR for scans, STT for audio, table parsers for spreadsheets) so downstream retrieval doesn't need to special-case format. OCR runs LightOnOCR-2 1B on AWS SageMaker, served through vLLM with PagedAttention and KV caching for high throughput.</li>
+  <li><strong>Internal intelligence platform:</strong> Stood up a company-wide assistant on OpenWebUI, RAG-backed against curated internal sources (policies, docs, onboarding material). Self-hosted, with a swappable model backend (Groq, local, etc.) that doesn't require changing the UI.</li>
+  <li><strong>Fine-tuned geospatial small models on AWS:</strong> Deployed specialized small models on SageMaker for location, terrain, and coordinate queries where frontier LLMs hallucinate. Called as a tool from the main agent when the query is geospatial — much better accuracy and lower cost than routing every geo query through a GPT-4-class model.</li>
+  <li><strong>Agentic chatbot with Google ADK + MCP:</strong> Built a chatbot using Google ADK, integrating MCP tools (database queries, Google Search, Qdrant-backed RAG). Sub-agent routing to smaller models for lightweight tasks, Pydantic validation on every LLM response, and WebSocket streaming for live execution updates.</li>
+  <li><strong>Satellite imagery time-series:</strong> Processed one year of Tamil Nadu agricultural field imagery stored on Azure — pixel-level vegetation signals extracted across time using distributed PySpark jobs so a year of scenes could be processed in parallel rather than field-by-field, then Dynamic Time Warping (DTW) to align growth curves across fields planted at different dates. Used to infer sowing dates for fields without explicit metadata.</li>
+  <li><strong>Tamil LLM tokenization:</strong> Trained a BPE tokenizer on a Tamil text corpus to extend an open-source LLM's Tamil understanding. Used a custom tokenizer because English-trained general tokenizers fragment Tamil text into far more tokens than necessary, reducing efficiency and effective context length.</li>
+  <li><strong>Cross-cutting stack:</strong> <strong>LiteLLM</strong> as the LLM gateway across every project (provider swaps without rewriting calling code). <strong>Langfuse</strong> for end-to-end observability — every LLM call, trace, latency, and cost logged so production debugging becomes a diff, not guesswork. <strong>MCP</strong> as the standard protocol for connecting tools between agents.</li>
+</ul>
+
+<h3>Infosys — India, Remote</h3>
+<p class="role"><em>Data Visualization and Analyst Engineer Intern</em> <span class="dates">February 2025 – April 2025</span></p>
+<ul>
+  <li>Worked on data visualization and analytics to transform complex datasets into actionable insights for non-analyst stakeholders.</li>
+  <li>Built interactive dashboards and visual reports using Power BI and Python.</li>
+  <li>Performed data preprocessing, exploratory data analysis (EDA), and trend analysis to surface key patterns from real-world datasets.</li>
+</ul>
+
+<h3>Descpro Pvt. Ltd. — Palakkad, Kerala</h3>
+<p class="role"><em>Machine Learning Developer Intern (NBFC Loan Approval System)</em> <span class="dates">December 2023 – April 2024</span></p>
+<ul>
+  <li>Developed an AI-powered system to automate loan approval and monitor customer repayment patterns for a non-banking financial company (NBFC).</li>
+  <li>Built and deployed machine learning models to evaluate loan eligibility based on income, age, expenses, and other risk parameters.</li>
+  <li>Designed an individual customer monitoring model using LSTM to predict repayment delays at the per-customer level.</li>
+  <li>Built a loan inquiry forecasting model to predict upcoming application volumes, supporting operations capacity planning.</li>
+</ul>
+
+<h3>Thapovan Info Systems Pvt. Ltd. — T. Nagar, Chennai</h3>
+<p class="role"><em>Machine Learning Intern (Predictive Disease Modeling)</em> <span class="dates">September 2023 – November 2023</span></p>
+<ul>
+  <li>Built a heart attack risk model from raw clinical data — translating a clear medical need into a defensible predictive system.</li>
+  <li>Curated and engineered 20+ key health indicators into a model-ready dataset, improving data quality before training.</li>
+  <li>Applied SHAP and LIME (explainable AI) so doctors could see <em>why</em> the model flagged any individual case, not just the score — important in a setting where the prediction has to be defensible to a clinician.</li>
+  <li>Built an LSTM-based alert system to flag time-series patterns suggesting rising risk, giving doctors earlier warning windows.</li>
+</ul>
+
+<h2>Technical Skills</h2>
+<ul class="skills">
+  <li><strong>GenAI &amp; LLM Systems:</strong> RAG (vectorless + traditional), Agentic Systems, LangChain, LangGraph, Google ADK, Model Context Protocol (MCP), Tool Calling, Pydantic AI / Instructor, PageIndex, Qdrant, FAISS, HuggingFace, vLLM, LiteLLM, OpenRouter, Ollama, Langfuse (observability), Unsloth, QLoRA</li>
+  <li><strong>Machine Learning &amp; Data Science:</strong> Random Forest, LSTM, Time-Series Analysis, Dynamic Time Warping (DTW), Explainable AI (SHAP, LIME), Data Interpolation, Data Leakage Prevention, Feature Engineering</li>
+  <li><strong>Backend &amp; AI Infrastructure:</strong> Python, FastAPI, Pydantic, WebSockets, Streamlit, AWS SageMaker, Azure, llama.cpp, Vercel, Git</li>
+  <li><strong>Data &amp; Analytics:</strong> SQL, Power BI, Pandas, NumPy, PySpark, Satellite Imagery Processing</li>
+</ul>
+
+<h2>Projects</h2>
+
+<p class="project-title">Domain-Specific Loan Officer Agent <span class="stack">· Unsloth, QLoRA, Gemma-2B, llama.cpp</span></p>
+<ul>
+  <li><strong>Fine-tuning:</strong> Fine-tuned Gemma-2B on a synthetic instruction dataset using QLoRA and Unsloth for memory efficiency, training a compliance-aware tone for the domain.</li>
+  <li><strong>Edge deployment:</strong> Quantized to GGUF and deployed via llama.cpp for low-latency CPU inference — proof that a well-fine-tuned small model is a real production path for narrow domains, no GPU required.</li>
+</ul>
+
+<p class="project-title">Companion AI — Voice-Enabled ICU Support System <span class="stack">· PyTorch, Transformers, STT/TTS</span></p>
+<ul>
+  <li><strong>Pipeline:</strong> Integrated real-time Speech-to-Text with BERT-based sentiment analysis to detect emotional distress in ICU patients, triggering context-aware empathetic responses via TTS. Built for patients who are alone, disoriented, and unable to use a phone or tablet — voice is the right modality for them.</li>
+</ul>
+
+<p class="project-title">Agentic Recruitment Platform <span class="stack">· Google Opal, Selenium, LangChain</span></p>
+<ul>
+  <li><strong>Automation:</strong> Built an autonomous agent that scrapes job boards and uses Google's experimental Opal model to rewrite resumes in real-time, mapping candidate skills to job descriptions via a RAG pipeline. Most of the engineering went into error recovery — stale selectors, captcha walls, rate limits — not the LLM call itself.</li>
+</ul>
+
+<p class="project-title">Portfolio Site with Vectorless-RAG Chatbot <span class="stack">· Vercel, Groq, PageIndex, Node.js</span></p>
+<ul>
+  <li><strong>The chatbot is the demo:</strong> The portfolio site (linked at the top of this résumé) is itself a vectorless-RAG application. An LLM walks a tree-of-contents of a hand-authored markdown knowledge base about my work and answers from selected nodes — the reasoning panel under each answer shows which nodes were chosen, so the retrieval approach is a live demo rather than just a claim on the page.</li>
+  <li><strong>Zero-cost infrastructure:</strong> Single Node serverless function on Vercel, Groq Llama-3.3 for inference, no vector store, no database. Runs entirely on free tiers — zero dollars per month.</li>
+</ul>
+
+<h2>Education</h2>
+<p class="edu-line"><strong>Vellore Institute of Technology</strong> — Chennai, India <span class="right">2021 – 2025</span></p>
+<p class="edu-line">B.Tech in Computer Science with Specialization in AI and ML · CGPA: 7.98</p>
+
+<p class="edu-line" style="margin-top:5pt;"><strong>Palghat Lions School</strong> — Palakkad, Kerala <span class="right">2020 – 2021</span></p>
+<p class="edu-line">XII · 86.8%</p>
+
+<h2>Certifications</h2>
+<ul class="certs">
+  <li>NPTEL Entrepreneurship</li>
+  <li>TATA Data Visualization: Empowering Business with Effective Insights</li>
+  <li>Internship at Thapovan Pvt Ltd</li>
+  <li>Power BI Certificate</li>
+  <li>OCI Gen AI Professional Course</li>
+  <li>Infosys Springboard Internship — TechA Data Analytics using Power BI Foundation</li>
+  <li>Cisco Packet Tracer</li>
+</ul>
+
+</body>
+</html>

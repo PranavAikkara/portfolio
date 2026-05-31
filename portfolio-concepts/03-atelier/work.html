@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Work — Pranav P</title>
+<meta name="description" content="Selected production AI systems by Pranav P: vectorless retrieval, voice agents, ingestion, and fine-tuning." />
+<link rel="preconnect" href="https://api.fontshare.com" crossorigin />
+<link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@800,700,500&f[]=general-sans@400,500,600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="mark" href="index.html"><span class="dot"></span>Pranav&nbsp;P</a>
+    <ul>
+      <li><a href="index.html">Index</a></li>
+      <li><a href="work.html" aria-current="page">Work</a></li>
+      <li><a href="about.html">About</a></li>
+    </ul>
+  </div>
+</header>
+
+<main>
+  <div class="page-intro wrap">
+    <span class="label">Work — four production systems</span>
+    <h1>Things I've<br>shipped that <span class="em">run.</span></h1>
+    <p class="lead">Each of these served real users. Click any entry for the short version of what it does and the hard part nobody warns you about.</p>
+  </div>
+
+  <section>
+    <div class="wrap">
+      <nav class="idx rise" aria-label="Work index">
+        <a class="row" href="about.html#contact" id="rag">
+          <div class="row-top"><span class="n">01</span><h3>Vectorless retrieval</h3><span class="yr">2025</span></div>
+          <p>Retrieval over large enterprise document sets with no vector store and no embedding index to maintain. The model navigates a structured outline and opens only the passages it needs, so every answer cites a real page instead of a fuzzy similarity score. The unexpected win was honesty: it says "not in these documents" rather than inventing a confident, wrong passage.</p>
+          <div class="meta"><span class="pill">Retrieval</span><span class="pill">LLM routing</span><span class="pill">Citations</span><span class="pill">Python</span></div>
+        </a>
+        <a class="row" href="about.html#contact" id="voice">
+          <div class="row-top"><span class="n">02</span><h3>Conversational voice agents</h3><span class="yr">2025</span></div>
+          <p>Telephony-grade agents that take a call, understand intent over a noisy line, and complete a task end to end. The speech models were the easy part. The real engineering was the dialogue manager, barge-in handling, and shaving milliseconds off a latency budget that the caller measures in awkward silence.</p>
+          <div class="meta"><span class="pill">ASR / TTS</span><span class="pill">Dialogue state</span><span class="pill">Latency</span><span class="pill">Real-time</span></div>
+        </a>
+        <a class="row" href="about.html#contact" id="ingestion">
+          <div class="row-top"><span class="n">03</span><h3>Resilient document ingestion</h3><span class="yr">2024</span></div>
+          <p>A pipeline for the documents nobody wants to parse: skewed scans, merged cells, two languages on one page. It normalises layout before content, so everything downstream receives clean, ordered text. The principle that carried it: fix structure first, meaning second. Half of what looked like model problems were data problems in disguise.</p>
+          <div class="meta"><span class="pill">OCR</span><span class="pill">Layout parsing</span><span class="pill">Multilingual</span><span class="pill">Pipelines</span></div>
+        </a>
+        <a class="row" href="about.html#contact" id="finetune">
+          <div class="row-top"><span class="n">04</span><h3>Fine-tuned small models</h3><span class="yr">2024</span></div>
+          <p>For a tightly-scoped task, I fine-tuned a small open model that was faster, cheaper, and fully under our control. The interesting part was the data: synthetic examples added breadth but quietly skewed the distribution until the eval caught it. Knowing when to stop mattered more than any hyperparameter.</p>
+          <div class="meta"><span class="pill">Fine-tuning</span><span class="pill">Eval design</span><span class="pill">Cost</span><span class="pill">Synthetic data</span></div>
+        </a>
+      </nav>
+    </div>
+  </section>
+
+  <!-- APPROACH (split layout, used once) -->
+  <section>
+    <div class="wrap">
+      <div class="sec-head rise">
+        <span class="ix">05</span>
+        <h2>How I work</h2>
+      </div>
+      <div class="approach">
+        <div class="a rise"><span class="k">A</span><div><h4>Start with the eval</h4><p>I build the ruler before I trust any result. If I can't measure good, I can't ship it.</p></div></div>
+        <div class="a rise"><span class="k">B</span><div><h4>Make it traceable</h4><p>Every output should point back to a source. No black boxes shipped to people who'll be held accountable for them.</p></div></div>
+        <div class="a rise"><span class="k">C</span><div><h4>Respect the latency budget</h4><p>Speed isn't polish. In voice and search it's the difference between usable and abandoned.</p></div></div>
+        <div class="a rise"><span class="k">D</span><div><h4>Plan for 3am</h4><p>Fallbacks, logging, and a clear failure mode. The system has to behave when I'm asleep.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="foot" id="contact">
+    <div class="wrap">
+      <h2 class="rise">Have a system that<br>needs to <span class="em">hold up?</span></h2>
+      <div class="foot-grid rise">
+        <a class="big" href="mailto:hello@pranavp.dev">Email<span class="v">hello@pranavp.dev</span></a>
+        <a class="big" href="about.html">About me<span class="v">The background &rarr;</span></a>
+      </div>
+      <div class="foot-meta">
+        <span>Pranav P, Applied AI Engineer</span>
+        <span>Set in Cabinet Grotesk &amp; General Sans</span>
+        <span>&copy; 2026</span>
+      </div>
+    </div>
+  </footer>
+</main>
+
+<script>
+  (function(){
+    document.documentElement.classList.add('js');
+    var rm = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var els = document.querySelectorAll('.rise');
+    if (rm || !('IntersectionObserver' in window)) { els.forEach(function(e){e.classList.add('in');}); return; }
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target);} });
+    }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+    els.forEach(function(e){ io.observe(e); });
+  })();
+</script>
+</body>
+</html>

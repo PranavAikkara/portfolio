@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>About — Pranav P</title>
+<meta name="description" content="About Pranav P, an applied AI engineer at FarmwiseAI building production retrieval, voice, and ingestion systems." />
+<link rel="preconnect" href="https://api.fontshare.com" crossorigin />
+<link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@800,700,500&f[]=general-sans@400,500,600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="mark" href="index.html"><span class="dot"></span>Pranav&nbsp;P</a>
+    <ul>
+      <li><a href="index.html">Index</a></li>
+      <li><a href="work.html">Work</a></li>
+      <li><a href="about.html" aria-current="page">About</a></li>
+    </ul>
+  </div>
+</header>
+
+<main>
+  <div class="page-intro wrap">
+    <span class="label">About — the short version</span>
+    <h1>Pranav P.<br>I make AI <span class="em">dependable.</span></h1>
+    <p class="lead">Associate Data Scientist at FarmwiseAI. I live in the gap between a clever model and a service people trust.</p>
+  </div>
+
+  <section>
+    <div class="wrap">
+      <div class="approach" style="grid-template-columns:1fr">
+        <div class="rise" style="max-width:62ch;font-size:clamp(18px,2.1vw,22px);line-height:1.55;color:var(--fg)">
+          <p>I came up through data science and kept following the problems downstream, into retrieval, into voice, into the deeply unglamorous question of why the pipeline fell over at 3am. I like that question. The answer is always specific, and the fix always teaches me something about a system I thought I understood.</p>
+          <p style="color:var(--fg-2)">My favourite part of the work is the part most people skip: the second ninety percent. Anyone can make a model look impressive in a notebook. The interesting engineering starts the moment it has to handle a caller it didn't expect, a document it can't read, or a latency budget that won't forgive a slow path.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="sec-head rise">
+        <span class="ix">06</span>
+        <h2>What I optimise for</h2>
+      </div>
+      <div class="approach">
+        <div class="a rise"><span class="k">01</span><div><h4>Traceability over magic</h4><p>If you can't point at where an answer came from, it's a liability, not a feature.</p></div></div>
+        <div class="a rise"><span class="k">02</span><div><h4>Evals before vibes</h4><p>A test I trust beats a demo that dazzles. Build the ruler first.</p></div></div>
+        <div class="a rise"><span class="k">03</span><div><h4>Latency is a feature</h4><p>In voice especially, speed is whether the thing is usable at all.</p></div></div>
+        <div class="a rise"><span class="k">04</span><div><h4>Small models, narrow jobs</h4><p>Don't pay frontier prices for a task a fine-tuned small model nails.</p></div></div>
+        <div class="a rise"><span class="k">05</span><div><h4>Fix the data first</h4><p>Half of every model problem is a structure problem wearing a costume.</p></div></div>
+        <div class="a rise"><span class="k">06</span><div><h4>Write it down</h4><p>The system you can't explain is the one that pages you at 3am.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="sec-head rise">
+        <span class="ix">07</span>
+        <h2>The toolkit</h2>
+      </div>
+      <div class="rise" style="display:flex;flex-wrap:wrap;gap:12px;max-width:980px">
+        <span class="pill">Python</span><span class="pill">Node.js</span><span class="pill">LLM orchestration</span>
+        <span class="pill">Vectorless RAG</span><span class="pill">Hybrid search</span><span class="pill">Citation grounding</span>
+        <span class="pill">ASR / TTS</span><span class="pill">Dialogue state</span><span class="pill">OCR</span>
+        <span class="pill">Layout parsing</span><span class="pill">Fine-tuning</span><span class="pill">Eval design</span>
+        <span class="pill">Prompt engineering</span><span class="pill">Serverless</span><span class="pill">Observability</span>
+      </div>
+      <p class="rise" style="margin-top:28px;color:var(--fg-2);max-width:60ch">Tooling rotates every quarter and that's fine. The judgement about <em>when</em> to reach for which tool is the part that compounds.</p>
+    </div>
+  </section>
+
+  <footer class="foot" id="contact">
+    <div class="wrap">
+      <h2 class="rise">Bring me the<br>problem that's <span class="em">stuck.</span></h2>
+      <div class="foot-grid rise">
+        <a class="big" href="mailto:hello@pranavp.dev">Email<span class="v">hello@pranavp.dev</span></a>
+        <a class="big" href="https://www.linkedin.com/" rel="noopener">LinkedIn<span class="v">in/pranavp</span></a>
+        <a class="big" href="https://github.com/" rel="noopener">GitHub<span class="v">/pranavp</span></a>
+      </div>
+      <div class="foot-meta">
+        <span>Pranav P, Applied AI Engineer</span>
+        <span>Set in Cabinet Grotesk &amp; General Sans</span>
+        <span>&copy; 2026</span>
+      </div>
+    </div>
+  </footer>
+</main>
+
+<script>
+  (function(){
+    document.documentElement.classList.add('js');
+    var rm = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var els = document.querySelectorAll('.rise');
+    if (rm || !('IntersectionObserver' in window)) { els.forEach(function(e){e.classList.add('in');}); return; }
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target);} });
+    }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+    els.forEach(function(e){ io.observe(e); });
+  })();
+</script>
+</body>
+</html>

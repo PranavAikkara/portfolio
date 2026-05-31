@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Casework — Pranav P / Field Journal</title>
+<meta name="description" content="Long-form write-ups of four production AI systems: vectorless retrieval, voice agents, ingestion, and fine-tuning." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header class="masthead">
+  <div class="wrap">
+    <a class="logo" href="index.html">PRANAV&nbsp;P <b>/</b> FIELD JOURNAL</a>
+    <nav aria-label="Primary">
+      <a href="index.html">Cover</a>
+      <a href="work.html" aria-current="page">Casework</a>
+      <a href="about.html">Colophon</a>
+    </nav>
+    <span class="issue">Vol. 04 — Applied AI</span>
+  </div>
+</header>
+
+<main>
+  <div class="page-intro wrap">
+    <span class="label">Casework — four write-ups</span>
+    <h1>What I built,<br>and what it <em>cost</em><br>to make it real.</h1>
+    <p>Each of these ran in production for real users. These are the notes I wish I'd had going in.</p>
+  </div>
+
+  <!-- CASE 1 -->
+  <section id="rag">
+    <div class="wrap">
+      <div class="sec-head rise">
+        <span class="num">Case 01 — 2025</span>
+        <h2>Vectorless retrieval over<br>enterprise documents.</h2>
+      </div>
+      <div class="cols">
+        <div class="rise">
+          <p class="lede">Most teams reach for a vector database on day one. We didn't, and answers got more trustworthy, not less.</p>
+        </div>
+        <div class="rise">
+          <p>The premise: instead of chopping documents into chunks and hoping cosine similarity finds the right one, let the model navigate the document the way a person does. It reads a structured outline, decides which sections are relevant, and opens only those.</p>
+          <p>The payoff is traceability. Every answer points to a page, not to an opaque embedding. When a stakeholder asks "where did this come from," there is a real, checkable citation. The cost is a careful indexing pass up front and a model good enough to reason over structure.</p>
+        </div>
+      </div>
+      <div class="cols" style="margin-top:40px">
+        <figure class="rise">
+          <img class="plate" src="https://picsum.photos/seed/pranav-rag-archive/1200/750" alt="Archive of stacked documents" loading="lazy" />
+          <figcaption>Fig. 1 — The corpus: thousands of pages, none of them tidy.</figcaption>
+        </figure>
+        <div class="marginalia rise">
+          <p class="note"><b>What surprised me.</b> The win wasn't accuracy on easy questions, it was honesty on hard ones. The system says "not in these documents" instead of confidently inventing a passage.</p>
+          <p class="note"><b>Where it strains.</b> Documents with no structure at all. If there's no outline to navigate, you have to build one first, which is its own project.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CASE 2 -->
+  <section id="voice">
+    <div class="wrap">
+      <div class="sec-head rise">
+        <span class="num">Case 02 — 2025</span>
+        <h2>Voice agents that hold<br>a real conversation.</h2>
+      </div>
+      <div class="cols">
+        <div class="rise">
+          <p class="lede">The speech models are solved. Everything around them is where the project actually lives.</p>
+        </div>
+        <div class="rise">
+          <p>A caller picks up, talks over the agent, trails off mid-sentence, gives the answer to a question two steps ahead. A scripted bot falls apart here. The work was building a dialogue manager that tracks state, handles barge-in, and keeps latency low enough that the pauses feel human.</p>
+          <p>Latency is the tyrant. Every component, recognition, reasoning, synthesis, eats a slice of a budget the caller measures in awkward silence. Most of the engineering was shaving milliseconds and choosing where a fast-but-rough answer beats a slow-but-perfect one.</p>
+        </div>
+      </div>
+      <blockquote class="pull rise" style="margin-top:48px">If the caller notices the silence, you've already <span>lost</span> them.
+        <cite>Field note — latency budget review</cite>
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- CASE 3 -->
+  <section id="ingestion">
+    <div class="wrap">
+      <div class="sec-head rise">
+        <span class="num">Case 03 — 2024</span>
+        <h2>Ingestion for documents<br>that fight back.</h2>
+      </div>
+      <div class="cols">
+        <div class="rise">
+          <p class="lede">Clean data is a myth. The pipeline's whole job is to manufacture it.</p>
+        </div>
+        <div class="rise">
+          <p>Scanned at an angle. A table whose cells were merged by someone in a hurry. Two languages sharing a paragraph. The ingestion layer normalises structure before it ever looks at meaning, so the model downstream receives clean, ordered text instead of a salvage operation.</p>
+          <p>The principle I kept returning to: fix layout first, content second. Get the reading order right and most of the "AI" problems downstream turn out to have been data problems all along.</p>
+        </div>
+      </div>
+      <div class="cols" style="margin-top:40px">
+        <div class="marginalia rise">
+          <p class="note"><b>Rule of thumb.</b> If a human can't tell the reading order at a glance, the parser won't either. That page needs a different strategy, not a better prompt.</p>
+        </div>
+        <figure class="rise">
+          <img class="plate" src="https://picsum.photos/seed/pranav-ingestion-paper/1200/750" alt="Close up of printed text and grids" loading="lazy" />
+          <figcaption>Fig. 2 — Structure is the signal. Content is the easy part.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- CASE 4 -->
+  <section id="finetune">
+    <div class="wrap">
+      <div class="sec-head rise">
+        <span class="num">Case 04 — 2024</span>
+        <h2>Fine-tuning a small model<br>to do one thing well.</h2>
+      </div>
+      <div class="cols">
+        <div class="rise">
+          <p class="lede">A frontier model for a narrow task is a rounding error of capability and a fortune in latency.</p>
+        </div>
+        <div class="rise">
+          <p>For a tightly-scoped classification job, I curated a dataset, fine-tuned a small open model, and got a system that was faster, cheaper, and fully under our control. The interesting part was the data: synthetic examples helped breadth but quietly skewed the distribution until the eval caught it.</p>
+          <p>Knowing when to stop mattered more than any hyperparameter. Once the model cleared the bar a human reviewer would, more training was just polishing a corner nobody looked at.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEXT -->
+  <section class="colophon">
+    <div class="wrap">
+      <div class="rise">
+        <span class="num">End of casework</span>
+        <h2>There's a person<br>behind these <em>notes</em>.</h2>
+      </div>
+      <div class="rise">
+        <nav class="contact-list" aria-label="Continue">
+          <a href="about.html"><span class="who">Read the colophon</span><span class="what">About Pranav &rarr;</span></a>
+          <a href="mailto:hello@pranavp.dev"><span class="who">Start a conversation</span><span class="what">hello@pranavp.dev</span></a>
+        </nav>
+      </div>
+    </div>
+    <div class="wrap">
+      <div class="foot-meta">
+        <span>Set in Newsreader &amp; IBM Plex Mono</span>
+        <span>Pranav P — Field Journal, Vol. 04</span>
+        <span>&copy; 2026</span>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script>
+  (function(){
+    document.documentElement.classList.add('js');
+    var rm = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var els = document.querySelectorAll('.rise');
+    if (rm || !('IntersectionObserver' in window)) { els.forEach(function(e){e.classList.add('in');}); return; }
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target);} });
+    }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+    els.forEach(function(e){ io.observe(e); });
+  })();
+</script>
+</body>
+</html>

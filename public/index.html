@@ -4,282 +4,612 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Pranav P — Data Scientist &amp; GenAI Engineer</title>
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="/styles.css" />
+<meta name="description" content="Pranav P — Data Scientist & GenAI Engineer building agentic retrieval, reliable voice agents, and fine-tuned models served on AWS." />
+
+<!-- Tailwind (runtime) -->
+<script src="https://cdn.tailwindcss.com"></script>
+
+<style>
+  :root {
+    /* Helvetica Now Display is licensed; this is the Helvetica/Arial fallback the design renders with. */
+    --font-heading: 'Helvetica Now Display', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    --font-body:    'Helvetica Neue', Helvetica, Arial, sans-serif;
+    --bg:    #14120f;          /* warm near-black */
+    --bg2:   #1b1814;
+    --text:  #ece6db;          /* warm off-white */
+    --muted: rgba(236,230,219,0.56);
+    --line:  rgba(236,230,219,0.12);
+    --surface: rgba(236,230,219,0.035);
+    --accent: oklch(0.70 0.15 275);   /* blue-violet, used sparingly */
+    --accent-soft: rgba(149,143,224,0.16);
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--font-body);
+    background: var(--bg);
+    color: var(--text);
+    -webkit-font-smoothing: antialiased;
+  }
+  ::selection { background: var(--accent); color: #14120f; }
+  .font-head { font-family: var(--font-heading); font-weight: 500; }
+  a { color: inherit; }
+  @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+
+  /* ---- animated depth ---- */
+  @keyframes drift1 { 0%,100% { transform: translate(0,0) scale(1); } 50% { transform: translate(8vw,6vh) scale(1.15); } }
+  @keyframes drift2 { 0%,100% { transform: translate(0,0) scale(1.1); } 50% { transform: translate(-10vw,-4vh) scale(0.95); } }
+  @keyframes drift3 { 0%,100% { transform: translate(0,0) scale(1); } 50% { transform: translate(6vw,-8vh) scale(1.2); } }
+  .glow { position: absolute; border-radius: 50%; filter: blur(90px); mix-blend-mode: screen; }
+  .g1 { width: 62vw; height: 62vw; left: -12vw; top: 4vh;  background: radial-gradient(circle, oklch(0.46 0.13 280 / 0.55), transparent 68%); animation: drift1 30s ease-in-out infinite; }
+  .g2 { width: 55vw; height: 55vw; right: -10vw; top: 38vh; background: radial-gradient(circle, oklch(0.44 0.12 255 / 0.5), transparent 68%); animation: drift2 38s ease-in-out infinite; }
+  .g3 { width: 48vw; height: 48vw; left: 18vw; bottom: -10vh; background: radial-gradient(circle, oklch(0.42 0.11 300 / 0.42), transparent 68%); animation: drift3 34s ease-in-out infinite; }
+  .grain { position: absolute; inset: 0; opacity: 0.05;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+
+  /* ---- scroll reveal (pure CSS, collapses to visible where unsupported) ---- */
+  @keyframes revealAnim { from { opacity: 0; transform: translateY(26px); } to { opacity: 1; transform: none; } }
+  .reveal { animation: revealAnim both linear; animation-timeline: view(); animation-range: entry 0% cover 26%; }
+
+  /* ---- hero ---- */
+  @keyframes shinySweep { 0% { background-position: 100% center; } 100% { background-position: -100% center; } }
+  .shiny-amber {
+    background-image: linear-gradient(100deg, oklch(0.68 0.15 275) 35%, oklch(0.92 0.05 280) 50%, oklch(0.68 0.15 275) 65%);
+    background-size: 200% auto; -webkit-background-clip: text; background-clip: text;
+    color: transparent; -webkit-text-fill-color: transparent; animation: shinySweep 4.5s linear infinite;
+  }
+  @keyframes heroFadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: none; } }
+  @keyframes heroFade { from { opacity: 0; } to { opacity: 1; } }
+  .heroFadeUp { animation: heroFadeUp .9s cubic-bezier(.16,1,.3,1) both; }
+  .heroFade { animation: heroFade .9s ease both; }
+
+  /* ---- expandable experience ---- */
+  .xp-card { background: var(--surface); border: 1px solid var(--line); }
+  .xp-card[data-open="true"] { background: rgba(236,230,219,0.05); }
+  .xp-region { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .45s cubic-bezier(.2,.8,.2,1); }
+  .xp-card[data-open="true"] .xp-region { grid-template-rows: 1fr; }
+  .xp-icon { transition: transform .3s; }
+  .xp-card[data-open="true"] .xp-icon { transform: rotate(45deg); }
+
+  /* ---- hover-accent borders (replaces JS mouseenter from the source) ---- */
+  .hov-accent { transition: border-color .2s, transform .3s; }
+  .hov-accent:hover { border-color: var(--accent) !important; }
+  .contact-row:hover .contact-val.is-link { color: var(--accent) !important; }
+
+  /* ================= CHAT WIDGET (dark theme) ================= */
+  .chat-fab {
+    position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 60;
+    background: var(--text); color: #14120f;
+    border: 1px solid rgba(236,230,219,0.2);
+    border-radius: 999px; padding: .85rem 1.25rem .85rem 1rem;
+    display: inline-flex; align-items: center; gap: .65rem;
+    font-family: var(--font-body); font-size: .85rem; letter-spacing: .01em; font-weight: 500;
+    box-shadow: 0 14px 44px -12px rgba(0,0,0,.6); cursor: pointer;
+    transition: transform .2s, box-shadow .2s, opacity .2s;
+  }
+  .chat-fab:hover { transform: translateY(-2px); box-shadow: 0 18px 52px -12px rgba(0,0,0,.7); }
+  .chat-fab[aria-expanded="true"] { opacity: 0; transform: translateY(10px); pointer-events: none; }
+  .chat-fab .dotpulse { width: 9px; height: 9px; border-radius: 50%; background: var(--accent);
+    box-shadow: 0 0 0 0 rgba(149,143,224,.6); animation: chatpulse 1.9s infinite; }
+  @keyframes chatpulse { 0%{box-shadow:0 0 0 0 rgba(149,143,224,.6)} 70%{box-shadow:0 0 0 9px rgba(149,143,224,0)} 100%{box-shadow:0 0 0 0 rgba(149,143,224,0)} }
+
+  .chat-panel {
+    position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 70;
+    width: min(410px, calc(100vw - 2.5rem));
+    height: min(640px, calc(100vh - 3rem));
+    border: 1px solid rgba(236,230,219,0.14); border-radius: 24px;
+    background:
+      radial-gradient(135% 72% at 50% 0%, rgba(124,111,224,0.22), transparent 58%),
+      linear-gradient(180deg, #1f1a27 0%, #18141b 52%, #141210 100%);
+    box-shadow:
+      0 44px 120px -30px rgba(0,0,0,.82),
+      0 18px 55px -28px rgba(124,111,224,.55),
+      inset 0 1px 0 rgba(255,255,255,.07);
+    display: flex; flex-direction: column; overflow: hidden;
+    transform: translateY(16px) scale(.97); opacity: 0; pointer-events: none;
+    transition: opacity .2s ease, transform .26s cubic-bezier(.2,.9,.3,1.12);
+  }
+  .chat-panel.open { transform: none; opacity: 1; pointer-events: auto; }
+  .chat-panel-header { display: flex; align-items: center; justify-content: space-between;
+    padding: 1rem 1.05rem; flex-shrink: 0;
+    border-bottom: 1px solid rgba(236,230,219,0.10);
+    background: linear-gradient(180deg, rgba(124,111,224,0.18), rgba(236,230,219,0.012)); }
+  .chat-panel-title { display: flex; align-items: center; gap: .75rem; }
+  .chat-panel-title .avatar-mini { width: 38px; height: 38px; border-radius: 12px;
+    background: linear-gradient(140deg, oklch(0.66 0.18 285), oklch(0.78 0.11 262)); color: #fff;
+    font-family: var(--font-heading); font-size: 1.1rem; font-weight: 600; display: grid; place-items: center;
+    box-shadow: 0 0 0 1px rgba(255,255,255,.14), 0 8px 22px -6px rgba(124,111,224,.75); }
+  .chat-panel-title strong { display: block; font-size: .94rem; font-weight: 600; color: var(--text); line-height: 1.2; }
+  .chat-panel-sub { display: inline-flex; align-items: center; gap: .45rem; font-size: .68rem; color: var(--muted); letter-spacing: .04em; margin-top: 2px; }
+  .chat-panel-sub .live { width: 6px; height: 6px; border-radius: 50%; background: #6fe39a; box-shadow: 0 0 0 0 rgba(111,227,154,.5); animation: chatpulse 1.9s infinite; }
+  .chat-panel-close { all: unset; cursor: pointer; width: 30px; height: 30px; display: grid; place-items: center;
+    border-radius: 9px; color: var(--muted); font-size: 1.3rem; line-height: 1; transition: background .15s, color .15s; }
+  .chat-panel-close:hover { background: rgba(236,230,219,0.07); color: var(--text); }
+  .chat-panel-body { flex: 1; overflow-y: auto; padding: 1rem; display: flex; flex-direction: column; gap: 1rem; }
+  .chat-panel-body::-webkit-scrollbar { width: 6px; }
+  .chat-panel-body::-webkit-scrollbar-thumb { background: var(--line); border-radius: 3px; }
+  .chat-empty { display: flex; flex-direction: column; gap: 1rem; padding: .2rem; }
+  .chat-empty-greeting { font-size: .95rem; color: rgba(236,230,219,0.82); line-height: 1.55; }
+  .chat-starter-label { font-size: .62rem; letter-spacing: .2em; text-transform: uppercase; color: var(--muted); }
+  .chat-starters { display: flex; flex-direction: column; gap: .5rem; }
+  .chat-starters .pill { all: unset; cursor: pointer; font-family: var(--font-body); font-size: .86rem; line-height: 1.4;
+    text-align: left; border: 1px solid rgba(236,230,219,0.1); border-radius: 13px;
+    background: linear-gradient(180deg, rgba(236,230,219,0.06), rgba(236,230,219,0.02));
+    padding: .65rem .85rem; color: rgba(236,230,219,0.82); transition: border-color .18s, background .18s, color .18s, transform .18s; }
+  .chat-starters .pill:hover { border-color: rgba(124,111,224,0.6); background: linear-gradient(180deg, rgba(124,111,224,0.2), rgba(124,111,224,0.08)); color: var(--text); transform: translateY(-1px); }
+  .chat-panel-composer { display: flex; align-items: center; gap: .55rem; padding: .8rem .85rem;
+    border-top: 1px solid rgba(236,230,219,0.08); background: linear-gradient(180deg, rgba(20,18,15,0), rgba(20,18,15,0.45)); flex-shrink: 0; }
+  .chat-panel-composer input { flex: 1; border: 1px solid rgba(236,230,219,0.14); background: rgba(20,18,15,0.55); border-radius: 13px;
+    padding: .72rem .9rem; font: inherit; font-size: .92rem; color: var(--text); outline: 0; transition: border-color .15s, box-shadow .15s; }
+  .chat-panel-composer input:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(124,111,224,.18); }
+  .chat-panel-composer input::placeholder { color: var(--muted); }
+  .chat-panel-composer input:disabled { opacity: .5; cursor: not-allowed; }
+  .chat-panel-composer button { all: unset; cursor: pointer; width: 42px; height: 42px; display: grid; place-items: center;
+    background: linear-gradient(140deg, oklch(0.66 0.18 285), oklch(0.78 0.11 262)); color: #fff; border-radius: 13px; font-family: var(--font-body); font-size: 1rem;
+    box-shadow: 0 8px 20px -7px rgba(124,111,224,.8); transition: filter .15s, transform .15s, opacity .15s; }
+  .chat-panel-composer button:hover:not(:disabled) { filter: brightness(1.1); transform: translateY(-1px); }
+  .chat-panel-composer button:active:not(:disabled) { transform: translateY(0); }
+  .chat-panel-composer button:disabled { opacity: .4; cursor: not-allowed; }
+
+  /* chat thread bubbles */
+  #chat-thread { display: flex; flex-direction: column; gap: .9rem; }
+  .turn-user, .turn-assistant { max-width: 100%; padding: .85rem 1.1rem; border-radius: 13px; line-height: 1.55; font-size: .96rem; }
+  .turn-user { background: rgba(236,230,219,0.08); border: 1px solid var(--line); align-self: flex-end; color: var(--text); }
+  .turn-assistant { background: rgba(236,230,219,0.03); border: 1px solid var(--line); align-self: flex-start; color: rgba(236,230,219,0.86); white-space: pre-wrap; word-break: break-word; }
+  .turn-assistant .cursor { display: inline-block; width: .5em; height: 1em; vertical-align: -2px; background: var(--accent); margin-left: 2px; animation: blink 1s infinite; }
+  .reasoning { align-self: flex-start; max-width: 100%; font-size: .74rem; color: var(--muted); padding: .3rem 0; }
+  .reasoning summary { list-style: none; }
+  .reasoning button { all: unset; cursor: pointer; color: var(--muted); display: inline-flex; align-items: center; gap: .4rem; }
+  .reasoning button:hover { color: var(--text); }
+  .reasoning .chev { transition: transform .2s; }
+  .reasoning[open] .chev { transform: rotate(90deg); }
+  .reasoning .nodes { margin-top: .5rem; padding-left: 1rem; border-left: 2px solid var(--accent); color: rgba(236,230,219,0.8); font-size: .78rem; line-height: 1.6; }
+  .reasoning .nodes div { margin: .15rem 0; }
+  .chat-error { color: #ff9b8a; font-size: .88rem; }
+  .chat-limit a { color: var(--accent); text-decoration: underline; }
+
+  @media (max-width: 640px) {
+    .chat-panel { bottom: 0; right: 0; left: 0; width: 100vw; height: 100dvh; border-radius: 0; border-left: 0; border-right: 0; border-bottom: 0; }
+    .chat-fab { bottom: 1rem; right: 1rem; padding: .7rem 1.1rem; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .glow, .marq-track { animation: none; }
+    .reveal { animation: none; opacity: 1; transform: none; }
+    .shiny-amber { animation: none; }
+    .heroFadeUp, .heroFade { animation: none; }
+    .chat-fab .dotpulse, .chat-panel-sub .live { animation: none; }
+  }
+</style>
 </head>
 <body>
 
-<nav>
-  <div class="logo">pranav<span class="dot">.</span>p</div>
-  <ul class="nav-links">
-    <li><a href="#work">Work</a></li>
-    <li><a href="#projects">Projects</a></li>
-    <li><a href="/newsletter/">Reading</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
-  <a class="nav-cta" href="#chat"><span class="blip"></span>Ask my AI twin</a>
+<!-- fixed animated depth behind everything -->
+<div class="fixed inset-0 overflow-hidden pointer-events-none" aria-hidden="true" style="z-index:0">
+  <div class="glow g1"></div>
+  <div class="glow g2"></div>
+  <div class="glow g3"></div>
+  <div class="grain"></div>
+</div>
+
+<!-- ================= NAV ================= -->
+<nav id="nav" class="fixed top-0 left-0 right-0 z-20 flex justify-between items-center px-5 sm:px-8 lg:px-10 py-3.5 sm:py-4 transition-all duration-300" style="background:transparent;border-bottom:1px solid transparent">
+  <a href="#top" class="flex items-center gap-3 no-underline shrink-0 text-white" aria-label="Pranav P — home">
+    <span class="font-head text-[20px] sm:text-[24px] tracking-tight">Pranav&nbsp;P®</span>
+    <span class="text-[24px] sm:text-[28px] select-none leading-none" style="letter-spacing:-0.02em;color:var(--accent)">✳︎</span>
+  </a>
+  <div class="hidden md:flex absolute left-1/2 -translate-x-1/2">
+    <div class="flex items-center gap-1 rounded-full p-1" style="background:rgba(236,230,219,0.07);border:1px solid rgba(236,230,219,0.12)">
+      <a href="#experience" class="rounded-full px-4 lg:px-5 py-2 text-[15px] transition-colors duration-200 whitespace-nowrap text-white/80 hover:text-black hover:bg-white">Experience</a>
+      <a href="#projects" class="rounded-full px-4 lg:px-5 py-2 text-[15px] transition-colors duration-200 whitespace-nowrap text-white/80 hover:text-black hover:bg-white">Projects</a>
+      <a href="#education" class="rounded-full px-4 lg:px-5 py-2 text-[15px] transition-colors duration-200 whitespace-nowrap text-white/80 hover:text-black hover:bg-white">Education</a>
+      <a href="#reading" class="rounded-full px-4 lg:px-5 py-2 text-[15px] transition-colors duration-200 whitespace-nowrap text-white/80 hover:text-black hover:bg-white">Reading</a>
+      <a href="#contact" class="rounded-full px-4 lg:px-5 py-2 text-[15px] transition-colors duration-200 whitespace-nowrap text-white/80 hover:text-black hover:bg-white">Contact</a>
+    </div>
+  </div>
+  <a href="mailto:aikkara.pranav@gmail.com" class="hidden md:inline-flex items-center whitespace-nowrap rounded-full text-[15px] px-5 py-2.5 transition-colors duration-200 shrink-0 bg-white text-black hover:bg-white/85 no-underline">Get in touch</a>
+  <button type="button" id="menu-btn" class="flex md:hidden flex-col gap-[5px] p-1" aria-label="Toggle menu" aria-expanded="false">
+    <span class="menu-bar block w-6 h-[2px] transition-all duration-300 bg-white"></span>
+    <span class="menu-bar block w-6 h-[2px] transition-all duration-300 bg-white"></span>
+    <span class="menu-bar block w-6 h-[2px] transition-all duration-300 bg-white"></span>
+  </button>
 </nav>
 
-<!-- HERO · cream -->
-<section id="hero" class="no-border">
-  <div class="wrap">
-    <div class="eyebrow"><span class="dot-sq"></span>Data Scientist &mdash; GenAI Engineer</div>
+<!-- mobile overlay -->
+<div id="mobile-overlay" class="fixed inset-0 z-[15] flex md:hidden flex-col justify-center items-start px-8 gap-7 transition-opacity duration-300" style="opacity:0;pointer-events:none;background:rgba(20,18,15,0.97);backdrop-filter:blur(8px)">
+  <a href="#experience" class="mob-link text-[32px] font-medium text-white no-underline">Experience</a>
+  <a href="#projects" class="mob-link text-[32px] font-medium text-white no-underline">Projects</a>
+  <a href="#education" class="mob-link text-[32px] font-medium text-white no-underline">Education</a>
+  <a href="#reading" class="mob-link text-[32px] font-medium text-white no-underline">Reading</a>
+  <a href="#contact" class="mob-link text-[32px] font-medium text-white no-underline">Contact</a>
+  <a href="mailto:aikkara.pranav@gmail.com" class="mob-link text-[32px] font-medium text-white underline underline-offset-2">Get in touch</a>
+</div>
 
-    <h1 class="name">Pranav <span class="ital">P.</span></h1>
+<div class="relative" style="z-index:1">
 
-    <p class="intro">
-      I build <span class="reg">LLM systems</span> that actually ship &mdash;<br/>
-      agents, RAG, and the infra around them.
-    </p>
-
-    <p class="intro-sub">
-      Currently at <strong>FarmwiseAI</strong>, shipping production GenAI end-to-end &mdash; agentic RAG on
-      <em>vectorless retrieval</em>, reliable voice agents, ingestion pipelines that turn any input into
-      LLM-friendly context, and fine-tuned small models deployed on AWS. Ask my AI twin anything &mdash;
-      it&rsquo;s trained on everything I&rsquo;ve built.
-    </p>
-
-  </div>
-</section>
-
-<!-- NOW · sand -->
-<section class="bg-alt" style="padding:2.2rem 0">
-  <div class="wrap">
-    <div class="now">
-      <div class="avatar">P</div>
-      <div class="text">
-        <div class="label"><span class="live"></span>Now playing</div>
-        <div class="line">Shipping a <strong>vectorless-RAG agentic system</strong> &mdash; PageIndex-style tree retrieval, no vector DB, reasoning-driven. Turns out &ldquo;similarity&rdquo; isn&rsquo;t relevance.</div>
+  <!-- ================= HERO ================= -->
+  <section id="top" class="relative min-h-screen flex flex-col overflow-hidden px-5 sm:px-8 md:px-10">
+    <div class="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
+      <video id="hero-video" autoplay muted loop playsinline class="w-full h-full object-cover" style="object-position:68% center" poster="">
+        <source src="/assets/hero.mp4" type="video/mp4" />
+      </video>
+      <div class="absolute inset-0" style="background:linear-gradient(180deg, rgba(20,18,15,0.66) 0%, rgba(20,18,15,0.5) 42%, rgba(20,18,15,0.8) 76%, var(--bg) 100%)"></div>
+    </div>
+    <div class="relative z-10 w-full max-w-6xl mx-auto flex-1 flex flex-col">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-28 sm:pt-32">
+        <p class="heroFade text-[15px] sm:text-[16px] leading-relaxed max-w-md" style="color:var(--muted);animation-delay:.15s">
+          Data Scientist &amp; GenAI Engineer building agentic retrieval, reliable voice agents, and fine-tuned models served on AWS.
+        </p>
+        <p class="heroFade text-[15px] sm:text-[16px] md:text-right self-start md:justify-self-end" style="color:var(--muted);animation-delay:.25s">
+          Associate Data Scientist — FarmwiseAI
+        </p>
       </div>
-      <div class="where">Chennai, IN<br/><span style="color:var(--muted-2)">Apr 2026</span></div>
+      <div class="flex-1 flex flex-col justify-center max-w-4xl">
+        <p class="heroFade text-[12px] sm:text-[13px] tracking-[0.22em] uppercase mb-5" style="color:var(--muted);animation-delay:.3s">Available for new work</p>
+        <h1 class="heroFadeUp font-head tracking-tight" style="font-size:clamp(40px, 6.2vw, 90px);line-height:0.96;letter-spacing:-0.025em;animation-delay:.35s">
+          <span class="block" style="color:var(--text)">I build production AI</span>
+          <span class="block shiny-amber">end to end.</span>
+        </h1>
+        <div class="heroFadeUp flex flex-wrap items-center gap-3 mt-9" style="animation-delay:.5s">
+          <a href="#contact" class="group inline-flex items-center gap-2 rounded-full text-[15px] px-6 py-3 transition-colors no-underline" style="background:var(--text);color:#14120f">
+            Get in touch
+            <span class="transition-transform duration-300 group-hover:translate-x-1">→</span>
+          </a>
+          <a href="#projects" class="hov-accent inline-flex items-center rounded-full text-[15px] px-6 py-3 no-underline" style="border:1px solid var(--line);color:var(--text)">See my work</a>
+        </div>
+      </div>
+      <div class="heroFade pb-8 flex items-center gap-3" style="color:var(--muted);animation-delay:.7s">
+        <span class="text-[11px] tracking-[0.22em] uppercase">Scroll</span>
+        <span class="text-[15px] leading-none" style="animation:blink 2.4s ease-in-out infinite">↓</span>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- WORK · sand -->
-<section id="work" class="bg-alt">
-  <div class="wrap">
-    <div class="sec-head">
-      <h2>Selected <span class="ital">work</span></h2>
-      <span class="sec-num">01 / Experience</span>
-    </div>
-    <div class="work-list">
+  <!-- ================= EXPERIENCE ================= -->
+  <section id="experience" class="px-5 sm:px-8 md:px-10 pt-[10vh] pb-[14vh]" style="scroll-margin-top:90px">
+    <div class="max-w-6xl mx-auto">
+      <div class="mb-12 sm:mb-16">
+        <div class="reveal flex items-center gap-3">
+          <span style="color:var(--accent);font-size:20px">✳︎</span>
+          <span class="text-[12px] tracking-[0.24em] uppercase" style="color:var(--muted)">01 &nbsp;/&nbsp; Experience</span>
+        </div>
+        <h2 class="reveal font-head mt-4 tracking-tight" style="font-size:clamp(38px, 6vw, 74px);line-height:0.98;letter-spacing:-0.02em;color:var(--text)">Where I've shipped.</h2>
+      </div>
+      <p class="-mt-6 mb-10 text-[15px]" style="color:var(--muted)">Tap any role to expand the detail.</p>
+      <div class="flex flex-col gap-4">
 
-      <div class="work-item">
-        <div class="date">2025 — Now</div>
-        <div>
-          <h3>FarmwiseAI</h3>
-          <div class="role">Associate Data Scientist · Chennai</div>
-          <p>Shipping the full production GenAI stack &mdash; from ingestion to inference to reliable agents in the wild.</p>
-          <ul class="work-bullets">
-            <li><strong>Vectorless-RAG agentic systems</strong> &mdash; PageIndex-style tree retrieval + reasoning-driven search. No vector DB, traceable, and more accurate than semantic-similarity RAG on long, structured docs. <a class="case-link" href="/projects/vectorless-rag">Read the case study &rarr;</a></li>
-            <li><strong>Production voice agents</strong> &mdash; reliable STT &harr; LLM &harr; TTS loops with interruption handling, guardrails, and latency budgets that hold up under real users. <a class="case-link" href="/projects/voice-agents">Read the case study &rarr;</a></li>
-            <li><strong>Universal ingestion pipelines</strong> &mdash; normalize PDFs, scans, audio, spreadsheets, and images into clean, LLM-friendly structured context.</li>
-            <li><strong>Internal intelligence platform</strong> &mdash; an <em>OpenWebUI</em>-based assistant for the whole company: employees query internal docs, policies, and data through a RAG-backed chat.</li>
-            <li><strong>Fine-tuned geospatial small models on AWS</strong> &mdash; deployed specialized models that correctly answer location-, terrain-, and coordinate-heavy queries where frontier LLMs hallucinate.</li>
-            <li><strong>OCR at scale</strong> &mdash; LightOnOCR-2 1B on SageMaker via vLLM with PagedAttention &amp; KV-cache for high-throughput document extraction.</li>
-            <li><strong>Satellite time-series</strong> &mdash; a year of Tamil Nadu field imagery processed pixel-wise, DTW-aligned vegetation curves to infer sowing dates.</li>
-          </ul>
-          <div class="tags">
-            <span class="tag">Vectorless RAG</span><span class="tag">PageIndex</span><span class="tag">LangChain</span>
-            <span class="tag">LangGraph</span><span class="tag">LiteLLM</span><span class="tag">Langfuse</span>
-            <span class="tag">MCP</span><span class="tag">Google ADK</span><span class="tag">Pydantic AI</span>
-            <span class="tag">OpenWebUI</span><span class="tag">Voice Agents</span><span class="tag">vLLM</span>
-            <span class="tag">SageMaker</span><span class="tag">Fine-tuning</span><span class="tag">DTW</span>
+        <!-- FarmwiseAI -->
+        <div class="reveal xp-card rounded-[22px] overflow-hidden transition-colors duration-300" data-open="true">
+          <button type="button" class="xp-toggle w-full text-left px-6 sm:px-9 py-7 sm:py-8 flex items-start gap-5">
+            <div class="flex-1 min-w-0">
+              <div class="flex flex-wrap items-baseline gap-x-4 gap-y-1">
+                <h3 class="font-head text-[24px] sm:text-[30px] tracking-tight" style="color:var(--text)">FarmwiseAI</h3>
+                <span class="text-[15px]" style="color:var(--muted)">Associate Data Scientist</span>
+              </div>
+              <p class="mt-2 text-[15px] sm:text-[16px] leading-relaxed" style="color:rgba(236,230,219,0.78);max-width:60ch;text-wrap:pretty">Shipping production LLM systems end-to-end — retrieval, voice, ingestion and fine-tuned models on AWS.</p>
+              <div class="mt-3 text-[13px]" style="color:var(--muted)">Apr 2025 — Present &nbsp;·&nbsp; Chennai</div>
+            </div>
+            <span aria-hidden="true" class="xp-icon shrink-0 mt-1 inline-flex items-center justify-center rounded-full" style="width:38px;height:38px;border:1px solid var(--line);color:var(--text)">
+              <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M7.5 1v13M1 7.5h13" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" /></svg>
+            </span>
+          </button>
+          <div class="xp-region">
+            <div style="overflow:hidden">
+              <div class="px-6 sm:px-9 pb-8 sm:pb-9">
+                <div style="height:1px;background:var(--line);margin:0 0 24px"></div>
+                <p class="text-[16px] sm:text-[18px] leading-relaxed" style="color:rgba(236,230,219,0.85);max-width:70ch;text-wrap:pretty">I build the full stack of a production GenAI platform: choosing the right retrieval approach for each job, keeping voice agents reliable under real latency budgets, and shipping small fine-tuned models that beat frontier LLMs on narrow tasks. LiteLLM is the gateway across every project; Langfuse logs every call, trace and cost so debugging is a diff, not guesswork.</p>
+                <div class="mt-4 flex flex-wrap gap-2">
+                  <span class="text-[12px] tracking-wide rounded-full px-3 py-1" style="border:1px solid var(--line);color:var(--muted)">Vectorless RAG</span>
+                  <span class="text-[12px] tracking-wide rounded-full px-3 py-1" style="border:1px solid var(--line);color:var(--muted)">Voice Agents</span>
+                  <span class="text-[12px] tracking-wide rounded-full px-3 py-1" style="border:1px solid var(--line);color:var(--muted)">vLLM</span>
+                  <span class="text-[12px] tracking-wide rounded-full px-3 py-1" style="border:1px solid var(--line);color:var(--muted)">LiteLLM</span>
+                  <span class="text-[12px] tracking-wide rounded-full px-3 py-1" style="border:1px solid var(--line);color:var(--muted)">Langfuse</span>
+                  <span class="text-[12px] tracking-wide rounded-full px-3 py-1" style="border:1px solid var(--line);color:var(--muted)">MCP</span>
+                </div>
+                <div class="mt-7 text-[12px] tracking-[0.2em] uppercase" style="color:var(--muted)">Select things I built</div>
+                <div class="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  <div class="built-card hov-accent rounded-[16px] p-5" style="background:rgba(236,230,219,0.04);border:1px solid var(--line)"><h4 class="font-head text-[16px] sm:text-[17px]" style="color:var(--text)">Vectorless-RAG agentic system</h4><p class="mt-2 text-[14px] leading-relaxed" style="color:rgba(236,230,219,0.72);text-wrap:pretty">An LLM walks a tree-of-contents and answers from selected nodes — no embeddings, no vector DB. Replaced a Qdrant + bge-large pipeline that kept returning text that looked like the question instead of text that answered it.</p></div>
+                  <div class="built-card hov-accent rounded-[16px] p-5" style="background:rgba(236,230,219,0.04);border:1px solid var(--line)"><h4 class="font-head text-[16px] sm:text-[17px]" style="color:var(--text)">Production voice agents</h4><p class="mt-2 text-[14px] leading-relaxed" style="color:rgba(236,230,219,0.72);text-wrap:pretty">STT↔LLM↔TTS loops with per-hop latency budgets and clean interrupt handling, plus an auto-compact agent and a parallel tool-calling agent so the user never hears a pause.</p></div>
+                  <div class="built-card hov-accent rounded-[16px] p-5" style="background:rgba(236,230,219,0.04);border:1px solid var(--line)"><h4 class="font-head text-[16px] sm:text-[17px]" style="color:var(--text)">Universal ingestion pipeline</h4><p class="mt-2 text-[14px] leading-relaxed" style="color:rgba(236,230,219,0.72);text-wrap:pretty">Normalizes PDFs, scans, audio, spreadsheets and images into clean LLM-ready context. OCR via LightOnOCR-2 1B on SageMaker, served through vLLM with PagedAttention + KV caching.</p></div>
+                  <div class="built-card hov-accent rounded-[16px] p-5" style="background:rgba(236,230,219,0.04);border:1px solid var(--line)"><h4 class="font-head text-[16px] sm:text-[17px]" style="color:var(--text)">Fine-tuned geospatial models</h4><p class="mt-2 text-[14px] leading-relaxed" style="color:rgba(236,230,219,0.72);text-wrap:pretty">Specialized small models on SageMaker for location, terrain and coordinate queries where frontier LLMs hallucinate — called as a tool for better accuracy at lower cost.</p></div>
+                  <div class="built-card hov-accent rounded-[16px] p-5" style="background:rgba(236,230,219,0.04);border:1px solid var(--line)"><h4 class="font-head text-[16px] sm:text-[17px]" style="color:var(--text)">Agentic chatbot · ADK + MCP</h4><p class="mt-2 text-[14px] leading-relaxed" style="color:rgba(236,230,219,0.72);text-wrap:pretty">Google ADK with MCP tools (DB queries, search, Qdrant RAG), sub-agent routing, Pydantic validation on every response, and WebSocket streaming for live updates.</p></div>
+                  <div class="built-card hov-accent rounded-[16px] p-5" style="background:rgba(236,230,219,0.04);border:1px solid var(--line)"><h4 class="font-head text-[16px] sm:text-[17px]" style="color:var(--text)">Satellite imagery time-series</h4><p class="mt-2 text-[14px] leading-relaxed" style="color:rgba(236,230,219,0.72);text-wrap:pretty">A year of Tamil Nadu field imagery → pixel-level vegetation signals, aligned with Dynamic Time Warping to infer sowing dates for fields without metadata.</p></div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="arrow">→</div>
-      </div>
 
-      <div class="work-item">
-        <div class="date">Feb — Apr 2025</div>
-        <div>
-          <h3>Infosys</h3>
-          <div class="role">Data Visualization &amp; Analyst Intern · Remote</div>
-          <p>Turned messy datasets into interactive Power BI + Python dashboards. EDA, trend analysis, and visual reports non-analysts could actually read.</p>
-          <div class="tags"><span class="tag">Power BI</span><span class="tag">Pandas</span><span class="tag">EDA</span></div>
+        <!-- Infosys -->
+        <div class="reveal xp-card rounded-[22px] overflow-hidden transition-colors duration-300" data-open="false">
+          <button type="button" class="xp-toggle w-full text-left px-6 sm:px-9 py-7 sm:py-8 flex items-start gap-5">
+            <div class="flex-1 min-w-0">
+              <div class="flex flex-wrap items-baseline gap-x-4 gap-y-1">
+                <h3 class="font-head text-[24px] sm:text-[30px] tracking-tight" style="color:var(--text)">Infosys</h3>
+                <span class="text-[15px]" style="color:var(--muted)">Data Viz &amp; Analyst Engineer Intern</span>
+              </div>
+              <p class="mt-2 text-[15px] sm:text-[16px] leading-relaxed" style="color:rgba(236,230,219,0.78);max-width:60ch;text-wrap:pretty">Turned complex datasets into decisions for non-analyst stakeholders.</p>
+              <div class="mt-3 text-[13px]" style="color:var(--muted)">Feb — Apr 2025 &nbsp;·&nbsp; Remote</div>
+            </div>
+            <span aria-hidden="true" class="xp-icon shrink-0 mt-1 inline-flex items-center justify-center rounded-full" style="width:38px;height:38px;border:1px solid var(--line);color:var(--text)">
+              <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M7.5 1v13M1 7.5h13" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" /></svg>
+            </span>
+          </button>
+          <div class="xp-region">
+            <div style="overflow:hidden">
+              <div class="px-6 sm:px-9 pb-8 sm:pb-9">
+                <div style="height:1px;background:var(--line);margin:0 0 24px"></div>
+                <p class="text-[16px] sm:text-[18px] leading-relaxed" style="color:rgba(236,230,219,0.85);max-width:70ch;text-wrap:pretty">Focused on making data legible — translating raw, messy datasets into visual reports a non-analyst could act on.</p>
+                <div class="mt-4 flex flex-wrap gap-2">
+                  <span class="text-[12px] tracking-wide rounded-full px-3 py-1" style="border:1px solid var(--line);color:var(--muted)">Power BI</span>
+                  <span class="text-[12px] tracking-wide rounded-full px-3 py-1" style="border:1px solid var(--line);color:var(--muted)">Python</span>
+                  <span class="text-[12px] tracking-wide rounded-full px-3 py-1" style="border:1px solid var(--line);color:var(--muted)">EDA</span>
+                </div>
+                <div class="mt-7 text-[12px] tracking-[0.2em] uppercase" style="color:var(--muted)">Select things I built</div>
+                <div class="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  <div class="built-card hov-accent rounded-[16px] p-5" style="background:rgba(236,230,219,0.04);border:1px solid var(--line)"><h4 class="font-head text-[16px] sm:text-[17px]" style="color:var(--text)">Interactive dashboards</h4><p class="mt-2 text-[14px] leading-relaxed" style="color:rgba(236,230,219,0.72);text-wrap:pretty">Built dashboards and visual reports in Power BI and Python that surfaced the patterns that mattered.</p></div>
+                  <div class="built-card hov-accent rounded-[16px] p-5" style="background:rgba(236,230,219,0.04);border:1px solid var(--line)"><h4 class="font-head text-[16px] sm:text-[17px]" style="color:var(--text)">EDA &amp; trend analysis</h4><p class="mt-2 text-[14px] leading-relaxed" style="color:rgba(236,230,219,0.72);text-wrap:pretty">Preprocessing, exploratory analysis and trend detection across real-world datasets to find actionable signal.</p></div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="arrow">→</div>
-      </div>
 
-      <div class="work-item">
-        <div class="date">Dec 2023 — Apr 2024</div>
-        <div>
-          <h3>Descpro</h3>
-          <div class="role">ML Developer Intern · NBFC Loan Approval</div>
-          <p>Built an end-to-end loan approval stack &mdash; eligibility scoring, an LSTM that predicted repayment delays per customer, and a forecasting model for upcoming loan application volumes.</p>
-          <div class="tags"><span class="tag">LSTM</span><span class="tag">Random Forest</span><span class="tag">Forecasting</span></div>
+        <!-- Descpro -->
+        <div class="reveal xp-card rounded-[22px] overflow-hidden transition-colors duration-300" data-open="false">
+          <button type="button" class="xp-toggle w-full text-left px-6 sm:px-9 py-7 sm:py-8 flex items-start gap-5">
+            <div class="flex-1 min-w-0">
+              <div class="flex flex-wrap items-baseline gap-x-4 gap-y-1">
+                <h3 class="font-head text-[24px] sm:text-[30px] tracking-tight" style="color:var(--text)">Descpro</h3>
+                <span class="text-[15px]" style="color:var(--muted)">ML Developer Intern · NBFC Loan System</span>
+              </div>
+              <p class="mt-2 text-[15px] sm:text-[16px] leading-relaxed" style="color:rgba(236,230,219,0.78);max-width:60ch;text-wrap:pretty">Automated loan approval and per-customer repayment monitoring for an NBFC.</p>
+              <div class="mt-3 text-[13px]" style="color:var(--muted)">Dec 2023 — Apr 2024 &nbsp;·&nbsp; Palakkad</div>
+            </div>
+            <span aria-hidden="true" class="xp-icon shrink-0 mt-1 inline-flex items-center justify-center rounded-full" style="width:38px;height:38px;border:1px solid var(--line);color:var(--text)">
+              <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M7.5 1v13M1 7.5h13" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" /></svg>
+            </span>
+          </button>
+          <div class="xp-region">
+            <div style="overflow:hidden">
+              <div class="px-6 sm:px-9 pb-8 sm:pb-9">
+                <div style="height:1px;background:var(--line);margin:0 0 24px"></div>
+                <p class="text-[16px] sm:text-[18px] leading-relaxed" style="color:rgba(236,230,219,0.85);max-width:70ch;text-wrap:pretty">An end-to-end ML system for loan decisioning and risk monitoring at the level of the individual borrower.</p>
+                <div class="mt-4 flex flex-wrap gap-2">
+                  <span class="text-[12px] tracking-wide rounded-full px-3 py-1" style="border:1px solid var(--line);color:var(--muted)">LSTM</span>
+                  <span class="text-[12px] tracking-wide rounded-full px-3 py-1" style="border:1px solid var(--line);color:var(--muted)">Risk Modeling</span>
+                  <span class="text-[12px] tracking-wide rounded-full px-3 py-1" style="border:1px solid var(--line);color:var(--muted)">Forecasting</span>
+                </div>
+                <div class="mt-7 text-[12px] tracking-[0.2em] uppercase" style="color:var(--muted)">Select things I built</div>
+                <div class="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  <div class="built-card hov-accent rounded-[16px] p-5" style="background:rgba(236,230,219,0.04);border:1px solid var(--line)"><h4 class="font-head text-[16px] sm:text-[17px]" style="color:var(--text)">Loan eligibility models</h4><p class="mt-2 text-[14px] leading-relaxed" style="color:rgba(236,230,219,0.72);text-wrap:pretty">Evaluated eligibility from income, age, expenses and other risk parameters.</p></div>
+                  <div class="built-card hov-accent rounded-[16px] p-5" style="background:rgba(236,230,219,0.04);border:1px solid var(--line)"><h4 class="font-head text-[16px] sm:text-[17px]" style="color:var(--text)">Per-customer LSTM</h4><p class="mt-2 text-[14px] leading-relaxed" style="color:rgba(236,230,219,0.72);text-wrap:pretty">Predicted repayment delays at the individual-customer level, not just in aggregate.</p></div>
+                  <div class="built-card hov-accent rounded-[16px] p-5" style="background:rgba(236,230,219,0.04);border:1px solid var(--line)"><h4 class="font-head text-[16px] sm:text-[17px]" style="color:var(--text)">Inquiry-volume forecasting</h4><p class="mt-2 text-[14px] leading-relaxed" style="color:rgba(236,230,219,0.72);text-wrap:pretty">Forecast upcoming application volumes to support operations capacity planning.</p></div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="arrow">→</div>
-      </div>
 
-      <div class="work-item">
-        <div class="date">Sep — Nov 2023</div>
-        <div>
-          <h3>Thapovan Info Systems</h3>
-          <div class="role">ML Intern · Predictive Disease Modeling</div>
-          <p>Built a heart-attack risk model from 20+ curated health indicators. Used SHAP and LIME so doctors could actually trust the predictions. Added an LSTM alert system for timely warnings.</p>
-          <div class="tags"><span class="tag">SHAP</span><span class="tag">LIME</span><span class="tag">LSTM</span><span class="tag">XAI</span></div>
+        <!-- Thapovan -->
+        <div class="reveal xp-card rounded-[22px] overflow-hidden transition-colors duration-300" data-open="false">
+          <button type="button" class="xp-toggle w-full text-left px-6 sm:px-9 py-7 sm:py-8 flex items-start gap-5">
+            <div class="flex-1 min-w-0">
+              <div class="flex flex-wrap items-baseline gap-x-4 gap-y-1">
+                <h3 class="font-head text-[24px] sm:text-[30px] tracking-tight" style="color:var(--text)">Thapovan Info Systems</h3>
+                <span class="text-[15px]" style="color:var(--muted)">ML Intern · Predictive Disease Modeling</span>
+              </div>
+              <p class="mt-2 text-[15px] sm:text-[16px] leading-relaxed" style="color:rgba(236,230,219,0.78);max-width:60ch;text-wrap:pretty">Built a defensible heart-attack risk model from raw clinical data.</p>
+              <div class="mt-3 text-[13px]" style="color:var(--muted)">Sep — Nov 2023 &nbsp;·&nbsp; Chennai</div>
+            </div>
+            <span aria-hidden="true" class="xp-icon shrink-0 mt-1 inline-flex items-center justify-center rounded-full" style="width:38px;height:38px;border:1px solid var(--line);color:var(--text)">
+              <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M7.5 1v13M1 7.5h13" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" /></svg>
+            </span>
+          </button>
+          <div class="xp-region">
+            <div style="overflow:hidden">
+              <div class="px-6 sm:px-9 pb-8 sm:pb-9">
+                <div style="height:1px;background:var(--line);margin:0 0 24px"></div>
+                <p class="text-[16px] sm:text-[18px] leading-relaxed" style="color:rgba(236,230,219,0.85);max-width:70ch;text-wrap:pretty">Translated a clear medical need into a predictive system clinicians could trust — explainability was as important as accuracy.</p>
+                <div class="mt-4 flex flex-wrap gap-2">
+                  <span class="text-[12px] tracking-wide rounded-full px-3 py-1" style="border:1px solid var(--line);color:var(--muted)">SHAP</span>
+                  <span class="text-[12px] tracking-wide rounded-full px-3 py-1" style="border:1px solid var(--line);color:var(--muted)">LIME</span>
+                  <span class="text-[12px] tracking-wide rounded-full px-3 py-1" style="border:1px solid var(--line);color:var(--muted)">Explainable AI</span>
+                </div>
+                <div class="mt-7 text-[12px] tracking-[0.2em] uppercase" style="color:var(--muted)">Select things I built</div>
+                <div class="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  <div class="built-card hov-accent rounded-[16px] p-5" style="background:rgba(236,230,219,0.04);border:1px solid var(--line)"><h4 class="font-head text-[16px] sm:text-[17px]" style="color:var(--text)">Heart-attack risk model</h4><p class="mt-2 text-[14px] leading-relaxed" style="color:rgba(236,230,219,0.72);text-wrap:pretty">Engineered 20+ health indicators into a model-ready dataset and trained a risk model from raw clinical data.</p></div>
+                  <div class="built-card hov-accent rounded-[16px] p-5" style="background:rgba(236,230,219,0.04);border:1px solid var(--line)"><h4 class="font-head text-[16px] sm:text-[17px]" style="color:var(--text)">Explainable AI (SHAP, LIME)</h4><p class="mt-2 text-[14px] leading-relaxed" style="color:rgba(236,230,219,0.72);text-wrap:pretty">So doctors could see why the model flagged a case, not just the score — defensible to a clinician.</p></div>
+                  <div class="built-card hov-accent rounded-[16px] p-5" style="background:rgba(236,230,219,0.04);border:1px solid var(--line)"><h4 class="font-head text-[16px] sm:text-[17px]" style="color:var(--text)">LSTM early-warning system</h4><p class="mt-2 text-[14px] leading-relaxed" style="color:rgba(236,230,219,0.72);text-wrap:pretty">Flagged time-series patterns suggesting rising risk, giving doctors earlier warning windows.</p></div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="arrow">→</div>
-      </div>
 
-    </div>
-  </div>
-</section>
-
-<!-- PROJECTS · cream -->
-<section id="projects">
-  <div class="wrap">
-    <div class="sec-head">
-      <h2>Things I&rsquo;ve built on the <span class="ital">side</span></h2>
-      <span class="sec-num">02 / Projects</span>
-    </div>
-    <div class="proj-grid">
-
-      <div class="proj">
-        <div class="idx">P / 01</div>
-        <h4>Domain-Specific Loan Officer Agent</h4>
-        <p>Fine-tuned Gemma-2B with QLoRA &amp; Unsloth on a synthetic instruction set &mdash; then quantized to GGUF and ran it on CPU via llama.cpp. Low-latency, compliance-aware, no GPU required.</p>
-        <div class="foot">
-          <div class="stack"><span>Gemma</span><span>QLoRA</span><span>llama.cpp</span></div>
-          <span>→</span>
-        </div>
-      </div>
-
-      <div class="proj">
-        <div class="idx">P / 02</div>
-        <h4>Companion AI</h4>
-        <p>A voice-enabled ICU support system. Real-time STT + BERT sentiment to detect emotional distress, then trigger context-aware empathetic responses over TTS.</p>
-        <div class="foot">
-          <div class="stack"><span>PyTorch</span><span>BERT</span><span>STT/TTS</span></div>
-          <span>→</span>
-        </div>
-      </div>
-
-      <div class="proj">
-        <div class="idx">P / 03</div>
-        <h4>Agentic Recruitment Platform</h4>
-        <p>Autonomous agent that scrapes job boards and uses Google&rsquo;s experimental Opal model to rewrite resumes live, mapping candidate skills to JDs via RAG.</p>
-        <div class="foot">
-          <div class="stack"><span>Opal</span><span>Selenium</span><span>LangChain</span></div>
-          <span>→</span>
-        </div>
-      </div>
-
-      <div class="proj">
-        <div class="idx">P / 04</div>
-        <h4>This portfolio (meta)</h4>
-        <p>The site you&rsquo;re on. Vectorless RAG chatbot over a hand-authored markdown knowledge base, Groq Llama-3.3, single Node serverless function on Vercel. Zero dollars a month.</p>
-        <div class="foot">
-          <div class="stack"><span>Vercel</span><span>Groq</span><span>PageIndex</span></div>
-          <span>→</span>
-        </div>
-      </div>
-
-      <a class="proj proj-link" href="/projects/newsletter-reader">
-        <div class="idx">P / 05</div>
-        <h4>Newsletter Reader</h4>
-        <p>A personal web app that pulls subscribed newsletters out of my Gmail and renders them in a clean, dedicated reader. Built because my inbox was burying the emails I actually wanted to read.</p>
-        <div class="foot">
-          <div class="stack"><span>Gmail API</span><span>Web App</span></div>
-          <span>→</span>
-        </div>
-      </a>
-
-    </div>
-  </div>
-</section>
-
-<!-- STACK · sand -->
-<section id="stack" class="bg-alt">
-  <div class="wrap">
-    <div class="sec-head">
-      <h2>The <span class="ital">stack</span> I reach for</h2>
-      <span class="sec-num">03 / Tooling</span>
-    </div>
-    <div class="stack-grid">
-      <div class="stack-cat">
-        <div class="cat-label">GenAI &amp; LLM</div>
-        <ul>
-          <li>RAG &amp; Agentic Systems</li>
-          <li>LangChain · LangGraph</li>
-          <li>LiteLLM · OpenRouter · Ollama</li>
-          <li>Langfuse · Pydantic AI · MCP</li>
-          <li>vLLM · Unsloth · HuggingFace</li>
-          <li>Qdrant · FAISS</li>
-        </ul>
-      </div>
-      <div class="stack-cat">
-        <div class="cat-label">ML &amp; Data Science</div>
-        <ul>
-          <li>LSTM · Random Forest</li>
-          <li>Time-Series · DTW</li>
-          <li>SHAP · LIME (XAI)</li>
-          <li>Interpolation</li>
-          <li>Leakage Prevention</li>
-        </ul>
-      </div>
-      <div class="stack-cat">
-        <div class="cat-label">Backend &amp; Infra</div>
-        <ul>
-          <li>Python · FastAPI</li>
-          <li>Pydantic · WebSockets</li>
-          <li>Streamlit</li>
-          <li>AWS SageMaker</li>
-          <li>Git</li>
-        </ul>
-      </div>
-      <div class="stack-cat">
-        <div class="cat-label">Data &amp; Analytics</div>
-        <ul>
-          <li>SQL · PySpark</li>
-          <li>Pandas · NumPy</li>
-          <li>Power BI</li>
-          <li>Satellite Imagery</li>
-          <li>Large-scale ETL</li>
-        </ul>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- CONTACT · cream -->
-<section id="contact">
-  <div class="wrap">
-    <div class="sec-head">
-      <h2>Let&rsquo;s <span class="ital">talk.</span></h2>
-      <span class="sec-num">04 / Contact</span>
-    </div>
-    <div class="contact-card">
-      <div>
-        <h2>Got a <span class="ital">hard problem</span><br/>worth solving?</h2>
-        <p>Happy to chat about GenAI roles, consulting, or anything at the intersection of LLMs and real-world data. My AI twin handles the easy questions &mdash; I&rsquo;ll take the rest.</p>
+  <!-- ================= PROJECTS ================= -->
+  <section id="projects" class="px-5 sm:px-8 md:px-10 pt-[10vh] pb-[14vh]" style="scroll-margin-top:90px">
+    <div class="max-w-6xl mx-auto">
+      <div class="mb-12 sm:mb-16">
+        <div class="reveal flex items-center gap-3">
+          <span style="color:var(--accent);font-size:20px">✳︎</span>
+          <span class="text-[12px] tracking-[0.24em] uppercase" style="color:var(--muted)">02 &nbsp;/&nbsp; Selected Work</span>
+        </div>
+        <h2 class="reveal font-head mt-4 tracking-tight" style="font-size:clamp(38px, 6vw, 74px);line-height:0.98;letter-spacing:-0.02em;color:var(--text)">Things I've built.</h2>
       </div>
-      <div class="contact-links">
-        <a href="mailto:aikkara.pranav@gmail.com">aikkara.pranav@gmail.com <span class="arrow-small">↗</span></a>
-        <a href="https://www.linkedin.com/in/pranavaikkara" target="_blank">linkedin.com/in/pranavaikkara <span class="arrow-small">↗</span></a>
-        <a href="tel:+917025052042">+91 70250 52042 <span class="arrow-small">↗</span></a>
-        <a href="/assets/resume.pdf">Download résumé (PDF) <span class="arrow-small">↓</span></a>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5">
+        <article class="reveal hov-accent group h-full rounded-[22px] p-7 sm:p-9 flex flex-col" style="background:var(--surface);border:1px solid var(--line)">
+          <div class="font-head text-[14px] tracking-[0.1em]" style="color:var(--accent)">01</div>
+          <h3 class="font-head text-[22px] sm:text-[27px] tracking-tight mt-3 leading-tight" style="color:var(--text)">Domain-Specific Loan Officer Agent</h3>
+          <p class="text-[15px] sm:text-[16px] leading-relaxed mt-4 flex-1" style="color:rgba(236,230,219,0.78);text-wrap:pretty">Fine-tuned Gemma-2B with QLoRA for a compliance-aware tone, then quantized to GGUF and deployed on llama.cpp for low-latency CPU inference — proof a small model is a real production path.</p>
+          <p class="text-[12px] tracking-[0.12em] uppercase mt-6 pt-5" style="color:var(--muted);border-top:1px solid var(--line)">Unsloth · QLoRA · Gemma-2B · llama.cpp</p>
+        </article>
+        <article class="reveal hov-accent group h-full rounded-[22px] p-7 sm:p-9 flex flex-col" style="background:var(--surface);border:1px solid var(--line)">
+          <div class="font-head text-[14px] tracking-[0.1em]" style="color:var(--accent)">02</div>
+          <h3 class="font-head text-[22px] sm:text-[27px] tracking-tight mt-3 leading-tight" style="color:var(--text)">Companion AI — Voice ICU Support</h3>
+          <p class="text-[15px] sm:text-[16px] leading-relaxed mt-4 flex-1" style="color:rgba(236,230,219,0.78);text-wrap:pretty">Real-time speech-to-text with BERT sentiment to detect distress in ICU patients, replying with context-aware empathetic TTS — voice as the right modality for those who can't use a screen.</p>
+          <p class="text-[12px] tracking-[0.12em] uppercase mt-6 pt-5" style="color:var(--muted);border-top:1px solid var(--line)">PyTorch · Transformers · STT / TTS</p>
+        </article>
+        <article class="reveal hov-accent group h-full rounded-[22px] p-7 sm:p-9 flex flex-col" style="background:var(--surface);border:1px solid var(--line)">
+          <div class="font-head text-[14px] tracking-[0.1em]" style="color:var(--accent)">03</div>
+          <h3 class="font-head text-[22px] sm:text-[27px] tracking-tight mt-3 leading-tight" style="color:var(--text)">Agentic Recruitment Platform</h3>
+          <p class="text-[15px] sm:text-[16px] leading-relaxed mt-4 flex-1" style="color:rgba(236,230,219,0.78);text-wrap:pretty">An autonomous agent that scrapes job boards and rewrites résumés in real time against job descriptions. Most of the engineering went into error recovery — stale selectors, captchas, rate limits.</p>
+          <p class="text-[12px] tracking-[0.12em] uppercase mt-6 pt-5" style="color:var(--muted);border-top:1px solid var(--line)">Google Opal · Selenium · LangChain</p>
+        </article>
+        <article class="reveal hov-accent group h-full rounded-[22px] p-7 sm:p-9 flex flex-col" style="background:var(--surface);border:1px solid var(--line)">
+          <div class="font-head text-[14px] tracking-[0.1em]" style="color:var(--accent)">04</div>
+          <h3 class="font-head text-[22px] sm:text-[27px] tracking-tight mt-3 leading-tight" style="color:var(--text)">Vectorless-RAG Portfolio Chatbot</h3>
+          <p class="text-[15px] sm:text-[16px] leading-relaxed mt-4 flex-1" style="color:rgba(236,230,219,0.78);text-wrap:pretty">The portfolio is the demo — an LLM walks a tree-of-contents of a hand-authored knowledge base and shows which nodes it chose. No vector store, no database, $0 / month. Tap the chat bubble to try it.</p>
+          <p class="text-[12px] tracking-[0.12em] uppercase mt-6 pt-5" style="color:var(--muted);border-top:1px solid var(--line)">Vercel · Groq · PageIndex · Node.js</p>
+        </article>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- FOOTER · stone -->
-<footer>
-  <div class="wrap">
-    <div class="foot-row">
-      <span>© 2026 Pranav P</span>
-      <span class="meta-chat">Chat powered by <span class="hl">vectorless RAG</span> (PageIndex) · Groq Llama-3.3</span>
-      <span>Built from scratch, no template</span>
+  <!-- ================= EDUCATION ================= -->
+  <section id="education" class="px-5 sm:px-8 md:px-10 pt-[10vh] pb-[16vh]" style="scroll-margin-top:90px">
+    <div class="max-w-6xl mx-auto">
+      <div class="mb-12 sm:mb-16">
+        <div class="reveal flex items-center gap-3">
+          <span style="color:var(--accent);font-size:20px">✳︎</span>
+          <span class="text-[12px] tracking-[0.24em] uppercase" style="color:var(--muted)">03 &nbsp;/&nbsp; Education</span>
+        </div>
+        <h2 class="reveal font-head mt-4 tracking-tight" style="font-size:clamp(38px, 6vw, 74px);line-height:0.98;letter-spacing:-0.02em;color:var(--text)">The foundation.</h2>
+      </div>
+      <div class="flex flex-col gap-4">
+        <div class="reveal rounded-[22px] px-7 sm:px-9 py-8 flex flex-col md:flex-row md:items-center md:justify-between gap-4" style="background:var(--surface);border:1px solid var(--line)">
+          <div>
+            <h3 class="font-head text-[24px] sm:text-[30px] tracking-tight" style="color:var(--text)">Vellore Institute of Technology</h3>
+            <p class="mt-1 text-[16px]" style="color:rgba(236,230,219,0.72)">B.Tech, Computer Science — AI &amp; ML specialization</p>
+          </div>
+          <div class="md:text-right shrink-0">
+            <div class="font-head text-[18px]" style="color:var(--accent)">2021 — 2025</div>
+            <div class="text-[14px] mt-1" style="color:var(--muted)">CGPA 7.98 · Chennai</div>
+          </div>
+        </div>
+        <div class="reveal rounded-[22px] px-7 sm:px-9 py-8 flex flex-col md:flex-row md:items-center md:justify-between gap-4" style="background:var(--surface);border:1px solid var(--line)">
+          <div>
+            <h3 class="font-head text-[24px] sm:text-[30px] tracking-tight" style="color:var(--text)">Palghat Lions School</h3>
+            <p class="mt-1 text-[16px]" style="color:rgba(236,230,219,0.72)">Higher Secondary (XII)</p>
+          </div>
+          <div class="md:text-right shrink-0">
+            <div class="font-head text-[18px]" style="color:var(--accent)">2020 — 2021</div>
+            <div class="text-[14px] mt-1" style="color:var(--muted)">86.8% · Palakkad</div>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
-</footer>
+  </section>
 
-<!-- Floating chat widget -->
+  <!-- ================= READING (newsletter) ================= -->
+  <section id="reading" class="px-5 sm:px-8 md:px-10 pt-[10vh] pb-[14vh]" style="scroll-margin-top:90px">
+    <div class="max-w-6xl mx-auto">
+      <div class="mb-12 sm:mb-16">
+        <div class="reveal flex items-center gap-3">
+          <span style="color:var(--accent);font-size:20px">✳︎</span>
+          <span class="text-[12px] tracking-[0.24em] uppercase" style="color:var(--muted)">04 &nbsp;/&nbsp; Reading</span>
+        </div>
+        <h2 class="reveal font-head mt-4 tracking-tight" style="font-size:clamp(38px, 6vw, 74px);line-height:0.98;letter-spacing:-0.02em;color:var(--text)">What I'm reading.</h2>
+      </div>
+      <p class="-mt-6 mb-10 text-[15px]" style="color:var(--muted)">The newsletters I actually read — pulled from my inbox, cleaned up, mirrored here.</p>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5">
+        <a href="/newsletter/2026-05-01-towards-data-science-agents-on-a-token-diet" class="reveal hov-accent group rounded-[22px] p-7 sm:p-8 flex flex-col no-underline" style="background:var(--surface);border:1px solid var(--line)">
+          <div class="flex items-center justify-between text-[12px] tracking-[0.1em] uppercase" style="color:var(--muted)"><span style="color:var(--accent)">Towards Data Science</span><span>May 1, 2026</span></div>
+          <h3 class="font-head text-[20px] sm:text-[23px] tracking-tight mt-3 leading-snug" style="color:var(--text)">Agents on a token diet</h3>
+          <p class="text-[14px] leading-relaxed mt-3 flex-1" style="color:rgba(236,230,219,0.7);text-wrap:pretty">Plus: are engineers done with LangChain?</p>
+          <span class="text-[13px] mt-5 inline-flex items-center gap-2" style="color:var(--accent)">Read <span class="transition-transform duration-300 group-hover:translate-x-1">→</span></span>
+        </a>
+        <a href="/newsletter/2026-05-01-alphasignal-claude-security-public-beta-ai-vulnerability-scanning-no-api-setup-needed" class="reveal hov-accent group rounded-[22px] p-7 sm:p-8 flex flex-col no-underline" style="background:var(--surface);border:1px solid var(--line)">
+          <div class="flex items-center justify-between text-[12px] tracking-[0.1em] uppercase" style="color:var(--muted)"><span style="color:var(--accent)">AlphaSignal</span><span>May 1, 2026</span></div>
+          <h3 class="font-head text-[20px] sm:text-[23px] tracking-tight mt-3 leading-snug" style="color:var(--text)">Claude Security public beta: AI vulnerability scanning</h3>
+          <p class="text-[14px] leading-relaxed mt-3 flex-1" style="color:rgba(236,230,219,0.7);text-wrap:pretty">Anthropic launches Claude Security, Cursor releases an agent SDK, and an agent optimizer pushes AppWorld to 89.5.</p>
+          <span class="text-[13px] mt-5 inline-flex items-center gap-2" style="color:var(--accent)">Read <span class="transition-transform duration-300 group-hover:translate-x-1">→</span></span>
+        </a>
+        <a href="/newsletter/2026-05-01-evolving-ai-insights-anthropic-opens-claude-security-to-all" class="reveal hov-accent group rounded-[22px] p-7 sm:p-8 flex flex-col no-underline" style="background:var(--surface);border:1px solid var(--line)">
+          <div class="flex items-center justify-between text-[12px] tracking-[0.1em] uppercase" style="color:var(--muted)"><span style="color:var(--accent)">Evolving AI Insights</span><span>May 1, 2026</span></div>
+          <h3 class="font-head text-[20px] sm:text-[23px] tracking-tight mt-3 leading-snug" style="color:var(--text)">Anthropic opens Claude Security to all</h3>
+          <p class="text-[14px] leading-relaxed mt-3 flex-1" style="color:rgba(236,230,219,0.7);text-wrap:pretty">Also: Gemini drives into millions of cars.</p>
+          <span class="text-[13px] mt-5 inline-flex items-center gap-2" style="color:var(--accent)">Read <span class="transition-transform duration-300 group-hover:translate-x-1">→</span></span>
+        </a>
+        <a href="/newsletter/2026-04-30-alphasignal-warp-terminal-open-source-37k-stars-full-rust-codebase-released" class="reveal hov-accent group rounded-[22px] p-7 sm:p-8 flex flex-col no-underline" style="background:var(--surface);border:1px solid var(--line)">
+          <div class="flex items-center justify-between text-[12px] tracking-[0.1em] uppercase" style="color:var(--muted)"><span style="color:var(--accent)">AlphaSignal</span><span>Apr 30, 2026</span></div>
+          <h3 class="font-head text-[20px] sm:text-[23px] tracking-tight mt-3 leading-snug" style="color:var(--text)">Warp Terminal open source: full Rust codebase released</h3>
+          <p class="text-[14px] leading-relaxed mt-3 flex-1" style="color:rgba(236,230,219,0.7);text-wrap:pretty">37k stars in a day as the agent-first terminal goes AGPL.</p>
+          <span class="text-[13px] mt-5 inline-flex items-center gap-2" style="color:var(--accent)">Read <span class="transition-transform duration-300 group-hover:translate-x-1">→</span></span>
+        </a>
+      </div>
+      <div class="reveal mt-8">
+        <a href="/newsletter/" class="hov-accent inline-flex items-center gap-2 rounded-full text-[15px] px-6 py-3 no-underline" style="border:1px solid var(--line);color:var(--text)">Browse all reading <span>→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CONTACT ================= -->
+  <section id="contact" class="px-5 sm:px-8 md:px-10 pt-[12vh] pb-16" style="scroll-margin-top:0px">
+    <div class="max-w-6xl mx-auto">
+      <div class="mb-12 sm:mb-16">
+        <div class="reveal flex items-center gap-3">
+          <span style="color:var(--accent);font-size:20px">✳︎</span>
+          <span class="text-[12px] tracking-[0.24em] uppercase" style="color:var(--muted)">05 &nbsp;/&nbsp; Contact</span>
+        </div>
+        <h2 class="reveal font-head mt-4 tracking-tight" style="font-size:clamp(38px, 6vw, 74px);line-height:0.98;letter-spacing:-0.02em;color:var(--text)">Let's build something.</h2>
+      </div>
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12">
+        <div class="lg:col-span-5">
+          <p class="reveal text-[26px] sm:text-[34px] font-head tracking-tight leading-[1.1]" style="color:var(--text);text-wrap:balance">Have something hard to build?</p>
+          <p class="reveal mt-3 text-[16px] sm:text-[17px] leading-relaxed max-w-sm" style="color:var(--muted)">Agents, retrieval, voice, or fine-tuned models — let's talk.</p>
+          <div class="reveal flex flex-wrap gap-3 mt-8">
+            <a href="mailto:aikkara.pranav@gmail.com" class="inline-flex items-center rounded-full px-6 py-3 text-[15px] no-underline" style="background:var(--text);color:#14120f">Email me</a>
+            <button type="button" class="copy-email hov-accent inline-flex items-center gap-2.5 rounded-full px-5 py-3 text-[15px]" style="border:1px solid var(--line);color:var(--text);background:transparent">
+              <span class="copy-label">Copy email</span>
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><rect x="3.6" y="3.6" width="7" height="7" rx="1.2" stroke="currentColor" stroke-width="1.1" /><rect x="1.4" y="1.4" width="7" height="7" rx="1.2" stroke="currentColor" stroke-width="1.1" /></svg>
+            </button>
+          </div>
+        </div>
+        <div class="lg:col-span-7">
+          <div class="reveal grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-1">
+            <a href="mailto:aikkara.pranav@gmail.com" class="contact-row group block py-5 no-underline" style="border-top:1px solid var(--line)">
+              <div class="text-[12px] tracking-[0.18em] uppercase" style="color:var(--muted)">Email</div>
+              <div class="contact-val is-link mt-2 text-[17px] sm:text-[18px] break-words" style="color:rgba(236,230,219,0.92)">aikkara.pranav@gmail.com</div>
+            </a>
+            <a href="tel:+917025052042" class="contact-row group block py-5 no-underline" style="border-top:1px solid var(--line)">
+              <div class="text-[12px] tracking-[0.18em] uppercase" style="color:var(--muted)">Phone</div>
+              <div class="contact-val is-link mt-2 text-[17px] sm:text-[18px] break-words" style="color:rgba(236,230,219,0.92)">+91 70250 52042</div>
+            </a>
+            <a href="https://linkedin.com/in/pranavaikkara" target="_blank" rel="noreferrer" class="contact-row group block py-5 no-underline" style="border-top:1px solid var(--line)">
+              <div class="text-[12px] tracking-[0.18em] uppercase" style="color:var(--muted)">LinkedIn</div>
+              <div class="contact-val is-link mt-2 text-[17px] sm:text-[18px] break-words" style="color:rgba(236,230,219,0.92)">in/pranavaikkara</div>
+            </a>
+            <a href="https://aikkaraportfolio.vercel.app" target="_blank" rel="noreferrer" class="contact-row group block py-5 no-underline" style="border-top:1px solid var(--line)">
+              <div class="text-[12px] tracking-[0.18em] uppercase" style="color:var(--muted)">Portfolio</div>
+              <div class="contact-val is-link mt-2 text-[17px] sm:text-[18px] break-words" style="color:rgba(236,230,219,0.92)">aikkaraportfolio.vercel.app</div>
+            </a>
+            <div class="contact-row block py-5" style="border-top:1px solid var(--line)">
+              <div class="text-[12px] tracking-[0.18em] uppercase" style="color:var(--muted)">Location</div>
+              <div class="contact-val mt-2 text-[17px] sm:text-[18px] break-words" style="color:var(--muted)">Palakkad, Kerala</div>
+            </div>
+            <div class="contact-row block py-5" style="border-top:1px solid var(--line)">
+              <div class="text-[12px] tracking-[0.18em] uppercase" style="color:var(--muted)">Availability</div>
+              <div class="contact-val mt-2 text-[17px] sm:text-[18px] break-words" style="color:var(--muted)">Open to new work</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="mt-20 pt-8 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 text-[14px]" style="border-top:1px solid var(--line);color:var(--muted)">
+        <span class="font-head text-[18px]" style="color:rgba(236,230,219,0.7)">Pranav P®</span>
+        <span>© 2026 — Designed &amp; built end-to-end.</span>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- ================= CHAT WIDGET ================= -->
 <button class="chat-fab" id="chat-fab" type="button" aria-controls="chat-panel" aria-expanded="false">
   <span class="dotpulse"></span>
   <span class="chat-fab-label">Ask my AI twin</span>
@@ -290,16 +620,15 @@
     <div class="chat-panel-title">
       <span class="avatar-mini">P</span>
       <div>
-        <strong>Pranav&rsquo;s AI twin</strong>
-        <span class="chat-panel-sub"><span class="live"></span>trained on everything I&rsquo;ve built</span>
+        <strong>Pranav's AI twin</strong>
+        <span class="chat-panel-sub"><span class="live"></span>trained on everything I've built</span>
       </div>
     </div>
     <button class="chat-panel-close" id="chat-panel-close" type="button" aria-label="Close chat">&times;</button>
   </header>
-
   <div class="chat-panel-body" id="chat-panel-body">
     <div class="chat-empty" id="chat-empty">
-      <p class="chat-empty-greeting">Hey &mdash; ask me anything about my work, projects, or how I think about shipping GenAI.</p>
+      <p class="chat-empty-greeting">Hey — ask me anything about my work, projects, or how I think about shipping GenAI.</p>
       <div class="chat-starter-label">try one of these</div>
       <div class="chat-starters">
         <button class="pill" type="button" data-question="What is vectorless RAG and why use it?">What is vectorless RAG and why use it?</button>
@@ -309,13 +638,86 @@
     </div>
     <div id="chat-thread" aria-live="polite"></div>
   </div>
-
   <form class="chat-panel-composer" id="chat-panel-composer">
     <input type="text" id="ask-input" placeholder="Ask me anything…" autocomplete="off" />
     <button id="ask-submit" type="submit" aria-label="Send">↵</button>
   </form>
 </div>
 
+<script>
+  // ---- nav: darken on scroll past hero ----
+  (function () {
+    var nav = document.getElementById('nav');
+    if (!nav) return;
+    function onScroll() {
+      var dark = window.scrollY > window.innerHeight * 0.6;
+      nav.style.background = dark ? 'rgba(20,18,15,0.72)' : 'transparent';
+      nav.style.backdropFilter = dark ? 'blur(14px)' : 'none';
+      nav.style.webkitBackdropFilter = dark ? 'blur(14px)' : 'none';
+      nav.style.borderBottom = dark ? '1px solid rgba(236,230,219,0.10)' : '1px solid transparent';
+    }
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+  })();
+
+  // ---- mobile menu ----
+  (function () {
+    var btn = document.getElementById('menu-btn');
+    var overlay = document.getElementById('mobile-overlay');
+    if (!btn || !overlay) return;
+    var bars = btn.querySelectorAll('.menu-bar');
+    var open = false;
+    function set(v) {
+      open = v;
+      btn.setAttribute('aria-expanded', String(v));
+      overlay.style.opacity = v ? '1' : '0';
+      overlay.style.pointerEvents = v ? 'auto' : 'none';
+      bars[0].style.transform = v ? 'translateY(7px) rotate(45deg)' : 'none';
+      bars[1].style.opacity = v ? '0' : '1';
+      bars[2].style.transform = v ? 'translateY(-7px) rotate(-45deg)' : 'none';
+    }
+    btn.addEventListener('click', function () { set(!open); });
+    overlay.querySelectorAll('.mob-link').forEach(function (a) { a.addEventListener('click', function () { set(false); }); });
+  })();
+
+  // ---- expandable experience cards ----
+  (function () {
+    document.querySelectorAll('.xp-toggle').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var card = btn.closest('.xp-card');
+        card.setAttribute('data-open', card.getAttribute('data-open') === 'true' ? 'false' : 'true');
+      });
+    });
+  })();
+
+  // ---- copy email ----
+  (function () {
+    var EMAIL = 'aikkara.pranav@gmail.com';
+    document.querySelectorAll('.copy-email').forEach(function (btn) {
+      var label = btn.querySelector('.copy-label');
+      btn.addEventListener('click', function () {
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(EMAIL).then(function () {
+            if (label) { label.textContent = 'Copied!'; setTimeout(function () { label.textContent = 'Copy email'; }, 1600); }
+          }).catch(function () {});
+        }
+      });
+    });
+  })();
+
+  // ---- hero video: fallback source if primary fails ----
+  (function () {
+    var v = document.getElementById('hero-video');
+    if (!v) return;
+    var triedFallback = false;
+    v.addEventListener('error', function () {
+      if (triedFallback) return; triedFallback = true;
+      v.src = '/assets/hero-fallback.mp4';
+      var p = v.play(); if (p && p.catch) p.catch(function () {});
+    }, true);
+    var p = v.play(); if (p && p.catch) p.catch(function () {});
+  })();
+</script>
 <script src="/js/chat.js" defer></script>
 </body>
 </html>

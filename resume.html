@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Pranav P — Résumé</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --ink: #1a1a1a;
+    --ink-2: #333;
+    --muted: #5a6068;
+    --rule: #d8dbe2;
+    --accent: #1a5cd3;
+    --accent-soft: #f0f5ff;
+    --sans: 'IBM Plex Sans', 'Segoe UI', system-ui, -apple-system, sans-serif;
+  }
+  *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+
+  @page{
+    size: A4;
+    margin: 12mm 14mm 12mm 14mm;
+  }
+
+  html,body{
+    font-family: var(--sans);
+    color: var(--ink);
+    background: #fff;
+    line-height: 1.45;
+    font-size: 10.5pt;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* On-screen wrapper to look like a page; print removes this padding */
+  .page{
+    max-width: 820px;
+    margin: 20px auto;
+    padding: 36px 44px 36px 44px;
+    background: #fff;
+    box-shadow: 0 4px 24px -8px rgba(0,0,0,.15);
+  }
+  @media print{
+    .page{margin:0;padding:0;max-width:none;box-shadow:none}
+    body{font-size:10pt}
+    a{color:var(--accent);text-decoration:none}
+  }
+
+  /* HEADER */
+  .name{
+    font-size: 26pt;
+    font-weight: 700;
+    letter-spacing: -.015em;
+    color: var(--ink);
+    margin-bottom: 3px;
+  }
+  .contact{
+    font-size: 10pt;
+    color: var(--muted);
+    margin-bottom: 2px;
+  }
+  .links{
+    font-size: 10pt;
+    color: var(--muted);
+    margin-bottom: 14px;
+  }
+  .links strong{color: var(--ink); font-weight: 500}
+  .links a{
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+  }
+  .links a:hover{border-bottom-color: var(--accent)}
+  .links .sep{margin: 0 6px; color: var(--rule)}
+
+  /* SECTION HEADERS */
+  h2{
+    font-size: 13pt;
+    font-weight: 700;
+    color: var(--accent);
+    letter-spacing: .04em;
+    text-transform: uppercase;
+    margin-top: 16px;
+    margin-bottom: 8px;
+    padding-bottom: 3px;
+    border-bottom: 1.5px solid var(--accent);
+    /* Never let a section header sit alone at the bottom of a page */
+    break-after: avoid;
+    page-break-after: avoid;
+  }
+
+  /* SUMMARY */
+  .summary{
+    font-size: 10.5pt;
+    color: var(--ink-2);
+    line-height: 1.55;
+    margin-bottom: 4px;
+  }
+  .summary strong{color: var(--ink); font-weight: 600}
+  .summary em{font-style: italic}
+
+  /* WORK / JOBS */
+  .job{
+    margin-top: 12px;
+    /* Keep job header glued to at least the first bullet; allow the rest to flow.
+       Only avoid breaking the whole job for short ones (see .job.compact below). */
+  }
+  .job.compact{
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+  .job-head{
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 1px;
+    /* Don't strand the org name at the bottom of a page */
+    break-after: avoid;
+    page-break-after: avoid;
+  }
+  .job-role{
+    break-after: avoid;
+    page-break-after: avoid;
+  }
+  .job li{
+    /* Don't split a single bullet across pages */
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+  .job-org{
+    font-size: 12pt;
+    font-weight: 700;
+    color: var(--ink);
+  }
+  .job-date{
+    font-size: 9.5pt;
+    color: var(--muted);
+    font-variant-numeric: tabular-nums;
+    font-weight: 500;
+  }
+  .job-role{
+    font-size: 10.5pt;
+    color: var(--ink-2);
+    font-weight: 500;
+    margin-bottom: 6px;
+    font-style: italic;
+  }
+  .job ul{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .job li{
+    position: relative;
+    padding-left: 14px;
+    margin-bottom: 5px;
+    font-size: 10pt;
+    color: var(--ink-2);
+    line-height: 1.5;
+  }
+  .job li::before{
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 7px;
+    width: 5px; height: 5px;
+    background: var(--accent);
+    border-radius: 1px;
+  }
+  .job li strong{color: var(--ink); font-weight: 600}
+  .job li em{font-style: italic; color: var(--ink-2)}
+
+  /* SKILLS */
+  .skills{margin-top: 4px}
+  .skill-row{
+    margin-bottom: 6px;
+    font-size: 10pt;
+    line-height: 1.5;
+  }
+  .skill-row .label{
+    font-weight: 600;
+    color: var(--ink);
+    display: inline;
+  }
+  .skill-row .items{color: var(--ink-2)}
+
+  /* PROJECTS */
+  .project{
+    margin-top: 10px;
+    page-break-inside: avoid;
+  }
+  .project-head{
+    font-size: 11pt;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 2px;
+  }
+  .project-head .stack{
+    font-style: italic;
+    font-weight: 400;
+    color: var(--muted);
+    font-size: 10pt;
+  }
+  .project ul{list-style: none; padding: 0; margin-top: 3px}
+  .project li{
+    position: relative;
+    padding-left: 14px;
+    margin-bottom: 4px;
+    font-size: 10pt;
+    color: var(--ink-2);
+    line-height: 1.5;
+  }
+  .project li::before{
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 7px;
+    width: 5px; height: 5px;
+    background: var(--accent);
+    border-radius: 1px;
+  }
+  .project li strong{color: var(--ink); font-weight: 600}
+
+  /* EDUCATION */
+  .edu{margin-top: 6px}
+  .edu-entry{
+    margin-bottom: 6px;
+    font-size: 10pt;
+    line-height: 1.5;
+  }
+  .edu-entry .school{font-weight: 600; color: var(--ink)}
+  .edu-entry .date{color: var(--muted); font-variant-numeric: tabular-nums}
+  .edu-entry .deg{color: var(--ink-2)}
+
+  /* CERTS */
+  .certs{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 18px;
+    row-gap: 3px;
+    margin-top: 4px;
+    font-size: 10pt;
+  }
+  .certs li{
+    list-style: none;
+    position: relative;
+    padding-left: 14px;
+    color: var(--ink-2);
+    line-height: 1.5;
+  }
+  .certs li::before{
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 7px;
+    width: 5px; height: 5px;
+    background: var(--accent);
+    border-radius: 1px;
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="name">Pranav P</div>
+  <div class="contact">+91 70250 52042 · aikkara.pranav@gmail.com · Palakkad, Kerala</div>
+  <div class="links">
+    <strong>Portfolio:</strong> <a href="https://aikkaraportfolio.vercel.app/">aikkaraportfolio.vercel.app</a>
+    <span class="sep">·</span>
+    <strong>LinkedIn:</strong> <a href="https://linkedin.com/in/pranavaikkara">linkedin.com/in/pranavaikkara</a>
+  </div>
+
+  <h2>Professional Summary</h2>
+  <p class="summary">
+    Data Scientist and GenAI Engineer building production LLM systems end-to-end &mdash; agentic RAG pipelines, reliable voice agents, ingestion infrastructure, and fine-tuned domain models deployed on AWS. I pick the right retrieval approach for the job (vectorless tree-walk when documents have real structure and accuracy matters more than speed; semantic similarity when it doesn&rsquo;t) and ship small fine-tuned models that outperform frontier LLMs on narrow tasks. Strong classical ML background &mdash; time-series, satellite imagery, and explainable models for high-stakes decisions &mdash; which informs how I evaluate AI systems beyond surface benchmarks.
+  </p>
+
+  <h2>Work Experience</h2>
+
+  <div class="job">
+    <div class="job-head">
+      <span class="job-org">FarmwiseAI Pvt. Ltd. &mdash; Perungudi, Chennai</span>
+      <span class="job-date">April 2025 &ndash; Present</span>
+    </div>
+    <div class="job-role">Associate Data Scientist</div>
+    <ul>
+      <li><strong>Vectorless-RAG agentic system:</strong> Built a PageIndex-style retrieval pipeline for internal documents &mdash; an LLM walks a tree-of-contents and answers from selected nodes, without embeddings or a vector database. Migrated off the original Qdrant + bge-large pipeline after cosine similarity kept returning text that <em>looked like</em> the question rather than text that <em>answered</em> it; the tree-walk approach delivered noticeably better answers on long structured documents.</li>
+      <li><strong>Production voice agents:</strong> Built reliable STT &harr; LLM &harr; TTS loops with per-hop latency budgets, interrupt handling, and a state machine that handles mid-response interruptions cleanly. Solved two production issues with a companion-agent pattern: an <em>auto-compact agent</em> that summarizes context every 200k&ndash;300k tokens (preventing drift from conversation bloat), and a <em>parallel tool-calling agent</em> that runs tools while the voice agent is still speaking (so the user never hears a pause on lookups).</li>
+      <li><strong>Universal ingestion pipeline:</strong> Built a pipeline that normalizes PDFs, scans, audio, spreadsheets, and images into clean, LLM-friendly structured context. Each input type is routed to the right normalizer (OCR for scans, STT for audio, table parsers for spreadsheets) so downstream retrieval doesn&rsquo;t need to special-case format. OCR runs LightOnOCR-2 1B on AWS SageMaker, served through vLLM with PagedAttention and KV caching for high throughput.</li>
+      <li><strong>Internal intelligence platform:</strong> Stood up a company-wide assistant on OpenWebUI, RAG-backed against curated internal sources (policies, docs, onboarding material). Self-hosted, with a swappable model backend (Groq, local, etc.) that doesn&rsquo;t require changing the UI.</li>
+      <li><strong>Fine-tuned geospatial small models on AWS:</strong> Deployed specialized small models on SageMaker for location, terrain, and coordinate queries where frontier LLMs hallucinate. Called as a tool from the main agent when the query is geospatial &mdash; much better accuracy and lower cost than routing every geo query through a GPT-4-class model.</li>
+      <li><strong>Agentic chatbot with Google ADK + MCP:</strong> Built a chatbot using Google ADK, integrating MCP tools (database queries, Google Search, Qdrant-backed RAG). Sub-agent routing to smaller models for lightweight tasks, Pydantic validation on every LLM response, and WebSocket streaming for live execution updates.</li>
+      <li><strong>Satellite imagery time-series:</strong> Processed one year of Tamil Nadu agricultural field imagery &mdash; pixel-level vegetation signals extracted across time, then Dynamic Time Warping (DTW) to align growth curves across fields planted at different dates. Used to infer sowing dates for fields without explicit metadata.</li>
+      <li><strong>Tamil LLM tokenization:</strong> Trained a BPE tokenizer on a Tamil text corpus to extend an open-source LLM&rsquo;s Tamil understanding. Used a custom tokenizer because English-trained general tokenizers fragment Tamil text into far more tokens than necessary, reducing efficiency and effective context length.</li>
+      <li><strong>Cross-cutting stack:</strong> <strong>LiteLLM</strong> as the LLM gateway across every project (provider swaps without rewriting calling code). <strong>Langfuse</strong> for end-to-end observability &mdash; every LLM call, trace, latency, and cost logged so production debugging becomes a diff, not guesswork. <strong>MCP</strong> as the standard protocol for connecting tools between agents.</li>
+    </ul>
+  </div>
+
+  <div class="job compact">
+    <div class="job-head">
+      <span class="job-org">Infosys &mdash; India, Remote</span>
+      <span class="job-date">February 2025 &ndash; April 2025</span>
+    </div>
+    <div class="job-role">Data Visualization and Analyst Engineer Intern</div>
+    <ul>
+      <li>Worked on data visualization and analytics to transform complex datasets into actionable insights for non-analyst stakeholders.</li>
+      <li>Built interactive dashboards and visual reports using Power BI and Python.</li>
+      <li>Performed data preprocessing, exploratory data analysis (EDA), and trend analysis to surface key patterns from real-world datasets.</li>
+    </ul>
+  </div>
+
+  <div class="job compact">
+    <div class="job-head">
+      <span class="job-org">Descpro Pvt. Ltd. &mdash; Palakkad, Kerala</span>
+      <span class="job-date">December 2023 &ndash; April 2024</span>
+    </div>
+    <div class="job-role">Machine Learning Developer Intern · NBFC Loan Approval System</div>
+    <ul>
+      <li>Developed an AI-powered system to automate loan approval and monitor customer repayment patterns for a non-banking financial company (NBFC).</li>
+      <li>Built and deployed machine learning models to evaluate loan eligibility based on income, age, expenses, and other risk parameters.</li>
+      <li>Designed an individual customer monitoring model using LSTM to predict repayment delays at the per-customer level.</li>
+      <li>Built a loan inquiry forecasting model to predict upcoming application volumes, supporting operations capacity planning.</li>
+    </ul>
+  </div>
+
+  <div class="job compact">
+    <div class="job-head">
+      <span class="job-org">Thapovan Info Systems Pvt. Ltd. &mdash; T. Nagar, Chennai</span>
+      <span class="job-date">September 2023 &ndash; November 2023</span>
+    </div>
+    <div class="job-role">Machine Learning Intern · Predictive Disease Modeling</div>
+    <ul>
+      <li>Built a heart attack risk model from raw clinical data &mdash; translating a clear medical need into a defensible predictive system.</li>
+      <li>Curated and engineered 20+ key health indicators into a model-ready dataset, improving data quality before training.</li>
+      <li>Applied SHAP and LIME (explainable AI) so doctors could see <em>why</em> the model flagged any individual case, not just the score &mdash; important in a setting where the prediction has to be defensible to a clinician.</li>
+      <li>Built an LSTM-based alert system to flag time-series patterns suggesting rising risk, giving doctors earlier warning windows.</li>
+    </ul>
+  </div>
+
+  <h2>Technical Skills</h2>
+  <div class="skills">
+    <div class="skill-row"><span class="label">GenAI &amp; LLM Systems:</span> <span class="items">RAG (vectorless + traditional), Agentic Systems, LangChain, LangGraph, Google ADK, Model Context Protocol (MCP), Tool Calling, Pydantic AI / Instructor, PageIndex, Qdrant, FAISS, HuggingFace, vLLM, LiteLLM, OpenRouter, Ollama, Langfuse (observability), Unsloth, QLoRA</span></div>
+    <div class="skill-row"><span class="label">Machine Learning &amp; Data Science:</span> <span class="items">Random Forest, LSTM, Time-Series Analysis, Dynamic Time Warping (DTW), Explainable AI (SHAP, LIME), Data Interpolation, Data Leakage Prevention, Feature Engineering</span></div>
+    <div class="skill-row"><span class="label">Backend &amp; AI Infrastructure:</span> <span class="items">Python, FastAPI, Pydantic, WebSockets, Streamlit, AWS SageMaker, llama.cpp, Vercel, Git</span></div>
+    <div class="skill-row"><span class="label">Data &amp; Analytics:</span> <span class="items">SQL, Power BI, Pandas, NumPy, PySpark, Satellite Imagery Processing</span></div>
+  </div>
+
+  <h2>Projects</h2>
+
+  <div class="project">
+    <div class="project-head">Domain-Specific Loan Officer Agent <span class="stack">| Unsloth, QLoRA, Gemma-2B, llama.cpp</span></div>
+    <ul>
+      <li><strong>Fine-tuning:</strong> Fine-tuned Gemma-2B on a synthetic instruction dataset using QLoRA and Unsloth for memory efficiency, training a compliance-aware tone for the domain.</li>
+      <li><strong>Edge deployment:</strong> Quantized to GGUF and deployed via llama.cpp for low-latency CPU inference &mdash; proof that a well-fine-tuned small model is a real production path for narrow domains, no GPU required.</li>
+    </ul>
+  </div>
+
+  <div class="project">
+    <div class="project-head">Companion AI &mdash; Voice-Enabled ICU Support System <span class="stack">| PyTorch, Transformers, STT/TTS</span></div>
+    <ul>
+      <li><strong>Pipeline:</strong> Integrated real-time Speech-to-Text with BERT-based sentiment analysis to detect emotional distress in ICU patients, triggering context-aware empathetic responses via TTS. Built for patients who are alone, disoriented, and unable to use a phone or tablet &mdash; voice is the right modality for them.</li>
+    </ul>
+  </div>
+
+  <div class="project">
+    <div class="project-head">Agentic Recruitment Platform <span class="stack">| Google Opal, Selenium, LangChain</span></div>
+    <ul>
+      <li><strong>Automation:</strong> Built an autonomous agent that scrapes job boards and uses Google&rsquo;s experimental Opal model to rewrite resumes in real-time, mapping candidate skills to job descriptions via a RAG pipeline. Most of the engineering went into error recovery &mdash; stale selectors, captcha walls, rate limits &mdash; not the LLM call itself.</li>
+    </ul>
+  </div>
+
+  <div class="project">
+    <div class="project-head">Portfolio Site with Vectorless-RAG Chatbot <span class="stack">| Vercel, Groq, PageIndex, Node.js</span></div>
+    <ul>
+      <li><strong>The chatbot is the demo:</strong> The portfolio site (linked at the top of this r&eacute;sum&eacute;) is itself a vectorless-RAG application. An LLM walks a tree-of-contents of a hand-authored markdown knowledge base about my work and answers from selected nodes &mdash; the reasoning panel under each answer shows which nodes were chosen.</li>
+      <li><strong>Zero-cost infrastructure:</strong> Single Node serverless function on Vercel, Groq Llama-3.3 for inference, no vector store, no database. Runs entirely on free tiers.</li>
+    </ul>
+  </div>
+
+  <h2>Education</h2>
+  <div class="edu">
+    <div class="edu-entry">
+      <span class="school">Vellore Institute of Technology</span> &mdash; Chennai, India <span class="date">· 2021 &ndash; 2025</span><br/>
+      <span class="deg">B.Tech in Computer Science with Specialization in AI and ML &middot; CGPA: 7.98</span>
+    </div>
+    <div class="edu-entry">
+      <span class="school">Palghat Lions School</span> &mdash; Palakkad, Kerala <span class="date">· 2020 &ndash; 2021</span><br/>
+      <span class="deg">XII &middot; 86.8%</span>
+    </div>
+  </div>
+
+  <h2>Certifications</h2>
+  <ul class="certs">
+    <li>NPTEL Entrepreneurship</li>
+    <li>OCI Gen AI Professional Course</li>
+    <li>TATA Data Visualization: Empowering Business with Effective Insights</li>
+    <li>Infosys Springboard Internship &mdash; TechA Data Analytics (Power BI Foundation)</li>
+    <li>Power BI Certificate</li>
+    <li>Cisco Packet Tracer</li>
+    <li>Internship at Thapovan PVT LTD</li>
+  </ul>
+
+</div>
+</body>
+</html>

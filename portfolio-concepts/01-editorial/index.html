@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Pranav P — Applied AI Engineering / Field Journal</title>
+<meta name="description" content="The working notebook of Pranav P, an applied AI engineer building production retrieval, voice, and ingestion systems." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header class="masthead">
+  <div class="wrap">
+    <a class="logo" href="index.html">PRANAV&nbsp;P <b>/</b> FIELD JOURNAL</a>
+    <nav aria-label="Primary">
+      <a href="index.html" aria-current="page">Cover</a>
+      <a href="work.html">Casework</a>
+      <a href="about.html">Colophon</a>
+    </nav>
+    <span class="issue">Vol. 04 — Applied AI</span>
+  </div>
+</header>
+
+<main>
+  <!-- HERO -->
+  <section class="hero" style="border-top:none">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="kicker">
+          <span class="dash"></span>
+          <span class="label">Associate Data Scientist · FarmwiseAI</span>
+        </div>
+        <h1 class="headline">I build the<br>parts of AI that<br>have to <em>actually<br>run.</em></h1>
+      </div>
+      <div>
+        <p class="standfirst">Retrieval without a vector database. Voice agents that hold a conversation. Ingestion that survives the messy PDF. <b>This is the working notebook</b> behind those systems.</p>
+        <div class="cta-row">
+          <a class="btn btn--accent" href="work.html">Read the casework <span class="arr">&rarr;</span></a>
+          <a class="btn" href="about.html">Who's writing</a>
+        </div>
+      </div>
+    </div>
+    <div class="wrap">
+      <dl class="byline">
+        <div><dt>Based</dt><dd>Chennai, IN</dd></div>
+        <div><dt>Focus</dt><dd>Production GenAI</dd></div>
+        <div><dt>Stack</dt><dd>Python · Node · LLM tooling</dd></div>
+        <div><dt>Status</dt><dd>Shipping daily</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- SELECTED CASEWORK -->
+  <section>
+    <div class="wrap">
+      <div class="sec-head rise">
+        <span class="num">01 / Selected casework</span>
+        <h2>Four systems, written up the way I'd<br>hand them to the next engineer.</h2>
+      </div>
+
+      <div class="entry rise">
+        <div class="entry-top">
+          <h3><a href="work.html#rag">Vectorless retrieval over enterprise documents</a></h3>
+          <span class="yr">2025</span>
+        </div>
+        <div class="entry-body">
+          <p>A retrieval layer that answers from large document sets without a vector store or an embedding index to babysit. The model reasons over a structured table of contents and pulls only the passages it needs, so answers stay traceable to a page rather than to a fuzzy similarity score.</p>
+          <div class="tags"><span class="tag">Retrieval</span><span class="tag">LLM routing</span><span class="tag">Citations</span></div>
+        </div>
+      </div>
+
+      <div class="entry rise">
+        <div class="entry-top">
+          <h3><a href="work.html#voice">Voice agents for field operations</a></h3>
+          <span class="yr">2025</span>
+        </div>
+        <div class="entry-body">
+          <p>A telephony-grade voice agent that takes a call, understands intent over a noisy line, and completes a task end to end. The hard part was never the speech model, it was the turn-taking, the barge-in, and recovering gracefully when the caller says something the script never imagined.</p>
+          <div class="tags"><span class="tag">ASR / TTS</span><span class="tag">Latency</span><span class="tag">Dialogue state</span></div>
+        </div>
+      </div>
+
+      <div class="entry rise">
+        <div class="entry-top">
+          <h3><a href="work.html#ingestion">Document ingestion that tolerates the real world</a></h3>
+          <span class="yr">2024</span>
+        </div>
+        <div class="entry-body">
+          <p>An ingestion pipeline for the documents nobody wants to parse: scanned forms, merged cells, three languages on one page. It normalises structure first and content second, so everything downstream gets clean text instead of a guess.</p>
+          <div class="tags"><span class="tag">OCR</span><span class="tag">Parsing</span><span class="tag">Pipelines</span></div>
+        </div>
+      </div>
+
+      <div class="entry rise">
+        <div class="entry-top">
+          <h3><a href="work.html#finetune">Fine-tuning small models for a narrow job</a></h3>
+          <span class="yr">2024</span>
+        </div>
+        <div class="entry-body">
+          <p>When a frontier model was overkill and slow, I fine-tuned a smaller one to do exactly one task well. The write-up covers the data curation, where the synthetic examples helped and where they quietly poisoned the set, and how I knew when to stop.</p>
+          <div class="tags"><span class="tag">Fine-tuning</span><span class="tag">Eval design</span><span class="tag">Cost</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PULL QUOTE + FIGURE -->
+  <section>
+    <div class="wrap cols">
+      <div class="rise">
+        <blockquote class="pull">A demo proves it <span>can</span> work. Production proves it <span>keeps</span> working at 3am.
+          <cite>From the field notes, March 2025</cite>
+        </blockquote>
+      </div>
+      <figure class="rise">
+        <img class="plate" src="https://picsum.photos/seed/pranav-editorial-server/1200/750" alt="Long-exposure photograph of server infrastructure" loading="lazy" />
+        <figcaption>Fig. 1 — Where the abstractions meet the metal.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- PRACTICE / WHAT I DO -->
+  <section>
+    <div class="wrap">
+      <div class="sec-head rise">
+        <span class="num">02 / The practice</span>
+        <h2>How the work actually breaks down.</h2>
+      </div>
+      <div class="ledger">
+        <div class="row rise"><span class="ix">i.</span><div><h4>Retrieval &amp; grounding</h4><p>Getting a model to answer from your documents and tell you exactly where the answer came from.</p></div></div>
+        <div class="row rise"><span class="ix">ii.</span><div><h4>Conversational voice</h4><p>Real-time agents that listen, interrupt politely, and finish the task on a phone line.</p></div></div>
+        <div class="row rise"><span class="ix">iii.</span><div><h4>Ingestion &amp; structure</h4><p>Turning the worst PDF in the building into clean, queryable structure.</p></div></div>
+        <div class="row rise"><span class="ix">iv.</span><div><h4>Evaluation</h4><p>Tests that measure whether the system is good, not just whether the demo looked good.</p></div></div>
+        <div class="row rise"><span class="ix">v.</span><div><h4>Fine-tuning</h4><p>Teaching a small model one job so you stop paying frontier prices for it.</p></div></div>
+        <div class="row rise"><span class="ix">vi.</span><div><h4>Putting it in production</h4><p>The unglamorous half: latency budgets, fallbacks, logging, and the on-call pager.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COLOPHON / CONTACT -->
+  <section class="colophon" id="contact">
+    <div class="wrap">
+      <div class="rise">
+        <span class="num">03 / Colophon</span>
+        <h2>If any of this is the<br>problem you're <em>staring at</em>,<br>let's talk.</h2>
+      </div>
+      <div class="rise">
+        <nav class="contact-list" aria-label="Contact">
+          <a href="mailto:hello@pranavp.dev"><span class="who">Email</span><span class="what">hello@pranavp.dev</span></a>
+          <a href="https://github.com/" rel="noopener"><span class="who">GitHub</span><span class="what">/pranavp &rarr;</span></a>
+          <a href="https://www.linkedin.com/" rel="noopener"><span class="who">LinkedIn</span><span class="what">in/pranavp &rarr;</span></a>
+          <a href="work.html"><span class="who">The casework</span><span class="what">Read on &rarr;</span></a>
+        </nav>
+      </div>
+    </div>
+    <div class="wrap">
+      <div class="foot-meta">
+        <span>Set in Newsreader &amp; IBM Plex Mono</span>
+        <span>Pranav P — Field Journal, Vol. 04</span>
+        <span>&copy; 2026</span>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script>
+  // reveal on enter — IntersectionObserver, no scroll listener
+  (function(){
+    document.documentElement.classList.add('js');
+    var rm = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var els = document.querySelectorAll('.rise');
+    if (rm || !('IntersectionObserver' in window)) { els.forEach(function(e){e.classList.add('in');}); return; }
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target);} });
+    }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+    els.forEach(function(e){ io.observe(e); });
+  })();
+</script>
+</body>
+</html>

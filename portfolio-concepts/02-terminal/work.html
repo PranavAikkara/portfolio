@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>~/work — pranav@prod</title>
+<meta name="description" content="Case files for four production AI systems: vectorless retrieval, voice agents, ingestion, and fine-tuning." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header class="bar">
+  <div class="wrap">
+    <span class="brand"><span class="dots"><i></i><i></i><i></i></span> <b>pranav</b>@prod:~$</span>
+    <nav aria-label="Primary">
+      <a href="index.html">home</a>
+      <a href="work.html" aria-current="page">work</a>
+      <a href="about.html">about</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="page-intro wrap">
+    <p class="runline"><span class="ok">[ls]</span> ~/work &middot; 4 case files</p>
+    <h1>The <span class="g">case files.</span></h1>
+    <p class="lead">Four systems that ran in production. For each: what it does, the hard part, and the thing I'd warn the next engineer about.</p>
+  </div>
+
+  <!-- 001 -->
+  <section id="rag">
+    <div class="wrap">
+      <div class="sec-head rise"><span class="hh">[001]</span><h2>Vectorless retrieval</h2></div>
+      <div class="term rise">
+        <div class="term-bar"><span class="dots"><i></i><i></i><i></i></span><span>case_001 — retrieval</span></div>
+        <div class="term-body">
+<div class="ln"><span class="prompt"></span>describe --what</div>
+<div class="ln out">retrieval over large document sets with no vector store. the model reads a</div>
+<div class="ln out">structured outline, opens only the sections it needs, and cites the page.</div>
+<div class="ln">&nbsp;</div>
+<div class="ln"><span class="prompt"></span>describe --hard-part</div>
+<div class="ln out">getting the model to say <span class="str">"not in these documents"</span> instead of inventing</div>
+<div class="ln out">a confident, wrong passage. honesty was the feature, not accuracy.</div>
+<div class="ln">&nbsp;</div>
+<div class="ln"><span class="prompt"></span>describe --warning</div>
+<div class="ln out"><span class="amb">documents with zero structure.</span> no outline to navigate means you build one</div>
+<div class="ln out">first, which is its own project. budget for it.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 002 -->
+  <section id="voice">
+    <div class="wrap">
+      <div class="sec-head rise"><span class="hh">[002]</span><h2>Conversational voice agents</h2></div>
+      <div class="term rise">
+        <div class="term-bar"><span class="dots"><i></i><i></i><i></i></span><span>case_002 — voice</span></div>
+        <div class="term-body">
+<div class="ln"><span class="prompt"></span>describe --what</div>
+<div class="ln out">telephony-grade agents that take a call, understand intent on a noisy line,</div>
+<div class="ln out">and complete a task end to end. with barge-in and graceful recovery.</div>
+<div class="ln">&nbsp;</div>
+<div class="ln"><span class="prompt"></span>describe --hard-part</div>
+<div class="ln out">latency. recognition + reasoning + synthesis all share a budget the caller</div>
+<div class="ln out">measures in silence. most of the work was shaving milliseconds.</div>
+<div class="ln">&nbsp;</div>
+<div class="ln"><span class="prompt"></span>describe --warning</div>
+<div class="ln out"><span class="amb">never optimise the speech model first.</span> the dialogue manager and turn-taking</div>
+<div class="ln out">logic is where the project actually lives.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 003 -->
+  <section id="ingestion">
+    <div class="wrap">
+      <div class="sec-head rise"><span class="hh">[003]</span><h2>Resilient document ingestion</h2></div>
+      <div class="term rise">
+        <div class="term-bar"><span class="dots"><i></i><i></i><i></i></span><span>case_003 — ingestion</span></div>
+        <div class="term-body">
+<div class="ln"><span class="prompt"></span>describe --what</div>
+<div class="ln out">a pipeline for the documents nobody wants: skewed scans, merged cells,</div>
+<div class="ln out">two languages in one paragraph. layout normalised before content.</div>
+<div class="ln">&nbsp;</div>
+<div class="ln"><span class="prompt"></span>describe --principle</div>
+<div class="ln out">fix structure first, meaning second. get reading order right and half the</div>
+<div class="ln out"><span class="str">"AI problems"</span> downstream turn out to have been data problems.</div>
+<div class="ln">&nbsp;</div>
+<div class="ln"><span class="prompt"></span>describe --warning</div>
+<div class="ln out"><span class="amb">if a human can't tell the reading order at a glance,</span> the parser won't</div>
+<div class="ln out">either. that page needs a different strategy, not a better prompt.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 004 -->
+  <section id="finetune">
+    <div class="wrap">
+      <div class="sec-head rise"><span class="hh">[004]</span><h2>Fine-tuned small models</h2></div>
+      <div class="term rise">
+        <div class="term-bar"><span class="dots"><i></i><i></i><i></i></span><span>case_004 — fine-tuning</span></div>
+        <div class="term-body">
+<div class="ln"><span class="prompt"></span>describe --what</div>
+<div class="ln out">a small open model fine-tuned for one narrow task. faster, cheaper, fully</div>
+<div class="ln out">owned, and good enough to retire the frontier api call.</div>
+<div class="ln">&nbsp;</div>
+<div class="ln"><span class="prompt"></span>describe --hard-part</div>
+<div class="ln out">the data. synthetic examples added breadth but quietly skewed the</div>
+<div class="ln out">distribution until the eval caught it.</div>
+<div class="ln">&nbsp;</div>
+<div class="ln"><span class="prompt"></span>describe --warning</div>
+<div class="ln out"><span class="amb">knowing when to stop &gt; any hyperparameter.</span> once it clears the bar a</div>
+<div class="ln out">human reviewer would, more training is polishing a corner nobody sees.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section>
+    <div class="wrap">
+      <p class="rule-comment">numbers are illustrative placeholders &mdash; swap for your real metrics</p>
+      <div class="stats rise">
+        <div><div class="n">4</div><div class="k">systems in production</div></div>
+        <div><div class="n">0</div><div class="k">vector databases required</div></div>
+        <div><div class="n">3</div><div class="k">domains: text, voice, docs</div></div>
+        <div><div class="n">90%</div><div class="k">of the work is the last 10</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <section class="foot" id="contact">
+    <div class="wrap">
+      <h2 class="rise">Want the <span class="g">long version?</span></h2>
+      <div class="links rise">
+        <a href="about.html"><span class="w">./about</span><span class="v">whoami, in full</span></a>
+        <a href="mailto:hello@pranavp.dev"><span class="w">./email</span><span class="v">hello@pranavp.dev</span></a>
+      </div>
+      <div class="foot-meta">
+        <span>built in JetBrains Mono + Space Grotesk</span>
+        <span>pranav@prod &middot; 2026 &middot; exit 0</span>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script>
+  (function(){
+    document.documentElement.classList.add('js');
+    var rm = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var els = document.querySelectorAll('.rise');
+    if (rm || !('IntersectionObserver' in window)) { els.forEach(function(e){e.classList.add('in');}); return; }
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target);} });
+    }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+    els.forEach(function(e){ io.observe(e); });
+  })();
+</script>
+</body>
+</html>

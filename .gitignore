@@ -7,3 +7,7 @@ node_modules/
 *.log
 
 .vercel
+
+# local agent / tooling dirs (Claude Code skills & config)
+.claude/
+.agents/

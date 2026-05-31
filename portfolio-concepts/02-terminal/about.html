@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>whoami — pranav@prod</title>
+<meta name="description" content="About Pranav P, an applied AI engineer who builds production retrieval, voice, and ingestion systems." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header class="bar">
+  <div class="wrap">
+    <span class="brand"><span class="dots"><i></i><i></i><i></i></span> <b>pranav</b>@prod:~$</span>
+    <nav aria-label="Primary">
+      <a href="index.html">home</a>
+      <a href="work.html">work</a>
+      <a href="about.html" aria-current="page">about</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="page-intro wrap">
+    <p class="runline"><span class="ok">[run]</span> whoami --verbose</p>
+    <h1>The human<br>behind the <span class="g">prompt.</span></h1>
+    <p class="lead">I'm Pranav P, an applied AI engineer at FarmwiseAI. I came up through data science and kept following problems downstream, into retrieval, voice, and the deeply specific question of why the pipeline fell over last night.</p>
+  </div>
+
+  <section>
+    <div class="wrap">
+      <div class="term rise">
+        <div class="term-bar"><span class="dots"><i></i><i></i><i></i></span><span>pranav@prod: ~/bio</span></div>
+        <div class="term-body">
+<div class="ln"><span class="prompt"></span>cat bio.txt</div>
+<div class="ln out">i like the second 90% of an ai project. anyone can make a model look</div>
+<div class="ln out">impressive in a notebook. the interesting engineering starts when it has</div>
+<div class="ln out">to handle a caller it didn't expect, a document it can't read, or a</div>
+<div class="ln out">latency budget that won't forgive a slow path.</div>
+<div class="ln">&nbsp;</div>
+<div class="ln out">i write things down as i go. this site is half portfolio, half that habit</div>
+<div class="ln out">made public.<span class="cursor" aria-hidden="true"></span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="sec-head rise"><span class="hh">~/principles</span><h2>What I optimise for</h2></div>
+      <div class="deflist">
+        <div class="d rise"><span class="k">01</span><div><h4>Traceability over magic</h4><p>If you can't point at where an answer came from, it's a liability, not a feature.</p></div></div>
+        <div class="d rise"><span class="k">02</span><div><h4>Evals before vibes</h4><p>Build the ruler before you trust the result. A demo that dazzles proves nothing.</p></div></div>
+        <div class="d rise"><span class="k">03</span><div><h4>Latency is a feature</h4><p>In voice especially. Speed isn't polish, it's whether the thing is usable at all.</p></div></div>
+        <div class="d rise"><span class="k">04</span><div><h4>Small models, narrow jobs</h4><p>Stop paying frontier prices for a task a fine-tuned small model can nail.</p></div></div>
+        <div class="d rise"><span class="k">05</span><div><h4>Fix the data first</h4><p>Half of what looks like a model problem is a structure problem in disguise.</p></div></div>
+        <div class="d rise"><span class="k">06</span><div><h4>Write it down</h4><p>The system you can't explain is the system that pages you at 3am.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="sec-head rise"><span class="hh">~/stack</span><h2>What's installed</h2></div>
+      <div class="term rise">
+        <div class="term-bar"><span class="dots"><i></i><i></i><i></i></span><span>pranav@prod: ~/stack</span></div>
+        <div class="term-body">
+<div class="ln"><span class="prompt"></span>ls -1 ./toolkit</div>
+<div class="ln out"><span class="grn">languages/</span>      python  node.js</div>
+<div class="ln out"><span class="grn">retrieval/</span>      vectorless-rag  hybrid-search  citation-grounding</div>
+<div class="ln out"><span class="grn">voice/</span>          asr  tts  dialogue-state  barge-in</div>
+<div class="ln out"><span class="grn">documents/</span>      ocr  layout-parsing  multilingual</div>
+<div class="ln out"><span class="grn">models/</span>         fine-tuning  eval-design  prompt-engineering</div>
+<div class="ln out"><span class="grn">infra/</span>          serverless  latency-budgets  observability</div>
+<div class="ln">&nbsp;</div>
+<div class="ln out"><span class="dim"># tooling rotates every quarter. judgement about when to reach for</span></div>
+<div class="ln out"><span class="dim"># which tool is the part that compounds.</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="foot" id="contact">
+    <div class="wrap">
+      <h2 class="rise">Bring me the <span class="g">3am problem.</span></h2>
+      <div class="links rise">
+        <a href="mailto:hello@pranavp.dev"><span class="w">./email</span><span class="v">hello@pranavp.dev</span></a>
+        <a href="https://github.com/" rel="noopener"><span class="w">./github</span><span class="v">/pranavp</span></a>
+        <a href="https://www.linkedin.com/" rel="noopener"><span class="w">./linkedin</span><span class="v">in/pranavp</span></a>
+      </div>
+      <div class="foot-meta">
+        <span>built in JetBrains Mono + Space Grotesk</span>
+        <span>pranav@prod &middot; 2026 &middot; exit 0</span>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script>
+  (function(){
+    document.documentElement.classList.add('js');
+    var rm = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var els = document.querySelectorAll('.rise');
+    if (rm || !('IntersectionObserver' in window)) { els.forEach(function(e){e.classList.add('in');}); return; }
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target);} });
+    }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+    els.forEach(function(e){ io.observe(e); });
+  })();
+</script>
+</body>
+</html>

@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Pranav P — Data Scientist &amp; GenAI Engineer</title>
+<!--
+  PLAIN HTML/CSS EXPORT of pranavp.dev — single self-contained file for design review.
+  Backend removed: the live site's "AI twin" answers via a vectorless-RAG (PageIndex)
+  Groq Llama-3.3 serverless function. Here the chat panel only opens/closes and shows a
+  placeholder reply — no network, no API. Hero artwork is embedded as a data URI so this
+  file renders anywhere. Fonts still load from Google Fonts. Nav links to /projects, /newsletter
+  point at the multi-page live site and won't resolve standalone.
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+
+  :root{
+    /* stepped neutral palette — each section picks one */
+    --bg:         #FAF8F2;   /* cream (hero, projects) */
+    --bg-alt:     #F0ECDF;   /* sand (work, stack)    */
+    --bg-deep:    #E8E3D2;   /* stone (now, footer accents) */
+    --surface:    #FFFFFF;
+    --surface-2:  #F4F1E8;
+    --border:     #E0DAC6;
+    --border-soft:#ECE7D6;
+    --ink:        #0E0E0C;
+    --ink-2:      #2A2A26;
+    --muted:      #74706A;
+    --muted-2:    #A7A299;
+    --accent:     #D94B0C;
+    --accent-soft:#FBE9DD;
+    --ok:         #1F7A3A;
+    --serif:      'Instrument Serif', Georgia, serif;
+    --sans:       'Inter', system-ui, sans-serif;
+    --mono:       'JetBrains Mono', ui-monospace, monospace;
+  }
+
+  html{scroll-behavior:smooth;font-size:16px}
+  body{
+    font-family:var(--sans);
+    background:var(--bg);
+    color:var(--ink);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  a{color:inherit;text-decoration:none}
+  ::selection{background:var(--accent);color:#fff}
+
+  /* paper grain only (subtle, full page) */
+  body::before{
+    content:"";position:fixed;inset:0;pointer-events:none;z-index:1;
+    background-image:radial-gradient(rgba(14,14,12,0.035) 1px,transparent 1px);
+    background-size:3px 3px;opacity:.6;mix-blend-mode:multiply;
+  }
+
+  /* ─── NAV ─── */
+  nav{
+    position:fixed;top:0;left:0;right:0;z-index:50;
+    display:flex;justify-content:space-between;align-items:center;
+    padding:1.1rem 2.5rem;
+    background:rgba(250,248,242,.82);
+    backdrop-filter:blur(14px);
+    border-bottom:1px solid var(--border-soft);
+  }
+  .logo{font-family:var(--mono);font-size:.82rem;letter-spacing:.04em;color:var(--ink)}
+  .logo .dot{color:var(--accent)}
+  .nav-links{display:flex;gap:2rem;list-style:none;font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase}
+  .nav-links a{color:var(--muted);transition:color .18s}
+  .nav-links a:hover{color:var(--ink)}
+  .nav-cta{font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;
+    background:var(--ink);color:var(--bg);padding:.55rem .95rem;border-radius:999px;display:inline-flex;align-items:center;gap:.45rem}
+  .nav-cta .blip{width:6px;height:6px;border-radius:50%;background:#7FE38A;box-shadow:0 0 0 0 rgba(127,227,138,.7);animation:blip 1.8s ease-out infinite}
+  @keyframes blip{0%{box-shadow:0 0 0 0 rgba(127,227,138,.7)}70%{box-shadow:0 0 0 8px rgba(127,227,138,0)}100%{box-shadow:0 0 0 0 rgba(127,227,138,0)}}
+
+  /* ─── SECTION SYSTEM ─── */
+  section{position:relative;padding:6rem 0;border-top:1px solid var(--border-soft)}
+  section.no-border{border-top:0}
+  section.bg-alt{background:var(--bg-alt)}
+  section.bg-deep{background:var(--bg-deep)}
+  .wrap{max-width:1200px;margin:0 auto;padding:0 2.5rem;position:relative;z-index:2}
+
+  .sec-head{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:3rem}
+  .sec-head h2{font-family:var(--serif);font-weight:400;font-size:clamp(2.2rem,4.2vw,3.4rem);letter-spacing:-.015em;line-height:1}
+  .sec-head h2 .ital{font-style:italic;color:var(--accent)}
+  .sec-head .sec-num{font-family:var(--mono);font-size:.72rem;color:var(--muted);letter-spacing:.15em}
+
+  /* ─── HERO ─── */
+  #hero{padding:10rem 0 6rem;border-top:0;overflow:hidden;position:relative}
+  #hero::before{
+    /* organic botanical sketch, anchored to the right edge (embedded data URI) */
+    content:"";position:absolute;top:-4rem;right:-2rem;bottom:-4rem;
+    width:min(440px, 42vw);
+    background:url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2MDAgMTEwMCIgZmlsbD0ibm9uZSI+CiAgPGRlZnM+CiAgICA8ZmlsdGVyIGlkPSJidyIgeD0iLTUlIiB5PSItNSUiIHdpZHRoPSIxMTAlIiBoZWlnaHQ9IjExMCUiPgogICAgICA8ZmVUdXJidWxlbmNlIHR5cGU9ImZyYWN0YWxOb2lzZSIgYmFzZUZyZXF1ZW5jeT0iMC4wMTIiIG51bU9jdGF2ZXM9IjIiIHNlZWQ9IjQiLz4KICAgICAgPGZlRGlzcGxhY2VtZW50TWFwIGluPSJTb3VyY2VHcmFwaGljIiBzY2FsZT0iMi41Ii8+CiAgICA8L2ZpbHRlcj4KICAgIDxzdHlsZT4KICAgICAgLnN0ZW0gIHsgc3Ryb2tlOiAjOEI2RjRDOyBzdHJva2Utd2lkdGg6IDEuNDsgZmlsbDogbm9uZTsgc3Ryb2tlLWxpbmVjYXA6IHJvdW5kOyBmaWx0ZXI6IHVybCgjYncpOyB9CiAgICAgIC50ZW5kcmlsIHsgc3Ryb2tlOiAjOEI2RjRDOyBzdHJva2Utd2lkdGg6IC45OyBmaWxsOiBub25lOyBzdHJva2UtbGluZWNhcDogcm91bmQ7IGZpbHRlcjogdXJsKCNidyk7IH0KICAgICAgLmxlYWYgIHsgZmlsbDogIzlDODY2NjsgZmlsdGVyOiB1cmwoI2J3KTsgfQogICAgICAubGVhZi1saWdodCB7IGZpbGw6ICNCODlGN0M7IGZpbHRlcjogdXJsKCNidyk7IH0KICAgICAgLmxlYWYtYWNjZW50IHsgZmlsbDogI0Q5NEIwQzsgZmlsdGVyOiB1cmwoI2J3KTsgfQogICAgPC9zdHlsZT4KICA8L2RlZnM+CgogIDwhLS0gbWFpbiBzdGVtIOKAlCBvbmUgbG9uZyBvcmdhbmljIGN1cnZlIC0tPgogIDxwYXRoIGNsYXNzPSJzdGVtIgogICAgICAgIGQ9Ik0yNjAsNDAKICAgICAgICAgICBDMzAwLDE4MCAyMzAsMjkwIDI4MCw0MjAKICAgICAgICAgICBDMzIwLDU0MCAyNDAsNjQwIDMwMCw3NjAKICAgICAgICAgICBDMzQwLDg2MCAyODAsOTUwIDMxMCwxMDYwIiAvPgoKICA8IS0tIHRlbmRyaWwgLyBzZWNvbmRhcnkgYnJhbmNoIC0tPgogIDxwYXRoIGNsYXNzPSJ0ZW5kcmlsIgogICAgICAgIGQ9Ik0yOTAsMzAwIEMzNDAsMzIwIDM4MCwzNjAgNDIwLDQxMCIgLz4KICA8cGF0aCBjbGFzcz0idGVuZHJpbCIKICAgICAgICBkPSJNMjc1LDY4MCBDMjMwLDcxMCAyMTAsNzYwIDIyMCw4MjAiIC8+CgogIDwhLS0gbGVhdmVzIGFsb25nIHRoZSBzdGVtIChlbGxpcHNlcyB0aWx0ZWQgbGlrZSByZWFsIGxlYXZlcykgLS0+CiAgPGcgb3BhY2l0eT0iMC44Ij4KICAgIDxlbGxpcHNlIGNsYXNzPSJsZWFmIiAgICAgICAgY3g9IjIyMCIgY3k9IjEyMCIgcng9IjU4IiByeT0iMTgiIHRyYW5zZm9ybT0icm90YXRlKC0zMiAyMjAgMTIwKSIvPgogICAgPGVsbGlwc2UgY2xhc3M9ImxlYWYtbGlnaHQiICBjeD0iMzIwIiBjeT0iMjEwIiByeD0iNjQiIHJ5PSIyMCIgdHJhbnNmb3JtPSJyb3RhdGUoMjIgMzIwIDIxMCkiLz4KICAgIDxlbGxpcHNlIGNsYXNzPSJsZWFmIiAgICAgICAgY3g9IjIxMCIgY3k9IjMzMCIgcng9IjcwIiByeT0iMjIiIHRyYW5zZm9ybT0icm90YXRlKC00MiAyMTAgMzMwKSIvPgogICAgPGVsbGlwc2UgY2xhc3M9ImxlYWYtYWNjZW50IiBjeD0iNDIwIiBjeT0iNDEwIiByeD0iNTYiIHJ5PSIxOCIgdHJhbnNmb3JtPSJyb3RhdGUoMjggNDIwIDQxMCkiIG9wYWNpdHk9IjAuNTUiLz4KICAgIDxlbGxpcHNlIGNsYXNzPSJsZWFmLWxpZ2h0IiAgY3g9IjM0MCIgY3k9IjQ5MCIgcng9IjYyIiByeT0iMjAiIHRyYW5zZm9ybT0icm90YXRlKDI0IDM0MCA0OTApIi8+CiAgICA8ZWxsaXBzZSBjbGFzcz0ibGVhZiIgICAgICAgIGN4PSIyMDAiIGN5PSI2MTAiIHJ4PSI3MiIgcnk9IjIyIiB0cmFuc2Zvcm09InJvdGF0ZSgtMzggMjAwIDYxMCkiLz4KICAgIDxlbGxpcHNlIGNsYXNzPSJsZWFmLWxpZ2h0IiAgY3g9IjM2MCIgY3k9IjcyMCIgcng9IjU4IiByeT0iMTgiIHRyYW5zZm9ybT0icm90YXRlKDMwIDM2MCA3MjApIi8+CiAgICA8ZWxsaXBzZSBjbGFzcz0ibGVhZiIgICAgICAgIGN4PSIyMjAiIGN5PSI4NDAiIHJ4PSI2NiIgcnk9IjIwIiB0cmFuc2Zvcm09InJvdGF0ZSgtMzQgMjIwIDg0MCkiLz4KICAgIDxlbGxpcHNlIGNsYXNzPSJsZWFmLWxpZ2h0IiAgY3g9IjM3MCIgY3k9Ijk1MCIgcng9IjU0IiByeT0iMTgiIHRyYW5zZm9ybT0icm90YXRlKDI2IDM3MCA5NTApIi8+CiAgPC9nPgoKICA8IS0tIHNtYWxsIGJ1ZCBuZWFyIHRoZSB0b3AgLS0+CiAgPGVsbGlwc2UgY2xhc3M9ImxlYWYtYWNjZW50IiBjeD0iMjU4IiBjeT0iNTAiIHJ4PSI2IiByeT0iMTAiIHRyYW5zZm9ybT0icm90YXRlKC0xOCAyNTggNTApIiBvcGFjaXR5PSIwLjciLz4KPC9zdmc+Cg==") no-repeat right center/contain;
+    opacity:.22;pointer-events:none;z-index:1;
+  }
+  #hero::after{
+    content:"";position:absolute;top:30%;right:-6%;width:420px;height:420px;
+    background:radial-gradient(circle,var(--accent-soft) 0%,transparent 65%);
+    opacity:.4;pointer-events:none;z-index:1;
+  }
+  #hero > .wrap{position:relative;z-index:2}
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:.6rem;
+    font-family:var(--mono);font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--muted);margin-bottom:2.2rem;
+  }
+  .eyebrow .dot-sq{width:6px;height:6px;background:var(--accent);border-radius:1px}
+
+  h1.name{
+    font-family:var(--serif);font-weight:400;
+    font-size:clamp(5rem,13vw,12rem);
+    line-height:.9;letter-spacing:-.035em;
+    margin-bottom:1.8rem;
+  }
+  h1.name .ital{font-style:italic;color:var(--accent)}
+
+  .intro{
+    font-family:var(--serif);font-weight:400;font-style:italic;
+    font-size:clamp(1.4rem,2.1vw,1.85rem);
+    line-height:1.35;color:var(--ink-2);
+    max-width:680px;margin-bottom:1.2rem;letter-spacing:-.005em;
+  }
+  .intro .reg{font-style:normal;color:var(--ink)}
+
+  .intro-sub{
+    font-size:1.02rem;color:var(--muted);max-width:620px;margin-bottom:2.6rem;line-height:1.65;
+  }
+  .intro-sub strong{color:var(--ink-2);font-weight:500}
+
+  /* Ask box (legacy inline hero variant) */
+  .ask-box{
+    max-width:640px;
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:14px;
+    padding:.55rem .55rem .55rem 1.15rem;
+    display:flex;align-items:center;gap:.75rem;
+    box-shadow:0 1px 0 rgba(14,14,12,.04),0 20px 40px -24px rgba(14,14,12,.18);
+    transition:border-color .2s,box-shadow .2s;
+  }
+  .ask-box:focus-within{border-color:var(--ink);box-shadow:0 1px 0 rgba(14,14,12,.06),0 24px 48px -22px rgba(14,14,12,.28)}
+  .ask-box .kbd{font-family:var(--mono);font-size:.7rem;color:var(--muted);border:1px solid var(--border);border-radius:5px;padding:2px 6px;background:var(--bg)}
+  .ask-box input{
+    flex:1;border:0;outline:0;background:transparent;
+    font:inherit;font-size:1rem;color:var(--ink);padding:.65rem 0;
+  }
+  .ask-box input::placeholder{color:var(--muted-2)}
+  .ask-box button{
+    font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;
+    background:var(--ink);color:var(--bg);border:0;padding:.7rem 1rem;border-radius:9px;cursor:pointer;
+    display:inline-flex;align-items:center;gap:.45rem;
+  }
+  .ask-hint{font-family:var(--mono);font-size:.7rem;color:var(--muted);margin-top:.9rem;letter-spacing:.04em}
+  .ask-hint .pill{display:inline-block;background:var(--surface-2);border:1px solid var(--border);border-radius:999px;padding:2px 9px;margin-right:6px;cursor:pointer;transition:background .15s}
+  .ask-hint .pill:hover{background:var(--accent-soft);border-color:var(--accent)}
+
+  /* ─── NOW PLAYING ─── */
+  .now{
+    background:var(--surface);border:1px solid var(--border);border-radius:16px;
+    padding:1.8rem 2rem;display:grid;grid-template-columns:auto 1fr auto;gap:1.4rem;align-items:center;
+    box-shadow:0 1px 0 rgba(14,14,12,.02);
+  }
+  .now .avatar{
+    width:54px;height:54px;border-radius:14px;
+    background:linear-gradient(135deg,var(--accent) 0%,#F0A87A 100%);
+    display:grid;place-items:center;color:#fff;font-family:var(--serif);font-size:1.7rem;font-weight:500;
+    box-shadow:inset 0 -2px 6px rgba(0,0,0,.12);
+  }
+  .now .text .label{font-family:var(--mono);font-size:.65rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-bottom:.3rem;display:flex;align-items:center;gap:.5rem}
+  .now .text .label .live{width:6px;height:6px;border-radius:50%;background:var(--ok);animation:blip 1.8s infinite}
+  .now .text .line{font-size:1.02rem;color:var(--ink-2)}
+  .now .text .line strong{color:var(--ink);font-weight:600}
+  .now .where{font-family:var(--mono);font-size:.75rem;color:var(--muted);text-align:right}
+
+  /* ─── WORK ─── */
+  .work-list{display:grid;gap:1rem}
+  .work-item{
+    background:var(--surface);border:1px solid var(--border);border-radius:16px;
+    padding:1.75rem 2rem;display:grid;grid-template-columns:110px 1fr auto;gap:1.8rem;align-items:start;
+    transition:border-color .2s,transform .2s;
+  }
+  .work-item:hover{border-color:var(--ink);transform:translateY(-2px)}
+  .work-item .date{font-family:var(--mono);font-size:.72rem;color:var(--muted);letter-spacing:.08em}
+  .work-item h3{font-size:1.15rem;font-weight:600;margin-bottom:.35rem}
+  .work-item .role{font-family:var(--mono);font-size:.75rem;color:var(--accent);letter-spacing:.05em;margin-bottom:.9rem}
+  .work-item p{color:var(--ink-2);font-size:.97rem;margin-bottom:.9rem;max-width:62ch}
+  .work-bullets{list-style:none;display:flex;flex-direction:column;gap:.55rem;margin:.1rem 0 1rem;max-width:68ch}
+  .work-bullets li{font-size:.94rem;color:var(--ink-2);padding-left:1.1rem;position:relative;line-height:1.5}
+  .work-bullets li::before{content:"◆";position:absolute;left:0;top:0;color:var(--accent);font-size:.7rem;line-height:1.7}
+  .work-bullets li strong{color:var(--ink);font-weight:600}
+  .case-link{
+    display:inline-block;margin-left:.4rem;font-family:var(--mono);font-size:.78rem;
+    color:var(--accent);text-decoration:none;letter-spacing:.02em;
+    border-bottom:1px solid transparent;transition:border-color .15s, color .15s;
+  }
+  .case-link:hover{color:var(--ink);border-bottom-color:var(--ink)}
+  .tags{display:flex;gap:.4rem;flex-wrap:wrap}
+  .tag{font-family:var(--mono);font-size:.7rem;background:var(--surface-2);border:1px solid var(--border);border-radius:999px;padding:3px 10px;color:var(--ink-2)}
+  .arrow{width:34px;height:34px;border-radius:50%;border:1px solid var(--border);display:grid;place-items:center;color:var(--muted);transition:all .2s}
+  .work-item:hover .arrow{background:var(--ink);color:var(--bg);border-color:var(--ink);transform:rotate(-45deg)}
+
+  /* ─── PROJECTS ─── */
+  .proj-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+  .proj{
+    background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:1.6rem;
+    display:flex;flex-direction:column;gap:.9rem;min-height:280px;transition:all .2s;position:relative;overflow:hidden;
+  }
+  .proj:hover{border-color:var(--ink);transform:translateY(-3px)}
+  .proj .idx{font-family:var(--mono);font-size:.7rem;color:var(--muted-2);letter-spacing:.12em}
+  .proj h4{font-family:var(--serif);font-size:1.55rem;line-height:1.1;letter-spacing:-.01em;font-weight:400}
+  .proj p{font-size:.9rem;color:var(--ink-2);flex:1}
+  .proj .foot{display:flex;justify-content:space-between;align-items:center;font-family:var(--mono);font-size:.7rem;color:var(--muted);letter-spacing:.05em}
+  .proj .foot .stack{display:flex;gap:.3rem;flex-wrap:wrap}
+  .proj .foot .stack span{background:var(--surface-2);padding:2px 7px;border-radius:5px;border:1px solid var(--border)}
+  .proj::after{
+    content:"";position:absolute;top:0;right:0;width:80px;height:80px;
+    background:radial-gradient(circle at top right,var(--accent-soft),transparent 70%);
+    opacity:0;transition:opacity .3s;
+  }
+  .proj:hover::after{opacity:1}
+  a.proj-link{text-decoration:none;color:inherit}
+
+  /* ─── STACK ─── */
+  .stack-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--border);border-radius:16px;overflow:hidden;background:var(--surface)}
+  .stack-cat{padding:1.6rem 1.5rem;border-right:1px solid var(--border);border-bottom:1px solid var(--border)}
+  .stack-cat:nth-child(4n){border-right:0}
+  .stack-cat:nth-last-child(-n+4){border-bottom:0}
+  .stack-cat .cat-label{font-family:var(--mono);font-size:.68rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-bottom:.9rem}
+  .stack-cat ul{list-style:none;display:flex;flex-direction:column;gap:.35rem}
+  .stack-cat li{font-size:.9rem;color:var(--ink-2);display:flex;align-items:center;gap:.5rem}
+  .stack-cat li::before{content:"";width:3px;height:3px;border-radius:50%;background:var(--accent)}
+
+  /* ─── CONTACT ─── */
+  .contact-card{
+    background:var(--ink);color:var(--bg);border-radius:20px;padding:4rem 3.5rem;
+    display:grid;grid-template-columns:1fr auto;gap:3rem;align-items:end;position:relative;overflow:hidden;
+  }
+  .contact-card::before{
+    content:"";position:absolute;top:-60px;right:-60px;width:260px;height:260px;
+    background:radial-gradient(circle,var(--accent) 0%,transparent 70%);opacity:.35;
+  }
+  .contact-card h2{font-family:var(--serif);font-weight:400;font-size:clamp(2.2rem,4.5vw,3.6rem);line-height:1;margin-bottom:1.2rem;letter-spacing:-.02em}
+  .contact-card h2 .ital{font-style:italic;color:#F0A87A}
+  .contact-card p{color:#C9C6BE;max-width:48ch;margin-bottom:2rem;position:relative}
+  .contact-links{display:flex;flex-direction:column;gap:.85rem;font-family:var(--mono);font-size:.82rem;letter-spacing:.05em;position:relative}
+  .contact-links a{display:flex;align-items:center;gap:.6rem;color:#EFECE4;transition:color .18s}
+  .contact-links a:hover{color:var(--accent)}
+  .contact-links .arrow-small{opacity:.5}
+
+  /* ─── FLOATING CHAT FAB ─── */
+  .chat-fab{
+    position:fixed;bottom:1.8rem;right:1.8rem;z-index:60;
+    background:var(--ink);color:var(--bg);
+    border-radius:999px;padding:.9rem 1.3rem .9rem 1rem;
+    display:inline-flex;align-items:center;gap:.7rem;
+    font-family:var(--mono);font-size:.8rem;letter-spacing:.05em;
+    box-shadow:0 10px 40px -10px rgba(14,14,12,.4);cursor:pointer;
+    border:1px solid rgba(255,255,255,.08);
+  }
+  .chat-fab .dotpulse{width:9px;height:9px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 0 rgba(217,75,12,.6);animation:blip 1.8s infinite}
+
+  /* ─── FOOTER ─── */
+  footer{padding:2.5rem 0 3rem;border-top:1px solid var(--border-soft);background:var(--bg-deep)}
+  .foot-row{display:flex;justify-content:space-between;align-items:center;font-family:var(--mono);font-size:.72rem;color:var(--muted);letter-spacing:.05em}
+  .foot-row .meta-chat{display:inline-flex;align-items:center;gap:.5rem;color:var(--muted)}
+  .foot-row .meta-chat span.hl{color:var(--accent)}
+
+  @media (max-width: 900px){
+    #hero{padding:8rem 0 4rem}
+    h1.name{font-size:clamp(4rem,16vw,6rem)}
+    .proj-grid{grid-template-columns:1fr}
+    .stack-grid{grid-template-columns:repeat(2,1fr)}
+    .stack-cat{border-right:1px solid var(--border) !important;border-bottom:1px solid var(--border) !important}
+    .stack-cat:nth-child(2n){border-right:0 !important}
+    .stack-cat:nth-last-child(-n+2){border-bottom:0 !important}
+    .work-item{grid-template-columns:1fr;gap:.8rem}
+    .contact-card{grid-template-columns:1fr;padding:2.5rem 2rem}
+    nav{padding:1rem 1.2rem}
+    .nav-links{display:none}
+    .wrap{padding:0 1.2rem}
+  }
+
+  /* ─── CHAT THREAD (inside panel) ─── */
+  #chat-thread{
+    display:flex;flex-direction:column;gap:.9rem;
+  }
+  .turn-user,.turn-assistant{max-width:100%;padding:.85rem 1.1rem;border-radius:12px;line-height:1.55;font-size:.98rem}
+  .turn-user{background:var(--surface-2);border:1px solid var(--border);align-self:flex-end;color:var(--ink)}
+  .turn-assistant{background:var(--surface);border:1px solid var(--border);align-self:flex-start;color:var(--ink-2);white-space:pre-wrap;word-break:break-word;position:relative}
+  .turn-assistant .cursor{display:inline-block;width:.5em;height:1em;vertical-align:-2px;background:var(--accent);margin-left:2px;animation:blip 1s infinite}
+
+  .reasoning{align-self:flex-start;max-width:100%;font-family:var(--mono);font-size:.74rem;color:var(--muted);padding:.3rem 0}
+  .reasoning button{all:unset;cursor:pointer;color:var(--muted);display:inline-flex;align-items:center;gap:.4rem}
+  .reasoning button:hover{color:var(--ink)}
+  .reasoning button .chev{transition:transform .2s}
+  .reasoning[open] button .chev{transform:rotate(90deg)}
+  .reasoning .nodes{margin-top:.5rem;padding-left:1rem;border-left:2px solid var(--accent);color:var(--ink-2);font-size:.78rem;line-height:1.6}
+  .reasoning .nodes div{margin:.15rem 0}
+
+  .chat-error{color:var(--accent);font-size:.88rem}
+  .chat-limit a{color:var(--accent);text-decoration:underline}
+
+  /* ─── CHAT FAB (widget trigger) ─── */
+  .chat-fab{all:unset;box-sizing:border-box}
+  .chat-fab{
+    position:fixed;bottom:1.5rem;right:1.5rem;z-index:60;
+    background:var(--ink);color:var(--bg);
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:999px;padding:.85rem 1.25rem .85rem 1rem;
+    display:inline-flex;align-items:center;gap:.7rem;
+    font-family:var(--mono);font-size:.78rem;letter-spacing:.06em;
+    box-shadow:0 10px 40px -10px rgba(14,14,12,.4);
+    cursor:pointer;
+    transition:transform .2s, box-shadow .2s, opacity .2s;
+  }
+  .chat-fab:hover{transform:translateY(-2px);box-shadow:0 16px 48px -12px rgba(14,14,12,.5)}
+  .chat-fab[aria-expanded="true"]{opacity:0;transform:translateY(10px);pointer-events:none}
+
+  /* ─── CHAT PANEL ─── */
+  .chat-panel{
+    position:fixed;bottom:1.5rem;right:1.5rem;z-index:70;
+    width:min(400px, calc(100vw - 2.5rem));
+    height:min(640px, calc(100vh - 3rem));
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:16px;
+    box-shadow:0 30px 80px -20px rgba(14,14,12,.45), 0 10px 30px -12px rgba(14,14,12,.25);
+    display:flex;flex-direction:column;overflow:hidden;
+    transform:translateY(14px) scale(.98);opacity:0;pointer-events:none;
+    transition:opacity .18s ease, transform .22s cubic-bezier(.2,.9,.3,1.1);
+  }
+  .chat-panel.open{transform:none;opacity:1;pointer-events:auto}
+
+  .chat-panel-header{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:.85rem 1rem;border-bottom:1px solid var(--border);
+    background:var(--bg-alt);
+    flex-shrink:0;
+  }
+  .chat-panel-title{display:flex;align-items:center;gap:.75rem}
+  .chat-panel-title .avatar-mini{
+    width:36px;height:36px;border-radius:10px;
+    background:linear-gradient(135deg,var(--accent) 0%,#F0A87A 100%);
+    color:#fff;font-family:var(--serif);font-size:1.15rem;display:grid;place-items:center;
+    box-shadow:inset 0 -2px 4px rgba(0,0,0,.15);
+  }
+  .chat-panel-title strong{display:block;font-size:.92rem;font-weight:600;color:var(--ink);line-height:1.2}
+  .chat-panel-sub{display:inline-flex;align-items:center;gap:.45rem;font-family:var(--mono);font-size:.66rem;color:var(--muted);letter-spacing:.04em;margin-top:2px}
+  .chat-panel-sub .live{width:6px;height:6px;border-radius:50%;background:var(--ok);animation:blip 1.8s infinite}
+
+  .chat-panel-close{
+    all:unset;cursor:pointer;width:30px;height:30px;display:grid;place-items:center;
+    border-radius:8px;color:var(--muted);font-size:1.25rem;line-height:1;
+    transition:background .15s,color .15s;
+  }
+  .chat-panel-close:hover{background:var(--surface-2);color:var(--ink)}
+
+  .chat-panel-body{
+    flex:1;overflow-y:auto;padding:1rem;
+    display:flex;flex-direction:column;gap:1rem;
+  }
+  .chat-panel-body::-webkit-scrollbar{width:6px}
+  .chat-panel-body::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px}
+
+  .chat-empty{display:flex;flex-direction:column;gap:1rem;padding:.2rem}
+  .chat-empty-greeting{font-size:.95rem;color:var(--ink-2);line-height:1.55}
+  .chat-starter-label{font-family:var(--mono);font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted-2)}
+  .chat-starters{display:flex;flex-direction:column;gap:.45rem}
+  .chat-starters .pill{
+    all:unset;cursor:pointer;
+    font-family:var(--sans);font-size:.85rem;line-height:1.4;
+    text-align:left;
+    background:var(--surface-2);border:1px solid var(--border);
+    border-radius:10px;padding:.6rem .8rem;color:var(--ink-2);
+    transition:border-color .15s, background .15s, color .15s;
+  }
+  .chat-starters .pill:hover{border-color:var(--accent);background:var(--accent-soft);color:var(--ink)}
+
+  .chat-panel-composer{
+    display:flex;align-items:center;gap:.5rem;
+    padding:.7rem .85rem;border-top:1px solid var(--border);background:var(--surface);
+    flex-shrink:0;
+  }
+  .chat-panel-composer input{
+    flex:1;border:1px solid var(--border);background:var(--bg);border-radius:10px;
+    padding:.65rem .8rem;font:inherit;font-size:.92rem;color:var(--ink);outline:0;
+    transition:border-color .15s;
+  }
+  .chat-panel-composer input:focus{border-color:var(--ink)}
+  .chat-panel-composer input::placeholder{color:var(--muted-2)}
+  .chat-panel-composer input:disabled{background:var(--surface-2);cursor:not-allowed}
+  .chat-panel-composer button{
+    all:unset;cursor:pointer;
+    width:38px;height:38px;display:grid;place-items:center;
+    background:var(--ink);color:var(--bg);border-radius:10px;
+    font-family:var(--mono);font-size:.95rem;
+    transition:background .15s, opacity .15s;
+  }
+  .chat-panel-composer button:hover:not(:disabled){background:var(--accent)}
+  .chat-panel-composer button:disabled{opacity:.4;cursor:not-allowed}
+
+  @media (max-width: 640px){
+    .chat-panel{
+      bottom:0;right:0;left:0;width:100vw;height:100dvh;
+      border-radius:0;border-left:0;border-right:0;border-bottom:0;
+    }
+    .chat-fab{bottom:1rem;right:1rem;padding:.7rem 1.1rem}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">pranav<span class="dot">.</span>p</div>
+  <ul class="nav-links">
+    <li><a href="#work">Work</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="/newsletter/">Reading</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a class="nav-cta" href="#chat"><span class="blip"></span>Ask my AI twin</a>
+</nav>
+
+<!-- HERO · cream -->
+<section id="hero" class="no-border">
+  <div class="wrap">
+    <div class="eyebrow"><span class="dot-sq"></span>Data Scientist &mdash; GenAI Engineer</div>
+
+    <h1 class="name">Pranav <span class="ital">P.</span></h1>
+
+    <p class="intro">
+      I build <span class="reg">LLM systems</span> that actually ship &mdash;<br/>
+      agents, RAG, and the infra around them.
+    </p>
+
+    <p class="intro-sub">
+      Currently at <strong>FarmwiseAI</strong>, shipping production GenAI end-to-end &mdash; agentic RAG on
+      <em>vectorless retrieval</em>, reliable voice agents, ingestion pipelines that turn any input into
+      LLM-friendly context, and fine-tuned small models deployed on AWS. Ask my AI twin anything &mdash;
+      it&rsquo;s trained on everything I&rsquo;ve built.
+    </p>
+
+  </div>
+</section>
+
+<!-- NOW · sand -->
+<section class="bg-alt" style="padding:2.2rem 0">
+  <div class="wrap">
+    <div class="now">
+      <div class="avatar">P</div>
+      <div class="text">
+        <div class="label"><span class="live"></span>Now playing</div>
+        <div class="line">Shipping a <strong>vectorless-RAG agentic system</strong> &mdash; PageIndex-style tree retrieval, no vector DB, reasoning-driven. Turns out &ldquo;similarity&rdquo; isn&rsquo;t relevance.</div>
+      </div>
+      <div class="where">Chennai, IN<br/><span style="color:var(--muted-2)">Apr 2026</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- WORK · sand -->
+<section id="work" class="bg-alt">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Selected <span class="ital">work</span></h2>
+      <span class="sec-num">01 / Experience</span>
+    </div>
+    <div class="work-list">
+
+      <div class="work-item">
+        <div class="date">2025 — Now</div>
+        <div>
+          <h3>FarmwiseAI</h3>
+          <div class="role">Associate Data Scientist · Chennai</div>
+          <p>Shipping the full production GenAI stack &mdash; from ingestion to inference to reliable agents in the wild.</p>
+          <ul class="work-bullets">
+            <li><strong>Vectorless-RAG agentic systems</strong> &mdash; PageIndex-style tree retrieval + reasoning-driven search. No vector DB, traceable, and more accurate than semantic-similarity RAG on long, structured docs. <a class="case-link" href="/projects/vectorless-rag">Read the case study &rarr;</a></li>
+            <li><strong>Production voice agents</strong> &mdash; reliable STT &harr; LLM &harr; TTS loops with interruption handling, guardrails, and latency budgets that hold up under real users. <a class="case-link" href="/projects/voice-agents">Read the case study &rarr;</a></li>
+            <li><strong>Universal ingestion pipelines</strong> &mdash; normalize PDFs, scans, audio, spreadsheets, and images into clean, LLM-friendly structured context.</li>
+            <li><strong>Internal intelligence platform</strong> &mdash; an <em>OpenWebUI</em>-based assistant for the whole company: employees query internal docs, policies, and data through a RAG-backed chat.</li>
+            <li><strong>Fine-tuned geospatial small models on AWS</strong> &mdash; deployed specialized models that correctly answer location-, terrain-, and coordinate-heavy queries where frontier LLMs hallucinate.</li>
+            <li><strong>OCR at scale</strong> &mdash; LightOnOCR-2 1B on SageMaker via vLLM with PagedAttention &amp; KV-cache for high-throughput document extraction.</li>
+            <li><strong>Satellite time-series</strong> &mdash; a year of Tamil Nadu field imagery processed pixel-wise, DTW-aligned vegetation curves to infer sowing dates.</li>
+          </ul>
+          <div class="tags">
+            <span class="tag">Vectorless RAG</span><span class="tag">PageIndex</span><span class="tag">LangChain</span>
+            <span class="tag">LangGraph</span><span class="tag">LiteLLM</span><span class="tag">Langfuse</span>
+            <span class="tag">MCP</span><span class="tag">Google ADK</span><span class="tag">Pydantic AI</span>
+            <span class="tag">OpenWebUI</span><span class="tag">Voice Agents</span><span class="tag">vLLM</span>
+            <span class="tag">SageMaker</span><span class="tag">Fine-tuning</span><span class="tag">DTW</span>
+          </div>
+        </div>
+        <div class="arrow">→</div>
+      </div>
+
+      <div class="work-item">
+        <div class="date">Feb — Apr 2025</div>
+        <div>
+          <h3>Infosys</h3>
+          <div class="role">Data Visualization &amp; Analyst Intern · Remote</div>
+          <p>Turned messy datasets into interactive Power BI + Python dashboards. EDA, trend analysis, and visual reports non-analysts could actually read.</p>
+          <div class="tags"><span class="tag">Power BI</span><span class="tag">Pandas</span><span class="tag">EDA</span></div>
+        </div>
+        <div class="arrow">→</div>
+      </div>
+
+      <div class="work-item">
+        <div class="date">Dec 2023 — Apr 2024</div>
+        <div>
+          <h3>Descpro</h3>
+          <div class="role">ML Developer Intern · NBFC Loan Approval</div>
+          <p>Built an end-to-end loan approval stack &mdash; eligibility scoring, an LSTM that predicted repayment delays per customer, and a forecasting model for upcoming loan application volumes.</p>
+          <div class="tags"><span class="tag">LSTM</span><span class="tag">Random Forest</span><span class="tag">Forecasting</span></div>
+        </div>
+        <div class="arrow">→</div>
+      </div>
+
+      <div class="work-item">
+        <div class="date">Sep — Nov 2023</div>
+        <div>
+          <h3>Thapovan Info Systems</h3>
+          <div class="role">ML Intern · Predictive Disease Modeling</div>
+          <p>Built a heart-attack risk model from 20+ curated health indicators. Used SHAP and LIME so doctors could actually trust the predictions. Added an LSTM alert system for timely warnings.</p>
+          <div class="tags"><span class="tag">SHAP</span><span class="tag">LIME</span><span class="tag">LSTM</span><span class="tag">XAI</span></div>
+        </div>
+        <div class="arrow">→</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS · cream -->
+<section id="projects">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Things I&rsquo;ve built on the <span class="ital">side</span></h2>
+      <span class="sec-num">02 / Projects</span>
+    </div>
+    <div class="proj-grid">
+
+      <div class="proj">
+        <div class="idx">P / 01</div>
+        <h4>Domain-Specific Loan Officer Agent</h4>
+        <p>Fine-tuned Gemma-2B with QLoRA &amp; Unsloth on a synthetic instruction set &mdash; then quantized to GGUF and ran it on CPU via llama.cpp. Low-latency, compliance-aware, no GPU required.</p>
+        <div class="foot">
+          <div class="stack"><span>Gemma</span><span>QLoRA</span><span>llama.cpp</span></div>
+          <span>→</span>
+        </div>
+      </div>
+
+      <div class="proj">
+        <div class="idx">P / 02</div>
+        <h4>Companion AI</h4>
+        <p>A voice-enabled ICU support system. Real-time STT + BERT sentiment to detect emotional distress, then trigger context-aware empathetic responses over TTS.</p>
+        <div class="foot">
+          <div class="stack"><span>PyTorch</span><span>BERT</span><span>STT/TTS</span></div>
+          <span>→</span>
+        </div>
+      </div>
+
+      <div class="proj">
+        <div class="idx">P / 03</div>
+        <h4>Agentic Recruitment Platform</h4>
+        <p>Autonomous agent that scrapes job boards and uses Google&rsquo;s experimental Opal model to rewrite resumes live, mapping candidate skills to JDs via RAG.</p>
+        <div class="foot">
+          <div class="stack"><span>Opal</span><span>Selenium</span><span>LangChain</span></div>
+          <span>→</span>
+        </div>
+      </div>
+
+      <div class="proj">
+        <div class="idx">P / 04</div>
+        <h4>This portfolio (meta)</h4>
+        <p>The site you&rsquo;re on. Vectorless RAG chatbot over a hand-authored markdown knowledge base, Groq Llama-3.3, single Node serverless function on Vercel. Zero dollars a month.</p>
+        <div class="foot">
+          <div class="stack"><span>Vercel</span><span>Groq</span><span>PageIndex</span></div>
+          <span>→</span>
+        </div>
+      </div>
+
+      <a class="proj proj-link" href="/projects/newsletter-reader">
+        <div class="idx">P / 05</div>
+        <h4>Newsletter Reader</h4>
+        <p>A personal web app that pulls subscribed newsletters out of my Gmail and renders them in a clean, dedicated reader. Built because my inbox was burying the emails I actually wanted to read.</p>
+        <div class="foot">
+          <div class="stack"><span>Gmail API</span><span>Web App</span></div>
+          <span>→</span>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- STACK · sand -->
+<section id="stack" class="bg-alt">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>The <span class="ital">stack</span> I reach for</h2>
+      <span class="sec-num">03 / Tooling</span>
+    </div>
+    <div class="stack-grid">
+      <div class="stack-cat">
+        <div class="cat-label">GenAI &amp; LLM</div>
+        <ul>
+          <li>RAG &amp; Agentic Systems</li>
+          <li>LangChain · LangGraph</li>
+          <li>LiteLLM · OpenRouter · Ollama</li>
+          <li>Langfuse · Pydantic AI · MCP</li>
+          <li>vLLM · Unsloth · HuggingFace</li>
+          <li>Qdrant · FAISS</li>
+        </ul>
+      </div>
+      <div class="stack-cat">
+        <div class="cat-label">ML &amp; Data Science</div>
+        <ul>
+          <li>LSTM · Random Forest</li>
+          <li>Time-Series · DTW</li>
+          <li>SHAP · LIME (XAI)</li>
+          <li>Interpolation</li>
+          <li>Leakage Prevention</li>
+        </ul>
+      </div>
+      <div class="stack-cat">
+        <div class="cat-label">Backend &amp; Infra</div>
+        <ul>
+          <li>Python · FastAPI</li>
+          <li>Pydantic · WebSockets</li>
+          <li>Streamlit</li>
+          <li>AWS SageMaker</li>
+          <li>Git</li>
+        </ul>
+      </div>
+      <div class="stack-cat">
+        <div class="cat-label">Data &amp; Analytics</div>
+        <ul>
+          <li>SQL · PySpark</li>
+          <li>Pandas · NumPy</li>
+          <li>Power BI</li>
+          <li>Satellite Imagery</li>
+          <li>Large-scale ETL</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT · cream -->
+<section id="contact">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Let&rsquo;s <span class="ital">talk.</span></h2>
+      <span class="sec-num">04 / Contact</span>
+    </div>
+    <div class="contact-card">
+      <div>
+        <h2>Got a <span class="ital">hard problem</span><br/>worth solving?</h2>
+        <p>Happy to chat about GenAI roles, consulting, or anything at the intersection of LLMs and real-world data. My AI twin handles the easy questions &mdash; I&rsquo;ll take the rest.</p>
+      </div>
+      <div class="contact-links">
+        <a href="mailto:aikkara.pranav@gmail.com">aikkara.pranav@gmail.com <span class="arrow-small">↗</span></a>
+        <a href="https://www.linkedin.com/in/pranavaikkara" target="_blank">linkedin.com/in/pranavaikkara <span class="arrow-small">↗</span></a>
+        <a href="tel:+917025052042">+91 70250 52042 <span class="arrow-small">↗</span></a>
+        <a href="/assets/resume.pdf">Download résumé (PDF) <span class="arrow-small">↓</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER · stone -->
+<footer>
+  <div class="wrap">
+    <div class="foot-row">
+      <span>© 2026 Pranav P</span>
+      <span class="meta-chat">Chat powered by <span class="hl">vectorless RAG</span> (PageIndex) · Groq Llama-3.3</span>
+      <span>Built from scratch, no template</span>
+    </div>
+  </div>
+</footer>
+
+<!-- Floating chat widget -->
+<button class="chat-fab" id="chat-fab" type="button" aria-controls="chat-panel" aria-expanded="false">
+  <span class="dotpulse"></span>
+  <span class="chat-fab-label">Ask my AI twin</span>
+</button>
+
+<div class="chat-panel" id="chat-panel" role="dialog" aria-label="Chat with Pranav's AI twin" aria-hidden="true">
+  <header class="chat-panel-header">
+    <div class="chat-panel-title">
+      <span class="avatar-mini">P</span>
+      <div>
+        <strong>Pranav&rsquo;s AI twin</strong>
+        <span class="chat-panel-sub"><span class="live"></span>trained on everything I&rsquo;ve built</span>
+      </div>
+    </div>
+    <button class="chat-panel-close" id="chat-panel-close" type="button" aria-label="Close chat">&times;</button>
+  </header>
+
+  <div class="chat-panel-body" id="chat-panel-body">
+    <div class="chat-empty" id="chat-empty">
+      <p class="chat-empty-greeting">Hey &mdash; ask me anything about my work, projects, or how I think about shipping GenAI.</p>
+      <div class="chat-starter-label">try one of these</div>
+      <div class="chat-starters">
+        <button class="pill" type="button" data-question="What is vectorless RAG and why use it?">What is vectorless RAG and why use it?</button>
+        <button class="pill" type="button" data-question="How do you ship reliable voice agents?">How do you ship reliable voice agents?</button>
+        <button class="pill" type="button" data-question="Walk me through your ingestion pipeline">Walk me through your ingestion pipeline</button>
+      </div>
+    </div>
+    <div id="chat-thread" aria-live="polite"></div>
+  </div>
+
+  <form class="chat-panel-composer" id="chat-panel-composer">
+    <input type="text" id="ask-input" placeholder="Ask me anything…" autocomplete="off" />
+    <button id="ask-submit" type="submit" aria-label="Send">↵</button>
+  </form>
+</div>
+
+<!--
+  Inert chat: opens/closes the panel and echoes a placeholder reply.
+  No fetch, no API. The live site streams answers from a vectorless-RAG backend.
+-->
+<script>
+  (function () {
+    var fab = document.getElementById('chat-fab');
+    var panel = document.getElementById('chat-panel');
+    var closeBtn = document.getElementById('chat-panel-close');
+    var input = document.getElementById('ask-input');
+    var form = document.getElementById('chat-panel-composer');
+    var thread = document.getElementById('chat-thread');
+    var empty = document.getElementById('chat-empty');
+    var body = document.getElementById('chat-panel-body');
+    if (!fab || !panel) return;
+
+    function openPanel() {
+      panel.classList.add('open');
+      panel.setAttribute('aria-hidden', 'false');
+      fab.setAttribute('aria-expanded', 'true');
+      if (input) input.focus();
+    }
+    function closePanel() {
+      panel.classList.remove('open');
+      panel.setAttribute('aria-hidden', 'true');
+      fab.setAttribute('aria-expanded', 'false');
+    }
+    fab.addEventListener('click', openPanel);
+    if (closeBtn) closeBtn.addEventListener('click', closePanel);
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closePanel(); });
+
+    var STUB = "This is a static design export, so I'm not live here. On the real site I answer using vectorless RAG (PageIndex tree retrieval over a hand-written knowledge base), served by a single Groq Llama-3.3 serverless function.";
+
+    function reply(q) {
+      if (empty) empty.style.display = 'none';
+      var u = document.createElement('div'); u.className = 'turn-user'; u.textContent = q;
+      var a = document.createElement('div'); a.className = 'turn-assistant'; a.textContent = STUB;
+      thread.appendChild(u); thread.appendChild(a);
+      if (body) body.scrollTop = body.scrollHeight;
+    }
+
+    var pills = document.querySelectorAll('.pill[data-question]');
+    for (var i = 0; i < pills.length; i++) {
+      pills[i].addEventListener('click', function () { reply(this.getAttribute('data-question')); });
+    }
+    if (form) form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var t = (input && input.value || '').trim();
+      if (!t) return;
+      reply(t);
+      if (input) input.value = '';
+    });
+  })();
+</script>
+</body>
+</html>
