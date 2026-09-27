@@ -1,7 +1,7 @@
 # PRODUCT.md
 
 ## What this is
-Personal portfolio site for **Pranav P** — Data Scientist & GenAI Engineer. The site is the product: a visitor's impression is the deliverable. Source of truth for content is `Pranav_AI_Engineer_Resume.pdf`.
+Personal portfolio site for **Pranav P** — Data Scientist & GenAI Engineer. The site is the product: a visitor's impression is the deliverable. Source of truth for content is `resumes/Pranav_P_Master_Resume.md` (built to DOCX/PDF in the same folder; the PDF is mirrored to `public/assets/resume.pdf`).
 
 ## Register
 Brand (design IS the product). Portfolio / personal brand surface.

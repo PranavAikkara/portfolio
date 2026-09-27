@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-24T14:28:33.654Z",
+  "generated_at": "2026-09-27T10:23:14.592Z",
   "nodes": [
     {
       "id": "about-pranav",
@@ -7,7 +7,7 @@
       "path": [
         "About Pranav"
       ],
-      "summary": "Data Scientist & GenAI Engineer — a 30-second intro.",
+      "summary": "AI/GenAI Engineer — a 30-second intro.",
       "children": [
         {
           "id": "about-pranav.who-i-am",
@@ -26,7 +26,7 @@
                 "Who I am",
                 "The elevator pitch"
               ],
-              "content": "I'm Pranav P — a Data Scientist and GenAI Engineer based between Palakkad, Kerala and Chennai. I ship production LLM systems end-to-end: agentic RAG, voice agents, ingestion pipelines, and fine-tuned small models on AWS. I graduated from VIT Chennai in 2025 with a B.Tech in Computer Science (AI & ML specialization), and I've been working on real GenAI systems since before graduating."
+              "content": "I'm Pranav P — an AI/GenAI Engineer based in Chennai (home is Palakkad, Kerala), currently a Data Scientist at FarmwiseAI, where I lead a team of 3 while staying hands-on. I build production-ready agentic AI systems end-to-end: LLM orchestration, RAG, real-time voice and speech-to-speech interaction, tool use, OCR, evaluation, and cloud deployment on AWS. I graduated from VIT Chennai in 2025 with a B.Tech in Computer Science (AI & ML specialization), and I've been working on real GenAI systems since before graduating."
             },
             {
               "id": "about-pranav.who-i-am.what-i-care-about",
@@ -67,7 +67,7 @@
                 "How to reach me",
                 "What I'm open to"
               ],
-              "content": "I'm open to full-time GenAI / Data Science roles and interesting consulting work. Remote or Chennai/Bangalore-based is ideal."
+              "content": "I'm open to full-time AI / GenAI engineering roles and interesting consulting work. I'm in Chennai and open to Bangalore; remote works too."
             }
           ]
         }
@@ -79,8 +79,174 @@
       "path": [
         "FarmwiseAI — current role"
       ],
-      "summary": "Associate Data Scientist, April 2025 – now. Where I ship production GenAI end-to-end.",
+      "summary": "Data Scientist since July 2026 (Associate Data Scientist April 2025 – June 2026). Where I ship production GenAI end-to-end and lead a team of 3.",
       "children": [
+        {
+          "id": "farmwiseai-current-role.role-and-team",
+          "title": "Role and team",
+          "path": [
+            "FarmwiseAI — current role",
+            "Role and team"
+          ],
+          "summary": "Data Scientist, promoted from Associate in July 2026. Lead of a 3-person data science team, still an individual contributor.",
+          "children": [
+            {
+              "id": "farmwiseai-current-role.role-and-team.what-the-role-is",
+              "title": "What the role is",
+              "path": [
+                "FarmwiseAI — current role",
+                "Role and team",
+                "What the role is"
+              ],
+              "content": "I joined FarmwiseAI in April 2025 as an Associate Data Scientist and became a Data Scientist in July 2026. I lead a team of 3 data scientists — coordinating technical execution and delivery across our AI/ML initiatives — while continuing to build and ship as an individual contributor. Most of what's below is work I built hands-on."
+            }
+          ]
+        },
+        {
+          "id": "farmwiseai-current-role.shared-agentic-platform-text-and-voice",
+          "title": "Shared agentic platform — text and voice",
+          "path": [
+            "FarmwiseAI — current role",
+            "Shared agentic platform — text and voice"
+          ],
+          "summary": "One LangChain reasoning layer serving both a text chat and a real-time voice interface, with specialized agents underneath.",
+          "children": [
+            {
+              "id": "farmwiseai-current-role.shared-agentic-platform-text-and-voice.what-it-is",
+              "title": "What it is",
+              "path": [
+                "FarmwiseAI — current role",
+                "Shared agentic platform — text and voice",
+                "What it is"
+              ],
+              "content": "A production-ready agentic AI platform where a shared LangChain reasoning layer powers both the text interface and the real-time voice interface. Underneath it sit specialized agents and sub-agents for knowledge retrieval, SQL analysis, OCR, and data tasks. Whatever the platform can do over text, it can do over voice — same agents, same tools, different modality."
+            },
+            {
+              "id": "farmwiseai-current-role.shared-agentic-platform-text-and-voice.why-a-shared-layer",
+              "title": "Why a shared layer",
+              "path": [
+                "FarmwiseAI — current role",
+                "Shared agentic platform — text and voice",
+                "Why a shared layer"
+              ],
+              "content": "Building separate brains for voice and text means two sets of prompts, two sets of tools, and two sets of bugs. With one reasoning layer, a new capability lands in both interfaces at once, and evaluation results carry over."
+            },
+            {
+              "id": "farmwiseai-current-role.shared-agentic-platform-text-and-voice.the-specialized-agents",
+              "title": "The specialized agents",
+              "path": [
+                "FarmwiseAI — current role",
+                "Shared agentic platform — text and voice",
+                "The specialized agents"
+              ],
+              "content": "Knowledge retrieval (structure-aware / vectorless RAG over internal documents), SQL analysis against our databases, and OCR that combines frontier-model OCR for ordinary documents with self-hosted LightOnOCR-2 1B on AWS SageMaker for sensitive ones that can't leave our infrastructure."
+            }
+          ]
+        },
+        {
+          "id": "farmwiseai-current-role.model-routing-and-golden-dataset-benchmarking",
+          "title": "Model routing and golden-dataset benchmarking",
+          "path": [
+            "FarmwiseAI — current role",
+            "Model routing and golden-dataset benchmarking"
+          ],
+          "summary": "LiteLLM routing across providers, driven by a benchmarking workflow rather than habit.",
+          "children": [
+            {
+              "id": "farmwiseai-current-role.model-routing-and-golden-dataset-benchmarking.routing",
+              "title": "Routing",
+              "path": [
+                "FarmwiseAI — current role",
+                "Model routing and golden-dataset benchmarking",
+                "Routing"
+              ],
+              "content": "LiteLLM routes calls across OpenAI, Vertex AI / Gemini, AWS Bedrock, and local models. The model for a given task is chosen on task requirements, accuracy, latency, cost, and data sensitivity — sensitive workloads stay on local or self-hosted models."
+            },
+            {
+              "id": "farmwiseai-current-role.model-routing-and-golden-dataset-benchmarking.benchmarking",
+              "title": "Benchmarking",
+              "path": [
+                "FarmwiseAI — current role",
+                "Model routing and golden-dataset benchmarking",
+                "Benchmarking"
+              ],
+              "content": "I built a golden-dataset benchmarking workflow that runs candidate models against curated task datasets and compares accuracy, latency, and cost side by side. That is what feeds the routing decisions: task-level model selection based on measured numbers instead of vendor claims."
+            }
+          ]
+        },
+        {
+          "id": "farmwiseai-current-role.agent-driven-ui",
+          "title": "Agent-driven UI",
+          "path": [
+            "FarmwiseAI — current role",
+            "Agent-driven UI"
+          ],
+          "summary": "Agents that drive the application screens, not just a chat box.",
+          "children": [
+            {
+              "id": "farmwiseai-current-role.agent-driven-ui.what-it-does",
+              "title": "What it does",
+              "path": [
+                "FarmwiseAI — current role",
+                "Agent-driven UI",
+                "What it does"
+              ],
+              "content": "The agents can navigate application screens and surface cards, dashboards, calculated charts, and bar graphs based on conversational intent. Ask for a comparison and the UI renders the chart; ask about a record and the relevant card appears. The conversation drives the product instead of sitting beside it."
+            }
+          ]
+        },
+        {
+          "id": "farmwiseai-current-role.ai-technical-screening-workflow",
+          "title": "AI technical-screening workflow",
+          "path": [
+            "FarmwiseAI — current role",
+            "AI technical-screening workflow"
+          ],
+          "summary": "A self-initiated fix for an HR bottleneck: AI-assisted technical screening before the human technical interview.",
+          "children": [
+            {
+              "id": "farmwiseai-current-role.ai-technical-screening-workflow.the-problem",
+              "title": "The problem",
+              "path": [
+                "FarmwiseAI — current role",
+                "AI technical-screening workflow",
+                "The problem"
+              ],
+              "content": "I noticed that technical screening was bottlenecked on interviewer availability — candidates were waiting on engineers' calendars for a first-pass conversation."
+            },
+            {
+              "id": "farmwiseai-current-role.ai-technical-screening-workflow.what-i-built",
+              "title": "What I built",
+              "path": [
+                "FarmwiseAI — current role",
+                "AI technical-screening workflow",
+                "What I built"
+              ],
+              "content": "A Chromium browser-based AI screening workflow. It takes the JD and the candidate's resume as context, separates interviewer and candidate audio in real time, generates role-specific technical questions, and evaluates the candidate's responses — all before the technical interview, so engineers spend their time on candidates who have already cleared a meaningful bar."
+            }
+          ]
+        },
+        {
+          "id": "farmwiseai-current-role.deployment-on-aws",
+          "title": "Deployment on AWS",
+          "path": [
+            "FarmwiseAI — current role",
+            "Deployment on AWS"
+          ],
+          "summary": "ECS/Fargate for services, SageMaker for models, local hosting for sensitive workloads.",
+          "children": [
+            {
+              "id": "farmwiseai-current-role.deployment-on-aws.how-things-run",
+              "title": "How things run",
+              "path": [
+                "FarmwiseAI — current role",
+                "Deployment on AWS",
+                "How things run"
+              ],
+              "content": "AI services are deployed on AWS using ECS/Fargate; models run on SageMaker. Where data sensitivity matters, I host models locally rather than calling a third-party API — the LightOnOCR-2 deployment is one example."
+            }
+          ]
+        },
         {
           "id": "farmwiseai-current-role.cross-cutting-tools",
           "title": "Cross-cutting tools",
@@ -622,7 +788,7 @@
                 "GenAI & LLM systems",
                 "Models and serving"
               ],
-              "content": "For inference: vLLM when I need throughput (PagedAttention + KV caching are huge), LiteLLM as the gateway/router across providers, Groq when I want free fast inference for prototypes, OpenRouter when I want broader provider coverage from one API, Ollama for running open-weight models locally during development. HuggingFace as the model hub I pull from. For fine-tuning: Unsloth and QLoRA — memory-efficient, fast, and the output is compatible with llama.cpp for CPU deployment."
+              "content": "For inference: vLLM when I need throughput (PagedAttention + KV caching are huge), LiteLLM as the gateway/router across providers — OpenAI, Gemini / Vertex AI, AWS Bedrock, and local models — with routing decided by golden-dataset benchmarks on accuracy, latency and cost. Groq when I want free fast inference for prototypes, OpenRouter when I want broader provider coverage from one API, Ollama for running open-weight models locally during development. HuggingFace as the model hub I pull from. For fine-tuning: Unsloth and QLoRA — memory-efficient, fast, and the output is compatible with llama.cpp for CPU deployment."
             },
             {
               "id": "my-stack.genai-llm-systems.retrieval-agents",
@@ -632,7 +798,7 @@
                 "GenAI & LLM systems",
                 "Retrieval & agents"
               ],
-              "content": "Qdrant or FAISS when I need traditional vector RAG. PageIndex-style vectorless RAG when the docs have real structure and accuracy matters more than speed. LangChain and LangGraph for agent orchestration (LangGraph specifically when the flow has real state — branching, retries, human-in-the-loop). Google ADK and MCP (Model Context Protocol) for tool-call workflows — MCP especially is underrated for building tool-use systems that work across clients. Pydantic AI / Instructor when I need structured outputs that won't drift."
+              "content": "Qdrant or FAISS when I need traditional vector RAG. PageIndex-style vectorless RAG when the docs have real structure and accuracy matters more than speed. LangChain and LangGraph for agent orchestration (LangChain is the shared reasoning layer behind our text and voice agents; LangGraph specifically when the flow has real state — branching, retries, human-in-the-loop). Google ADK and MCP (Model Context Protocol) for tool-call workflows — MCP especially is underrated for building tool-use systems that work across clients. Pydantic AI / Instructor when I need structured outputs that won't drift."
             },
             {
               "id": "my-stack.genai-llm-systems.observability",
@@ -642,7 +808,7 @@
                 "GenAI & LLM systems",
                 "Observability"
               ],
-              "content": "Langfuse for traces, prompts, latency, and cost. Every LLM call gets logged so production debugging stops being guesswork."
+              "content": "Langfuse for traces, prompts, latency, and cost. Every LLM call gets logged so production debugging stops being guesswork. For evaluation, golden datasets per task — the same set every candidate model is scored on."
             }
           ]
         },
@@ -694,7 +860,7 @@
                 "Backend & infrastructure",
                 "What I use"
               ],
-              "content": "Python is my daily driver. FastAPI for APIs — Pydantic validation is non-negotiable when the API is fronting an LLM. WebSockets for real-time updates (agent execution logs, streaming responses). Streamlit for quick internal tools and demos. AWS SageMaker for hosted inference, Git for everything."
+              "content": "Python is my daily driver. FastAPI for APIs — Pydantic validation is non-negotiable when the API is fronting an LLM. WebSockets for real-time updates (agent execution logs, streaming responses). Streamlit for quick internal tools and demos. AWS ECS/Fargate for services and SageMaker for hosted inference, Git for everything."
             }
           ]
         },
@@ -801,14 +967,14 @@
           "summary": "Where I live and where I work.",
           "children": [
             {
-              "id": "background.location.palakkad-chennai",
-              "title": "Palakkad & Chennai",
+              "id": "background.location.chennai-from-palakkad",
+              "title": "Chennai (from Palakkad)",
               "path": [
                 "Background",
                 "Location",
-                "Palakkad & Chennai"
+                "Chennai (from Palakkad)"
               ],
-              "content": "Home is Palakkad, Kerala. Work is Chennai (FarmwiseAI is in Perungudi). I split time between the two."
+              "content": "I'm based in Chennai — FarmwiseAI is in Perungudi. Home is Palakkad, Kerala. I'm open to moving to Bangalore for the right role."
             }
           ]
         }

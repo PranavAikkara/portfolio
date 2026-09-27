@@ -1,5 +1,53 @@
 # FarmwiseAI — current role
-> Associate Data Scientist, April 2025 – now. Where I ship production GenAI end-to-end.
+> Data Scientist since July 2026 (Associate Data Scientist April 2025 – June 2026). Where I ship production GenAI end-to-end and lead a team of 3.
+
+## Role and team
+> Data Scientist, promoted from Associate in July 2026. Lead of a 3-person data science team, still an individual contributor.
+
+### What the role is
+I joined FarmwiseAI in April 2025 as an Associate Data Scientist and became a Data Scientist in July 2026. I lead a team of 3 data scientists — coordinating technical execution and delivery across our AI/ML initiatives — while continuing to build and ship as an individual contributor. Most of what's below is work I built hands-on.
+
+## Shared agentic platform — text and voice
+> One LangChain reasoning layer serving both a text chat and a real-time voice interface, with specialized agents underneath.
+
+### What it is
+A production-ready agentic AI platform where a shared LangChain reasoning layer powers both the text interface and the real-time voice interface. Underneath it sit specialized agents and sub-agents for knowledge retrieval, SQL analysis, OCR, and data tasks. Whatever the platform can do over text, it can do over voice — same agents, same tools, different modality.
+
+### Why a shared layer
+Building separate brains for voice and text means two sets of prompts, two sets of tools, and two sets of bugs. With one reasoning layer, a new capability lands in both interfaces at once, and evaluation results carry over.
+
+### The specialized agents
+Knowledge retrieval (structure-aware / vectorless RAG over internal documents), SQL analysis against our databases, and OCR that combines frontier-model OCR for ordinary documents with self-hosted LightOnOCR-2 1B on AWS SageMaker for sensitive ones that can't leave our infrastructure.
+
+## Model routing and golden-dataset benchmarking
+> LiteLLM routing across providers, driven by a benchmarking workflow rather than habit.
+
+### Routing
+LiteLLM routes calls across OpenAI, Vertex AI / Gemini, AWS Bedrock, and local models. The model for a given task is chosen on task requirements, accuracy, latency, cost, and data sensitivity — sensitive workloads stay on local or self-hosted models.
+
+### Benchmarking
+I built a golden-dataset benchmarking workflow that runs candidate models against curated task datasets and compares accuracy, latency, and cost side by side. That is what feeds the routing decisions: task-level model selection based on measured numbers instead of vendor claims.
+
+## Agent-driven UI
+> Agents that drive the application screens, not just a chat box.
+
+### What it does
+The agents can navigate application screens and surface cards, dashboards, calculated charts, and bar graphs based on conversational intent. Ask for a comparison and the UI renders the chart; ask about a record and the relevant card appears. The conversation drives the product instead of sitting beside it.
+
+## AI technical-screening workflow
+> A self-initiated fix for an HR bottleneck: AI-assisted technical screening before the human technical interview.
+
+### The problem
+I noticed that technical screening was bottlenecked on interviewer availability — candidates were waiting on engineers' calendars for a first-pass conversation.
+
+### What I built
+A Chromium browser-based AI screening workflow. It takes the JD and the candidate's resume as context, separates interviewer and candidate audio in real time, generates role-specific technical questions, and evaluates the candidate's responses — all before the technical interview, so engineers spend their time on candidates who have already cleared a meaningful bar.
+
+## Deployment on AWS
+> ECS/Fargate for services, SageMaker for models, local hosting for sensitive workloads.
+
+### How things run
+AI services are deployed on AWS using ECS/Fargate; models run on SageMaker. Where data sensitivity matters, I host models locally rather than calling a third-party API — the LightOnOCR-2 deployment is one example.
 
 ## Cross-cutting tools
 

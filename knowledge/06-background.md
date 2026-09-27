@@ -22,5 +22,5 @@ Because the interface problem is finally solvable. For decades, the bottleneck f
 ## Location
 > Where I live and where I work.
 
-### Palakkad & Chennai
-Home is Palakkad, Kerala. Work is Chennai (FarmwiseAI is in Perungudi). I split time between the two.
+### Chennai (from Palakkad)
+I'm based in Chennai — FarmwiseAI is in Perungudi. Home is Palakkad, Kerala. I'm open to moving to Bangalore for the right role.

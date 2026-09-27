@@ -5,13 +5,13 @@
 > Where I spend most of my time.
 
 ### Models and serving
-For inference: vLLM when I need throughput (PagedAttention + KV caching are huge), LiteLLM as the gateway/router across providers, Groq when I want free fast inference for prototypes, OpenRouter when I want broader provider coverage from one API, Ollama for running open-weight models locally during development. HuggingFace as the model hub I pull from. For fine-tuning: Unsloth and QLoRA — memory-efficient, fast, and the output is compatible with llama.cpp for CPU deployment.
+For inference: vLLM when I need throughput (PagedAttention + KV caching are huge), LiteLLM as the gateway/router across providers — OpenAI, Gemini / Vertex AI, AWS Bedrock, and local models — with routing decided by golden-dataset benchmarks on accuracy, latency and cost. Groq when I want free fast inference for prototypes, OpenRouter when I want broader provider coverage from one API, Ollama for running open-weight models locally during development. HuggingFace as the model hub I pull from. For fine-tuning: Unsloth and QLoRA — memory-efficient, fast, and the output is compatible with llama.cpp for CPU deployment.
 
 ### Retrieval & agents
-Qdrant or FAISS when I need traditional vector RAG. PageIndex-style vectorless RAG when the docs have real structure and accuracy matters more than speed. LangChain and LangGraph for agent orchestration (LangGraph specifically when the flow has real state — branching, retries, human-in-the-loop). Google ADK and MCP (Model Context Protocol) for tool-call workflows — MCP especially is underrated for building tool-use systems that work across clients. Pydantic AI / Instructor when I need structured outputs that won't drift.
+Qdrant or FAISS when I need traditional vector RAG. PageIndex-style vectorless RAG when the docs have real structure and accuracy matters more than speed. LangChain and LangGraph for agent orchestration (LangChain is the shared reasoning layer behind our text and voice agents; LangGraph specifically when the flow has real state — branching, retries, human-in-the-loop). Google ADK and MCP (Model Context Protocol) for tool-call workflows — MCP especially is underrated for building tool-use systems that work across clients. Pydantic AI / Instructor when I need structured outputs that won't drift.
 
 ### Observability
-Langfuse for traces, prompts, latency, and cost. Every LLM call gets logged so production debugging stops being guesswork.
+Langfuse for traces, prompts, latency, and cost. Every LLM call gets logged so production debugging stops being guesswork. For evaluation, golden datasets per task — the same set every candidate model is scored on.
 
 ## Machine learning & data science
 > The classical side.
@@ -26,7 +26,7 @@ Data leakage prevention, proper train/test splits, interpolation strategies for 
 > How I actually ship things.
 
 ### What I use
-Python is my daily driver. FastAPI for APIs — Pydantic validation is non-negotiable when the API is fronting an LLM. WebSockets for real-time updates (agent execution logs, streaming responses). Streamlit for quick internal tools and demos. AWS SageMaker for hosted inference, Git for everything.
+Python is my daily driver. FastAPI for APIs — Pydantic validation is non-negotiable when the API is fronting an LLM. WebSockets for real-time updates (agent execution logs, streaming responses). Streamlit for quick internal tools and demos. AWS ECS/Fargate for services and SageMaker for hosted inference, Git for everything.
 
 ## Data & analytics
 > When I need to understand a dataset before modeling it.
