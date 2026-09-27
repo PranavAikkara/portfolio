@@ -104,7 +104,7 @@
         setReasoningLabel(reasoning, 'searching knowledge tree…');
         break;
       case 'selected_nodes':
-        renderReasoningNodes(reasoning, event.nodes || []);
+        renderReasoningNodes(reasoning, event.nodes || [], event.label);
         break;
       case 'answering':
         assistant.innerHTML = '<span class="cursor"></span>';
@@ -152,15 +152,15 @@
     const span = details.querySelector('.label');
     if (span) span.textContent = label;
   }
-  function renderReasoningNodes(details, nodes) {
-    const label = details.querySelector('.label');
+  function renderReasoningNodes(details, nodes, label) {
     const body = details.querySelector('.nodes');
     body.innerHTML = '';
+    const labelEl = details.querySelector('.label');
     if (nodes.length === 0) {
-      if (label) label.textContent = 'no matching section — answering from memory';
+      if (labelEl) labelEl.textContent = label || 'no matching section — answering from memory';
       return;
     }
-    if (label) label.textContent = `routed through ${nodes.length} section${nodes.length > 1 ? 's' : ''}`;
+    if (labelEl) labelEl.textContent = `routed through ${nodes.length} section${nodes.length > 1 ? 's' : ''}`;
     for (const n of nodes) {
       const row = document.createElement('div');
       row.textContent = '§ ' + n.path.join(' › ');

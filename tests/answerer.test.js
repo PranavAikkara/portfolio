@@ -70,3 +70,9 @@ test('streamAnswer: uses the model passed in', async () => {
   assert.equal(params.model, 'test/model');
   assert.equal(params.reasoning_effort, 'low');
 });
+
+test('PERSONA: answers from context and names the missing detail instead of an all-or-nothing line', () => {
+  assert.doesNotMatch(PERSONA, /say exactly/);
+  assert.match(PERSONA, /not (in|something I can)/i);
+  assert.match(PERSONA, /concept/i);
+});

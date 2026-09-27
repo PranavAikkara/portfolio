@@ -23,15 +23,15 @@ const TOC = [
 ];
 
 test('selectNodes: parses node_ids and off_topic from valid JSON', async () => {
-  const groq = mockGroq(JSON.stringify({ node_ids: ['a.pitch'], off_topic: false }));
+  const groq = mockGroq(JSON.stringify({ node_ids: ['a.pitch'], intent: 'about_me' }));
   const r = await selectNodes({ groq, toc: TOC, question: 'who are you' });
-  assert.deepEqual(r, { node_ids: ['a.pitch'], off_topic: false });
+  assert.deepEqual(r, { node_ids: ['a.pitch'], intent: 'about_me', off_topic: false });
 });
 
 test('selectNodes: returns empty + off_topic=true when router says so', async () => {
-  const groq = mockGroq(JSON.stringify({ node_ids: [], off_topic: true }));
+  const groq = mockGroq(JSON.stringify({ node_ids: [], intent: 'off_topic' }));
   const r = await selectNodes({ groq, toc: TOC, question: 'capital of france' });
-  assert.deepEqual(r, { node_ids: [], off_topic: true });
+  assert.deepEqual(r, { node_ids: [], intent: 'off_topic', off_topic: true });
 });
 
 test('selectNodes: defends against malformed JSON by returning empty + off_topic=false', async () => {
@@ -51,9 +51,9 @@ test('ROUTER_MODEL resolves from the LLM config', () => {
 });
 
 test('selectNodes: extracts JSON even when the model wraps it in prose', async () => {
-  const groq = mockGroq('Sure, here you go:\n{"node_ids":["a.pitch"],"off_topic":false}\nHope that helps.');
+  const groq = mockGroq('Sure, here you go:\n{"node_ids":["a.pitch"],"intent":"about_me"}\nHope that helps.');
   const r = await selectNodes({ groq, toc: TOC, question: 'who are you' });
-  assert.deepEqual(r, { node_ids: ['a.pitch'], off_topic: false });
+  assert.deepEqual(r, { node_ids: ['a.pitch'], intent: 'about_me', off_topic: false });
 });
 
 test('selectNodes: does not request response_format and uses the configured model', async () => {
@@ -63,4 +63,25 @@ test('selectNodes: does not request response_format and uses the configured mode
   assert.equal(params.response_format, undefined);
   assert.equal(params.model, 'test/model');
   assert.equal(params.reasoning_effort, 'low');
+});
+
+test('selectNodes: returns the intent the router chose', async () => {
+  const groq = mockGroq(JSON.stringify({ node_ids: [], intent: 'smalltalk' }));
+  const r = await selectNodes({ groq, toc: TOC, question: 'hi' });
+  assert.equal(r.intent, 'smalltalk');
+  assert.equal(r.off_topic, false);
+});
+
+test('selectNodes: unknown or missing intent falls back to about_me, off_topic intent sets off_topic', async () => {
+  let r = await selectNodes({ groq: mockGroq(JSON.stringify({ node_ids: ['a.pitch'], intent: 'banana' })), toc: TOC, question: 'x' });
+  assert.equal(r.intent, 'about_me');
+  r = await selectNodes({ groq: mockGroq(JSON.stringify({ node_ids: [], intent: 'off_topic' })), toc: TOC, question: 'weather' });
+  assert.equal(r.intent, 'off_topic');
+  assert.equal(r.off_topic, true);
+});
+
+test('selectNodes: domain_concept keeps its node_ids so the answer can tie back to real work', async () => {
+  const r = await selectNodes({ groq: mockGroq(JSON.stringify({ node_ids: ['a.pitch'], intent: 'domain_concept' })), toc: TOC, question: 'what is rag' });
+  assert.deepEqual(r.node_ids, ['a.pitch']);
+  assert.equal(r.intent, 'domain_concept');
 });

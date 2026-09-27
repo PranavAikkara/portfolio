@@ -31,13 +31,13 @@ for (const question of questions) {
   const t1 = Date.now();
   const nodes = resolveNodes(tree, routed.node_ids);
   let answer = '';
-  if (!routed.off_topic) {
+  if (!routed.off_topic && routed.intent !== 'smalltalk') {
     try {
       for await (const c of streamAnswer({ groq, contextNodes: nodes, messages: [{ role: 'user', content: question }], model })) answer += c.text;
     } catch (err) { answer = `answer error: ${err.status ?? ''} ${err.message}`; }
   }
   const t2 = Date.now();
   console.log(`\nQ: ${question}`);
-  console.log(`  routed: ${routed.off_topic ? 'OFF-TOPIC' : routed.node_ids.join(', ') || '(none → overview)'}  [router ${t1 - t0} ms, answer ${t2 - t1} ms]`);
+  console.log(`  intent: ${routed.intent}  routed: ${routed.node_ids.join(', ') || '(none)'}  [router ${t1 - t0} ms, answer ${t2 - t1} ms]`);
   if (answer) console.log(`  A: ${answer.replace(/\s+/g, ' ').slice(0, 400)}`);
 }

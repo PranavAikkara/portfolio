@@ -78,6 +78,9 @@ We didn't start vectorless. The first version was the standard playbook — Qdra
 ### What I built
 Voice agents that actually hold up in production — meaning they don't break when a user interrupts, when STT returns garbage, when the LLM starts rambling, or when network latency spikes. The hard parts aren't the individual models; it's the orchestration: interrupt handling, partial-transcript routing, silence detection, and fallbacks when any component times out.
 
+### What I can't share
+The specific speech-to-text and text-to-speech providers we use are confidential — that's a FarmwiseAI decision, not mine to publish. What I can talk about is everything around them: the orchestration, the latency budgets, interrupt handling, and the companion-agent pattern below.
+
 ### What makes them reliable
 Strict latency budgets on every hop, hard cutoffs on LLM generation length, guardrails against prompt injection over voice, and a state machine that handles the "user started talking mid-response" case cleanly. I also version the system prompt aggressively — voice is less forgiving than chat because users can't see or edit their input before it gets sent.
 

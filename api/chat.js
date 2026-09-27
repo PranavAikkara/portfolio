@@ -8,6 +8,7 @@ import { parseCookie, nextCookieValue, todayYmd } from '../lib/ratelimit.js';
 import { sseHeaders, formatEvent } from '../lib/sse.js';
 import { selectNodes } from '../lib/router.js';
 import { streamAnswer } from '../lib/answerer.js';
+import { cannedReply } from '../lib/intents.js';
 
 const ROOT = dirname(fileURLToPath(import.meta.url));
 const TREE_PATH = join(ROOT, '..', 'tree.json');
@@ -22,8 +23,6 @@ async function loadTree() {
   return { tree: cachedTree, toc: cachedToc };
 }
 
-const CANNED_OFF_TOPIC = "ha, that's not really why we're here — ask me about my work or projects instead.";
-const CANNED_NO_CONTEXT = "honestly, I don't remember that one — email me at aikkara.pranav@gmail.com.";
 const CANNED_LIMIT = "we've been talking a lot today — ping me at aikkara.pranav@gmail.com for the rest.";
 
 export default async function handler(req, res) {
@@ -68,12 +67,13 @@ export default async function handler(req, res) {
     const groq = createClient();
 
     // Call #1 — router
-    const { node_ids, off_topic } = await selectNodes({ groq, toc, question });
+    const { node_ids, intent } = await selectNodes({ groq, toc, question });
 
-    // Off-topic short-circuit
-    if (off_topic) {
-      send({ type: 'selected_nodes', nodes: [] });
-      send({ type: 'token', text: CANNED_OFF_TOPIC });
+    // Small talk and off-topic need no second model call.
+    const canned = cannedReply(intent, question);
+    if (canned) {
+      send({ type: 'selected_nodes', nodes: [], label: intent === 'smalltalk' ? 'small talk — no lookup needed' : 'off-topic — no lookup needed' });
+      send({ type: 'token', text: canned });
       send({ type: 'done' });
       res.end();
       return;
