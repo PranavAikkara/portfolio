@@ -1,6 +1,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { streamAnswer, buildContextBlock, ANSWER_MODEL, PERSONA } from '../lib/answerer.js';
+import { resolveModel } from '../lib/llm.js';
 
 async function* fakeGroqStream(chunks) {
   for (const c of chunks) yield { choices: [{ delta: { content: c } }] };
@@ -53,6 +54,19 @@ test('buildContextBlock: returns "(no context)" when empty', () => {
   assert.match(buildContextBlock([]), /no context/i);
 });
 
-test('ANSWER_MODEL is llama-3.3-70b-versatile', () => {
-  assert.equal(ANSWER_MODEL, 'llama-3.3-70b-versatile');
+test('ANSWER_MODEL resolves from the LLM config', () => {
+  assert.equal(ANSWER_MODEL, resolveModel(process.env));
+});
+
+test('PERSONA: carries the current title, not the old one', () => {
+  assert.match(PERSONA, /Data Scientist at FarmwiseAI/);
+  assert.doesNotMatch(PERSONA, /Associate/);
+});
+
+test('streamAnswer: uses the model passed in', async () => {
+  let params;
+  const groq = { chat: { completions: { create: async (p) => { params = p; return (async function* () {})(); } } } };
+  for await (const _ of streamAnswer({ groq, contextNodes: [], messages: [{ role: 'user', content: 'q' }], model: 'test/model' })) {}
+  assert.equal(params.model, 'test/model');
+  assert.equal(params.reasoning_effort, 'low');
 });

@@ -11,3 +11,5 @@ node_modules/
 # local agent / tooling dirs (Claude Code skills & config)
 .claude/
 .agents/
+.env
+resumes/

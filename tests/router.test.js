@@ -1,6 +1,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { selectNodes, ROUTER_MODEL } from '../lib/router.js';
+import { resolveModel } from '../lib/llm.js';
 
 // Tiny mock matching the subset of the Groq SDK we use.
 function mockGroq(responseContent) {
@@ -45,6 +46,21 @@ test('selectNodes: filters node_ids to only those present in ToC', async () => {
   assert.deepEqual(r.node_ids, ['a.pitch']);
 });
 
-test('ROUTER_MODEL is llama-3.3-70b-versatile', () => {
-  assert.equal(ROUTER_MODEL, 'llama-3.3-70b-versatile');
+test('ROUTER_MODEL resolves from the LLM config', () => {
+  assert.equal(ROUTER_MODEL, resolveModel(process.env));
+});
+
+test('selectNodes: extracts JSON even when the model wraps it in prose', async () => {
+  const groq = mockGroq('Sure, here you go:\n{"node_ids":["a.pitch"],"off_topic":false}\nHope that helps.');
+  const r = await selectNodes({ groq, toc: TOC, question: 'who are you' });
+  assert.deepEqual(r, { node_ids: ['a.pitch'], off_topic: false });
+});
+
+test('selectNodes: does not request response_format and uses the configured model', async () => {
+  let params;
+  const groq = { chat: { completions: { create: async (p) => { params = p; return { choices: [{ message: { content: '{"node_ids":[],"off_topic":true}' } }] }; } } } };
+  await selectNodes({ groq, toc: TOC, question: 'x', model: 'test/model' });
+  assert.equal(params.response_format, undefined);
+  assert.equal(params.model, 'test/model');
+  assert.equal(params.reasoning_effort, 'low');
 });

@@ -45,7 +45,14 @@ test('resolveNodes: unknown IDs are silently dropped', () => {
   assert.equal(found[0].id, 'a.b');
 });
 
-test('resolveNodes: an internal node with no content is skipped', () => {
+test('resolveNodes: an internal node expands to its leaf descendants', () => {
   const found = resolveNodes(FIXTURE, ['a']);
-  assert.equal(found.length, 0);
+  assert.deepEqual(found.map(n => n.id), ['a.b']);
+});
+
+test('resolveNodes: expansion is capped and never duplicates a leaf', () => {
+  const big = { nodes: [{ id: 'x', title: 'X', path: ['X'], children: Array.from({ length: 12 }, (_, i) => ({ id: `x.${i}`, title: `${i}`, path: ['X', `${i}`], content: `body-${i}` })) }] };
+  assert.equal(resolveNodes(big, ['x']).length, 8);
+  assert.equal(resolveNodes(big, ['x'], 3).length, 3);
+  assert.deepEqual(resolveNodes(big, ['x.1', 'x']).map(n => n.id).slice(0, 2), ['x.1', 'x.0']);
 });

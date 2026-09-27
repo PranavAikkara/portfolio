@@ -3,7 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "type": "module",
-  "engines": { "node": ">=20" },
+  "engines": {
+    "node": ">=20"
+  },
   "scripts": {
     "build-index": "node scripts/build-index.mjs",
     "build-newsletters": "node scripts/build-newsletters.mjs",
@@ -13,7 +15,7 @@
     "test": "node --test \"tests/**/*.test.js\""
   },
   "dependencies": {
-    "groq-sdk": "^0.9.0",
-    "marked": "^14.0.0"
+    "marked": "^14.0.0",
+    "openai": "^7.23.0"
   }
 }

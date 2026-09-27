@@ -1,7 +1,7 @@
 import { readFile } from 'node:fs/promises';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import Groq from 'groq-sdk';
+import { createClient, errorMessage } from '../lib/llm.js';
 
 import { buildToc, resolveNodes } from '../lib/tree.js';
 import { parseCookie, nextCookieValue, todayYmd } from '../lib/ratelimit.js';
@@ -65,7 +65,7 @@ export default async function handler(req, res) {
     send({ type: 'thinking' });
     const { tree, toc } = await loadTree();
 
-    const groq = new Groq({ apiKey: process.env.GROQ_API_KEY });
+    const groq = createClient();
 
     // Call #1 — router
     const { node_ids, off_topic } = await selectNodes({ groq, toc, question });
@@ -112,8 +112,8 @@ export default async function handler(req, res) {
     send({ type: 'done' });
     res.end();
   } catch (err) {
-    console.error('chat error', err);
-    send({ type: 'error', message: 'my brain is rate-limited right now — try again in a minute.' });
+    console.error('chat error', err?.status, err?.message);
+    send({ type: 'error', message: errorMessage(err) });
     res.end();
   }
 }
